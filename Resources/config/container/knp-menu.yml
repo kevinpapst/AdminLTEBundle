@@ -1,0 +1,12 @@
+parameters:
+    admin_lte_theme.knp_menu_builder.class: AdminLTEBundle\Menu\MenuBuilder
+
+services:
+    admin_lte_theme.knp_menu_builder:
+        class: "%admin_lte_theme.knp_menu_builder.class%"
+        arguments:
+            - "@knp_menu.factory"
+            - "@admin_lte_theme.admin_router"
+            - "@event_dispatcher"
+        tags:
+            - {name: knp_menu.menu_builder, method: createMainMenu, alias: avanzu_main }

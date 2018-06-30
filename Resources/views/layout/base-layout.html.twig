@@ -1,0 +1,126 @@
+{% import "@AvanzuAdminTheme/layout/macros.html.twig" as macro %}
+<!doctype html{% block avanzu_html_start %}{% endblock %}>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% block title %}Avanzu Admin!{% endblock %}</title>
+
+    {# -------------------------------------------------------------------------------------------------- STYLESHEETS #}
+    {% block stylesheets %}
+    {% endblock %}
+
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    {# --------------------------------------------------------------------------------------------- JAVASCRIPTS_HEAD #}
+    {%  block javascripts_head %}
+    {% endblock %}
+
+</head>
+<body{% block avanzu_body_start %}{% endblock %} class="{{ admin_skin|default("")|body_class }}">
+{% block avanzu_after_body_start %}{% endblock %}
+    <div class="wrapper">
+
+    {% block avanzu_admin_header %}
+        <header class="main-header">
+            {% block avanzu_logo %}
+                <a href="#" class="logo">
+                    <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                    {{ block('title') }}
+                </a>
+            {% endblock %}
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">{{ 'theme.sr_only.toggle_navigation'|trans({}, 'AvanzuAdminTheme') }}</span>
+                </a>
+                {% if app.user is not null and is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            {% block avanzu_navbar %}
+                                {{ render(controller('AdminLTEBundle:Navbar:messages')) }}
+                                {{ render(controller('AdminLTEBundle:Navbar:notifications')) }}
+                                {{ render(controller('AdminLTEBundle:Navbar:tasks')) }}
+                                {{ render(controller('AdminLTEBundle:Navbar:user')) }}
+                            {% endblock %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </nav>
+        </header>
+    {% endblock %}
+
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar sidebar-offcanvas">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                {% block avanzu_sidebar %}
+                    {% if app.user is not null and is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        {{ render(controller('AdminLTEBundle:Sidebar:userPanel')) }}
+                        {{ render(controller('AdminLTEBundle:Sidebar:searchForm')) }}
+                    {% endif %}
+                    {{ render(controller('AdminLTEBundle:Sidebar:menu', {'request':app.request})) }}
+                {% endblock %}
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Right side column. Contains the navbar and content of the page -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    {% block page_title %}{{ 'Blank page'|trans({}, 'AvanzuAdminTheme') }}{% endblock %}
+                    <small>{% block page_subtitle %}{{ 'Control panel'|trans({}, 'AvanzuAdminTheme') }}{% endblock %}</small>
+                </h1>
+                {% block avanzu_breadcrumb %}
+                    {{ render(controller('AdminLTEBundle:Breadcrumb:breadcrumb', {'request':app.request, 'title' : block('page_title')})) }}
+                {% endblock %}
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                {% block flash_messages %}
+                    {% if app.session.flashbag is defined and app.session.flashbag.peekAll|length > 0 %}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {{ macro.session_flash(avanzu_adminlte_close_alert|default(false)) }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endblock flash_messages %}
+                {% block page_content %}{% endblock %}
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+    {% block avanzu_admin_footer %}
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.0
+            </div>
+            <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> {{ 'All rights reserved'|trans({}, 'AvanzuAdminTheme') }}.
+        </footer>
+    {% endblock %}
+
+    </div>
+<!-- ./wrapper -->
+
+{# ------------------------------------------------------------------------------------------------------ JAVASCRIPTS #}
+{% block javascripts %}
+{% endblock %}
+
+{# ----------------------------------------------------------------------------------------------- JAVASCRIPTS_INLINE #}
+{% block javascripts_inline %}
+{% endblock %}
+</body>
+</html>
