@@ -93,7 +93,6 @@ class ContextHelper extends \ArrayObject
             'boxed_layout' => false,
             'collapsed_sidebar' => false,
             'mini_sidebar' => false,
-            'control_sidebar' => true,
             'default_avatar' => 'bundles/adminlte/default_avatar.png',
             'widget' => [
                 'collapsible_title' => 'Collapse',

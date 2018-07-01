@@ -1,17 +1,16 @@
 # AdminLTE - a Theme bundle for Symfony 4
 
-**WORK IN PROGRESS** Use at your own risk, this repository is in active development!
-
-TODO: Fix all occurences of "TODO kevin"
+**WORK IN PROGRESS** Use at your own risk, this repository is in active development and needs docu improvements!
 
 # What this repository is
 
-This repository is a fork from [AdminThemeBundle](https://github.com/avanzu/AdminThemeBundle), bringing the AdminLTE theme to te Symfony 4 world.
+This repository is a fork of the great [AdminThemeBundle](https://github.com/avanzu/AdminThemeBundle), bringing the AdminLTE theme to the Symfony 4 world.
 
 ## Requirements
 
 - Symfony 4.0 or greater
-- Twig
+- PHP 7.1.3
+- Twig bundle
 
 ## Why choose this repository?
 
@@ -23,9 +22,8 @@ So thats what this bundle tries to achieve: bring the great AdminLTE theme to SF
 ### Why another fork?
  
 Originally I tried to sent PRs for the original repository, but those weren't always accepted (which is totally fine!) but I needed an upgraded version.
-
 So I could choose between:
-- doing all the changes in my own repository and having "dev-" entries in my project composer.json
+- doing all the changes in my own repository and having "dev-" entries in my projects composer.json
 - publish this fork and release it for the community, so others could benefit from it as well
 
 The choice was quite easy: I am doing the work now in this repository with a fresh start and with the capability of backward-compatibility breaks.
@@ -33,24 +31,18 @@ The choice was quite easy: I am doing the work now in this repository with a fre
 Be aware: I decided to change the projects internal and got rid of some of the "advanced features" from the original [AdminThemeBundle](https://github.com/avanzu/AdminThemeBundle).
 I found the all-in-one solution to be more problematic then helpful at several places, so I took the chance to update it to my own interpretation of a theme bundle.
 
-You will not be able to just replace the composer package. Plan ahead, you will need (depending on the size of your project) a couple of hours for the migration.
-There are some shim files, which try to cover the layout integration (especially the blocks), but configuration and twig integration changed!  
+If you previously used the `AvanzuAdminTheme` you will not be able to "just replace" the composer package. 
+Plan ahead, you will probably need a couple of hours [for the migration](Resources/docs/migration_guide.md) (depending on the size of your project) .
 
 ### Main difference
 
-This branch was split of the original master but with the following changes merged on top:
+This branch was split of the original master but with the following PRs merged on top:
 
 - auto discovery for commands (see [#215](https://github.com/avanzu/AdminThemeBundle/pull/215))
 - basic symfony4 compatibility (see [#215](https://github.com/avanzu/AdminThemeBundle/pull/216))
 - dynamic config options (see [#217](https://github.com/avanzu/AdminThemeBundle/pull/217))
 
-Some of the changes were pushed separately to this repository and upstream, so all users can benefit from it:
-
-- fix-boxed-layout (see [#218](https://github.com/avanzu/AdminThemeBundle/pull/218))
-- login-layout (see [#219](https://github.com/avanzu/AdminThemeBundle/pull/219))
-- page-content-class (see[#220](https://github.com/avanzu/AdminThemeBundle/pull/220))
-
-And then the sugar I added on top in this repository: 
+And then the sugar I added in this repository: 
 
 - replaced AliasRouting with simpler version
 - changed namespaces to allow co-existence with AdminThemeBundle
@@ -59,7 +51,7 @@ And then the sugar I added on top in this repository:
 - changed control-sidebar, content is now configurable both from admin-lte.yaml and ContextHelper
 - Symfony Flex recipe for easier integration
 - Webpack-Encore for compiling frontend-assets
-- added Demo application for easier testing and living documentation for first time users
+- added Demo application as living documentation for first time users and easier testing
 
 ## Installation
 
