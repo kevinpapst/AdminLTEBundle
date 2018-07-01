@@ -43,6 +43,6 @@
         "knplabs/knp-menu-bundle" : "Allows easy menu integration."
     },
     "autoload": {
-        "psr-4": { "KevinPapst\\^AdminLTEBundle\\": "" }
+        "psr-4": { "KevinPapst\\AdminLTEBundle\\": "" }
     }
 }

@@ -41,7 +41,7 @@ First you must clone the repository, then create a feature branch and finally,
 submit a pull request via GitHub.
 
 Read the [Symfony contribution guide][sf-contribution] for more details and replace
-`symfony/symfony-docs` by `kevinpapst/admin-lte-bundle` in every example.
+`symfony/symfony-docs` by `kevinpapst/adminlte-bundle` in every example.
 
 ## Code styles
 
