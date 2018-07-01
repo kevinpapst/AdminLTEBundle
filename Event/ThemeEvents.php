@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Event;
+namespace KevinPapst\AdminLTEBundle\Event;
 
 /**
  * Holds all events used by the theme
@@ -36,7 +36,7 @@ class ThemeEvents
      * used to receive the current user for the sidebar
      *
      * macro: avanzu_sidebar_user
-     * template: @AvanzuAdminTheme/Sidebar/user-panel.html.twig
+     * template: @AdminLTE/Sidebar/user-panel.html.twig
      */
     public const THEME_SIDEBAR_USER = 'theme.sidebar_user';
 

@@ -6,12 +6,12 @@ Although the `MenuItemInteface` as well as the `MenuItemModel` are designed to s
 
 ### Data Model
 
-In order to use this component, your have to create a `MenuItemModel` class that implements the `AdminLTEBundle\Model\MenuItemInterface`
+In order to use this component, your have to create a `MenuItemModel` class that implements the `KevinPapst\AdminLTEBundle\Model\MenuItemInterface`
 ```php
 <?php
 namespace MyAdminBundle\Model;
 // ...
-use AdminLTEBundle\Model\MenuItemInterface as ThemeMenuItem;
+use KevinPapst\AdminLTEBundle\Model\MenuItemInterface as ThemeMenuItem;
 
 class MenuItemModel implements ThemeMenuItem {
 	// ...
@@ -22,13 +22,13 @@ class MenuItemModel implements ThemeMenuItem {
 The bundle provides the `MenuItemModel` as a ready to use implementation of the `MenuItemInterface`. You can use it to create a menu item
 
 ```php
-$menuItem = new \AdminLTEBundle\Model\MenuItemModel('item', 'Item', 'item_route_name');
+$menuItem = new \KevinPapst\AdminLTEBundle\Model\MenuItemModel('item', 'Item', 'item_route_name');
 ```
 
 or a menu label
 
 ```php
-$menuLabel = new \AdminLTEBundle\Model\MenuItemModel('label', 'Label', false);
+$menuLabel = new \KevinPapst\AdminLTEBundle\Model\MenuItemModel('label', 'Label', false);
 ```
 
 ### Event Listener
@@ -40,7 +40,7 @@ namespace MyAdminBundle\EventListener;
 // ...
 
 use MyAdminBundle\Model\MenuItemModel;
-use AdminLTEBundle\Event\SidebarMenuEvent;
+use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
 use Symfony\Component\HttpFoundation\Request;
 
 class MyMenuItemListListener {

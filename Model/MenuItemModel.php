@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Model;
+namespace KevinPapst\AdminLTEBundle\Model;
 
 /**
  * Class MenuItemModel
@@ -186,7 +186,7 @@ class MenuItemModel implements MenuItemInterface
     }
 
     /**
-     * @return \AdminLTEBundle\Model\MenuItemInterface
+     * @return \KevinPapst\AdminLTEBundle\Model\MenuItemInterface
      */
     public function getParent()
     {
@@ -194,7 +194,7 @@ class MenuItemModel implements MenuItemInterface
     }
 
     /**
-     * @param \AdminLTEBundle\Model\MenuItemInterface $parent
+     * @param \KevinPapst\AdminLTEBundle\Model\MenuItemInterface $parent
      *
      * @return $this
      */

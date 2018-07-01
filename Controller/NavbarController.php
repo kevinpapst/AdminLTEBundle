@@ -7,13 +7,13 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Controller;
+namespace KevinPapst\AdminLTEBundle\Controller;
 
-use AdminLTEBundle\Event\MessageListEvent;
-use AdminLTEBundle\Event\NotificationListEvent;
-use AdminLTEBundle\Event\ShowUserEvent;
-use AdminLTEBundle\Event\TaskListEvent;
-use AdminLTEBundle\Event\ThemeEvents;
+use KevinPapst\AdminLTEBundle\Event\MessageListEvent;
+use KevinPapst\AdminLTEBundle\Event\NotificationListEvent;
+use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
+use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
+use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -41,7 +41,7 @@ class NavbarController extends EmitterController
         $listEvent = $this->getDispatcher()->dispatch(ThemeEvents::THEME_NOTIFICATIONS, new NotificationListEvent());
 
         return $this->render(
-            '@AvanzuAdminTheme/Navbar/notifications.html.twig',
+            '@AdminLTE/Navbar/notifications.html.twig',
                 [
                     'notifications' => $listEvent->getNotifications(),
                     'total' => $listEvent->getTotal(),
@@ -64,7 +64,7 @@ class NavbarController extends EmitterController
         $listEvent = $this->getDispatcher()->dispatch(ThemeEvents::THEME_MESSAGES, new MessageListEvent());
 
         return $this->render(
-            '@AvanzuAdminTheme/Navbar/messages.html.twig',
+            '@AdminLTE/Navbar/messages.html.twig',
                 [
                     'messages' => $listEvent->getMessages(),
                     'total' => $listEvent->getTotal(),
@@ -87,7 +87,7 @@ class NavbarController extends EmitterController
         $listEvent = $this->triggerMethod(ThemeEvents::THEME_TASKS, new TaskListEvent($max));
 
         return $this->render(
-            '@AvanzuAdminTheme/Navbar/tasks.html.twig',
+            '@AdminLTE/Navbar/tasks.html.twig',
                 [
                     'tasks' => $listEvent->getTasks(),
                     'total' => $listEvent->getTotal(),
@@ -109,7 +109,7 @@ class NavbarController extends EmitterController
 
         if ($userEvent instanceof ShowUserEvent) {
             return $this->render(
-                '@AvanzuAdminTheme/Navbar/user.html.twig',
+                '@AdminLTE/Navbar/user.html.twig',
                 [
                     'user' => $userEvent->getUser(),
                     'links' => $userEvent->getLinks(),

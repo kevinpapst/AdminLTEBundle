@@ -7,11 +7,11 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Controller;
+namespace KevinPapst\AdminLTEBundle\Controller;
 
-use AdminLTEBundle\Event\SidebarMenuEvent;
-use AdminLTEBundle\Event\ThemeEvents;
-use AdminLTEBundle\Model\MenuItemInterface;
+use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
+use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use KevinPapst\AdminLTEBundle\Model\MenuItemInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,7 +53,7 @@ class BreadcrumbController extends Controller
             }
         }
 
-        return $this->render('@AvanzuAdminTheme/Breadcrumb/breadcrumb.html.twig', [
+        return $this->render('@AdminLTE/Breadcrumb/breadcrumb.html.twig', [
             'active' => $list,
             'title' => $title,
         ]);

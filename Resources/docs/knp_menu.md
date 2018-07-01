@@ -21,7 +21,7 @@ admin_lte_theme:
     	enable : true
 ```
 Enabling the KnpMenu support will render the regular breadcrumb and menu events inactive. 
-Instead there will be a new `knp_menu.menu_builder` aliased `avanzu_main` which will dispatch a new event to hook into.
+Instead there will be a new `knp_menu.menu_builder` aliased `adminlte_main` which will dispatch a new event to hook into.
 
 ### Attaching an event listener
 
@@ -47,7 +47,7 @@ services:
 The event listener will receive the `KnpMenuEvent` gives access to the root menu item, the menu factory and, if applicable the `$options` and `$childOptions` as configured in the menu builder. 
 
 ```php
-use AdminLTEBundle\Event\KnpMenuEvent;
+use KevinPapst\AdminLTEBundle\Event\KnpMenuEvent;
 
 class SetupKnpMenuListener
 {
@@ -97,7 +97,7 @@ For a more in depth guide on how to use the KnpMenuBundle, please refer to the [
 
 ### Replacing the MenuBuilder
 
-Rather than using the menu builder provided by this bundle (which is aliased as `avanzu_main`), you could also generate your own implementation and change the bundle configuration to use your menu builder alias. 
+Rather than using the menu builder provided by this bundle (which is aliased as `adminlte_main`), you could also generate your own implementation and change the bundle configuration to use your menu builder alias. 
 
 ```yaml
 # config.yml
@@ -106,7 +106,7 @@ admin_lte_theme:
     # ... 
     knp_menu:   
         enable : true
-        main_menu: <your builder alias> # By default "avanzu_main" alias
+        main_menu: <your builder alias> # By default "adminlte_main" alias
         breadcrumb_menu: <your builder alias or false to disable breadcrumbs>
 
 ```
@@ -124,13 +124,9 @@ admin_lte_theme:
     options:
         knp_menu:   
             enable : true
-            main_menu: <your builder alias> # By default "avanzu_main" alias
+            main_menu: <your builder alias> # By default "adminlte_main" alias
             breadcrumb_menu: <your builder alias or false to disable breadcrumbs>
 
 ```
 
-[Previous (Sidebar Navigation)][2] - [Next (Breadcrumb Menu)][3]
-
 [1]: http://symfony.com/doc/current/bundles/KnpMenuBundle/index.html
-[2]: https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/sidebar_navigation.md
-[3]: https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/breadcrumbs.md

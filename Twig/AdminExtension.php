@@ -7,10 +7,9 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Twig;
+namespace KevinPapst\AdminLTEBundle\Twig;
 
-use AdminLTEBundle\Helper\ContextHelper;
-use AdminLTEBundle\Routing\RouteAliasCollection;
+use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
 
 class AdminExtension extends \Twig_Extension
 {
@@ -19,32 +18,31 @@ class AdminExtension extends \Twig_Extension
      */
     protected $context;
     /**
-     * @var string
+     * @var array
      */
-    protected $env;
-    /**
-     * @var RouteAliasCollection
-     */
-    private $aliasRouter;
+    private $routes;
 
     /**
      * @param ContextHelper $contextHelper
-     * @param $env
-     * @param RouteAliasCollection $aliasRouter
+     * @param array $routes
      */
-    public function __construct(ContextHelper $contextHelper, $env, RouteAliasCollection $aliasRouter)
+    public function __construct(ContextHelper $contextHelper, array $routes)
     {
         $this->context = $contextHelper;
-        $this->env = $env;
-        $this->aliasRouter = $aliasRouter;
+        $this->routes = $routes;
     }
 
     public function getFilters()
     {
         return [
             new \Twig_SimpleFilter('body_class', [$this, 'bodyClass']),
-            new \Twig_SimpleFilter('route_alias', [$this->aliasRouter, 'getRouteByAlias']),
+            new \Twig_SimpleFilter('route_alias', [$this, 'getRouteByAlias']),
         ];
+    }
+
+    public function getRouteByAlias($routeName)
+    {
+        return $this->routes[$routeName] ?? $routeName;
     }
 
     public function bodyClass($classes = '')

@@ -1,8 +1,8 @@
 <!-- User Account: style can be found in dropdown.less -->
-{# @var links \AdminLTEBundle\Model\NavBarUserLink[] #}
+{# @var links \KevinPapst\AdminLTEBundle\Model\NavBarUserLink[] #}
 {# @var showProfileLink bool #}
 {# @var showLogoutLink bool #}
-{% import "@AvanzuAdminTheme/layout/macros.html.twig" as macro %}
+{% import "@AdminLTE/layout/macros.html.twig" as macro %}
 <li class="dropdown user user-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         {{ macro.avatar(user.avatar, user.username, 'user-image') }}
@@ -14,7 +14,7 @@
             {{ macro.avatar(user.avatar, user.username) }}
             <p>
                 {{ user.name }} - {{ user.title }}
-                <small>{{ 'Member since %date%'|trans({'%date%': user.memberSince|date('m.Y') }, 'AvanzuAdminTheme') }}</small>
+                <small>{{ 'Member since %date%'|trans({'%date%': user.memberSince|date('m.Y') }, 'AdminLTEBundle') }}</small>
             </p>
         </li>
         {% if links %}
@@ -32,14 +32,14 @@
             <li class="user-footer">
                 {% if showProfileLink %}
                     <div class="pull-left">
-                        <a href="{{ path('profile'|route_alias, {'ident' : user.identifier}) }}"
-                           class="btn btn-default btn-flat">{{ 'Profile'|trans({}, 'AvanzuAdminTheme') }}</a>
+                        <a href="{{ path('adminlte_profile'|route_alias, {'id' : user.identifier}) }}"
+                           class="btn btn-default btn-flat">{{ 'Profile'|trans({}, 'AdminLTEBundle') }}</a>
                     </div>
                 {% endif %}
                 {% if showLogoutLink %}
                     <div class="pull-right">
                         <a href="{{ logout_path() }}"
-                           class="btn btn-default btn-flat">{{ 'Sign out'|trans({}, 'AvanzuAdminTheme') }}</a>
+                           class="btn btn-default btn-flat">{{ 'Sign out'|trans({}, 'AdminLTEBundle') }}</a>
                     </div>
                 {% endif %}
             </li>

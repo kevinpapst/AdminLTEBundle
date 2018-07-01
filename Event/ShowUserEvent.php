@@ -7,10 +7,10 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Event;
+namespace KevinPapst\AdminLTEBundle\Event;
 
-use AdminLTEBundle\Model\NavBarUserLink;
-use AdminLTEBundle\Model\UserInterface;
+use KevinPapst\AdminLTEBundle\Model\NavBarUserLink;
+use KevinPapst\AdminLTEBundle\Model\UserInterface;
 
 class ShowUserEvent extends ThemeEvent
 {
@@ -35,7 +35,7 @@ class ShowUserEvent extends ThemeEvent
     protected $links = [];
 
     /**
-     * @param \AdminLTEBundle\Model\UserInterface $user
+     * @param \KevinPapst\AdminLTEBundle\Model\UserInterface $user
      *
      * @return $this
      */
@@ -47,7 +47,7 @@ class ShowUserEvent extends ThemeEvent
     }
 
     /**
-     * @return \AdminLTEBundle\Model\UserInterface
+     * @return \KevinPapst\AdminLTEBundle\Model\UserInterface
      */
     public function getUser()
     {

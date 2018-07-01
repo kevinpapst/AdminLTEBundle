@@ -9,12 +9,12 @@ Just like the other theme components, this one requires some route aliases to wo
 
 ### Data Model
 
-In order to use this component, your user class has to implement the `AdminLTEBundle\Model\MessageInterface`
+In order to use this component, your user class has to implement the `KevinPapst\AdminLTEBundle\Model\MessageInterface`
 ```php
 <?php
 namespace MyAdminBundle\Model;
 // ...
-use AdminLTEBundle\Model\MessageInterface as ThemeMessage
+use KevinPapst\AdminLTEBundle\Model\MessageInterface as ThemeMessage
 
 class MessageModel implements  ThemeMessage {
 	// ...
@@ -31,7 +31,7 @@ namespace MyAdminBundle\EventListener;
 
 // ...
 
-use AdminLTEBundle\Event\MessageListEvent;
+use KevinPapst\AdminLTEBundle\Event\MessageListEvent;
 use MyAdminBundle\Model\MessageModel;
 
 class MyMessageListListener {

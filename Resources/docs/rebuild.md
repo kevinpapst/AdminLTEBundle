@@ -19,7 +19,3 @@ npm run prod
 
 will generate the asset files under `Resources/public/static/staging/`
 
-[Previous (Using the layout)][1] - [Next (Using the ThemeManager)][2]
-
-[1]: https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/layout.md
-[2]: https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/theme_manager.md

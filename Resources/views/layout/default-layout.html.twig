@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>
         {% block avanzu_document_title %}{{ block('avanzu_page_title') }}{% endblock %}
     </title>
-    {% include('@AvanzuAdminTheme/Partials/_head.html.twig') %}
+    {% include('@AdminLTE/Partials/_head.html.twig') %}
     {% block avanzu_head %}{% endblock %}
 </head>
 {#
@@ -39,7 +39,7 @@ desired effect
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="{% block avanzu_logo_path %}{{ path('welcome'|route_alias) }}{% endblock %}" class="logo">
+        <a href="{% block avanzu_logo_path %}{{ path('adminlte_welcome'|route_alias) }}{% endblock %}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini">
                 {% block avanzu_logo_mini %}<b>A</b>LT{% endblock %}
@@ -55,7 +55,7 @@ desired effect
             {% block avanzu_navbar_toggle %}
             <!-- Sidebar toggle button-->
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only">{{ 'Toggle navigation'|trans({}, 'AvanzuAdminTheme')  }}</span>
+                <span class="sr-only">{{ 'Toggle navigation'|trans({}, 'AdminLTEBundle')  }}</span>
             </a>
             {% endblock %}
             <!-- Navbar Right Menu -->
@@ -251,7 +251,7 @@ desired effect
 
             {% block avanzu_sidebar_nav %}
                 {% if admin_lte_context.knp_menu.enable %}
-                    {% include '@AvanzuAdminTheme/Sidebar/knp-menu.html.twig' %}
+                    {% include '@AdminLTE/Sidebar/knp-menu.html.twig' %}
                 {% else %}
                     {{ render(controller('AdminLTEBundle:Sidebar:menu', {'request':app.request})) }}
                 {% endif %}
@@ -306,13 +306,13 @@ desired effect
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                {% block avanzu_page_title %}{{ 'Avanzu Admin'|trans({}, 'AvanzuAdminTheme') }}{% endblock %}
+                {% block avanzu_page_title %}{{ 'AdminLTE'|trans({}, 'AdminLTEBundle') }}{% endblock %}
                 <small>{% block avanzu_page_subtitle %}{% endblock %}</small>
             </h1>
 
             {% block avanzu_breadcrumb %}
                 {% if admin_lte_context.knp_menu.enable %}
-                    {% include '@AvanzuAdminTheme/Breadcrumb/knp-breadcrumb.html.twig' %}
+                    {% include '@AdminLTE/Breadcrumb/knp-breadcrumb.html.twig' %}
                 {% else %}
                     {{ render(controller('AdminLTEBundle:Breadcrumb:breadcrumb', {'request':app.request, 'title' : block('avanzu_page_title')})) }}
                 {% endif %}
@@ -340,18 +340,18 @@ desired effect
     <!-- Main Footer -->
 
     {% block avanzu_footer %}
-        {% include '@AvanzuAdminTheme/Partials/_footer.html.twig' %}
+        {% include '@AdminLTE/Partials/_footer.html.twig' %}
     {% endblock %}
     {% block avanzu_control_sidebar %}
         {% if admin_lte_context.control_sidebar %}
-            {% include '@AvanzuAdminTheme/Partials/_control-sidebar.html.twig' %}
+            {% include '@AdminLTE/Partials/_control-sidebar.html.twig' %}
         {% endif %}
     {% endblock %}
 </div>
 <!-- ./wrapper -->
 <!-- REQUIRED JS SCRIPTS -->
 
-{% include '@AvanzuAdminTheme/Partials/_scripts.html.twig' %}
+{% include '@AdminLTE/Partials/_scripts.html.twig' %}
 {% block avanzu_javascripts %}{% endblock %}
 {% block avanzu_javascripts_inline %}{% endblock %}
 

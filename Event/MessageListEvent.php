@@ -7,9 +7,9 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Event;
+namespace KevinPapst\AdminLTEBundle\Event;
 
-use AdminLTEBundle\Model\MessageInterface;
+use KevinPapst\AdminLTEBundle\Model\MessageInterface;
 
 /**
  * The MessageListEvent should be used with the {@link ThemeEvents::THEME_MESSAGES}

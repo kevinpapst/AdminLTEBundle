@@ -9,12 +9,12 @@ Just like the other theme components, this one requires some route aliases to wo
 
 ### Data Model
 
-In order to use this component, your user class has to implement the `AdminLTEBundle\Model\UserInterface`
+In order to use this component, your user class has to implement the `KevinPapst\AdminLTEBundle\Model\UserInterface`
 ```php
 <?php
 namespace MyAdminBundle\Model;
 // ...
-use AdminLTEBundle\Model\UserInterface as ThemeUser
+use KevinPapst\AdminLTEBundle\Model\UserInterface as ThemeUser
 
 class UserModel implements  ThemeUser {
 	// ...
@@ -30,8 +30,8 @@ namespace MyAdminBundle\EventListener;
 
 // ...
 
-use AdminLTEBundle\Event\ShowUserEvent;
-use AdminLTEBundle\Model\NavBarUserLink;
+use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
+use KevinPapst\AdminLTEBundle\Model\NavBarUserLink;
 use MyAdminBundle\Model\UserModel;
 
 class MyShowUserListener {
@@ -89,8 +89,4 @@ services:
             - { name: kernel.event_listener, event: theme.navbar_user, method: onShowUser }
 ```
 
-[Previous (Components)][2] - [Next (Navbar Tasks)][3]
-
 [1]: component_events.md
-[2]: https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/component_events.md
-[3]: https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/navbar_tasks.md

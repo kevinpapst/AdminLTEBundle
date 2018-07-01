@@ -9,12 +9,12 @@ Just like the other theme components, this one requires some route aliases to wo
 
 ### Data Model
 
-In order to use this component, your user class has to implement the `AdminLTEBundle\Model\TaskInterface`
+In order to use this component, your user class has to implement the `KevinPapst\AdminLTEBundle\Model\TaskInterface`
 ```php
 <?php
 namespace MyAdminBundle\Model;
 // ...
-use AdminLTEBundle\Model\TaskInterface as ThemeTask
+use KevinPapst\AdminLTEBundle\Model\TaskInterface as ThemeTask
 
 class TaskModel implements  ThemeTask {
 	// ...
@@ -30,7 +30,7 @@ namespace MyAdminBundle\EventListener;
 
 // ...
 
-use AdminLTEBundle\Event\TaskListEvent;
+use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
 use MyAdminBundle\Model\TaskModel;
 
 class MyTaskListListener {
@@ -71,8 +71,4 @@ Finally, you need to attach your new listener to the event system:
 </services>
 ```
 
-[Previous (Navbar User)][2] - [Next (Navbar Messages)][3]
-
 [1]: component_events.md
-[2]: https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/navbar_user.md
-[3]: https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/navbar_messages.md

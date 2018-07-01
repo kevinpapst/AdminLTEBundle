@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Model;
+namespace KevinPapst\AdminLTEBundle\Model;
 
 /**
  * Simple implementation of the MessageInterface
@@ -63,7 +63,7 @@ class MessageModel implements MessageInterface
     /**
      * Set the sender
      *
-     * @param \AdminLTEBundle\Model\UserInterface $from
+     * @param \KevinPapst\AdminLTEBundle\Model\UserInterface $from
      *
      * @return $this
      */
@@ -77,7 +77,7 @@ class MessageModel implements MessageInterface
     /**
      * Get the Sender
      *
-     * @return \AdminLTEBundle\Model\UserInterface
+     * @return \KevinPapst\AdminLTEBundle\Model\UserInterface
      */
     public function getFrom()
     {
@@ -135,7 +135,7 @@ class MessageModel implements MessageInterface
     /**
      * Set the recipient
      *
-     * @param \AdminLTEBundle\Model\UserInterface $to
+     * @param \KevinPapst\AdminLTEBundle\Model\UserInterface $to
      *
      * @return $this
      */
@@ -149,7 +149,7 @@ class MessageModel implements MessageInterface
     /**
      * Get the recipient
      *
-     * @return \AdminLTEBundle\Model\UserInterface
+     * @return \KevinPapst\AdminLTEBundle\Model\UserInterface
      */
     public function getTo()
     {

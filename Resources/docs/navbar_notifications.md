@@ -9,12 +9,12 @@ Just like the other theme components, this one requires some route aliases to wo
 
 ### Data Model
 
-In order to use this component, your user class has to implement the `AdminLTEBundle\Model\NotificationInterface`
+In order to use this component, your user class has to implement the `KevinPapst\AdminLTEBundle\Model\NotificationInterface`
 ```php
 <?php
 namespace MyAdminBundle\Model;
 // ...
-use AdminLTEBundle\Model\NotificationInterface as ThemeNotification
+use KevinPapst\AdminLTEBundle\Model\NotificationInterface as ThemeNotification
 
 class NotificationModel implements  ThemeNotification {
 	// ...
@@ -30,7 +30,7 @@ namespace MyAdminBundle\EventListener;
 
 // ...
 
-use AdminLTEBundle\Event\NotificationListEvent;
+use KevinPapst\AdminLTEBundle\Event\NotificationListEvent;
 use MyAdminBundle\Model\NotificationModel;
 
 class MyNotificationListListener {

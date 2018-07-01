@@ -39,7 +39,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">
             {% block avanzu_login_box_msg %}
-                {{ 'Sign in to start your session'|trans({}, 'AvanzuAdminTheme') }}
+                {{ 'Sign in to start your session'|trans({}, 'AdminLTEBundle') }}
 
             {% if error|default(false) %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -49,26 +49,26 @@
         </p>
 
         {% block avanzu_login_form %}
-        <form action="{{ path('login'|route_alias) }}" method="post">
+        <form action="{{ path('adminlte_login'|route_alias) }}" method="post">
             <div class="form-group has-feedback">
-                <input type="text" name="_username" class="form-control" placeholder="{{ 'Username'|trans({}, 'AvanzuAdminTheme') }}" value="{{ last_username }}">
+                <input type="text" name="_username" class="form-control" placeholder="{{ 'Username'|trans({}, 'AdminLTEBundle') }}" value="{{ last_username }}">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="_password" type="password" class="form-control" placeholder="{{ 'Password'|trans({}, 'AvanzuAdminTheme') }}">
+                <input name="_password" type="password" class="form-control" placeholder="{{ 'Password'|trans({}, 'AdminLTEBundle') }}">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> {{ 'Remember Me'|trans({}, 'AvanzuAdminTheme') }}
+                            <input type="checkbox"> {{ 'Remember Me'|trans({}, 'AdminLTEBundle') }}
                         </label>
                     </div>
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">{{ 'Sign In'|trans({}, 'AvanzuAdminTheme') }}</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">{{ 'Sign In'|trans({}, 'AdminLTEBundle') }}</button>
                 </div>
                 <!-- /.col -->
             </div>
@@ -76,23 +76,23 @@
         {% endblock %}
         {% block avanzu_login_social_auth %}
         <div class="social-auth-links text-center">
-            <p>{{ '- OR -'|trans({}, 'AvanzuAdminTheme') }}</p>
+            <p>{{ '- OR -'|trans({}, 'AdminLTEBundle') }}</p>
             <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i>
-                {{ 'Sign in using Facebook'|trans({}, 'AvanzuAdminTheme') }}
+                {{ 'Sign in using Facebook'|trans({}, 'AdminLTEBundle') }}
             </a>
             <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i>
-                {{ 'Sign in usingGoogle+'|trans({}, 'AvanzuAdminTheme') }}
+                {{ 'Sign in usingGoogle+'|trans({}, 'AdminLTEBundle') }}
             </a>
         </div>
         <!-- /.social-auth-links -->
         {% endblock %}
         {% block avanzu_login_actions %}
         <a href="#">
-            {{ 'I forgot my password'|trans({}, 'AvanzuAdminTheme') }}
+            {{ 'I forgot my password'|trans({}, 'AdminLTEBundle') }}
         </a>
             <br>
         <a href="register.html" class="text-center">
-            {{ 'Register a new membership'|trans({}, 'AvanzuAdminTheme') }}
+            {{ 'Register a new membership'|trans({}, 'AdminLTEBundle') }}
         </a>
         {% endblock %}
     </div>

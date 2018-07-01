@@ -1,2 +1,24 @@
-# TODO kevin
-# fill this config with all default options
+admin_lte:
+    options:
+        default_avatar: bundles/adminlte/images/default_avatar.png
+        control_sidebar: true
+        skin: skin-blue
+        fixed_layout: false
+        boxed_layout: false
+        collapsed_sidebar: false
+        mini_sidebar: false
+    knp_menu:
+        enable: false
+        main_menu: adminlte_main
+        breadcrumb_menu: false
+    # See
+    routes:
+        adminlte_welcome: home
+        adminlte_login: login
+        adminlte_message: message
+        adminlte_messages: messages
+        adminlte_notification: notification
+        adminlte_notifications: notifications
+        adminlte_task: task
+        adminlte_tasks: tasks
+        adminlte_profile: profile

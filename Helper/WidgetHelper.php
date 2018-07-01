@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Helper;
+namespace KevinPapst\AdminLTEBundle\Helper;
 
 class WidgetHelper extends \Twig_Extension
 {

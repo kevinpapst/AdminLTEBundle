@@ -1,12 +1,9 @@
-parameters:
-    admin_lte_theme.knp_menu_builder.class: AdminLTEBundle\Menu\MenuBuilder
-
 services:
-    admin_lte_theme.knp_menu_builder:
-        class: "%admin_lte_theme.knp_menu_builder.class%"
+
+    KevinPapst\AdminLTEBundle\Menu\MenuBuilder:
+        class: KevinPapst\AdminLTEBundle\Menu\MenuBuilder
         arguments:
             - "@knp_menu.factory"
-            - "@admin_lte_theme.admin_router"
             - "@event_dispatcher"
         tags:
-            - {name: knp_menu.menu_builder, method: createMainMenu, alias: avanzu_main }
+            - {name: knp_menu.menu_builder, method: createMainMenu, alias: adminlte_main }

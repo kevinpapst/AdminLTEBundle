@@ -7,9 +7,9 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Event;
+namespace KevinPapst\AdminLTEBundle\Event;
 
-use AdminLTEBundle\Model\NotificationInterface;
+use KevinPapst\AdminLTEBundle\Model\NotificationInterface;
 
 /**
  * Class NotificationListEvent

@@ -7,38 +7,17 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Helper;
+namespace KevinPapst\AdminLTEBundle\Helper;
 
-use AdminLTEBundle\Routing\RouteAliasCollection;
 use Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ContextHelper extends \ArrayObject
 {
     /**
-     * @var RouteAliasCollection
-     */
-    private $router;
-
-    /**
-     * ContextHelper constructor.
-     *
-     * @param array $config The data under admin_lte_theme.options config
-     * @param RouteAliasCollection $router admin_lte_theme.admin_route class route service
-     */
-    public function __construct(array $config, RouteAliasCollection $router)
-    {
-        $this->initialize($config);
-        $this->router = $router;
-    }
-
-    /**
-     * Create a OptionResolver with default parameters and overwrite the context
-     * with the default options in admin_lte_theme.options
-     *
      * @param array $config The data under admin_lte_theme.options config
      */
-    protected function initialize(array $config = [])
+    public function __construct(array $config)
     {
         // Create a resolve and configure the defaults
         $resolver = new OptionsResolver();
@@ -101,26 +80,8 @@ class ContextHelper extends \ArrayObject
     }
 
     /**
-     * @param $name
+     * TODO kevin
      *
-     * @return bool
-     */
-    public function hasAlias($name)
-    {
-        return $this->router->hasAlias($name);
-    }
-
-    /**
-     * @param $name
-     *
-     * @return mixed
-     */
-    public function fromAlias($name)
-    {
-        return $this->router->getRouteByAlias($name);
-    }
-
-    /**
      * @param OptionsResolver $resolver
      */
     protected function configureDefaults(OptionsResolver $resolver)
@@ -133,7 +94,7 @@ class ContextHelper extends \ArrayObject
             'collapsed_sidebar' => false,
             'mini_sidebar' => false,
             'control_sidebar' => true,
-            'default_avatar' => 'bundles/avanzuadmintheme/img/avatar.png',
+            'default_avatar' => 'bundles/adminlte/default_avatar.png',
             'widget' => [
                 'collapsible_title' => 'Collapse',
                 'removable_title' => 'Remove',
@@ -150,7 +111,7 @@ class ContextHelper extends \ArrayObject
             ],
             'knp_menu' => [
                 'enable' => false,
-                'main_menu' => 'avanzu_main',
+                'main_menu' => 'adminlte_main',
                 'breadcrumb_menu' => false,
             ],
         ]);

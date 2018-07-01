@@ -7,9 +7,9 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle;
+namespace KevinPapst\AdminLTEBundle;
 
-use AdminLTEBundle\DependencyInjection\Compiler\TwigPass;
+use KevinPapst\AdminLTEBundle\DependencyInjection\Compiler\TwigPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

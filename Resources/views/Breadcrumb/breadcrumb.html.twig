@@ -1,8 +1,8 @@
 <ol class="breadcrumb">
     <li>
-        <a href="{{ path('avanzu_admin_home') }}">
+        <a href="{{ path('adminlte_welcome'|route_alias) }}">
             <i class="fas fa-tachometer-alt"></i>
-            {{ 'admin_lte_theme.breadcrumb.home'|trans({}, 'AvanzuAdminTheme') }}
+            {{ 'admin_lte_theme.breadcrumb.home'|trans({}, 'AdminLTEBundle') }}
         </a>
     </li>
     {% if active %}

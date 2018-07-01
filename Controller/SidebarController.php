@@ -7,11 +7,11 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Controller;
+namespace KevinPapst\AdminLTEBundle\Controller;
 
-use AdminLTEBundle\Event\ShowUserEvent;
-use AdminLTEBundle\Event\SidebarMenuEvent;
-use AdminLTEBundle\Event\ThemeEvents;
+use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
+use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
+use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,7 +34,7 @@ class SidebarController extends Controller
         $userEvent = $this->getDispatcher()->dispatch(ThemeEvents::THEME_SIDEBAR_USER, new ShowUserEvent());
 
         return $this->render(
-            '@AvanzuAdminTheme/Sidebar/user-panel.html.twig',
+            '@AdminLTE/Sidebar/user-panel.html.twig',
                 [
                     'user' => $userEvent->getUser(),
                 ]
@@ -56,7 +56,7 @@ class SidebarController extends Controller
      */
     public function searchFormAction()
     {
-        return $this->render('@AvanzuAdminTheme/Sidebar/search-form.html.twig', []);
+        return $this->render('@AdminLTE/Sidebar/search-form.html.twig', []);
     }
 
     /**
@@ -73,7 +73,7 @@ class SidebarController extends Controller
         $event = $this->getDispatcher()->dispatch(ThemeEvents::THEME_SIDEBAR_SETUP_MENU, new SidebarMenuEvent($request));
 
         return $this->render(
-            '@AvanzuAdminTheme/Sidebar/menu.html.twig',
+            '@AdminLTE/Sidebar/menu.html.twig',
                 [
                     'menu' => $event->getItems(),
                 ]

@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Controller;
+namespace KevinPapst\AdminLTEBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,7 +33,7 @@ class SecurityController extends Controller
         }
 
         return $this->render(
-            '@AvanzuAdminTheme/Security/login.html.twig',
+            '@AdminLTE/Security/login.html.twig',
                 [
                     'last_username' => $session->get(Security::LAST_USERNAME),
                     'error' => $error,

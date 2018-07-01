@@ -1,0 +1,37 @@
+
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts/";
+
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/fa-regular';
+@import '~@fortawesome/fontawesome-free/scss/fa-solid';
+@import '~@fortawesome/fontawesome-free/scss/fa-brands';
+@import '~daterangepicker/daterangepicker.css';
+@import '~bootstrap-select/dist/css/bootstrap-select.min.css';
+
+/*
+ * This theme was upgraded to FONT AWESOME 5
+ * which is not supported by the original "AdminLTE" theme yet!
+ *
+ * So we have to do add add some additional styles:
+ */
+.sidebar-menu>li>a>.far,
+.sidebar-menu>li>a>.fas,
+.sidebar-menu>li>a>.fal,
+.sidebar-menu>li>a>.fab {
+    width: 20px;
+}
+
+.sidebar-menu .treeview-menu>li>a>.far,
+.sidebar-menu .treeview-menu>li>a>.fas,
+.sidebar-menu .treeview-menu>li>a>.fal,
+.sidebar-menu .treeview-menu>li>a>.fab {
+    width: 20px;
+}
+
+.main-header .sidebar-toggle {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+

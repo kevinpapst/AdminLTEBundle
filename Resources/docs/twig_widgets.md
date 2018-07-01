@@ -35,7 +35,7 @@ admin_lte_theme:
 ## box-widget.html.twig
 
 ```twig
-{% embed '@AvanzuAdminTheme/Widgets/box-widget.html.twig' %}
+{% embed '@AdminLTE/Widgets/box-widget.html.twig' %}
     {% block box_title %}
     	{# Title goes here #}
     {% endblock %}
@@ -99,7 +99,7 @@ _**Notice:** since FALSE will not be considered a value by twig and therefor act
 ## infobox-widget
 The infobox widget has no default configuration. The very nature of this widget type is to be distinguishable from each other hence, the configuration would be overridden anyways.
 ```twig
-{% embed '@AvanzuAdminTheme/Widgets/infobox-widget.html.twig'  with {
+{% embed '@AdminLTE/Widgets/infobox-widget.html.twig'  with {
     'color' : 'aqua',
     'icon'  : 'comments-o',
     }%}

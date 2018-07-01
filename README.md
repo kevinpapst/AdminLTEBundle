@@ -1,16 +1,15 @@
-# AdminThemeBundle - for Symfony 4 / FontAwesome 5
+# AdminLTE - a Theme bundle for Symfony 4
 
-**WORD IN PROGRESS** Do not use this repository, it is not yet functional!
+**WORK IN PROGRESS** Do not use this repository, it is not yet functional!
 
 Remove me:
-- ThemeManager & avanzu_admin_theme
-- DependencyResolver
-- RouteAliasCollection
-- |trans({}, 'AvanzuAdminTheme'
+- avanzu
+- replace: config.yml => admin_lte.yaml
+- replace: admin_lte_theme: = admin_lte:
 
 # What this repository is
 
-This repsitory is a fork from [AdminThemeBundle](https://github.com/avanzu/AdminThemeBundle), bringing the AdminLTE theme to Symfony 4.
+This repository is a fork from [AdminThemeBundle](https://github.com/avanzu/AdminThemeBundle), bringing the AdminLTE theme to Symfony 4.
 
 ## Requirements
 
@@ -28,10 +27,10 @@ So I could choose between:
 - doing all the changes in my own repository and having "dev-" entries in my project composer.json
 - publish this fork and use it also for releasing, so others could benefit from it as well
 
-The choice was quite easy: I am doing the work now in this repository without staying up-to-date with the original repository.
+The choice was quite easy: I am doing the work now in this repository with a fresh start and with the capability of backward-compatibility breaks.
 
-But be aware: I decided to change the projects internal to my needs and to get rid of some of the advanced features from the original AdminThemeBundle.
-I found the all-in-one solution to be more problematic then helpful at several places, so I take the chance to update it to my own interpretation of a theme bundle.
+Be aware: I decided to change the projects internal (to my needs) and to get rid of some of the advanced features from the original AdminThemeBundle.
+I found the all-in-one solution to be more problematic then helpful at several places, so I took the chance to update it to my own interpretation of a theme bundle.
 
 ## Main difference
 
@@ -105,7 +104,6 @@ There are a few values you could change for sure without need to touch anything 
 ### Next Steps
 * [Using the layout](Resources/docs/layout.md)
 * [Rebuilding the assets](Resources/docs/rebuild.md)
-* [Using the ThemeManager](Resources/docs/theme_manager.md)
 * [Components](Resources/docs/component_events.md)
 * [Navbar User](Resources/docs/navbar_user.md)
 * [Navbar Tasks](Resources/docs/navbar_tasks.md)

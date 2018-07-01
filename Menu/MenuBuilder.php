@@ -7,11 +7,10 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Menu;
+namespace KevinPapst\AdminLTEBundle\Menu;
 
-use AdminLTEBundle\Event\KnpMenuEvent;
-use AdminLTEBundle\Event\ThemeEvents;
-use AdminLTEBundle\Routing\RouteAliasCollection;
+use KevinPapst\AdminLTEBundle\Event\KnpMenuEvent;
+use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -23,10 +22,6 @@ class MenuBuilder
     private $factory;
 
     /**
-     * @var RouteAliasCollection
-     */
-    private $aliasCollection;
-    /**
      * @var EventDispatcherInterface
      */
     private $eventDispatcher;
@@ -35,16 +30,13 @@ class MenuBuilder
      * MenuBuilder constructor.
      *
      * @param FactoryInterface $factory
-     * @param RouteAliasCollection $aliasCollection
      * @param EventDispatcherInterface $eventDispatcher
      */
     public function __construct(
         FactoryInterface $factory,
-        RouteAliasCollection $aliasCollection,
         EventDispatcherInterface $eventDispatcher
     ) {
         $this->factory = $factory;
-        $this->aliasCollection = $aliasCollection;
         $this->eventDispatcher = $eventDispatcher;
     }
 

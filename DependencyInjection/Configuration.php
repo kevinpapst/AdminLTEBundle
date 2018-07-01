@@ -7,8 +7,9 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\DependencyInjection;
+namespace KevinPapst\AdminLTEBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Builder\NodeBuilder;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -25,73 +26,122 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('admin_lte_theme');
+        $rootNode = $treeBuilder->root('admin_lte');
 
         $rootNodeChildren = $rootNode->children();
         $rootNodeChildren = $this->createSimpleChildren($rootNodeChildren, true);
         $rootNodeChildren = $this->createThemeChildren($rootNodeChildren);
         $rootNodeChildren = $this->createButtonChildren($rootNodeChildren);
+        $rootNodeChildren = $this->createRouteAlias($rootNodeChildren);
 
         $rootNodeChildren->end();
 
         return $treeBuilder;
     }
 
+    private function createRouteAlias(NodeBuilder $node)
+    {
+        $node
+            ->arrayNode('routes')
+                ->children()
+                ->scalarNode('adminlte_welcome')
+                    ->defaultValue('home')
+                    ->info('name of the homepage route')
+                ->end()
+                ->scalarNode('adminlte_login')
+                    ->defaultValue('login')
+                    ->info('name of the login route')
+                ->end()
+                ->scalarNode('adminlte_message')
+                    ->defaultValue('message')
+                    ->info('name of the route to one message')
+                ->end()
+                ->scalarNode('adminlte_messages')
+                    ->defaultValue('messages')
+                    ->info('name of the route to all messages')
+                ->end()
+                ->scalarNode('adminlte_notification')
+                    ->defaultValue('notification')
+                    ->info('name of the route to one notification')
+                ->end()
+                ->scalarNode('adminlte_notifications')
+                    ->defaultValue('notifications')
+                    ->info('name of the route to all notification')
+                ->end()
+                ->scalarNode('adminlte_task')
+                    ->defaultValue('task')
+                    ->info('name of the route to one task')
+                ->end()
+                ->scalarNode('adminlte_tasks')
+                    ->defaultValue('tasks')
+                    ->info('name of the route to all tasks')
+                ->end()
+                ->scalarNode('adminlte_profile')
+                    ->defaultValue('profile')
+                    ->info('name of the route to the users profile')
+                ->end()
+            ->end();
+
+        return $node;
+    }
+
     private function createWidgetTree($node)
     {
-        $node->arrayNode('widget')
-            ->children()
-                ->scalarNode('collapsible_title')
-                    ->defaultValue('Collapse')
-                    ->info('')
-                ->end()
-                ->scalarNode('removable_title')
-                    ->defaultValue('Remove')
-                    ->info('')
-                ->end()
-                ->scalarNode('type')
-                    ->defaultValue('primary')
-                    ->info('')
-                ->end()
-                    ->booleanNode('bordered')
-                    ->defaultTrue()
-                    ->info('')
-                ->end()
-                    ->booleanNode('collapsible')
-                    ->defaultFalse()
-                    ->info('')
-                ->end()
-                ->booleanNode('removable')
-                    ->defaultFalse()
-                    ->info('')
-                ->end()
-                ->booleanNode('solid')
-                    ->defaultTrue()
-                    ->info('')
-                ->end()
-                ->booleanNode('use_footer')
-                    ->defaultFalse()
-                    ->info('')
-                ->end()
-        ->end();
+        $node
+            ->arrayNode('widget')
+                ->children()
+                    ->scalarNode('collapsible_title')
+                        ->defaultValue('Collapse')
+                        ->info('')
+                    ->end()
+                    ->scalarNode('removable_title')
+                        ->defaultValue('Remove')
+                        ->info('')
+                    ->end()
+                    ->scalarNode('type')
+                        ->defaultValue('primary')
+                        ->info('')
+                    ->end()
+                        ->booleanNode('bordered')
+                        ->defaultTrue()
+                        ->info('')
+                    ->end()
+                        ->booleanNode('collapsible')
+                        ->defaultFalse()
+                        ->info('')
+                    ->end()
+                    ->booleanNode('removable')
+                        ->defaultFalse()
+                        ->info('')
+                    ->end()
+                    ->booleanNode('solid')
+                        ->defaultTrue()
+                        ->info('')
+                    ->end()
+                    ->booleanNode('use_footer')
+                        ->defaultFalse()
+                        ->info('')
+                    ->end()
+            ->end();
 
         return $node;
     }
 
     private function createButtonChildren($rootNodeChildren)
     {
-        $rootNodeChildren->arrayNode('button')
-                        ->children()
-                            ->scalarNode('type')
-                                ->defaultValue('primary')
-                                ->info('')
-                            ->end()
-                            ->scalarNode('size')
-                                ->defaultFalse()
-                                ->info('')
-                            ->end()
-                        ->end()
-                    ->end();
+        $rootNodeChildren
+            ->arrayNode('button')
+                ->children()
+                    ->scalarNode('type')
+                        ->defaultValue('primary')
+                        ->info('')
+                    ->end()
+                    ->scalarNode('size')
+                        ->defaultFalse()
+                        ->info('')
+                    ->end()
+                ->end()
+            ->end();
 
         return $rootNodeChildren;
     }
@@ -99,9 +149,10 @@ class Configuration implements ConfigurationInterface
     private function createSimpleChildren($rootNodeChildren, $withOptions = true)
     {
         if ($withOptions) {
-            $optionChildren = $rootNodeChildren->arrayNode('options')
-                 ->info('')
-                 ->children();
+            $optionChildren = $rootNodeChildren
+                ->arrayNode('options')
+                     ->info('')
+                     ->children();
 
             $optionChildren = $this->createSimpleChildren($optionChildren, false);
             $optionChildren = $this->createWidgetTree($optionChildren);
@@ -111,22 +162,23 @@ class Configuration implements ConfigurationInterface
             $optionChildren->end();
         }
 
-        $rootNodeChildren->arrayNode('knp_menu')
-                        ->children()
-                            ->scalarNode('enable')
-                                ->defaultValue(false)
-                                ->info('')
-                            ->end()
-                            ->scalarNode('main_menu')
-                                ->defaultValue('avanzu_main')
-                                ->info('your builder alias')
-                            ->end()
-                            ->scalarNode('breadcrumb_menu')
-                                ->defaultFalse()
-                                ->info('Your builder alias or false to disable breadcrumbs')
-                            ->end()
-                        ->end()
-                    ->end();
+        $rootNodeChildren
+            ->arrayNode('knp_menu')
+                ->children()
+                    ->scalarNode('enable')
+                        ->defaultValue(false)
+                        ->info('')
+                    ->end()
+                    ->scalarNode('main_menu')
+                        ->defaultValue('adminlte_main')
+                        ->info('your builder alias')
+                    ->end()
+                    ->scalarNode('breadcrumb_menu')
+                        ->defaultFalse()
+                        ->info('Your builder alias or false to disable breadcrumbs')
+                    ->end()
+                ->end()
+            ->end();
 
         return $rootNodeChildren;
     }
@@ -145,32 +197,33 @@ class Configuration implements ConfigurationInterface
 
     private function createsubThemeChildren($rootNodeChildren)
     {
-        $rootNodeChildren->scalarNode('default_avatar')
-                                ->defaultValue('bundles/avanzuadmintheme/img/avatar.png')
-                            ->end()
-                            ->scalarNode('skin')
-                                ->defaultValue('skin-blue')
-                                ->info('see skin listing for viable options')
-                            ->end()
-                            ->booleanNode('fixed_layout')
-                                ->defaultFalse()
-                            ->end()
-                            ->booleanNode('boxed_layout')
-                                ->defaultFalse()
-                                ->info('these settings relate directly to the "Layout Options"')
-                            ->end()
-                            ->booleanNode('collapsed_sidebar')
-                                ->defaultFalse()
-                                ->info('described in the adminlte documentation')
-                            ->end()
-                            ->booleanNode('mini_sidebar')
-                                ->defaultFalse()
-                                ->info('')
-                            ->end()
-                            ->booleanNode('control_sidebar')
-                                ->defaultFalse()
-                                ->info('controls whether the right hand panel will be rendered')
-                            ->end();
+        $rootNodeChildren
+            ->scalarNode('default_avatar')
+                ->defaultValue('bundles/adminlte/default_avatar.png')
+            ->end()
+            ->scalarNode('skin')
+                ->defaultValue('skin-blue')
+                ->info('see skin listing for viable options')
+            ->end()
+            ->booleanNode('fixed_layout')
+                ->defaultFalse()
+            ->end()
+            ->booleanNode('boxed_layout')
+                ->defaultFalse()
+                ->info('these settings relate directly to the "Layout Options"')
+            ->end()
+            ->booleanNode('collapsed_sidebar')
+                ->defaultFalse()
+                ->info('described in the documentation')
+            ->end()
+            ->booleanNode('mini_sidebar')
+                ->defaultFalse()
+                ->info('')
+            ->end()
+            ->booleanNode('control_sidebar')
+                ->defaultFalse()
+                ->info('controls whether the right hand panel will be rendered')
+            ->end();
 
         return $rootNodeChildren;
     }

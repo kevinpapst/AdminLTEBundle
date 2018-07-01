@@ -1,37 +1,15 @@
-parameters:
-    admin_lte_theme.extension.class: AdminLTEBundle\Twig\AdminExtension
-    admin_lte_theme.context_helper.class: AdminLTEBundle\Helper\ContextHelper
-    admin_lte_theme.admin_router.class: AdminLTEBundle\Routing\RouteAliasCollection
-    admin_lte_theme.theme_manager.class: AdminLTEBundle\Theme\ThemeManager
-    admin_lte_theme.container.class: Symfony\Component\DependencyInjection\Container
-
 services:
 
-    admin_lte_theme.theme_manager:
-        class: "%admin_lte_theme.theme_manager.class%"
+    KevinPapst\AdminLTEBundle\Twig\AdminExtension:
+        class: KevinPapst\AdminLTEBundle\Twig\AdminExtension
         arguments:
-            - "%admin_lte_theme.container.class%"
-
-    admin_lte_theme.admin_router:
-        class: "%admin_lte_theme.admin_router.class%"
-        arguments:
-            - "%kernel.cache_dir%"
-            - "@router"
-            - "avanzu_admin_route"
-            - "%kernel.environment%"
-            - "%kernel.debug%"
-
-    admin_lte_theme.extension.class:
-        class: "%admin_lte_theme.extension.class%"
+            - '@admin_lte_theme.context_helper'
+            - '%admin_lte_theme.routes%'
         tags:
             - { name: twig.extension }
-        arguments: ['@admin_lte_theme.context_helper', '%kernel.environment%', "@admin_lte_theme.admin_router"]
 
-    admin_lte_theme.context_helper:
-        class: "%admin_lte_theme.context_helper.class%"
-        arguments:
-            - "%admin_lte_theme.options%"
-            - "@admin_lte_theme.admin_router"
-
-    AdminLTEBundle\Helper\ContextHelper:
+    KevinPapst\AdminLTEBundle\Helper\ContextHelper:
+        class: KevinPapst\AdminLTEBundle\Helper\ContextHelper
         alias: admin_lte_theme.context_helper
+        arguments:
+            - '%admin_lte_theme.options%'

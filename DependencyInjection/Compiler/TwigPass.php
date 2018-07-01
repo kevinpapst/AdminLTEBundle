@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\DependencyInjection\Compiler;
+namespace KevinPapst\AdminLTEBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -37,7 +37,7 @@ class TwigPass implements CompilerPassInterface
             $param = [];
         }
 
-        array_push($param, '@AvanzuAdminTheme/layout/form-theme.html.twig');
+        array_push($param, '@AdminLTE/layout/form-theme.html.twig');
 
         $container->setParameter('twig.form.resources', $param);
 

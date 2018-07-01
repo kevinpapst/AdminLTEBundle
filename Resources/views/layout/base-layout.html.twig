@@ -1,4 +1,4 @@
-{% import "@AvanzuAdminTheme/layout/macros.html.twig" as macro %}
+{% import "@AdminLTE/layout/macros.html.twig" as macro %}
 <!doctype html{% block avanzu_html_start %}{% endblock %}>
 <!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
@@ -40,7 +40,7 @@
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">{{ 'theme.sr_only.toggle_navigation'|trans({}, 'AvanzuAdminTheme') }}</span>
+                    <span class="sr-only">{{ 'theme.sr_only.toggle_navigation'|trans({}, 'AdminLTEBundle') }}</span>
                 </a>
                 {% if app.user is not null and is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                     <div class="navbar-custom-menu">
@@ -78,8 +78,8 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    {% block page_title %}{{ 'Blank page'|trans({}, 'AvanzuAdminTheme') }}{% endblock %}
-                    <small>{% block page_subtitle %}{{ 'Control panel'|trans({}, 'AvanzuAdminTheme') }}{% endblock %}</small>
+                    {% block page_title %}{{ 'Blank page'|trans({}, 'AdminLTEBundle') }}{% endblock %}
+                    <small>{% block page_subtitle %}{{ 'Control panel'|trans({}, 'AdminLTEBundle') }}{% endblock %}</small>
                 </h1>
                 {% block avanzu_breadcrumb %}
                     {{ render(controller('AdminLTEBundle:Breadcrumb:breadcrumb', {'request':app.request, 'title' : block('page_title')})) }}
@@ -108,7 +108,7 @@
             <div class="pull-right hidden-xs">
                 <b>Version</b> 2.0
             </div>
-            <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> {{ 'All rights reserved'|trans({}, 'AvanzuAdminTheme') }}.
+            <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> {{ 'All rights reserved'|trans({}, 'AdminLTEBundle') }}.
         </footer>
     {% endblock %}
 

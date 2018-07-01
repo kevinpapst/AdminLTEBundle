@@ -7,9 +7,9 @@
  * file that was distributed with this source code.
  */
 
-namespace AdminLTEBundle\Event;
+namespace KevinPapst\AdminLTEBundle\Event;
 
-use AdminLTEBundle\Model\MenuItemInterface;
+use KevinPapst\AdminLTEBundle\Model\MenuItemInterface;
 use Knp\Menu\MenuItem;
 use Symfony\Component\HttpFoundation\Request;
 

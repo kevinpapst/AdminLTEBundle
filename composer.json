@@ -1,5 +1,5 @@
 {
-    "name": "kevinpapst/admin-lte-bundle",
+    "name": "kevinpapst/adminlte-bundle",
     "type": "symfony-bundle",
     "description": "Admin Theme based on the AdminLTE 2.3 for easy integration with Symfony 4",
     "license": "MIT",
@@ -43,6 +43,6 @@
         "knplabs/knp-menu-bundle" : "Allows easy menu integration."
     },
     "autoload": {
-        "psr-4": { "AdminLTEBundle\\": "" }
+        "psr-4": { "KevinPapst\\^AdminLTEBundle\\": "" }
     }
 }
