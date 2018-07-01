@@ -150,6 +150,7 @@ return PhpCsFixer\Config::create()
             ->name('*.php')
             ->exclude([
                 __DIR__ . '/.github',
+                __DIR__ . '/node_modules',
                 __DIR__ . '/Resources',
                 __DIR__ . '/vendor',
             ])

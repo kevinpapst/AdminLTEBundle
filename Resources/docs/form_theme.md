@@ -1,7 +1,7 @@
-## form-theme
+## Form theme
 
 This bundle provide a form-theme under [Resources/views/layout/form-theme.html.twig](Resources/views/layout/form-theme.html.twig) which
-allow customize the form elements in AdminTLE.
+allow customize the form elements in AdminLTE.
 
 This is used as:
 
@@ -31,8 +31,12 @@ You also could apply this, only checking if a form is defined:
 
 Also is possible override the form theme by referencing 
 [multiple templates](http://symfony.com/doc/current/cookbook/form/form_customization.html#multiple-templates) in order of priority or
-only customize/override some childs elements in the form like:
+only customize/override some child elements in the form like:
 
 ```twig
 {% form_theme form.submit '@AdminLTE/layout/form-theme.html.twig' %}
 ```
+
+## Next steps
+
+Please go back to the [AdminLTE bundle documentation](index.md) to find out more about using the theme.

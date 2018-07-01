@@ -1,20 +1,19 @@
 # Twig widgets
-In order to simplify the usage of widget and info boxes, and to help with a consitent look and feel throughout your application, the bundle provides an [embeddable][3] template for the [box-widget][1] and the [infobox-widget][2]. 
+
+In order to simplify the usage of widget and info boxes, and to help with a consitent look and feel throughout your application, 
+the bundle provides an [embeddable][3] template for the [box-widget][1] and the [infobox-widget][2]. 
 
 ## global configuration
-The global/general configuration for the box-widget can be defined using the bundle configuration. The values in this configuration example are the acutal defaults. 
+The global/general configuration for the box-widget can be defined using the bundle configuration. 
+The values in this configuration example are the default settings. 
 
 ```yaml
-# config.yml
-
-# ... 
-
-admin_lte_theme:
+# admin_lte.yaml
+admin_lte:
     theme:
-		# ... 
         widget:
-        	# relates to box-<type>, default: primary
-        	type: primary 
+            # relates to box-<type>, default: primary
+            type: primary 
             # will add .with-border to .box-header, default: true
             bordered: true
             # will add a collapse button to the widget toolbar, default: true
@@ -31,13 +30,12 @@ admin_lte_theme:
             use_footer: false
 ```
 
-
 ## box-widget.html.twig
 
 ```twig
 {% embed '@AdminLTE/Widgets/box-widget.html.twig' %}
     {% block box_title %}
-    	{# Title goes here #}
+        {# Title goes here #}
     {% endblock %}
     {% block box_body %}
         {# Content goes here #}
@@ -125,7 +123,7 @@ The infobox widget has no default configuration. The very nature of this widget 
 <dd>Defines the `.info-box-icon` color and should be the color name (obsolete if you have a `solid` box).
 
 <dt>icon
-<dd>Defines the fontawesome icon name. The value should only be the actual icon name without prefix (e.g. `star` instead of `fa fa-star`) 
+<dd>Defines the fontawesome icon name. The value should only be the actual icon name including the prefix (e.g. `fas fa-tachometer-alt`) 
 
 <dt>progress
 <dd>Defines the progress value. The progress bar will only be rendered if the progress variable is defined. 
@@ -152,6 +150,10 @@ The infobox widget has no default configuration. The very nature of this widget 
 
 
 </dl>
+
+## Next steps
+
+Please go back to the [AdminLTE bundle documentation](index.md) to find out more about using the theme.
 
 [1]: https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#component-box
 [2]: https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#component-info-box

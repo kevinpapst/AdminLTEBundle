@@ -80,7 +80,7 @@ class ContextHelper extends \ArrayObject
     }
 
     /**
-     * TODO kevin
+     * TODO kevin - fetch defaults from configuration instead of being hardcoded at several places
      *
      * @param OptionsResolver $resolver
      */

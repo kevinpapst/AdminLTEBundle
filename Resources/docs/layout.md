@@ -1,17 +1,18 @@
-## Using the layout
-
-Note: these instructions are for [dev-master branch][4], if you are using stable version (1.3) read this ["Using the layout" for old 1.3 version][5]. 
+# Using the layout
 
 In order to use the layout, your views should extend from the provided `default-layout`
 ```twig
 {% extends '@AdminLTE/layout/default-layout.html.twig' %}
 ```
-### twig global 
+## Twig globals
+ 
 Instead of fully relying on blocks and includes, you are provided with a twig global named `admin_lte_context` to store and retrieve particular values throughout the page rendering. 
 This is basically a parameter bag with some pre-defined values based on the bundle configuration. 
 
-### Partials
-In order to make overriding some of the template regions easier, there are several partials included within the layout which can be overridden individually as described [here][1]. 
+## Partials
+
+In order to make overriding some of the template regions easier, there are several partials included within the layout 
+which can be overridden individually as described [here](http://symfony.com/doc/current/templating/overriding.html). 
 
 Listed in the order of appearance, these are:
 
@@ -27,13 +28,14 @@ Listed in the order of appearance, these are:
 <dt>@AdminLTE/Partials/_footer.html.twig
 <dd>Renders the main footer
 <dt>@AdminLTE/Partials/_control-sidebar.html.twig
-<dd>Renders the control sidebar (righthand panel) unless it is disabled in the config (default)
+<dd>Renders the control sidebar (right-hand panel) WHEN there are configured panels in the config `admin_lte.options.control_sidebar`
 <dt>@AdminLTE/Partials/_scripts.html.twig
 <dd>Renders script tags. Located right before the closing `body`. 
 </dl>
 
-### layout blocks
-The blocks are defined in the layout in order of appearance. Some of them do contain some of the major components like the sidebar or navbar. In order to redefine the block and to keep the default content, don't forget to use `{{parent()}}` 
+## Layout blocks
+The blocks are defined in the layout in order of appearance. Some of them do contain some of the major components like the sidebar or navbar. 
+In order to redefine the block and to keep the default content, don't forget to use `{{parent()}}` 
 
 <dt>avanzu_html_start
 <dd>In the `html` tag, useful for Angular attributes like ng-app
@@ -112,7 +114,7 @@ The blocks are defined in the layout in order of appearance. Some of them do con
 <dd>The main footer. Includes `@AdminLTE/Partials/_footer.html.twig` by default.
 
 <dt>avanzu_control_sidebar
-<dd>Includes `@AdminLTE/Partials/_control-sidebar.html.twig` if it is enabled.
+<dd>Includes `@AdminLTE/Partials/_control-sidebar.html.twig`
 
 <dt>avanzu_javascripts
 <dd>comes right after the `_scripts.html.twig` partial.
@@ -121,6 +123,6 @@ The blocks are defined in the layout in order of appearance. Some of them do con
 <dd>Intended for inline scripts in order to keep those in one single document block.
 </dl>
 
-[1]: http://symfony.com/doc/current/templating/overriding.html
-[4]: https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/layout.md
-[5]: https://github.com/kevinpapst/AdminLTEBundle/blob/hotfix-1.3.5/Resources/docs/layout.md
+## Next steps
+
+Please go back to the [AdminLTE bundle documentation](index.md) to find out more about using the theme.

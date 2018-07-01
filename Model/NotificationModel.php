@@ -17,7 +17,7 @@ class NotificationModel implements NotificationInterface
 
     protected $icon;
 
-    public function __construct($message = null, $type = 'info', $icon = 'fa fa-warning')
+    public function __construct($message = null, $type = 'info', $icon = 'fas fa-exclamation-triangle')
     {
         $this->message = $message;
         $this->type = $type;

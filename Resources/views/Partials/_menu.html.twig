@@ -8,7 +8,7 @@
     {% if item.labelAttribute('data-image') %}<img src="{{ item.labelAttribute('data-image') }}" alt="{{ item.name }}" class="menu-thumbnail"/>{% endif %}
     {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
         <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
+            <i class="fas fa-angle-left pull-right"></i>
         </span>
     {% endif %}
 {% endblock %}

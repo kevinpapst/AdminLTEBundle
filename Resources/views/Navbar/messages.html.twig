@@ -1,8 +1,8 @@
 <!-- Messages: style can be found in dropdown.less-->
-{% import "@AdminLTE/layout/macros.html.twig" as macro %}
+{% import "@AdminLTE/Macros/default.html.twig" as macro %}
 <li class="dropdown messages-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        <i class="fa fa-envelope-o"></i>
+        <i class="far fa-envelope"></i>
         <span class="label label-success">{{ total }}</span>
     </a>
     <ul class="dropdown-menu">
@@ -18,7 +18,7 @@
                             </div>
                             <h4>
                                 {{ msg.from.username }}
-                                <small><i class="fa fa-clock-o"></i> {{ msg.sentAt|date('d.m.Y H:i') }}</small>
+                                <small><i class="far fa-clock"></i> {{ msg.sentAt|date('d.m.Y H:i') }}</small>
                             </h4>
                             <p>{{ msg.subject }}</p>
                         </a>

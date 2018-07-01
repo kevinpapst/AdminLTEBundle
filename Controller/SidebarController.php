@@ -20,8 +20,6 @@ use Symfony\Component\HttpFoundation\Response;
 class SidebarController extends Controller
 {
     /**
-     * Block used in macro avanzu_sidebar_user
-     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function userPanelAction()
@@ -50,8 +48,6 @@ class SidebarController extends Controller
     }
 
     /**
-     * Block used in macro avanzu_sidebar_search
-     *
      * @return Response
      */
     public function searchFormAction()
@@ -69,7 +65,7 @@ class SidebarController extends Controller
             return new Response();
         }
 
-        /** @var SidebarMenuEvent $userEvent */
+        /** @var SidebarMenuEvent $event */
         $event = $this->getDispatcher()->dispatch(ThemeEvents::THEME_SIDEBAR_SETUP_MENU, new SidebarMenuEvent($request));
 
         return $this->render(

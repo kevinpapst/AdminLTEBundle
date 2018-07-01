@@ -1,38 +1,36 @@
-## The Navbar Messages Component
+# The Navbar Messages component
 
-### Routes
-Just like the other theme components, this one requires some route aliases to work. Please refer to the [component overview][1] to learn about the route alias details. 
+## Routes
+Just like the other theme components, this one requires some route aliases to work. Please refer to the [component overview](component_events.md) to learn about the route alias details. 
 
-#### required aliases
+## Required aliases
 * all_messages
 * message
 
-### Data Model
+## Data Model
 
 In order to use this component, your user class has to implement the `KevinPapst\AdminLTEBundle\Model\MessageInterface`
 ```php
 <?php
 namespace MyAdminBundle\Model;
-// ...
-use KevinPapst\AdminLTEBundle\Model\MessageInterface as ThemeMessage
 
-class MessageModel implements  ThemeMessage {
+use KevinPapst\AdminLTEBundle\Model\MessageInterface;
+
+class MessageModel implements MessageInterface {
 	// ...
 	// implement interface methods
 	// ...
 }
 ```
 
-### Event Listener
+## Event Listener
 Next, you will need to create an EventListener to work with the `MessageListEvent`.
 ```php
 <?php
 namespace MyAdminBundle\EventListener;
 
-// ...
-
 use KevinPapst\AdminLTEBundle\Event\MessageListEvent;
-use MyAdminBundle\Model\MessageModel;
+use App\Model\MessageModel;
 
 class MyMessageListListener {
 
@@ -49,14 +47,12 @@ class MyMessageListListener {
 	protected function getMessages() {
 		// retrieve your message models/entities here
 	}
-
 }
 ```
-### Service.xml
+## Service defintion
 
 Finally, you need to attach your new listener to the event system:
 ```xml
-<!-- Resources/config/services.xml -->
 <parameters>
 	<!-- ... -->
 	<parameter key="my_admin_bundle.message_list_listener.class">MyAdminBundle\EventListener\MyMessageListListener</parameter>
@@ -71,4 +67,10 @@ Finally, you need to attach your new listener to the event system:
 	<!-- ... -->
 </services>
 ```
-[1]: component_events.md
+
+TODO kevin - change docu to YAML and Symfony 4
+TODO kevin - add SF4 auto-wiring and service discovery docu
+
+## Next steps
+
+Please go back to the [AdminLTE bundle documentation](index.md) to find out more about using the theme.

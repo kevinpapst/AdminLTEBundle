@@ -94,7 +94,7 @@
     {% if widget == 'single_text' %}
         <div class="input-group">
             <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
+                <i class="far fa-calendar-alt"></i>
             </div>
 
             {% if attr.class is defined %}
@@ -133,7 +133,7 @@
                 {% set attr = attr|merge({'class' : class, 'data-timepicker':'on'}) %}
                 {{ block('form_widget_simple') }}
                 <div class="input-group-addon add-on">
-                    <i class="fa fa-clock-o"></i>
+                    <i class="far fa-clock"></i>
                 </div>
             </div>
         </div>
@@ -164,7 +164,7 @@
     {{ parent() }}
     {% if required and label is not same as (false) %}
         <sup class="required" title="{{ "This is a mandatory field"|trans({}, translation_domain) }}">
-            <i class="fa fa-asterisk"></i>
+            <i class="fas fa-asterisk"></i>
         </sup>
     {% endif %}
 

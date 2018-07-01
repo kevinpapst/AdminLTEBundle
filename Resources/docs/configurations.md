@@ -4,6 +4,40 @@ After installing the theme, you have to adjust a couple of config settings to yo
 
 The configuration file is located at `config/packages/admin_lte.yaml` 
 
+## Theme options (admin_lte.options)
+
+If you want to change any default value as for example `admin_skin` all you need to do is define the value at `config/packages/admin_lte.yaml` under `options` section. 
+
+See example below:
+
+```yaml
+admin_lte:
+    options:
+        skin: skin-blue
+```
+
+Available AdminLTE skins are: 
+
+- skin-blue (default)
+- skin-blue-light
+- skin-yellow
+- skin-yellow-light
+- skin-green
+- skin-green-light
+- skin-purple
+- skin-purple-light
+- skin-red
+- skin-red-light
+- skin-black
+- skin-black-light
+
+All available options can be seen in the [admin_lte.yaml](https://github.com/kevinpapst/AdminLTEBundle/blob/master/config/packages/admin_lte.yaml) file. 
+
+There are a more values you could change without the need to touch the bundle templates, take a look through the files under `Resources/views`.
+
+## KNP Menu (admin_lte.knp_menu)
+
+Pleas read the [KNP menu docu](knp_menu.md) for more information.
 
 ## Route aliases (admin_lte.routes)
 
@@ -15,7 +49,7 @@ The specific routes must be rigged with the option `admin_lte.routes` defining t
 # admin_lte.yaml
 admin_lte:
     routes:
-        welcome: dashboard
+        adminlte_welcome: dashboard
 ```
 
 Here the theme route name `welcome` maps to your route `dashboard` here. Without defining these routes, the theme will not be able to render.
@@ -32,17 +66,6 @@ Here the theme route name `welcome` maps to your route `dashboard` here. Without
 - `adminlte_tasks`: Used to generate the task list link (defaults to: tasks)
 - `adminlte_profile`: Used for the current user's profile (defaults to: profile)
 
-## Available components
+## Next steps
 
-* [Navbar User](navbar_user.md)
-* [Navbar Tasks](navbar_tasks.md)
-* [Navbar Notifications](navbar_notifications.md)
-* [Navbar Messages](navbar_messages.md)
-* [Sidebar User](sidebar_user.md)
-* [Sidebar Search](sidebar_search.md)
-* [Sidebar Navigation](sidebar_navigation.md)
-* [Breadcrumb Menu](breadcrumbs.md)
-
-### Demonstration
-
-In order to see some working examples, the bundle is showcased in a separate demo-application: [AdminLTEBundle-Demo](https://github.com/kevinpapst/AdminLTEBundle-Demo) 
+Please go back to the [AdminLTE bundle documentation](index.md) to find out more about using the theme.

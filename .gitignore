@@ -1,9 +1,9 @@
 nbproject/*
-Resources/public/vendor/*
-Resources/docs/apidoc
+Resources/public/*
 .idea
 vendor
 composer.lock
+yarn.lock
 
 # Ignore Eclipse IDE config files
 .buildpath
@@ -12,3 +12,4 @@ composer.lock
 
 # Ignore cache files from php cs fixer
 .php_cs.cache
+node_modules

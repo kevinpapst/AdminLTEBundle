@@ -1,13 +1,13 @@
-## The Navbar User Component
+# The Navbar User component
 
-### Routes
+## Routes
 Just like the other theme components, this one requires some route aliases to work. Please refer to the [component overview][1] to learn about the route alias details. 
 
-#### Required aliases
+### Required aliases
 * profile
 * logout
 
-### Data Model
+## Data Model
 
 In order to use this component, your user class has to implement the `KevinPapst\AdminLTEBundle\Model\UserInterface`
 ```php
@@ -22,7 +22,8 @@ class UserModel implements  ThemeUser {
 	// ...
 }
 ```
-### Event Listener
+
+## Event Listener
 Next, you will need to create an EventListener to work with the `ShowUserEvent`.
 ```php
 <?php
@@ -57,36 +58,24 @@ class MyShowUserListener {
 
 }
 ```
-### Service.xml
+
+## Service defintion
 
 Finally, you need to attach your new listener to the event system:
-```xml
-<!-- Resources/config/services.xml -->
-<parameters>
-	<!-- ... -->
-	<parameter key="my_admin_bundle.show_user_listener.class">MyAdminBundle\EventListener\MyShowUserListener</parameter>
-	<!-- ... -->
-</parameters>
-<services>
-	<!-- ... -->
-	<service id="my_admin_bundle.show_user_listener" class="%my_admin_bundle.show_user_listener.class%">
-        <tag name="kernel.event_listener" event="theme.navbar_user" method="onShowUser" />
-    </service>
-	
-	<!-- ... -->
-</services>
-```
 
 ```yaml
-# Resources/config/services.yml
-parameters:
-    my_admin_bundle.show_user_listener.class: MyAdminBundle\EventListener\MyShowUserListener
-
+# config/services.yml
 services:
     my_admin_bundle.show_user_listener:
-        class: %my_admin_bundle.show_user_listener.class%
+        class: MyAdminBundle\EventListener\MyShowUserListener
         tags:
             - { name: kernel.event_listener, event: theme.navbar_user, method: onShowUser }
 ```
+
+TODO kevin - add SF4 auto-wiring and service discovery docu
+
+## Next steps
+
+Please go back to the [AdminLTE bundle documentation](index.md) to find out more about using the theme.
 
 [1]: component_events.md

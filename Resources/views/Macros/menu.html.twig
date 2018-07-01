@@ -1,0 +1,43 @@
+{% macro menu_item(item) %}
+    {% import _self as menu %}
+    {% if item.route or item.hasChildren %}
+        <li id="{{ item.identifier }}" class=" {{ item.isActive ? 'active' : '' }} {{ item.hasChildren? 'treeview' : '' }}">
+            <a href="{{ item.hasChildren ? '#': '/' in item.route ? item.route : path(item.route|route_alias, item.routeArgs) }}">
+                {% if item.icon %} <i class="{{ item.icon }}"></i> {% endif %}
+                {% if item.badge is not same as(false) %}
+                    <small class="label pull-right bg-{{ item.badgeColor }}">{{ item.badge }}</small>
+                {% endif %}
+                {% if item.hasChildren %}<i class="fas fa-angle-left pull-right"></i>{% endif %}
+                <span>{{ item.label|trans }}</span>
+            </a>
+
+            {% if item.hasChildren %}
+                <ul class="treeview-menu">
+                    {% for child in item.children %}
+                        {% if child.hasChildren %}
+                           {{ menu.menu_item(child) }}
+                        {% else %}
+                            <li class="{{ child.isActive ? 'active':'' }}" id="{{ child.identifier }}">
+                                <a href="{{ '/' in child.route ? child.route : path(child.route|route_alias, child.routeArgs) }}">
+                                    {{ menu.menu_item_content(child, '') }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% else %}
+        <li id="{{ item.identifier }}" class="header">
+            {{ menu.menu_item_content(item, '') }}
+        </li>
+    {% endif %}
+{% endmacro %}
+
+{% macro menu_item_content(item, defaultIcon) %}
+    <i class="{{ item.icon|default(defaultIcon) }}"></i>
+    <span>{{ item.label|trans }}</span>
+    {% if item.badge is not same as(false) %}
+        <small class="label pull-right bg-{{ item.badgeColor }}">{{ item.badge }}</small>
+    {% endif %}
+{% endmacro %}

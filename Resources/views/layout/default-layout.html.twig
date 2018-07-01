@@ -222,12 +222,11 @@ desired effect
                         {{ render(controller('AdminLTEBundle:Navbar:user')) }}
                     {% endblock %}
                     {% block avanzu_navbar_control_sidebar_toggle %}
-                    {% if admin_lte_context.control_sidebar %}
-                    <!-- Control Sidebar Toggle Button -->
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fas fa-cogs"></i></a>
-                    </li>
-                    {% endif %}
+                        {% if admin_lte_context.control_sidebar is defined and admin_lte_context.control_sidebar is not empty %}
+                        <li>
+                            <a href="#" data-toggle="control-sidebar"><i class="fas fa-cogs"></i></a>
+                        </li>
+                        {% endif %}
                     {% endblock %}
                 </ul>
             </div>
@@ -306,8 +305,8 @@ desired effect
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                {% block avanzu_page_title %}{{ 'AdminLTE'|trans({}, 'AdminLTEBundle') }}{% endblock %}
-                <small>{% block avanzu_page_subtitle %}{% endblock %}</small>
+                {% block avanzu_page_title %}{{ 'Admin LTE'|trans({}, 'AdminLTEBundle') }}{% endblock %}
+                <small>{% block avanzu_page_subtitle %}{{ 'A short subtitle for your page'|trans({}, 'AdminLTEBundle') }}{% endblock %}</small>
             </h1>
 
             {% block avanzu_breadcrumb %}
@@ -329,7 +328,9 @@ desired effect
 
         <!-- Main content -->
         <section class="{% block avanzu_page_content_class %}content{% endblock %}">
+            {% block avanzu_page_content_start %}{{ include('@AdminLTE/Partials/_flash_messages.html.twig') }}{% endblock %}
             {% block avanzu_page_content %}{% endblock %}
+            {% block avanzu_page_content_end %}{% endblock %}
         </section>
         <!-- /.content -->
 
@@ -349,7 +350,6 @@ desired effect
     {% endblock %}
 </div>
 <!-- ./wrapper -->
-<!-- REQUIRED JS SCRIPTS -->
 
 {% include '@AdminLTE/Partials/_scripts.html.twig' %}
 {% block avanzu_javascripts %}{% endblock %}

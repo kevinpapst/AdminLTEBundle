@@ -6,7 +6,6 @@
 {% set _border    = border|default(admin_lte_context.widget.bordered)  %}
 {% set _footer    = use_footer|default(admin_lte_context.widget.use_footer) or block('box_footer') is defined %}
 
-
 {% if removable is not defined %}
     {% set removable = admin_lte_context.widget.removable %}
 {% endif %}
@@ -21,7 +20,7 @@
             <!-- Buttons, labels, and many other things can be placed here! -->
             {% if collapsible %}
                 {{ button.action_toolbutton(
-                    _collapsed ? 'plus'  : 'minus' ,
+                    _collapsed ? 'fas fa-plus'  : 'fas fa-minus' ,
                     'collapse',
                     collapsible_title|default(admin_lte_context.widget.collapsible_title|default()|trans({}, 'AdminLTEBundle'))
                 ) }}
@@ -29,7 +28,7 @@
 
             {% if removable %}
                 {{ button.action_toolbutton(
-                'times',
+                'fas fa-times',
                 'remove',
                 removable_title|default(admin_lte_context.widget.removable_title|default()|trans({}, 'AdminLTEBundle'))
                 ) }}

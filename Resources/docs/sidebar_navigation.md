@@ -1,10 +1,10 @@
-## The Sidebar Navigation Component
+# The Sidebar Navigation component
 
 __*Notice* If you would rather use the KnpMenuBundle instead, please refer to the [integration guide][1].__
 
 Although the `MenuItemInteface` as well as the `MenuItemModel` are designed to support an unlimited depth, the sidebar menu is currently limited to two levels.
 
-### Data Model
+## Data Model
 
 In order to use this component, your have to create a `MenuItemModel` class that implements the `KevinPapst\AdminLTEBundle\Model\MenuItemInterface`
 ```php
@@ -31,7 +31,7 @@ or a menu label
 $menuLabel = new \KevinPapst\AdminLTEBundle\Model\MenuItemModel('label', 'Label', false);
 ```
 
-### Event Listener
+## Event Listener
 Next, you will need to create an EventListener to work with the `MenuItemListEvent`.
 ```php
 <?php
@@ -91,42 +91,24 @@ class MyMenuItemListListener {
 
 }
 ```
-### Service.xml
+
+## Service defintion
 
 Finally, you need to attach your new listener to the event system:
 
-XML: 
-
-```xml
-	<!-- Resources/config/services.xml -->
-	<parameters>
-		<!-- ... -->
-		<parameter key="my_admin_bundle.menu_listener.class">MyAdminBundle\EventListener\MyMenuItemListListener</parameter>
-		<!-- ... -->
-	</parameters>
-	<services>
-		<!-- ... -->
-		<service id="my_admin_bundle.menu_listener" class="%my_admin_bundle.menu_listener.class%">
-	        <tag name="kernel.event_listener" event="theme.sidebar_setup_menu" method="onSetupMenu" />
-	    </service>
-
-		<!-- ... -->
-	</services>
-```
-
-YAML: 
-
 ```yaml
-    parameters:
-        # ...
-        my_admin_bundle.menu_listener.class: MyAdminBundle\EventListener\MyMenuItemListListener
-
-    services:
-        # ...
-        my_admin_bundle.menu_listener:
-            class: %my_admin_bundle.menu_listener.class%
-            tags:
-                - { name: kernel.event_listener, event:theme.sidebar_setup_menu, method:onSetupMenu }
+# config/services.yml
+services:
+    my_admin_bundle.menu_listener:
+        class: MyAdminBundle\EventListener\MyMenuItemListListener
+        tags:
+            - { name: kernel.event_listener, event:theme.sidebar_setup_menu, method:onSetupMenu }
 ```
+
+TODO kevin - add SF4 auto-wiring and service discovery docu
+
+## Next steps
+
+Please go back to the [AdminLTE bundle documentation](index.md) to find out more about using the theme.
 
 [1]: knp_menu.md

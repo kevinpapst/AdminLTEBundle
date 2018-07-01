@@ -1,8 +1,0 @@
-admin_lte_theme:
-  breadcrumb:
-    home: Home
-  default:
-    form:
-      forms: Forms
-      cancel: Cancel
-      submit: Submit

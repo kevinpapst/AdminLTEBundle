@@ -39,9 +39,9 @@ class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 
-    private function createRouteAlias(NodeBuilder $node)
+    private function createRouteAlias(NodeBuilder $rootNodeChildren)
     {
-        $node
+        $rootNodeChildren
             ->arrayNode('routes')
                 ->children()
                 ->scalarNode('adminlte_welcome')
@@ -82,12 +82,12 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end();
 
-        return $node;
+        return $rootNodeChildren;
     }
 
-    private function createWidgetTree($node)
+    private function createWidgetTree(NodeBuilder $rootNodeChildren)
     {
-        $node
+        $rootNodeChildren
             ->arrayNode('widget')
                 ->children()
                     ->scalarNode('collapsible_title')
@@ -124,10 +124,10 @@ class Configuration implements ConfigurationInterface
                     ->end()
             ->end();
 
-        return $node;
+        return $rootNodeChildren;
     }
 
-    private function createButtonChildren($rootNodeChildren)
+    private function createButtonChildren(NodeBuilder $rootNodeChildren)
     {
         $rootNodeChildren
             ->arrayNode('button')
@@ -146,7 +146,7 @@ class Configuration implements ConfigurationInterface
         return $rootNodeChildren;
     }
 
-    private function createSimpleChildren($rootNodeChildren, $withOptions = true)
+    private function createSimpleChildren(NodeBuilder $rootNodeChildren, $withOptions = true)
     {
         if ($withOptions) {
             $optionChildren = $rootNodeChildren
@@ -183,7 +183,7 @@ class Configuration implements ConfigurationInterface
         return $rootNodeChildren;
     }
 
-    private function createThemeChildren($rootNodeChildren)
+    private function createThemeChildren(NodeBuilder $rootNodeChildren)
     {
         $themeChildren = $rootNodeChildren->arrayNode('theme')->children();
 
@@ -195,7 +195,7 @@ class Configuration implements ConfigurationInterface
         return $rootNodeChildren;
     }
 
-    private function createsubThemeChildren($rootNodeChildren)
+    private function createsubThemeChildren(NodeBuilder $rootNodeChildren)
     {
         $rootNodeChildren
             ->scalarNode('default_avatar')
@@ -220,9 +220,15 @@ class Configuration implements ConfigurationInterface
                 ->defaultFalse()
                 ->info('')
             ->end()
-            ->booleanNode('control_sidebar')
-                ->defaultFalse()
-                ->info('controls whether the right hand panel will be rendered')
+            ->arrayNode('control_sidebar')
+                ->arrayPrototype()
+                    ->children()
+                        ->scalarNode('icon')->end()
+                        ->scalarNode('controller')->end()
+                        ->scalarNode('template')->end()
+                    ->end()
+                ->end()
+                ->info('controls all panels in the right control_sidebar')
             ->end();
 
         return $rootNodeChildren;

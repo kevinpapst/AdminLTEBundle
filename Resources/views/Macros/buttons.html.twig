@@ -1,12 +1,12 @@
 {% macro action_toolbutton(icon, action, label) %}
 <button class="btn btn-box-tool" data-widget="{{ action }}" data-toggle="tooltip" title="{{ label|default('') }}">
-    <i class="fa fa-{{ icon|default('times') }}"></i>
+    <i class="{{ icon|default('times') }}"></i>
 </button>
 {% endmacro %}
 
 {% macro link_toolbutton(icon, href, label) %}
     <a href="{{ href }}" class="btn btn-box-tool" data-toggle="tooltip" title="{{ label|default('') }}">
-        <i class="fa fa-{{ icon|default('times') }}"></i>
+        <i class="{{ icon|default('times') }}"></i>
     </a>
 {% endmacro %}
 
@@ -14,7 +14,7 @@
     {% set _size = size|default(admin_lte_context.button.size) %}
     <a href="{{ href|default('#') }}" class="btn btn-{{ type|default(admin_lte_context.button.type) }}{% if _size %} btn-{{ _size }}{% endif %}">
         {% if icon %}
-            <i class="fa fa-{{ icon }}"></i>
+            <i class="{{ icon }}"></i>
         {% endif %}
         {% if label %}
             <span>{{ label }}</span>
@@ -26,7 +26,7 @@
     {% set _size = size|default(admin_lte_context.button.size) %}
     <button data-action="{{ action }}" class="btn btn-{{ type|default(admin_lte_context.button.type) }}{% if _size %} btn-{{ _size }}{% endif %}">
         {% if icon %}
-            <i class="fa fa-{{ icon }}"></i>
+            <i class="{{ icon }}"></i>
         {% endif %}
         {% if label %}
             <span>{{ label }}</span>

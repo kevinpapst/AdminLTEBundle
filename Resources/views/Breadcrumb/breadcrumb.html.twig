@@ -2,12 +2,12 @@
     <li>
         <a href="{{ path('adminlte_welcome'|route_alias) }}">
             <i class="fas fa-tachometer-alt"></i>
-            {{ 'admin_lte_theme.breadcrumb.home'|trans({}, 'AdminLTEBundle') }}
+            {{ 'Home'|trans({}, 'AdminLTEBundle') }}
         </a>
     </li>
     {% if active %}
         {% for item in active %}
-            <li><a href="{{ item.route is empty ? '#' : '/' in item.route ? item.route : path(item.route, item.routeArgs) }}">{{ item.label }}</a></li>
+            <li><a href="{{ item.route is empty ? '#' : '/' in item.route ? item.route : path(item.route|route_alias, item.routeArgs) }}">{{ item.label }}</a></li>
         {% endfor %}
     {% endif %}
     <li class="active">{{ title }}</li>

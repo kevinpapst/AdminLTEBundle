@@ -8,8 +8,8 @@ services:
         tags:
             - { name: twig.extension }
 
-    KevinPapst\AdminLTEBundle\Helper\ContextHelper:
+    admin_lte_theme.context_helper:
         class: KevinPapst\AdminLTEBundle\Helper\ContextHelper
-        alias: admin_lte_theme.context_helper
+        alias:
         arguments:
             - '%admin_lte_theme.options%'
