@@ -13,18 +13,18 @@ global.moment = Moment;
 require('daterangepicker');
 
 // ------ for charts ------
-const Chart = require('../../vendor/almasaeed2010/adminlte/plugins/chartjs/Chart.min.js');
+const Chart = require('admin-lte/plugins/chartjs/Chart.min.js');
 global.Chart = Chart;
 
 // ------ AdminLTE framework ------
 require('./admin-lte.scss');
-require('../../vendor/almasaeed2010/adminlte/dist/css/AdminLTE.min.css');
-require('../../vendor/almasaeed2010/adminlte/dist/css/skins/_all-skins.css');
+require('admin-lte/dist/css/AdminLTE.min.css');
+require('admin-lte/dist/css/skins/_all-skins.css');
 require('./admin-lte-extensions.scss');
 
 global.$.AdminLTE = {};
 global.$.AdminLTE.options = {};
-require('../../vendor/almasaeed2010/adminlte/dist/js/app.js');
+require('admin-lte/dist/js/app.js');
 
 // ------ Theme itself ------
 require('./default_avatar.png');

@@ -3,7 +3,7 @@ Resources/public/*
 .idea
 vendor
 composer.lock
-yarn.lock
+package-lock.json
 
 # Ignore Eclipse IDE config files
 .buildpath
