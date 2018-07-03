@@ -35,7 +35,7 @@ class ContextHelper extends \ArrayObject
     }
 
     /**
-     * Get attribute method for options. It uses a interal copy array of the
+     * Get attribute method for options. It uses a internal copy array of the
      * storage in the ArrayObject
      *
      * @return array
@@ -113,6 +113,7 @@ class ContextHelper extends \ArrayObject
                 'main_menu' => 'adminlte_main',
                 'breadcrumb_menu' => false,
             ],
+            'control_sidebar' => [],
         ]);
     }
 }
