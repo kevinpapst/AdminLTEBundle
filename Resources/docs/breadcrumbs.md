@@ -14,11 +14,11 @@ Finally, you need to attach your new listener to the event system:
 
 ```yaml
 # config/services.yaml
-    services:
-        app.breadcrumb_listener:
-            class: MyAdminBundle\EventListener\MyMenuItemListListener
-            tags:
-                - { name: kernel.event_listener, event:theme.breadcrumb, method:onSetupMenu }
+services:
+    app.breadcrumb_listener:
+        class: MyAdminBundle\EventListener\MyMenuItemListListener
+        tags:
+            - { name: kernel.event_listener, event:theme.breadcrumb, method:onSetupMenu }
 ```
 
 TODO kevin - add SF4 auto-wiring and service discovery docu

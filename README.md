@@ -1,10 +1,6 @@
-# AdminLTE - a Theme bundle for Symfony 4
+# AdminLTE - a theme bundle for Symfony 4
 
-**WORK IN PROGRESS** Use at your own risk, this repository is in active development and needs docu improvements!
-
-# What this repository is
-
-This repository is a fork of the great [AdminThemeBundle](https://github.com/avanzu/AdminThemeBundle), bringing the AdminLTE theme to the Symfony 4 world.
+This repository is an upgraded fork of the great [AdminThemeBundle](https://github.com/avanzu/AdminThemeBundle), bringing the AdminLTE theme to the Symfony 4 world.
 
 ## Requirements
 
@@ -12,12 +8,11 @@ This repository is a fork of the great [AdminThemeBundle](https://github.com/ava
 - PHP 7.1.3
 - Twig bundle
 
-## Why choose this repository?
+## Why choose this repository over the original?
 
-First and foremost: the original repository has a strong backward compatibility in mind, maintenance is only done if Symfony 3 compatibility is kept.
+First and foremost: the original repository has a strong backward compatibility in mind, maintenance is only done if Symfony 2/3 compatibility is kept ([see this issues](https://github.com/avanzu/AdminThemeBundle/pull/216)).
 
-That means we don't get the new shiny stuff from SF4. But the next major version of Symfony is already out and some of us are lucky enough to work on Symfony 4 projects, probably even using webpack-encore.
-So thats what this bundle tries to achieve: bring the great AdminLTE theme to SF4 users.
+That means we don't get the new shiny stuff from SF4. As some of us already ork on Symfony 4 projects (probably even using webpack-encore) we needed a solution. 
 
 ### Why another fork?
  
@@ -32,9 +27,9 @@ Be aware: I decided to change the projects internal and got rid of some of the "
 I found the all-in-one solution to be more problematic then helpful at several places, so I took the chance to update it to my own interpretation of a theme bundle.
 
 If you previously used the `AvanzuAdminTheme` you will not be able to "just replace" the composer package. 
-Plan ahead, you will probably need a couple of hours [for the migration](Resources/docs/migration_guide.md) (depending on the size of your project) .
+Plan ahead, you will probably need a couple of hours [for the migration](Resources/docs/migration_guide.md) for the migration (depending on the size of your project).
 
-### Main difference
+### Main differences
 
 This branch was split of the original master but with the following PRs merged on top:
 
@@ -75,7 +70,7 @@ cp vendor/kevinpapst/adminlte-bundle/config/packages/admin_lte.yaml config/packa
 
 ## AdminLTE-Bundle Demo
 
-In order to see some working examples, the bundle is showcased in a separate demo-application: [AdminLTEBundle-Demo](https://github.com/kevinpapst/AdminLTEBundle-Demo) 
+In order to see a working example this bundle is showcased in a separate demo-application: [AdminLTEBundle-Demo](https://github.com/kevinpapst/AdminLTEBundle-Demo) 
         
 ## Documentation
 

@@ -37,10 +37,10 @@ Listed in the order of appearance, these are:
 The blocks are defined in the layout in order of appearance. Some of them do contain some of the major components like the sidebar or navbar. 
 In order to redefine the block and to keep the default content, don't forget to use `{{parent()}}` 
 
+<dl>
 <dt>avanzu_html_start
 <dd>In the `html` tag, useful for Angular attributes like ng-app
 
-<dl>
 <dt>avanzu_document_title
 <dd>Defines the `title` defaults to the contents of `avanzu_page_title`
 

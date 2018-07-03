@@ -31,8 +31,7 @@ Available AdminLTE skins are:
 - skin-black
 - skin-black-light
 
-All available options can be seen in the [admin_lte.yaml](https://github.com/kevinpapst/AdminLTEBundle/blob/master/config/packages/admin_lte.yaml) file. 
-
+All available `skin` options can be seen in the [admin_lte.yaml](https://github.com/kevinpapst/AdminLTEBundle/blob/master/config/packages/admin_lte.yaml) file. 
 
 ## Control Sidebar (admin_lte.control_sidebar)
 
@@ -42,6 +41,8 @@ It can contain up to 5 tabs, all of them will display an icon in the tab header.
 Readm more in the [control sidebar](control_sidebar.md) documentation.
 
 ## KNP Menu (admin_lte.knp_menu)
+
+If you use the KNP MenuBundle in your application, you can configure it to be used in the theme.
 
 Please read the [KNP menu docu](knp_menu.md) for more information.
 
@@ -71,6 +72,10 @@ Here the theme route name `welcome` maps to your route `dashboard` here. Without
 - `adminlte_task`: Used to generate a link to a specific task, receives parameter `id` (defaults to: task)
 - `adminlte_tasks`: Used to generate the task list link (defaults to: tasks)
 - `adminlte_profile`: Used for the current user's profile (defaults to: profile)
+
+## Theme configuration (admin_lte.theme)
+
+Default values for several components can be set in `widget` section, find more information in the [Twig widgets](twig_widgets.md) documentation.
 
 ## Next steps
 

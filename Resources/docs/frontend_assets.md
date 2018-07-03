@@ -23,7 +23,7 @@ These new assets will be stored at `Resources/public/`.
 ## Subdirectory usage
 
 The AdminLTE theme comes pre-compiled for usage at domain level. If your application runs under a subdirectory,
-you have to change the file `webpack.config.js` from:
+you have to change a line in the file [webpack.config.js](https://github.com/kevinpapst/AdminLTEBundle/blob/master/webpack.config.js#L8) from:
 
 ```
     .setPublicPath('/bundles/adminlte/')

@@ -3,7 +3,7 @@
 In order to simplify the usage of widget and info boxes, and to help with a consitent look and feel throughout your application, 
 the bundle provides an [embeddable][3] template for the [box-widget][1] and the [infobox-widget][2]. 
 
-## global configuration
+## Global configuration
 The global/general configuration for the box-widget can be defined using the bundle configuration. 
 The values in this configuration example are the default settings. 
 

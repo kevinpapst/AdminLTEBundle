@@ -72,7 +72,7 @@ controller('AdminLTEBundle:Navbar:messages')
 The configuration is now based in the file `admin_lte.yaml` with the main key `admin_lte`, 
 which was previously `avanzu_admin_theme` in the file `avanzu_admin_theme.yaml` (depending on your setup this might be located somewhere else).
 
-They following keys are not supported any longe and can be removed:
+They following keys are not supported any longer and can be removed:
 
 - `use_twig: true`
 - `use_assetic: false`
@@ -84,7 +84,7 @@ NOTE: only `YAML` configs are shipped and `XML` is not supported any longer.
 
 ## Changed route aliases
 
-The file `routes.yml` was removed and the route-aliases were moved to the file `admin-lte.yaml` and config-key `admin_lte.routes`.
+The file `routes.yml` was removed and the route-aliases were moved to the file `admin-lte.yaml` in the config key `admin_lte.routes`.
 
 The configuration was simplified, it is now a key-value definition, where the key is the theme-internal name and the value is the route name for your application. 
 
@@ -94,7 +94,7 @@ More information can be found in the [configurations docu](configurations.md).
 
 The following files were removed, please check your references:
 
-- all demo classes, files and configs
+- all demo classes, files and configs (replaced by the [demo application](https://github.com/kevinpapst/AdminLTEBundle-Demo))
 - class: WidgetHelper
 - class: ExceptionController
 - class: DefaultController
@@ -127,13 +127,14 @@ Please check the [configurations](configurations.md) and [control-sidebar](contr
 
 The frontend-assets are pre-compiled into one CSS and one Javascript file. There is no `ThemeManager` any longer!
 
-If you have your own assets or need to run your application in a subdirectory, you need to adjust the build process, see the [demo application](https://github.com/kevinpapst/AdminLTEBundle-Demo) on how that can be achieved.
+If you have your own assets or need to run your application in a subdirectory, you need to adjust the build process.
+Read the [building frontend assets](frontend_assets.md) documentation and see the [demo application](https://github.com/kevinpapst/AdminLTEBundle-Demo) on how that can be achieved.
 
 ### FontAwesome 5
 
 Compared to the original theme, this bundle was upgraded to use FontAwesome 5.
 
-Please read its documentation carefully, most icon definitions are incompatible as the previous prefix `fa` was replaced by `far` / `fas` / `fab`.
+Please read the [upgrading from v4](https://fontawesome.com/how-to-use/on-the-web/setup/upgrading-from-version-4) documentation carefully, most icon definitions are incompatible as the previous prefix `fa` was replaced by `far` / `fas` / `fab`.
 
 You have to find the proper font and icon and replace it from this:
 
