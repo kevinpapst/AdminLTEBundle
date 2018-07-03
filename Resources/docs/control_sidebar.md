@@ -32,3 +32,7 @@ admin_lte:
 The first tab (`home`) will use the FontAwesome icon `home` and render the content from the template located at `templates/control-sidebar/home.html.twig`.
 
 The second tab (`settings`) will use the FontAwesome icon `cogs` and render the content from the result of the call to the `DefaultController` and its action `controlSidebarSettings()`.
+
+## Next steps
+
+Please go back to the [AdminLTE bundle documentation](README.md) to find out more about using the theme.
