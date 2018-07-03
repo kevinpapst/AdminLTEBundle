@@ -53,13 +53,13 @@ And then the sugar I added in this repository:
 Installation using composer is really easy:
 
 ```bash
-   composer require kevinpapst/admin-lte-bundle ^0.1
+   composer require kevinpapst/adminlte-bundle ^0.2
 ```
 
 For non-released features use:
 
 ```bash
-   composer kevinpapst/admin-lte-bundle dev-master
+   composer kevinpapst/adminlte-bundle dev-master
 ```
 
 Afterwards copy the default config to your `config/packages/` directory:
