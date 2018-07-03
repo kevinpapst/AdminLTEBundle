@@ -125,4 +125,4 @@ In order to redefine the block and to keep the default content, don't forget to 
 
 ## Next steps
 
-Please go back to the [AdminLTE bundle documentation](index.md) to find out more about using the theme.
+Please go back to the [AdminLTE bundle documentation](README.md) to find out more about using the theme.

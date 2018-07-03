@@ -153,7 +153,7 @@ The infobox widget has no default configuration. The very nature of this widget 
 
 ## Next steps
 
-Please go back to the [AdminLTE bundle documentation](index.md) to find out more about using the theme.
+Please go back to the [AdminLTE bundle documentation](README.md) to find out more about using the theme.
 
 [1]: https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#component-box
 [2]: https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#component-info-box

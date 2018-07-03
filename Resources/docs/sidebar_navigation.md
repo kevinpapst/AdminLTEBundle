@@ -109,6 +109,6 @@ TODO kevin - add SF4 auto-wiring and service discovery docu
 
 ## Next steps
 
-Please go back to the [AdminLTE bundle documentation](index.md) to find out more about using the theme.
+Please go back to the [AdminLTE bundle documentation](README.md) to find out more about using the theme.
 
 [1]: knp_menu.md

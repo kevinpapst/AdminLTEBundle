@@ -23,6 +23,10 @@ Customizing the upper navigation bar:
 * [Navbar Messages](navbar_messages.md)
 * [Navbar Notifications](navbar_notifications.md)
 
+Customizing the right control sidebar:
+
+* [Control Sidebar](control_sidebar.md)
+
 For the users how come from the original AdminThemeBundle:
 
 * [Migrating from AdminThemeBundle](migration_guide.md)

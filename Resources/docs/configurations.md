@@ -33,11 +33,17 @@ Available AdminLTE skins are:
 
 All available options can be seen in the [admin_lte.yaml](https://github.com/kevinpapst/AdminLTEBundle/blob/master/config/packages/admin_lte.yaml) file. 
 
-There are a more values you could change without the need to touch the bundle templates, take a look through the files under `Resources/views`.
+
+## Control Sidebar (admin_lte.control_sidebar)
+
+The control sidebar on the right-hand screen will slide-in over the content area.
+It can contain up to 5 tabs, all of them will display an icon in the tab header.     
+
+Readm more in the [control sidebar](control_sidebar.md) documentation.
 
 ## KNP Menu (admin_lte.knp_menu)
 
-Pleas read the [KNP menu docu](knp_menu.md) for more information.
+Please read the [KNP menu docu](knp_menu.md) for more information.
 
 ## Route aliases (admin_lte.routes)
 
@@ -68,4 +74,4 @@ Here the theme route name `welcome` maps to your route `dashboard` here. Without
 
 ## Next steps
 
-Please go back to the [AdminLTE bundle documentation](index.md) to find out more about using the theme.
+Please go back to the [AdminLTE bundle documentation](README.md) to find out more about using the theme.

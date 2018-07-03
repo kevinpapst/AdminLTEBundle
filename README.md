@@ -67,10 +67,16 @@ For non-released features use:
    composer kevinpapst/admin-lte-bundle dev-master
 ```
 
+Afterwards copy the default config to your `config/packages/` directory:
+
+```bash
+cp vendor/kevinpapst/adminlte-bundle/config/packages/admin_lte.yaml config/packages/
+```
+
 ## AdminLTE-Bundle Demo
 
 In order to see some working examples, the bundle is showcased in a separate demo-application: [AdminLTEBundle-Demo](https://github.com/kevinpapst/AdminLTEBundle-Demo) 
         
 ## Documentation
 
-Go ahead and [read the full documentation](Resources/docs/index.md), then install and enjoy your new theme!
+Go ahead and [read the full documentation](Resources/docs/), then install and enjoy your new theme!

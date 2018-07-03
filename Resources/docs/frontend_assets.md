@@ -42,4 +42,4 @@ the directory `my-app/public/bundles/adminlte/`.
 
 ## Next steps
 
-Please go back to the [AdminLTE bundle documentation](index.md) to find out more about using the theme.
+Please go back to the [AdminLTE bundle documentation](README.md) to find out more about using the theme.
