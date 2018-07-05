@@ -1,5 +1,4 @@
 nbproject/*
-Resources/public/*
 .idea
 vendor
 composer.lock
