@@ -27,7 +27,6 @@
         "symfony/config": "^3.4",
         "symfony/dependency-injection": "^3.4",
         "symfony/event-dispatcher" : "^3.4",
-        "symfony/framework-bundle": "^3.4",
         "symfony/http-foundation" : "^3.4",
         "symfony/http-kernel"  : "^3.4",
         "symfony/options-resolver": "^3.4",
