@@ -53,7 +53,7 @@ And then the sugar I added in this repository:
 Installation using composer is really easy:
 
 ```bash
-   composer require kevinpapst/adminlte-bundle ^0.2
+   composer require kevinpapst/adminlte-bundle ^0.4
 ```
 
 For non-released features use:
