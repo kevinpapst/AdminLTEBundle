@@ -13,7 +13,7 @@ use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
 use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -40,7 +40,7 @@ class SidebarController extends Controller
     }
 
     /**
-     * @return EventDispatcher
+     * @return EventDispatcherInterface
      */
     protected function getDispatcher()
     {

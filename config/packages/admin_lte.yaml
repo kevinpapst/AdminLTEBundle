@@ -1,7 +1,7 @@
 #
 # Configuration file for the AdminLTE bundle
 #
-# For more information about the settings visit:
+# For more information about the bundle settings visit:
 # https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/configurations.md
 #
 admin_lte:
@@ -18,7 +18,7 @@ admin_lte:
         collapsed_sidebar: false
         # whether the logo collapses or not
         mini_sidebar: false
-        # tabs in the control_sidebar (right screen) can be configured, see:
+        # configurable tabs in the control_sidebar (right screen), see:
         # https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/control_sidebar.md
         #control_sidebar:
         #    home:
