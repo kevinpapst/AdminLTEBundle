@@ -53,7 +53,7 @@ And then the sugar I added in this repository:
 Installation using composer is really easy:
 
 ```bash
-   composer require kevinpapst/adminlte-bundle ^0.8
+   composer require kevinpapst/adminlte-bundle ^0.9
 ```
 
 For non-released features use:
@@ -74,7 +74,7 @@ Installation using Symfony flex is even easier:
 
 ```bash
 composer config extra.symfony.allow-contrib true
-composer req "kevinpapst/adminlte-bundle:^0.8"
+composer req "kevinpapst/adminlte-bundle:^0.9"
 ```
 
 
