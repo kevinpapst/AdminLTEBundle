@@ -67,6 +67,16 @@ to
 controller('AdminLTEBundle:Navbar:messages')
 ```
 
+Some macro files were updated and moved, replace:
+
+```
+{% import "@AvanzuAdminTheme/layout/macros.html.twig" as macro %}
+```
+to
+```
+{% import "@AdminLTE/Macros/default.html.twig" as macro %}
+```
+
 ## Changed config
 
 The configuration is now based in the file `admin_lte.yaml` with the main key `admin_lte`, 
@@ -86,7 +96,35 @@ NOTE: only `YAML` configs are shipped and `XML` is not supported any longer.
 
 The file `routes.yml` was removed and the route-aliases were moved to the file `admin-lte.yaml` in the config key `admin_lte.routes`.
 
-The configuration was simplified, it is now a key-value definition, where the key is the theme-internal name and the value is the route name for your application. 
+The configuration was simplified, it is now a key-value definition, where the key is the theme-internal name and the value is the route name for your application.
+
+For example you need to replace:
+```
+avanzu_admin_profile:
+  path: /{_locale}/profile/{username}
+  options:
+    avanzu_admin_route: profile
+``` 
+with
+``` 
+admin_lte:
+    routes:
+        adminlte_profile: user_profile
+```
+where the route is defined via annotation:
+```
+class ProfileController extends AbstractController
+{
+    /**
+     * @Route("/profile/{username}", name="user_profile")
+     */
+    public function indexAction(User $profile)
+    {
+        return $this->getProfileView($profile, 'charts');
+    }
+
+}
+```
 
 More information can be found in the [configurations docu](configurations.md).
 

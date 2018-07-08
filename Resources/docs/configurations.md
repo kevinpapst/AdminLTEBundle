@@ -59,7 +59,7 @@ admin_lte:
         adminlte_welcome: dashboard
 ```
 
-Here the theme route name `welcome` maps to your route `dashboard` here. Without defining these routes, the theme will not be able to render.
+Here the theme route name `adminlte_welcome` maps to your route `dashboard` here. Without defining these routes, the theme will not be able to render.
 
 ### Available aliases
 
