@@ -48,7 +48,7 @@ And then the sugar I added in this repository:
 - Webpack-Encore for compiling frontend-assets
 - added Demo application as living documentation for first time users and easier testing
 
-## Installation
+## Installation with Composer
 
 Installation using composer is really easy:
 
@@ -67,6 +67,16 @@ Afterwards copy the default config to your `config/packages/` directory:
 ```bash
 cp vendor/kevinpapst/adminlte-bundle/config/packages/admin_lte.yaml config/packages/
 ```
+
+## Installation with Symfony Flex
+
+Installation using Symfony flex is even easier:
+
+```bash
+composer config extra.symfony.allow-contrib true
+composer req "kevinpapst/adminlte-bundle:^0.5"
+```
+
 
 ## AdminLTE-Bundle Demo
 
