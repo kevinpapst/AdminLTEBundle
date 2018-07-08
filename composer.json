@@ -28,7 +28,6 @@
         "symfony/http-foundation" : "^4.0",
         "symfony/http-kernel"  : "^4.0",
         "symfony/event-dispatcher" : "^4.0",
-        "almasaeed2010/adminlte": "~2.3.0",
         "symfony/dependency-injection": "^4.0",
         "symfony/config": "^4.0",
         "twig/twig": "^2.0",
