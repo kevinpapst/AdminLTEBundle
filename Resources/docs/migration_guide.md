@@ -51,11 +51,11 @@ Replace `use Avanzu\AdminThemeBundle\` with `use KevinPapst\AdminLTEBundle\`.
 
 Replace `@AdminThemeBundle/` with `@AdminLTE`, as example before
 ```
-{% include('@AdminThemeBundle/Partials/_head.html.twig') %}
+{% include('@AdminThemeBundle/Partials/_footer.html.twig') %}
 ```
 and afterwards
 ```
-{% include('@AdminLTE/Partials/_head.html.twig') %}
+{% include('@AdminLTE/Partials/_footer.html.twig') %}
 ```
 
 Also the controller references need to be changed from `AdminThemeBundle:` to `AdminLTEBundle:`, as example from:
@@ -141,6 +141,32 @@ The following files were removed, please check your references:
 - class: ThemeManager
 - class: WidgetExtension
 - class: DependencyResolver
+
+## Templates and layouts
+
+There are shim files, which you can use while you are migrating your application. 
+If you previously relied on the AvanzuAdminTheme layouts, then these files are a replacement for the default twig layouts:
+
+- Use `default-layout-avanzu.html.twig` instead of `default-layout.html.twig` 
+- Use `login-layout-avanzu.html.twig` instead of `login-layout.html.twig` 
+
+Make sure that you don't call `{{ parent() }}` in all blocks start start with the prefix `avanzu_`, as these blocks are only called virtually and don't exist any longer.
+
+Further modifications:
+
+- removed include `Partials/_head.html.twig` (use blocks `head`, `document_title`, `stylesheets` and `javascripts`)
+- removed include `Partials/_scripts.html.twig`
+
+The default layouts were modified to be more compatible with other themes, so the block names were changed and they do not contain `avanzu_` any longer as prefix.
+
+### Changed blocks 
+
+Removed blocks:
+
+- `avanzu_javascripts` 
+- `avanzu_javascripts_inline`
+
+Use `javascripts` instead and don't forget to call `{{ parent() }}` (unless you compile the assets yourself).
 
 ## Configurable control-sidebar
 

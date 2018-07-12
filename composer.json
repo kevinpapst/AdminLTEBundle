@@ -6,20 +6,15 @@
     "authors": [
         {
             "name": "Marc Bach",
-            "email": "mail@avanzu.de",
-            "homepage": "http://www.avanzu.de",
-            "role": "Original Author"
+            "homepage": "http://www.avanzu.de"
         },
         {
             "name": "Ángel Guzmán Maeso",
-            "email": "shakaran@gmail.com",
-            "homepage": "https://shakaran.net/blog",
-            "role": "Developer Collaborator"
+            "homepage": "https://shakaran.net/blog"
         },
         {
             "name": "Kevin Papst",
-            "homepage": "https://www.kevinpapst.de",
-            "role": "Developer"
+            "homepage": "https://www.kevinpapst.de"
         }
     ],
     "require": {

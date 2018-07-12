@@ -29,7 +29,7 @@ instead of submitting a pull request with the code of the proposed feature.
 
 ## Reporting Bugs
 
- 1. Go to [the list of AdminThemeBundle issues][adminthemebundle-issues] and look for any
+ 1. Go to [the list of issues][adminthemebundle-issues] and look for any
     existing bug similar to yours.
  2. If the bug hasn't been reported yet, [create a new issue][create-issue] and
     fill in the given issue template.
