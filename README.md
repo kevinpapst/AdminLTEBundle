@@ -18,7 +18,7 @@ Installation using Symfony flex is the recommended way:
 
 ```bash
 composer config extra.symfony.allow-contrib true
-composer req "kevinpapst/adminlte-bundle:^0.9"
+composer req "kevinpapst/adminlte-bundle:^1.0"
 ```
 
 ## Installation with Composer
@@ -26,7 +26,7 @@ composer req "kevinpapst/adminlte-bundle:^0.9"
 Installation using the traditional composer approach is almost as simple:
 
 ```bash
-   composer require kevinpapst/adminlte-bundle ^0.9
+   composer require kevinpapst/adminlte-bundle ^1.0
 ```
 
 Afterwards copy the default config to your `config/packages/` directory:
@@ -93,6 +93,4 @@ See the PRs [#202](https://github.com/kevinpapst/kimai2/pull/202/files) and [#20
 
 Published under the MIT, read the [LICENSE](LICENSE) file for more information.
 
-Thanks to all contributors and people who helped shaping Kimai 2!
-
-As this repository is based on a fork of [AdminThemeBundle](https://github.com/avanzu/AdminThemeBundle) please check their contributor list as well.
+This repository is based on the work of [AdminThemeBundle](https://github.com/avanzu/AdminThemeBundle), please check their contributor list as well and give them a star!
