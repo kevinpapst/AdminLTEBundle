@@ -1,3 +1,7 @@
+[![Latest Stable Version](https://poser.pugx.org/kevinpapst/adminlte-bundle/v/stable)](https://packagist.org/packages/kevinpapst/adminlte-bundle)
+[![Total Downloads](https://poser.pugx.org/kevinpapst/adminlte-bundle/downloads)](https://packagist.org/packages/kevinpapst/adminlte-bundle)
+[![License](https://poser.pugx.org/kevinpapst/adminlte-bundle/license)](LICENSE)
+
 # AdminLTE Bundle for Symfony 4
 
 This repository is an upgraded version of the AvanzuAdminThemeBundle, bringing the AdminLTE theme to Symfony 4.
