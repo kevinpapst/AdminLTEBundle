@@ -1,0 +1,39 @@
+{#
+    Do not use this layout if you are starting a fresh project with this bundle.
+    This file is ONLY meant for migrating from AvanzuAdminTheme to AdminLTE bundle!
+    More infos can be found in Resources/docs/migration_guide.md
+
+    Use it by adding this code to your own base template:
+
+    {% extends '@AdminLTE/layout/default-layout-avanzu.html.twig' %}
+#}
+{% extends '@AdminLTE/layout/default-layout.html.twig' %}
+
+{% block html_start %}{% if block('avanzu_html_start') is defined %}{{ block('avanzu_html_start') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block title %}{% if block('avanzu_document_title') is defined %}{{ block('avanzu_document_title') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block head %}{% if block('avanzu_head') is defined %}{{ block('avanzu_head') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block body_start %}{% if block('avanzu_body_start') is defined %}{{ block('avanzu_body_start') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block after_body_start %}{% if block('avanzu_after_body_start') is defined %}{{ block('avanzu_after_body_start') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block logo_path %}{% if block('avanzu_logo_path') is defined %}{{ block('avanzu_logo_path') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block logo_mini %}{% if block('avanzu_logo_mini') is defined %}{{ block('avanzu_logo_mini') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block logo_large %}{% if block('avanzu_logo_lg') is defined %}{{ block('avanzu_logo_lg') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block navbar_toggle %}{% if block('avanzu_navbar_toggle') is defined %}{{ block('avanzu_navbar_toggle') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block navbar_messages %}{% if block('avanzu_navbar_messages') is defined %}{{ block('avanzu_navbar_messages') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block navbar_notifications %}{% if block('avanzu_navbar_notifications') is defined %}{{ block('avanzu_navbar_notifications') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block navbar_tasks %}{% if block('avanzu_navbar_tasks') is defined %}{{ block('avanzu_navbar_tasks') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block navbar_user %}{% if block('avanzu_navbar_user') is defined %}{{ block('avanzu_navbar_user') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block navbar_control_sidebar_toggle %}{% if block('avanzu_navbar_control_sidebar_toggle') is defined %}{{ block('avanzu_navbar_control_sidebar_toggle') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block sidebar_user %}{% if block('avanzu_sidebar_user') is defined %}{{ block('avanzu_sidebar_user') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block sidebar_search %}{% if block('avanzu_sidebar_search') is defined %}{{ block('avanzu_sidebar_search') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block sidebar_nav %}{% if block('avanzu_sidebar_nav') is defined %}{{ block('avanzu_sidebar_nav') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block page_title %}{% if block('avanzu_page_title') is defined %}{{ block('avanzu_page_title') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block page_subtitle %}{% if block('avanzu_page_subtitle') is defined %}{{ block('avanzu_page_subtitle') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block breadcrumb %}{% if block('avanzu_breadcrumb') is defined %}{{ block('avanzu_breadcrumb') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block page_content_before %}{% if block('avanzu_page_content_before') is defined %}{{ block('avanzu_page_content_before') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block page_content_class %}{% if block('avanzu_page_content_class') is defined %}{{ block('avanzu_page_content_class') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block page_content_start %}{% if block('avanzu_page_content_start') is defined %}{{ block('avanzu_page_content_start') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block page_content %}{% if block('avanzu_page_content') is defined %}{{ block('avanzu_page_content') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block page_content_end %}{% if block('avanzu_page_content_end') is defined %}{{ block('avanzu_page_content_end') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block page_content_after %}{% if block('avanzu_page_content_after') is defined %}{{ block('avanzu_page_content_after') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block footer %}{% if block('avanzu_footer') is defined %}{{ block('avanzu_footer') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block control_sidebar %}{% if block('avanzu_control_sidebar') is defined %}{{ block('avanzu_control_sidebar') }}{% else %}{{ parent() }}{% endif %}{% endblock %}

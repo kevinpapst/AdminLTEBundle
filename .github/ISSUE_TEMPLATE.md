@@ -17,5 +17,5 @@ If this is a FEATURE REQUEST:
 | Component  | Version |
 | ------------- | ------------- |
 | Symfony version  | Your current symfony version  |
-| AdminThemeBundle  | 1.3.5/dev-master/specific-commit/tag  |
+| AdminLTEBundle  | 0.9/dev-master/commit/tag  |
 | Operating System  | Windows or GNU/Linux or other  |

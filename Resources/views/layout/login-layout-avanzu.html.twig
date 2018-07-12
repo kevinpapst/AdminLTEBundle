@@ -1,0 +1,19 @@
+{% extends '@AdminLTE/layout/login-layout.html.twig' %}
+{#
+    Do not use this layout if you are starting a fresh project with this bundle.
+    This file is ONLY meant for migrating from AvanzuAdminTheme to AdminLTE bundle!
+
+    More infos can be found in Resources/docs/migration_guide.md
+#}
+{% block html_start %}{% if block('avanzu_html_start') is defined %}{{ block('avanzu_html_start') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block title %}{% if block('avanzu_login_title') is defined %}{{ block('avanzu_login_title') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block stylesheets %}{% if block('avanzu_stylesheets') is defined %}{{ block('avanzu_stylesheets') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block head %}{% if block('avanzu_head') is defined %}{{ block('avanzu_head') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block body_start %}{% if block('avanzu_body_start') is defined %}{{ block('avanzu_body_start') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block after_body_start %}{% if block('avanzu_after_body_start') is defined %}{{ block('avanzu_after_body_start') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block login_box %}{% if block('avanzu_login_box') is defined %}{{ block('avanzu_login_box') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block logo_login %}{% if block('avanzu_logo_login') is defined %}{{ block('avanzu_logo_login') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block login_box_msg %}{% if block('avanzu_login_box_msg') is defined %}{{ block('avanzu_login_box_msg') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block login_form %}{% if block('avanzu_login_form') is defined %}{{ block('avanzu_login_form') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block login_social_auth %}{% if block('avanzu_login_social_auth') is defined %}{{ block('avanzu_login_social_auth') }}{% else %}{{ parent() }}{% endif %}{% endblock %}
+{% block login_actions %}{% if block('avanzu_login_actions') is defined %}{{ block('avanzu_login_actions') }}{% else %}{{ parent() }}{% endif %}{% endblock %}

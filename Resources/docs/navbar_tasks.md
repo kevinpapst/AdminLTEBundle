@@ -12,14 +12,13 @@ Just like the other theme components, this one requires some route aliases to wo
 In order to use this component, your user class has to implement the `KevinPapst\AdminLTEBundle\Model\TaskInterface`
 ```php
 <?php
-namespace MyAdminBundle\Model;
-// ...
-use KevinPapst\AdminLTEBundle\Model\TaskInterface as ThemeTask
+namespace App\Model;
 
-class TaskModel implements  ThemeTask {
-	// ...
+use KevinPapst\AdminLTEBundle\Model\TaskInterface as ThemeTask;
+
+class TaskModel implements ThemeTask
+{
 	// implement interface methods
-	// ...
 }
 ```
 
@@ -27,53 +26,36 @@ class TaskModel implements  ThemeTask {
 Next, you will need to create an EventListener to work with the `TaskListEvent`.
 ```php
 <?php
-namespace MyAdminBundle\EventListener;
-
-// ...
+namespace App\EventListener;
 
 use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
-use MyAdminBundle\Model\TaskModel;
+use App\Model\TaskModel;
 
-class MyTaskListListener {
-
-	// ...
-
-	public function onListTasks(TaskListEvent $event) {
-
-		foreach($this->getTasks() as $task) {
-			$event->addTask($task);
-		}
-
-	}
-
-	protected function getTasks() {
-		// retrieve your task models/entities here
-	}
-
+class TaskListListener
+{
+    public function onListTasks(TaskListEvent $event) {
+        foreach($this->getTasks() as $task) {
+            $event->addTask($task);
+        }
+    }
+    
+    protected function getTasks() {
+        // return your task models/entities here
+    }
 }
 ```
 
 ## Service defintion
 
 Finally, you need to attach your new listener to the event system:
-```xml
-<!-- Resources/config/services.xml -->
-<parameters>
-	<!-- ... -->
-	<parameter key="my_admin_bundle.task_list_listener.class">MyAdminBundle\EventListener\MyTaskListListener</parameter>
-	<!-- ... -->
-</parameters>
-<services>
-	<!-- ... -->
-	<service id="my_admin_bundle.task_list_listener" class="%my_admin_bundle.task_list_listener.class%">
-        <tag name="kernel.event_listener" event="theme.tasks" method="onListTasks" />
-    </service>
-	
-	<!-- ... -->
-</services>
+```yaml
+services:
+    app.task_list_listener:
+        class: App\EventListener\TaskListListener
+        tags:
+            - { name: kernel.event_listener, event:theme.tasks, method:onListTasks }
 ```
 
-TODO kevin - change docu to YAML and Symfony 4
 TODO kevin - add SF4 auto-wiring and service discovery docu
 
 ## Next steps

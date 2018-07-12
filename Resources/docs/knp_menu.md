@@ -2,7 +2,7 @@
 
 The KnpMenu can be used instead of the regular built-in menu and breadcrumb components. 
 
-## Install the suggested dependency ##
+## Install the suggested dependency
 
 Install through composer with:
 
