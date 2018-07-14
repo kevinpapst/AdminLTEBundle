@@ -36,6 +36,9 @@ admin_lte:
     routes:
         adminlte_welcome: home
         adminlte_login: login
+        adminlte_login_check: login_check
+        #adminlte_registration: registration
+        #adminlte_password_reset: password_reset
         adminlte_message: message
         adminlte_messages: messages
         adminlte_notification: notification

@@ -33,7 +33,8 @@
         "friendsofphp/php-cs-fixer": "^2.10"
     },
     "suggest" : {
-        "knplabs/knp-menu-bundle" : "Allows easy menu integration."
+        "knplabs/knp-menu-bundle" : "Allows easy menu integration",
+        "friendsofsymfony/user-bundle": "Allows easy user management and security support"
     },
     "autoload": {
         "psr-4": { "KevinPapst\\AdminLTEBundle\\": "" }

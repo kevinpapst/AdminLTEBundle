@@ -17,21 +17,12 @@ This bundle ships with two main template files which you need to extend in your 
 ```
 {% extends '@AdminLTE/layout/default-layout.html.twig' %}
 ```
-- `login-layout.html.twig` only for the login screen
+- `security-layout.html.twig` for the security screens (login, register, forgot password)
 ```
-{% extends '@AdminLTE/layout/login-layout.html.twig' %}
+{% extends '@AdminLTE/layout/security-layout.html.twig' %}
 ```
+See [FOSUserBundle](fos_userbundle.md) for an easy integration of the security functionality.
 
-### Login theme and CSRF protection
-
-The theme does not ship with CSRF protection enabled, as this would cause twig errors if `framework.csrf_protection` is disabled.
-You can overwrite the block `login_form_end` to enable it (which is highly recommended):
-
-```
-{% block login_form_end %}
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
-{% endblock %}
-```
 
 ## Partials
 
@@ -59,8 +50,45 @@ Listed in the order of appearance, these are:
 </dl>
 
 ## Layout blocks
+
 The blocks are defined in the layout in order of appearance. Some of them do contain some of the major components like the sidebar or navbar. 
-In order to redefine the block and to keep the default content, don't forget to use `{{parent()}}` 
+In order to redefine the block and to keep the default content, don't forget to use `{{parent()}}`.
+
+### security-layout.html.twig
+
+<dl>
+
+<dt>login_box
+<dd>The main content block, containing the complete body of the   
+
+<dt>logo_login
+<dd>The welcome title, should hold your application name or logo icon
+
+<dt>login_box_msg
+<dd>The box (inside) title, e.g. when you have different forms add a short title/explanation here
+
+<dt>login_box_error
+<dd>Security errors will be rendered in this block
+
+<dt>login_form
+<dd>
+
+<dt>login_form_start
+<dd>
+
+<dt>login_form_end
+<dd>
+
+<dt>login_social_auth
+<dd>
+
+<dt>login_actions
+<dd>
+
+</dl>
+
+
+### default-layout.html.twig
 
 <dl>
 

@@ -61,10 +61,13 @@ admin_lte:
 
 Here the theme route name `adminlte_welcome` maps to your route `dashboard` here. Without defining these routes, the theme will not be able to render.
 
-### Available aliases
+### Available route aliases
 
 - `adminlte_welcome`: Used for the "homepage" within the theme (defaults to: home)
-- `adminlte_login`: The login route (defaults to: login)
+- `adminlte_login`: The login route (defaults to: login, must match option: `security.firewalls.xyz.form_login.login_path`)
+- `adminlte_login_check`: The login route (defaults to: login_check, must match option: `security.firewalls.xyz.form_login.check_path`)
+- `adminlte_registration`: The route for the registration form (defaults to: null). If route is not defined, then the link is not shown.
+- `adminlte_password_reset`: The route for the "forgot password" form (defaults to: null). If route is not defined, then the link is not shown.
 - `adminlte_message`: Used to generate a link to a specific message, receives parameter `id` (defaults to: message)
 - `adminlte_messages`: Used to generate the message list link (defaults to: messages)
 - `adminlte_notification`: Used to generate a link to a specific notification, receives parameter `id` (defaults to: notification)

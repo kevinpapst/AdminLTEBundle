@@ -26,9 +26,17 @@
                 <source>Password</source>
                 <target>Password</target>
             </trans-unit>
+            <trans-unit id="Show homepage">
+                <source>Show homepage</source>
+                <target>Show homepage</target>
+            </trans-unit>
             <trans-unit id="Back to login">
                 <source>Back to login</source>
                 <target>Back to login</target>
+            </trans-unit>
+            <trans-unit id="Reset your password">
+                <source>Reset your password</source>
+                <target>Reset your password</target>
             </trans-unit>
             <trans-unit id="I forgot my password">
                 <source>I forgot my password</source>
