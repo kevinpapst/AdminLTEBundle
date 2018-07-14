@@ -9,6 +9,7 @@ If you cannot find the needed information in this list of topics, please create 
 * [Form theme](form_theme.md)
 * [Twig extensions](twig_widgets.md)
 * [Building frontend assets](frontend_assets.md)
+* [FOSUserBundle integration](fos_userbundle.md)
 
 Customizing the left menu-sidebar:
 

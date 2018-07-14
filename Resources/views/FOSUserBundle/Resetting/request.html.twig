@@ -1,0 +1,30 @@
+{% extends '@AdminLTE/layout/security-layout.html.twig' %}
+
+{% block login_social_auth %}{% endblock %}
+
+{% block login_box_msg %}
+    {{ 'Reset your password'|trans({}, 'AdminLTEBundle') }}
+{% endblock %}
+
+{% block login_form %}
+    {% trans_default_domain 'FOSUserBundle' %}
+
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+        <div class="form-group has-feedback">
+            <input type="text" id="username" name="username" required="required" class="form-control" placeholder="{{ 'resetting.request.username'|trans }}">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">{{ 'resetting.request.submit'|trans }}</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block login_actions %}
+    <br>
+    <a href="{{ path('adminlte_login'|route_alias) }}">
+        {{ 'Back to login'|trans({}, 'AdminLTEBundle') }}
+    </a>
+{% endblock %}

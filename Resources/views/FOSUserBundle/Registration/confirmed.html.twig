@@ -1,0 +1,16 @@
+{% extends '@AdminLTE/layout/security-layout.html.twig' %}
+
+{% block login_social_auth %}{% endblock %}
+
+{% block login_form %}
+    {% block fos_user_content %}
+        <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
+    {% endblock fos_user_content %}
+{% endblock %}
+
+{% block login_actions %}
+    <br>
+    <a href="{{ path('adminlte_welcome'|route_alias) }}">
+        {{ 'Show homepage'|trans({}, 'AdminLTEBundle') }}
+    </a>
+{% endblock %}
