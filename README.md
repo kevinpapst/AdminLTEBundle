@@ -34,7 +34,7 @@ Installation using Symfony flex is the recommended way:
 
 ```bash
 composer config extra.symfony.allow-contrib true
-composer req "kevinpapst/adminlte-bundle:^1.0"
+composer req "kevinpapst/adminlte-bundle:^1.1"
 ```
 
 ## Installation with Composer
@@ -42,7 +42,7 @@ composer req "kevinpapst/adminlte-bundle:^1.0"
 Installation using the traditional composer approach is almost as simple:
 
 ```bash
-   composer require kevinpapst/adminlte-bundle ^1.0
+   composer require kevinpapst/adminlte-bundle ^1.1
 ```
 
 Afterwards copy the default config to your `config/packages/` directory:
