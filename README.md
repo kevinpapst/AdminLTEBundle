@@ -16,6 +16,18 @@ This repository is an upgraded version of the AvanzuAdminThemeBundle, bringing t
 
 Go ahead and [read the full documentation](Resources/docs/), then install and enjoy your new theme!
 
+## Features
+
+Some of the main features of this theme bundle:
+
+- Two main layouts for main application and security (login, forgot password, register account...)
+- Support for Symfony 4.x
+- Support for KNPMenuBundle 
+- Support for FOSUserBundle
+- Webpack-Encore support for building assets
+- Event-driven handling of menu entries, tasks and notifications
+- Translations for english and german (please help translating it to more languages)
+
 ## Installation with Symfony Flex
 
 Installation using Symfony flex is the recommended way:
@@ -71,6 +83,7 @@ This branch was split of the original master but with the following PRs merged o
 
 And a lot of other changes which I added in this repository: 
 
+- added support for [FOSUserBundle](Resources/docs/fos_userbundle.md)
 - replaced AliasRouting with simpler version
 - changed namespaces to allow co-existence with AdminThemeBundle
 - changed and extended default configuration
