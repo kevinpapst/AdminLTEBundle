@@ -107,7 +107,7 @@ class NavbarController extends EmitterController
         /** @var ShowUserEvent $userEvent */
         $userEvent = $this->triggerMethod(ThemeEvents::THEME_NAVBAR_USER, new ShowUserEvent());
 
-        if ($userEvent instanceof ShowUserEvent) {
+        if ($userEvent instanceof ShowUserEvent && null !== $userEvent->getUser()) {
             return $this->render(
                 '@AdminLTE/Navbar/user.html.twig',
                 [
