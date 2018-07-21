@@ -13,7 +13,7 @@ global.moment = Moment;
 require('daterangepicker');
 
 // ------ for charts ------
-const Chart = require('admin-lte/plugins/chartjs/Chart.min.js');
+const Chart = require('chart.js/Chart.min');
 global.Chart = Chart;
 
 // ------ AdminLTE framework ------
@@ -24,7 +24,7 @@ require('./admin-lte-extensions.scss');
 
 global.$.AdminLTE = {};
 global.$.AdminLTE.options = {};
-require('admin-lte/dist/js/app.js');
+require('admin-lte/dist/js/app.min');
 
 // ------ Theme itself ------
 require('./default_avatar.png');
