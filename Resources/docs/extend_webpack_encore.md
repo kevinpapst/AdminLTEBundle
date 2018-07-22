@@ -39,7 +39,7 @@ require('../../vendor/kevinpapst/adminlte-bundle/Resources/assets/admin-lte');
 
 ```
 
-Then, if you didn't alread did, install all packages and build your assets:
+Then, if you didn't already did it, install all packages and build your assets:
 
 ```bash
 user@devpc:/var/www/symfony-project$ yarn install
