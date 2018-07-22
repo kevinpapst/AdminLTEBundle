@@ -36,23 +36,22 @@ Then create your main app and require adminlte:
 ```js
 // assets/js/app.js
 require('../../vendor/kevinpapst/adminlte-bundle/Resources/assets/admin-lte');
-
 ```
 
-Then, if you didn't already did it, install all packages and build your assets:
+Then, if you haven't done it already, install all packages and build your assets:
 
 ```bash
-user@devpc:/var/www/symfony-project$ yarn install
+yarn install
 [...]
-user@devpc:/var/www/symfony-project$ ./node_modules/.bin/encore production
-
+./node_modules/.bin/encore production
 ```
+
 ### Correct the assets path
 
 Now you have to update your assets path. To do this, create a new template
 that is going to extend AdminLTEBundle main template:
 
-```yaml
+```twig
 {# templates/base.html.twig #}
 
 {% extends '@AdminLTE/layout/default-layout.html.twig' %}
@@ -64,7 +63,6 @@ that is going to extend AdminLTEBundle main template:
 {% block javascripts %}
     <script src="{{ asset('builds/app.js') }}"></script>
 {% endblock %}
-
 ```
 
 And finally, in your project, extend your `templates/base.html.twig` when rendering 
