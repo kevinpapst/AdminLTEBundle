@@ -8,7 +8,6 @@ If you cannot find the needed information in this list of topics, please create 
 * [Breadcrumb Menu](breadcrumbs.md)
 * [Form theme](form_theme.md)
 * [Twig extensions](twig_widgets.md)
-* [Building frontend assets](frontend_assets.md)
 * [FOSUserBundle integration](fos_userbundle.md)
 
 Customizing the left menu-sidebar:
@@ -27,6 +26,11 @@ Customizing the upper navigation bar:
 Customizing the right control sidebar:
 
 * [Control Sidebar](control_sidebar.md)
+
+Extending webpack-encore:
+
+* [Building frontend assets](frontend_assets.md)
+* [Extend Webpack Encore](extend_webpack_encore.md)
 
 For the users how come from the original AdminThemeBundle:
 
