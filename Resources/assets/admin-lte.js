@@ -24,7 +24,7 @@ require('./admin-lte-extensions.scss');
 
 global.$.AdminLTE = {};
 global.$.AdminLTE.options = {};
-require('admin-lte/dist/js/app.min');
+require('admin-lte/dist/js/adminlte.min');
 
 // ------ Theme itself ------
 require('./default_avatar.png');
