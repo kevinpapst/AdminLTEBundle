@@ -110,7 +110,7 @@ admin_lte:
         breadcrumb_menu: <your builder alias or false to disable breadcrumbs>
 ```
 
-## Using the admin_lte_context kpn menu ##
+## Using the admin_lte_context knp menu ##
 
 If your layout or default layout is using admin_lte_context.knp_menu.enable for check if the knp menu is enabled, you need use
 the options context instead the general config. That is use the options key as following:
