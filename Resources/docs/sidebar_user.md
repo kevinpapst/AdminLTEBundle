@@ -10,7 +10,7 @@ services:
     app.show_user_listener:
         class: App\EventListener\SidebarUserListener
         tags:
-            - { name: kernel.event_listener, event:theme.sidebar_user, method:onShowUser }
+            - { name: kernel.event_listener, event: theme.sidebar_user, method: onShowUser }
 ```
 
 TODO kevin - add SF4 auto-wiring and service discovery docu
