@@ -12,10 +12,6 @@ const Moment = require('moment');
 global.moment = Moment;
 require('daterangepicker');
 
-// ------ for charts ------
-const Chart = require('chart.js/Chart.min');
-global.Chart = Chart;
-
 // ------ AdminLTE framework ------
 require('./admin-lte.scss');
 require('admin-lte/dist/css/AdminLTE.min.css');
@@ -29,6 +25,6 @@ require('admin-lte/dist/js/adminlte.min');
 // ------ Theme itself ------
 require('./default_avatar.png');
 
-// ------ icheck for enhanced radio buttins and checkboxes ------
+// ------ icheck for enhanced radio buttons and checkboxes ------
 require('icheck');
 require('icheck/skins/square/blue.css');
