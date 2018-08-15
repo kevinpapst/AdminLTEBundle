@@ -21,28 +21,27 @@ admin_lte:
 If you don't want the "password reset" and/or "register account" functionality, 
 simply remove the configuration keys `adminlte_password_reset` and `adminlte_registration`. 
 
-## templates/bundles/FOSUserBundle
+## Create templates
 
-Create the directory with the following file structure:
+Create the directory `templates/bundles/FOSUserBundle/` with the following file structure:
 
 ```
-// YouAppRoot/templates/bundles/
-─ FOSUserBundle
-  └── views
-      ├── Registration
-      │   ├── confirmed.html.twig
-      │   └── register.html.twig
-      ├── Resetting
-      │   └── request.html.twig
-      ├── Security
-      │   └── login.html.twig
-      └── layout.html.twig
+templates/bundles
+└── FOSUserBundle
+    ├── Registration
+    │   ├── confirmed.html.twig
+    │   └── register.html.twig
+    ├── Resetting
+    │   └── request.html.twig
+    ├── Security
+    │   └── login.html.twig
+    └── layout.html.twig
 ```
 
 Add the following files with the following minimal structure, 
 you might want to overwrite the block `logo_login` to display your app name:
 
-### Registration/register.html.twig
+### Registration/confirmed.html.twig
 
 ```
 {% extends '@AdminLTE/FOSUserBundle/Registration/confirmed.html.twig' %}
