@@ -27,6 +27,7 @@ Some of the main features of this theme bundle:
 - Webpack-Encore support for building assets
 - Event-driven handling of menu entries, tasks and notifications
 - Translations for english and german (please help translating it to more languages)
+- Based on AdminLTE 2.4.8
 
 ## Installation with Symfony Flex
 
@@ -34,7 +35,7 @@ Installation using Symfony flex is the recommended way:
 
 ```bash
 composer config extra.symfony.allow-contrib true
-composer req "kevinpapst/adminlte-bundle:^1.1"
+composer req "kevinpapst/adminlte-bundle:^2.0"
 ```
 
 ## Installation with Composer
@@ -42,7 +43,7 @@ composer req "kevinpapst/adminlte-bundle:^1.1"
 Installation using the traditional composer approach is almost as simple:
 
 ```bash
-   composer require kevinpapst/adminlte-bundle ^1.1
+   composer require kevinpapst/adminlte-bundle ^2.0
 ```
 
 Afterwards copy the default config to your `config/packages/` directory:
@@ -55,7 +56,7 @@ cp vendor/kevinpapst/adminlte-bundle/config/packages/admin_lte.yaml config/packa
 
 In order to see a working example this bundle is showcased in a separate demo-application: [AdminLTEBundle-Demo](https://github.com/kevinpapst/AdminLTEBundle-Demo).
 
-The demo is neither fully functional nor showcasing all options right now, I am working on it!
+The demo is neither fully functional nor showcasing all options right now, but I am working on it!
 
 ## Why choose this repository over the original?
 
@@ -83,15 +84,16 @@ This branch was split of the original master but with the following PRs merged o
 
 And a lot of other changes which I added in this repository: 
 
+- upgraded to AdminLTE 2.4.8
 - added support for [FOSUserBundle](Resources/docs/fos_userbundle.md)
+- added Symfony Flex recipe for easier integration
+- using Webpack-Encore for compiling frontend-assets
 - replaced AliasRouting with simpler version
 - changed namespaces to allow co-existence with AdminThemeBundle
 - changed and extended default configuration
 - huge cleanup of the codebase
 - changed all codeblock-names (with additional shim files for migration)   
 - changed control-sidebar, content is now configurable from admin_lte.yaml or the ContextHelper
-- added Symfony Flex recipe for easier integration
-- using Webpack-Encore for compiling frontend-assets
 - a [Demo application](https://github.com/kevinpapst/AdminLTEBundle-Demo) as living documentation for first time users and easier testing
 - updated composer.json to reflect more up-to-date bundle dependencies
 

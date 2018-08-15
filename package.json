@@ -5,7 +5,6 @@
         "admin-lte": "~2.4.8",
         "bootstrap-sass": "^3.3.7",
         "bootstrap-select": "^1.13.1",
-        "chart.js": "1.1.*",
         "daterangepicker": "^3.0.3",
         "icheck": "^1.0.2",
         "jquery": "^3.3.1",
