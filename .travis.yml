@@ -1,35 +1,27 @@
 language: php
+sudo: false
 
-php:
-  - 5.5
-  - 5.6
-  - 7.0
-  - 7.1
-  - 7.2
-  - nightly
-
-env: ~
-
-install:
-  - rm -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
-  - composer install
-
-before_script: ~
-
-  allow_failures:
-    - php: nightly
-
-  fast_finish: true
-
-# cache vendors
 cache:
   directories:
     - vendor
+    - node_modules
     - $HOME/.composer/cache
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.1
+    - php: 7.2
+
+before_install:
+  - phpenv config-rm xdebug.ini
+  - composer self-update
+
+install:
+  - composer install
 
 # This triggers builds to run on the new TravisCI infrastructure.
 # See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
-sudo: false
 
 notifications:
   webhooks: ~

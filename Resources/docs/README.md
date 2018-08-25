@@ -2,7 +2,8 @@
 
 If you cannot find the needed information in this list of topics, please create an [issue](https://github.com/kevinpapst/AdminLTEBundle/issues):
 
-* [Configure the theme](configurations.md)
+* [Bundle configuration](configurations.md)
+  * [Configure the theme](bundle_options.md)
 * [Using the layout](layout.md)
 * [Components](component_events.md)
 * [Breadcrumb Menu](breadcrumbs.md)
