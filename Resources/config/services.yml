@@ -1,5 +1,11 @@
 services:
 
+    KevinPapst\AdminLTEBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
+        arguments:
+            - "@event_dispatcher"
+
     KevinPapst\AdminLTEBundle\Twig\AdminExtension:
         class: KevinPapst\AdminLTEBundle\Twig\AdminExtension
         arguments:

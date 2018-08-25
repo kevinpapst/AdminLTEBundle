@@ -12,12 +12,10 @@ namespace KevinPapst\AdminLTEBundle\Controller;
 use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
 use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class SidebarController extends Controller
+class SidebarController extends EmitterController
 {
     /**
      * @return \Symfony\Component\HttpFoundation\Response
@@ -37,14 +35,6 @@ class SidebarController extends Controller
                     'user' => $userEvent->getUser(),
                 ]
         );
-    }
-
-    /**
-     * @return EventDispatcherInterface
-     */
-    protected function getDispatcher()
-    {
-        return $this->get('event_dispatcher');
     }
 
     /**

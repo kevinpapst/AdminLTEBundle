@@ -12,15 +12,13 @@ namespace KevinPapst\AdminLTEBundle\Controller;
 use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
 use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use KevinPapst\AdminLTEBundle\Model\MenuItemInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Controller to handle breadcrumb display inside the layout
  */
-class BreadcrumbController extends Controller
+class BreadcrumbController extends EmitterController
 {
     /**
      * Controller Reference action to be called inside the layout.
@@ -57,13 +55,5 @@ class BreadcrumbController extends Controller
             'active' => $list,
             'title' => $title,
         ]);
-    }
-
-    /**
-     * @return EventDispatcher
-     */
-    protected function getDispatcher()
-    {
-        return $this->get('event_dispatcher');
     }
 }
