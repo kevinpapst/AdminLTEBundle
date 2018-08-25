@@ -27,6 +27,7 @@ class ContextHelper extends \ArrayObject
     public function setOption($name, $value)
     {
         $this->offsetSet($name, $value);
+
         return $this;
     }
 

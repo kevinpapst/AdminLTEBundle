@@ -73,9 +73,9 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
             $sidebar = $config['control_sidebar'];
         }
 
-        $contextOptions = (array)($config['options'] ?? []);
+        $contextOptions = (array) ($config['options'] ?? []);
         $contextOptions['control_sidebar'] = $sidebar;
-        $contextOptions['knp_menu'] = (array)$config['knp_menu'];
+        $contextOptions['knp_menu'] = (array) $config['knp_menu'];
         $contextOptions = array_merge($contextOptions, $config['theme']);
 
         return $contextOptions;

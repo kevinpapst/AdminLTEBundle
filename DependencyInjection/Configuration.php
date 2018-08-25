@@ -267,6 +267,5 @@ class Configuration implements ConfigurationInterface
         ->end();
 
         return $node;
-
     }
 }
