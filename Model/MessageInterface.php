@@ -17,7 +17,7 @@ interface MessageInterface
     /**
      * Returns the sender
      *
-     * @return mixed
+     * @return UserInterface
      */
     public function getFrom();
 
@@ -38,7 +38,7 @@ interface MessageInterface
     /**
      * Returns the unique identifier of this message
      *
-     * @return mixed
+     * @return string
      */
     public function getIdentifier();
 }

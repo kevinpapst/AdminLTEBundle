@@ -15,7 +15,7 @@ namespace KevinPapst\AdminLTEBundle\Model;
 class MenuItemModel implements MenuItemInterface
 {
     /**
-     * @var mixed
+     * @var string
      */
     protected $identifier;
 

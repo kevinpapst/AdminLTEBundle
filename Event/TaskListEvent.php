@@ -13,10 +13,19 @@ use KevinPapst\AdminLTEBundle\Model\TaskInterface;
 
 class TaskListEvent extends ThemeEvent
 {
+    /**
+     * @var TaskInterface[]
+     */
     protected $tasks = [];
 
+    /**
+     * @var int
+     */
     protected $max;
 
+    /**
+     * @var int
+     */
     protected $total = 0;
 
     /**

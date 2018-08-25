@@ -17,9 +17,9 @@ use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
- * This is the class that loads and manages your bundle configuration
+ * Loads AdminLTEBundle configuration
  *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
+ * @see http://symfony.com/doc/current/cookbook/bundles/extension.html
  */
 class AdminLTEExtension extends Extension implements PrependExtensionInterface
 {
@@ -34,7 +34,7 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
             $config = $this->processConfiguration($baseConfiguration, $configs);
         } catch (InvalidConfigurationException $e) {
             // Fallback: ignore invalid config from the container user config file and abort use configuration in load
-            echo '[AdminLTE] invalid theme config, bundle config was skipped: ' . $e->getMessage();
+            echo '[AdminLTEBundle] invalid theme config, bundle config was skipped: ' . $e->getMessage();
             $config = [];
         }
 
@@ -48,13 +48,11 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
             $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
             $loader->load('services.yml');
         } catch (\Exception $e) {
-            echo '[AdminLTE] invalid services config found: ' . $e->getMessage();
+            echo '[AdminLTEBundle] invalid services config found: ' . $e->getMessage();
         }
     }
 
     /**
-     * Allow an extension to prepend the extension configurations.
-     *
      * @see https://symfony.com/doc/current/bundles/prepend_extension.html
      *
      * @param ContainerBuilder $container
@@ -62,18 +60,13 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
     public function prepend(ContainerBuilder $container)
     {
         $baseConfiguration = new Configuration();
-
-        // Load the configuration from files
-
-        // The configuration of our ThemeExtension
         $configs = $container->getExtensionConfig($this->getAlias());
 
         try {
-            // use the Configuration class to generate a config array with the config extension
             $config = $this->processConfiguration($baseConfiguration, $configs);
         } catch (InvalidConfigurationException $e) {
-            // Fallback: ignore invalid config from the container user config file and abort use configuration in prepend
-            echo 'AdminLTE: invalid config (prepend): ' . $e->getMessage() . PHP_EOL . '    The config options for the bundle were skipped' . PHP_EOL;
+            // Fallback: ignore invalid config from the container user config file and abort prepend
+            echo '[AdminLTEBundle] invalid config (prepend), config options for the bundle were skipped: ' . $e->getMessage();
             $config = [];
         }
 
@@ -84,7 +77,6 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
 
         // Use the config only if it is fully validated from the processed configuration
         if (!empty($config)) {
-            // Get all the bundles
             $bundles = $container->getParameter('kernel.bundles');
 
             if (isset($bundles['TwigBundle'])) {

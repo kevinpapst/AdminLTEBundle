@@ -41,6 +41,14 @@ class UserModel implements UserInterface
      */
     protected $isOnline = false;
 
+    /**
+     * @param string $username
+     * @param string $avatar
+     * @param \DateTime $memberSince
+     * @param bool $isOnline
+     * @param string $name
+     * @param string $title
+     */
     public function __construct($username = '', $avatar = '', $memberSince = null, $isOnline = true, $name = '', $title = '')
     {
         $this->avatar = $avatar;
@@ -179,6 +187,9 @@ class UserModel implements UserInterface
         return $this->getIsOnline();
     }
 
+    /**
+     * @return string
+     */
     public function getIdentifier()
     {
         return str_replace(' ', '-', $this->getUsername());
