@@ -1,4 +1,4 @@
-## Form theme
+# Form theme
 
 This bundle provide a form-theme under [Resources/views/layout/form-theme.html.twig](Resources/views/layout/form-theme.html.twig) which
 allow customize the form elements in AdminLTE.

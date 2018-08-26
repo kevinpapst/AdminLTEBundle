@@ -1,16 +1,12 @@
-## Rebuilding assets
+# Rebuilding assets
+
 In case you want to rebuild the static scripts or need a build for a custom environment.
 
-### System requirements
-
-TODO kevin - describe how to install dependencies and re-generate the frontend assets + webpack/webpack + encore/yarn/npm
-
-
-### Install vendor scripts
+## Install vendor scripts
 
 Execute `yarn install` to install the dependencies for this theme. 
     
-### Build asset files
+## Build asset files
 
 To re-generate the asset files execute: 
 
