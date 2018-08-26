@@ -8,7 +8,7 @@
             </trans-unit>
             <trans-unit id="Remember Me">
                 <source>Remember Me</source>
-                <target>Remember Me</target>
+                <target>Запомнить меня</target>
             </trans-unit>
             <trans-unit id="Sign in to start your session">
                 <source>Sign in to start your session</source>
@@ -28,23 +28,23 @@
             </trans-unit>
             <trans-unit id="Show homepage">
                 <source>Show homepage</source>
-                <target>Show homepage</target>
+                <target>Показать главную</target>
             </trans-unit>
             <trans-unit id="Back to login">
                 <source>Back to login</source>
-                <target>Back to login</target>
+                <target>Вернуться на страницу входа</target>
             </trans-unit>
             <trans-unit id="Reset your password">
                 <source>Reset your password</source>
-                <target>Reset your password</target>
+                <target>Восстановить пароль</target>
             </trans-unit>
             <trans-unit id="I forgot my password">
                 <source>I forgot my password</source>
-                <target>I forgot my password</target>
+                <target>Я забыл свой пароль</target>
             </trans-unit>
             <trans-unit id="Register a new account">
                 <source>Register a new account</source>
-                <target>Register a new account</target>
+                <target>Регистрация новой учетной записи</target>
             </trans-unit>
         </body>
     </file>
