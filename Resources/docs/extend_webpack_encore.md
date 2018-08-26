@@ -1,10 +1,10 @@
-## Extend Webpack Encore
+# Extend Webpack Encore
 
 If you are going to use your customized webpack-encore configuration and
 want to take advantage of all the libraries imported from AdminLTEBundle, 
 you can easily extend its configuration.
 
-### Create your webpack.config.js
+## Create your webpack.config.js
 
 First of all, create your own webpack.config.js, as in [Symfony documentation](http://symfony.com/doc/current/frontend/encore/simple-example.html):
 
@@ -46,7 +46,7 @@ yarn install
 ./node_modules/.bin/encore production
 ```
 
-### Correct the assets path
+## Correct the assets path
 
 Now you have to update your assets path. To do this, create a new template
 that is going to extend AdminLTEBundle main template:

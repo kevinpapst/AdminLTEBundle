@@ -6,7 +6,7 @@
 
 This repository is an upgraded version of the AvanzuAdminThemeBundle, bringing the AdminLTE theme to Symfony 4.
 
-## Requirements
+## Minimum requirements
 
 - Symfony 4.0
 - PHP 7.1.3
@@ -26,7 +26,7 @@ Some of the main features of this theme bundle:
 - Support for FOSUserBundle
 - Webpack-Encore support for building assets
 - Event-driven handling of menu entries, tasks and notifications
-- Translations for english and german (please help translating it to more languages)
+- Translations for: english, german, italian, czech, russian (please help translating it to more languages)
 - Based on AdminLTE 2.4.8
 
 ## Installation with Symfony Flex

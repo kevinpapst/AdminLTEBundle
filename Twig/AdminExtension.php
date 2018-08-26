@@ -32,6 +32,9 @@ class AdminExtension extends \Twig_Extension
         $this->routes = $routes;
     }
 
+    /**
+     * @return \Twig_Filter[]
+     */
     public function getFilters()
     {
         return [
@@ -40,11 +43,19 @@ class AdminExtension extends \Twig_Extension
         ];
     }
 
+    /**
+     * @param string $routeName
+     * @return string
+     */
     public function getRouteByAlias($routeName)
     {
         return $this->routes[$routeName] ?? $routeName;
     }
 
+    /**
+     * @param string $classes
+     * @return string
+     */
     public function bodyClass($classes = '')
     {
         $classList = [$classes];

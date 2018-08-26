@@ -21,8 +21,14 @@ class NotificationListEvent extends ThemeEvent
      */
     protected $notifications = [];
 
+    /**
+     * @var int
+     */
     protected $total = 0;
 
+    /**
+     * @var int
+     */
     protected $max = null;
 
     /**

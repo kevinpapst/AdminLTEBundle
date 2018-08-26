@@ -14,7 +14,6 @@ use KevinPapst\AdminLTEBundle\Event\NotificationListEvent;
 use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
 use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class NavbarController extends EmitterController
@@ -22,14 +21,6 @@ class NavbarController extends EmitterController
     public const MAX_NOTIFICATIONS = 5;
     public const MAX_MESSAGES = 5;
     public const MAX_TASKS = 5;
-
-    /**
-     * @return EventDispatcherInterface
-     */
-    protected function getDispatcher()
-    {
-        return $this->get('event_dispatcher');
-    }
 
     public function notificationsAction($max = self::MAX_NOTIFICATIONS)
     {

@@ -31,6 +31,9 @@ class MessageListEvent extends ThemeEvent
      */
     protected $totalMessages = 0;
 
+    /**
+     * @var int
+     */
     protected $max = null;
 
     /**

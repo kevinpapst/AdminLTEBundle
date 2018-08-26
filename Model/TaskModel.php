@@ -9,9 +9,6 @@
 
 namespace KevinPapst\AdminLTEBundle\Model;
 
-/**
- * Class TaskModel
- */
 class TaskModel implements TaskInterface
 {
     public const COLOR_AQUA = 'aqua';
@@ -33,12 +30,12 @@ class TaskModel implements TaskInterface
     protected $color = self::COLOR_AQUA;
 
     /**
-     * @var null
+     * @var string
      */
     protected $title;
 
     /**
-     * @param null $title
+     * @param string $title
      * @param int $progress
      * @param string $color
      */
@@ -70,7 +67,7 @@ class TaskModel implements TaskInterface
     }
 
     /**
-     * @param mixed $progress
+     * @param int $progress
      *
      * @return $this
      */
@@ -82,7 +79,7 @@ class TaskModel implements TaskInterface
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getProgress()
     {
@@ -90,7 +87,7 @@ class TaskModel implements TaskInterface
     }
 
     /**
-     * @param mixed $title
+     * @param string $title
      *
      * @return $this
      */
@@ -102,13 +99,16 @@ class TaskModel implements TaskInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getTitle()
     {
         return $this->title;
     }
 
+    /**
+     * @return string
+     */
     public function getIdentifier()
     {
         return $this->title;

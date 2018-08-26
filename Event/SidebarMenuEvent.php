@@ -13,9 +13,6 @@ use KevinPapst\AdminLTEBundle\Model\MenuItemInterface;
 use Knp\Menu\MenuItem;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * Class SidebarMenuEvent
- */
 class SidebarMenuEvent extends ThemeEvent
 {
     /**
@@ -28,13 +25,16 @@ class SidebarMenuEvent extends ThemeEvent
      */
     protected $request;
 
-    public function __construct($request = null)
+    /**
+     * @param Request $request
+     */
+    public function __construct(Request $request = null)
     {
         $this->request = $request;
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Request
+     * @return Request
      */
     public function getRequest()
     {
@@ -42,7 +42,7 @@ class SidebarMenuEvent extends ThemeEvent
     }
 
     /**
-     * @return array
+     * @return MenuItemInterface[]|MenuItem[]
      */
     public function getItems()
     {
@@ -58,7 +58,8 @@ class SidebarMenuEvent extends ThemeEvent
     }
 
     /**
-     * @param $id
+     * @param string $id
+     * @return MenuItemInterface||MenuItem|null
      */
     public function getRootItem($id)
     {
@@ -66,11 +67,11 @@ class SidebarMenuEvent extends ThemeEvent
     }
 
     /**
-     * @return MenuItemInterface|null
+     * @return MenuItemInterface|MenuItem|null
      */
     public function getActive()
     {
-        foreach ($this->getItems() as $item) { /** @var $item MenuItemInterface */
+        foreach ($this->getItems() as $item) {
             if ($item->isActive()) {
                 return $item;
             }

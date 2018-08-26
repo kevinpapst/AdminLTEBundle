@@ -17,15 +17,28 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 class EmitterController extends Controller
 {
     /**
+     * @var EventDispatcherInterface
+     */
+    protected $eventDispatcher;
+
+    /**
+     * @param EventDispatcherInterface $dispatcher
+     */
+    public function __construct(EventDispatcherInterface $dispatcher)
+    {
+        $this->eventDispatcher = $dispatcher;
+    }
+
+    /**
      * @return EventDispatcherInterface
      */
     protected function getDispatcher()
     {
-        return $this->get('event_dispatcher');
+        return $this->eventDispatcher;
     }
 
     /**
-     * @param $eventName
+     * @param string $eventName
      *
      * @return bool
      */
