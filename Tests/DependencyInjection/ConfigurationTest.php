@@ -54,7 +54,7 @@ class ConfigurationTest extends TestCase
                     'boxed_layout' => false,
                     'collapsed_sidebar' => false,
                     'mini_sidebar' => false,
-                    // this is deprecated
+                    // this is deprecated, but still supported until 3.0
                     'control_sidebar' => [
                         'home' => [
                             'icon' => 'fas fa-home',

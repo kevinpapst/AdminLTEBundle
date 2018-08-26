@@ -12,7 +12,8 @@ namespace KevinPapst\AdminLTEBundle\Event;
 use KevinPapst\AdminLTEBundle\Model\NotificationInterface;
 
 /**
- * Class NotificationListEvent
+ * The NotificationListEvent should be used with the ThemeEvents::THEME_NOTIFICATIONS
+ * in order to collect all NotificationInterface objects that should be rendered in the notification section.
  */
 class NotificationListEvent extends ThemeEvent
 {

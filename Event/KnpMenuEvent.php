@@ -14,6 +14,10 @@ use Knp\Menu\ItemInterface;
 use Knp\Menu\MenuFactory;
 use Knp\Menu\MenuItem;
 
+/**
+ * The KnpMenuEvent should be used with the ThemeEvents::THEME_SIDEBAR_SETUP_KNP_MENU
+ * in order to collect all MenuItemInterface objects that should be rendered in the menu/navigation section.
+ */
 class KnpMenuEvent extends ThemeEvent
 {
     /**
