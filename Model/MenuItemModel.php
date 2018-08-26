@@ -52,6 +52,9 @@ class MenuItemModel implements MenuItemInterface
      */
     protected $badge = false;
 
+    /**
+     * @var string
+     */
     protected $badgeColor = 'green';
 
     /**
@@ -59,6 +62,15 @@ class MenuItemModel implements MenuItemInterface
      */
     protected $parent = null;
 
+    /**
+     * @param string $id
+     * @param string $label
+     * @param string $route
+     * @param array $routeArgs
+     * @param mixed $icon
+     * @param mixed $badge
+     * @param string $badgeColor
+     */
     public function __construct(
         $id,
         $label,
@@ -134,7 +146,7 @@ class MenuItemModel implements MenuItemInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getIdentifier()
     {
@@ -142,7 +154,7 @@ class MenuItemModel implements MenuItemInterface
     }
 
     /**
-     * @param mixed $identifier
+     * @param string $identifier
      *
      * @return $this
      */
@@ -186,7 +198,7 @@ class MenuItemModel implements MenuItemInterface
     }
 
     /**
-     * @return \KevinPapst\AdminLTEBundle\Model\MenuItemInterface
+     * @return MenuItemInterface
      */
     public function getParent()
     {
@@ -194,7 +206,7 @@ class MenuItemModel implements MenuItemInterface
     }
 
     /**
-     * @param \KevinPapst\AdminLTEBundle\Model\MenuItemInterface $parent
+     * @param MenuItemInterface $parent
      *
      * @return $this
      */
