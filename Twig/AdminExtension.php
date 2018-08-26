@@ -9,6 +9,7 @@
 
 namespace KevinPapst\AdminLTEBundle\Twig;
 
+use KevinPapst\AdminLTEBundle\Helper\Constants;
 use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
 
 class AdminExtension extends \Twig_Extension
@@ -40,6 +41,7 @@ class AdminExtension extends \Twig_Extension
         return [
             new \Twig_SimpleFilter('body_class', [$this, 'bodyClass']),
             new \Twig_SimpleFilter('route_alias', [$this, 'getRouteByAlias']),
+            new \Twig_SimpleFilter('text_type', [$this, 'getTextType']),
         ];
     }
 
@@ -50,6 +52,30 @@ class AdminExtension extends \Twig_Extension
     public function getRouteByAlias($routeName)
     {
         return $this->routes[$routeName] ?? $routeName;
+    }
+
+    /**
+     * @param string $type
+     * @return string
+     */
+    public function getTextType($type)
+    {
+        switch($type) {
+            case Constants::TYPE_INFO:
+                $type = Constants::COLOR_AQUA;
+                break;
+            case Constants::TYPE_WARNING:
+                $type = Constants::COLOR_YELLOW;
+                break;
+            case Constants::TYPE_SUCCESS:
+                $type = Constants::COLOR_GREEN;
+                break;
+            case Constants::TYPE_ERROR:
+                $type = Constants::COLOR_RED;
+                break;
+        }
+
+        return 'text-' . $type;
     }
 
     /**
