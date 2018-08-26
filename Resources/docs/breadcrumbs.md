@@ -1,27 +1,43 @@
-## The Breadcrumb Component
+# The Breadcrumb component
 
 The breadcrumb maps a list of route to a list of link. 
-The component works in conjucntion with the [Sidebar Navigation](sidebar_navigation.md) component.
 
-### Event Listener
+You don't need to build a new EventListener/EventSubscriber as long as you've already made it with the [Sidebar Navigation](sidebar_navigation.md) component. 
+If it fits your needs, you can re-use this class to build the Breadcrumb list of links.
 
-You don't need to build an event listener as long as you've already made it with the [Sidebar Navigation](sidebar_navigation.md) component. 
-You will reuse this listener to build the Breadcrumb list of links.
+## EventSubscriber
 
-### Service defintion
+Edit the previously made class `MenuBuilderSubscriber` and register it for another event:
 
-Finally, you need to attach your new listener to the event system:
+```php
+<?php
+// src/EventSubscriber/MenuBuilderSubscriber.php
+class MenuBuilderSubscriber implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            ThemeEvents::THEME_SIDEBAR_SETUP_MENU => ['onSetupMenu', 100],
+            ThemeEvents::THEME_BREADCRUMB => ['onSetupNavbar', 100],
+        ];
+    }
+    
+    // ... the rest of the class follows here ...
+}
+```
+
+## EventListener
+
+If you are using an EventListener, you have to register it as new listener to the event system. 
 
 ```yaml
 # config/services.yaml
 services:
     app.breadcrumb_listener:
-        class: MyAdminBundle\EventListener\MyMenuItemListListener
+        class: MyAdminBundle\EventListener\MenuBuilderListener
         tags:
-            - { name: kernel.event_listener, event:theme.breadcrumb, method:onSetupMenu }
+            - { name: kernel.event_listener, event: theme.breadcrumb, method: onSetupMenu }
 ```
-
-TODO kevin - add SF4 auto-wiring and service discovery docu
 
 As you can see we are using the menu listener from the [Sidebar Navigation](sidebar_navigation.md) 
 but attaching to the `theme.breadcrumb` event.

@@ -30,11 +30,10 @@ class BreadcrumbController extends Controller
      * If there are no listeners attached for this event, the return value is an empty response.
      *
      * @param Request $request
-     * @param string $title
      *
      * @return Response
      */
-    public function breadcrumbAction(Request $request, $title = '')
+    public function breadcrumbAction(Request $request)
     {
         if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_BREADCRUMB)) {
             return new Response();
@@ -55,7 +54,6 @@ class BreadcrumbController extends Controller
 
         return $this->render('@AdminLTE/Breadcrumb/breadcrumb.html.twig', [
             'active' => $list,
-            'title' => $title,
         ]);
     }
 

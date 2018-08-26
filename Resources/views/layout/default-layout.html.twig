@@ -107,7 +107,7 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
                 {% if admin_lte_context.knp_menu.enable %}
                     {% include '@AdminLTE/Breadcrumb/knp-breadcrumb.html.twig' %}
                 {% else %}
-                    {{ render(controller('AdminLTEBundle:Breadcrumb:breadcrumb', {'request':app.request, 'title' : block('page_title')})) }}
+                    {{ render(controller('AdminLTEBundle:Breadcrumb:breadcrumb', {'request':app.request})) }}
                 {% endif %}
             {% endblock %}
         </section>
