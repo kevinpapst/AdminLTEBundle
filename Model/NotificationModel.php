@@ -11,12 +11,26 @@ namespace KevinPapst\AdminLTEBundle\Model;
 
 class NotificationModel implements NotificationInterface
 {
+    /**
+     * @return string
+     */
     protected $type;
 
+    /**
+     * @return string
+     */
     protected $message;
 
+    /**
+     * @return string
+     */
     protected $icon;
 
+    /**
+     * @param string $message
+     * @param string $type
+     * @param string $icon
+     */
     public function __construct($message = null, $type = 'info', $icon = 'fas fa-exclamation-triangle')
     {
         $this->message = $message;
@@ -25,7 +39,7 @@ class NotificationModel implements NotificationInterface
     }
 
     /**
-     * @param mixed $message
+     * @param string $message
      *
      * @return $this
      */
@@ -37,7 +51,7 @@ class NotificationModel implements NotificationInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getMessage()
     {
@@ -45,7 +59,7 @@ class NotificationModel implements NotificationInterface
     }
 
     /**
-     * @param mixed $type
+     * @param string $type
      *
      * @return $this
      */
@@ -57,7 +71,7 @@ class NotificationModel implements NotificationInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getType()
     {
@@ -84,6 +98,9 @@ class NotificationModel implements NotificationInterface
         return $this->icon;
     }
 
+    /**
+     * @return string
+     */
     public function getIdentifier()
     {
         return $this->message;

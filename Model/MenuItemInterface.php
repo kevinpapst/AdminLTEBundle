@@ -15,85 +15,77 @@ namespace KevinPapst\AdminLTEBundle\Model;
 interface MenuItemInterface
 {
     /**
-     * @return mixed
+     * @return string
      */
     public function getIdentifier();
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getLabel();
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getRoute();
 
     /**
-     * @return mixed
+     * @return bool
      */
     public function isActive();
 
     /**
-     * @param $isActive
-     *
-     * @return mixed
+     * @param bool $isActive
      */
     public function setIsActive($isActive);
 
     /**
-     * @return mixed
+     * @return bool
      */
     public function hasChildren();
 
     /**
-     * @return mixed
+     * @return array
      */
     public function getChildren();
 
     /**
      * @param MenuItemInterface $child
-     *
-     * @return mixed
      */
     public function addChild(MenuItemInterface $child);
 
     /**
      * @param MenuItemInterface $child
-     *
-     * @return mixed
      */
     public function removeChild(MenuItemInterface $child);
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getIcon();
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getBadge();
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getBadgeColor();
 
     /**
-     * @return mixed
+     * @return MenuItemInterface
      */
     public function getParent();
 
     /**
-     * @return mixed
+     * @return bool
      */
     public function hasParent();
 
     /**
      * @param MenuItemInterface $parent
-     *
-     * @return mixed
      */
     public function setParent(MenuItemInterface $parent = null);
 

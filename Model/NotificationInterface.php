@@ -11,11 +11,23 @@ namespace KevinPapst\AdminLTEBundle\Model;
 
 interface NotificationInterface
 {
+    /**
+     * @return string
+     */
     public function getMessage();
 
+    /**
+     * @return string
+     */
     public function getType();
 
+    /**
+     * @return string
+     */
     public function getIcon();
 
+    /**
+     * @return string
+     */
     public function getIdentifier();
 }

@@ -9,9 +9,6 @@
 
 namespace KevinPapst\AdminLTEBundle\Model;
 
-/**
- * Class NavBarUserLink
- */
 class NavBarUserLink
 {
     /**
@@ -28,11 +25,9 @@ class NavBarUserLink
     protected $parameters;
 
     /**
-     * NavBarUserLink constructor.
-     *
-     * @param $title
-     * @param $path
-     * @param $parameters
+     * @param string $title
+     * @param string $path
+     * @param array $parameters
      */
     public function __construct($title, $path, $parameters = [])
     {

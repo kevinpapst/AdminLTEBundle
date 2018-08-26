@@ -35,7 +35,7 @@ class ShowUserEvent extends ThemeEvent
     protected $links = [];
 
     /**
-     * @param \KevinPapst\AdminLTEBundle\Model\UserInterface $user
+     * @param UserInterface $user
      *
      * @return $this
      */
@@ -47,7 +47,7 @@ class ShowUserEvent extends ThemeEvent
     }
 
     /**
-     * @return \KevinPapst\AdminLTEBundle\Model\UserInterface
+     * @return UserInterface
      */
     public function getUser()
     {

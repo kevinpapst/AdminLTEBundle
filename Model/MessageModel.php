@@ -9,9 +9,6 @@
 
 namespace KevinPapst\AdminLTEBundle\Model;
 
-/**
- * Simple implementation of the MessageInterface
- */
 class MessageModel implements MessageInterface
 {
     /**
@@ -49,7 +46,7 @@ class MessageModel implements MessageInterface
      *
      * @param UserInterface $from
      * @param string $subject
-     * @param null $sentAt
+     * @param \DateTime $sentAt
      * @param UserInterface $to
      */
     public function __construct(UserInterface $from = null, $subject = '', $sentAt = null, UserInterface $to = null)
@@ -63,7 +60,7 @@ class MessageModel implements MessageInterface
     /**
      * Set the sender
      *
-     * @param \KevinPapst\AdminLTEBundle\Model\UserInterface $from
+     * @param UserInterface $from
      *
      * @return $this
      */
@@ -77,7 +74,7 @@ class MessageModel implements MessageInterface
     /**
      * Get the Sender
      *
-     * @return \KevinPapst\AdminLTEBundle\Model\UserInterface
+     * @return UserInterface
      */
     public function getFrom()
     {
@@ -135,7 +132,7 @@ class MessageModel implements MessageInterface
     /**
      * Set the recipient
      *
-     * @param \KevinPapst\AdminLTEBundle\Model\UserInterface $to
+     * @param UserInterface $to
      *
      * @return $this
      */
@@ -149,7 +146,7 @@ class MessageModel implements MessageInterface
     /**
      * Get the recipient
      *
-     * @return \KevinPapst\AdminLTEBundle\Model\UserInterface
+     * @return UserInterface
      */
     public function getTo()
     {

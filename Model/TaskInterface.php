@@ -11,11 +11,23 @@ namespace KevinPapst\AdminLTEBundle\Model;
 
 interface TaskInterface
 {
+    /**
+     * @return string
+     */
     public function getColor();
 
+    /**
+     * @return int
+     */
     public function getProgress();
 
+    /**
+     * @return string
+     */
     public function getTitle();
 
+    /**
+     * @return string
+     */
     public function getIdentifier();
 }
