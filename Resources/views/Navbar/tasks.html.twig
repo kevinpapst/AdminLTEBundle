@@ -1,13 +1,11 @@
-<!-- Tasks: style can be found in dropdown.less -->
 <li class="dropdown tasks-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <i class="far fa-flag"></i>
         <span class="label label-danger">{{ total }}</span>
     </a>
     <ul class="dropdown-menu">
-        <li class="header">{{ 'You have %total% tasks' |trans({'%total%':total}, 'AdminLTEBundle') }}</li>
+        <li class="header">{{ 'You have %total% tasks' |transchoice(total, {'%total%':total}, 'AdminLTEBundle') }}</li>
         <li>
-            <!-- inner menu: contains the actual data -->
             <ul class="menu">
                 {% for task in tasks %}
                     <li>
@@ -31,7 +29,7 @@
                 {%  endfor  %}
             </ul>
         <li class="footer">
-            <a href="{{ path('adminlte_tasks'|route_alias) }}">{{'View all tasks'|trans({}, 'AdminLTEBundle')}}</a>
+            <a href="{{ path('adminlte_tasks'|route_alias) }}">{{'View all'|trans({}, 'AdminLTEBundle')}}</a>
         </li>
     </ul>
 </li>
