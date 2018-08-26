@@ -42,6 +42,11 @@ services:
 As you can see we are using the menu listener from the [Sidebar Navigation](sidebar_navigation.md) 
 but attaching to the `theme.breadcrumb` event.
 
+## Translating breadcrumb items
+
+You don't have to care about translating your breadcrumb, each item will be automatically displayed by applying the `|trans` filter. 
+We apply the same principle like we do in the [Sidebar Navigation](sidebar_navigation.md). 
+
 ## Next steps
 
 Please go back to the [AdminLTE bundle documentation](README.md) to find out more about using the theme.

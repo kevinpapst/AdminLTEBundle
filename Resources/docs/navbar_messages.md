@@ -1,7 +1,8 @@
 # The Navbar Messages component
 
 ## Routes
-Just like the other theme components, this one requires some route aliases to work. Please refer to the [component overview](component_events.md) to learn about the route alias details. 
+Just like the other theme components, this one requires some route aliases to work. 
+Please refer to the [configurations overview](configurations.md) to learn about the route alias details. 
 
 ## Required aliases
 * all_messages
@@ -44,7 +45,7 @@ class MessageListListener
     }
 }
 ```
-## Service defintion
+## Service definition
 
 Finally, you need to attach your new listener to the event system:
 ```yaml
@@ -52,7 +53,7 @@ services:
     app.message_list_listener:
         class: App\EventListener\MessageListListener
         tags:
-            - { name: kernel.event_listener, event:theme.messages, method:onListMessages }
+            - { name: kernel.event_listener, event: theme.messages, method: onListMessages }
 ```
 
 TODO kevin - add SF4 auto-wiring and service discovery docu

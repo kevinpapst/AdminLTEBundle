@@ -1,7 +1,8 @@
 # The Navbar User component
 
 ## Routes
-Just like the other theme components, this one requires some route aliases to work. Please refer to the [component overview][1] to learn about the route alias details. 
+Just like the other theme components, this one requires some route aliases to work. 
+Please refer to the [configurations overview](configurations.md) to learn about the route alias details. 
 
 ### Required aliases
 * profile
@@ -13,53 +14,115 @@ In order to use this component, your user class has to implement the `KevinPapst
 ```php
 <?php
 namespace MyAdminBundle\Model;
-// ...
-use KevinPapst\AdminLTEBundle\Model\UserInterface as ThemeUser
 
-class UserModel implements  ThemeUser {
-	// ...
-	// implement interface methods
-	// ...
+use KevinPapst\AdminLTEBundle\Model\UserInterface;
+
+class UserModel implements UserInterface {
+    // ...
+    // implement interface methods
+    // ...
 }
 ```
 
-## Event Listener
-Next, you will need to create an EventListener to work with the `ShowUserEvent`.
+The bundle provides the `UserModel` as a ready to use implementation of the `UserInterface`. 
+
+## Auto-discovery with Symfony 4
+
+In case you activated service discovery and auto-wiring in your app, you can write an EventSubscriber which will 
+be automatically registered in your container:
+
+```php
+<?php
+// src/EventSubscriber/NavbarUserSubscriber.php
+namespace MyAdminBundle\EventSubscriber;
+
+use MyAdminBundle\Entity\User;
+use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
+use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use KevinPapst\AdminLTEBundle\Model\UserModel;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Security\Core\Security;
+
+class NavbarUserSubscriber implements EventSubscriberInterface
+{
+    /**
+     * @var Security
+     */
+    protected $security;
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
+    }
+
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            ThemeEvents::THEME_NAVBAR_USER => ['onShowUser', 100],
+            ThemeEvents::THEME_SIDEBAR_USER => ['onShowUser', 100],
+        ];
+    }
+
+    public function onShowUser(ShowUserEvent $event)
+    {
+        if (null === $this->security->getUser()) {
+            return;
+        }
+
+        /* @var $myUser User */
+        $myUser = $this->security->getUser();
+
+        $user = new UserModel();
+        $user->setName($myUser->getUsername())
+            ->setUsername($myUser->getUsername())
+            ->setIsOnline(true)
+            ->setTitle('demo user')
+            ->setAvatar($myUser->getAvatar())
+            ->setMemberSince($myUser->getRegisteredAt());
+
+        $event->setUser($user);
+    }
+}
+```
+
+## EventListener and Service definition - the classical approach    
+
+If your application is using the classical approach of manually registering Services and EventListener use this method.
+
+Write an EventListener to work with the `ShowUserEvent`.
+
 ```php
 <?php
 namespace MyAdminBundle\EventListener;
 
-// ...
-
 use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Model\NavBarUserLink;
-use MyAdminBundle\Model\UserModel;
+use KevinPapst\AdminLTEBundle\Model\UserModel;
 
-class MyShowUserListener {
-
-	// ...
-
-	public function onShowUser(ShowUserEvent $event) {
-
-		$user = $this->getUser();
-		$event->setUser($user);
-		
-		$event->setShowProfileLink(false);
-
-		$event->addLink(new NavBarUserLink('Followers', 'logout'));
-		$event->addLink(new NavBarUserLink('Sales', 'logout'));
-		$event->addLink(new NavBarUserLink('Friends', 'logout', ['id' => 2]));
-
-	}
-
-	protected function getUser() {
-		// retrieve your concrete user model or entity
-	}
+class NavbarUserListener
+{
+    public function onShowUser(ShowUserEvent $event)
+    {
+        $user = $this->getUser();
+        $event->setUser($user);
+        
+        $event->setShowProfileLink(false);
+    
+        $event->addLink(new NavBarUserLink('Followers', 'logout'));
+        $event->addLink(new NavBarUserLink('Sales', 'logout'));
+        $event->addLink(new NavBarUserLink('Friends', 'logout', ['id' => 2]));
+    }
+    
+    // retrieve your concrete user model or entity
+    protected function getUser()
+    {
+        return new UserModel();
+    }
 
 }
 ```
 
-## Service defintion
+## Service definition
 
 Finally, you need to attach your new listener to the event system:
 
@@ -67,15 +130,11 @@ Finally, you need to attach your new listener to the event system:
 # config/services.yml
 services:
     my_admin_bundle.show_user_listener:
-        class: MyAdminBundle\EventListener\MyShowUserListener
+        class: MyAdminBundle\EventListener\NavbarUserListener
         tags:
             - { name: kernel.event_listener, event: theme.navbar_user, method: onShowUser }
 ```
 
-TODO kevin - add SF4 auto-wiring and service discovery docu
-
 ## Next steps
 
 Please go back to the [AdminLTE bundle documentation](README.md) to find out more about using the theme.
-
-[1]: component_events.md
