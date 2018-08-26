@@ -9,16 +9,10 @@
 
 namespace KevinPapst\AdminLTEBundle\Model;
 
+use KevinPapst\AdminLTEBundle\Helper\Constants;
+
 class TaskModel implements TaskInterface
 {
-    public const COLOR_AQUA = 'aqua';
-
-    public const COLOR_GREEN = 'green';
-
-    public const COLOR_RED = 'red';
-
-    public const COLOR_YELLOW = 'yellow';
-
     /**
      * @var int
      */
@@ -27,7 +21,7 @@ class TaskModel implements TaskInterface
     /**
      * @var string
      */
-    protected $color = self::COLOR_AQUA;
+    protected $color = Constants::COLOR_AQUA;
 
     /**
      * @var string
@@ -39,7 +33,7 @@ class TaskModel implements TaskInterface
      * @param int $progress
      * @param string $color
      */
-    public function __construct($title = null, $progress = 0, $color = self::COLOR_AQUA)
+    public function __construct($title = null, $progress = 0, $color = Constants::COLOR_AQUA)
     {
         $this->color = $color;
         $this->progress = $progress;
@@ -49,7 +43,7 @@ class TaskModel implements TaskInterface
     /**
      * @param string $color
      *
-     * @return $this
+     * @return TaskModel
      */
     public function setColor($color)
     {
@@ -69,7 +63,7 @@ class TaskModel implements TaskInterface
     /**
      * @param int $progress
      *
-     * @return $this
+     * @return TaskModel
      */
     public function setProgress($progress)
     {
@@ -89,7 +83,7 @@ class TaskModel implements TaskInterface
     /**
      * @param string $title
      *
-     * @return $this
+     * @return TaskModel
      */
     public function setTitle($title)
     {

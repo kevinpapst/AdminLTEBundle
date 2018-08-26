@@ -1,18 +1,16 @@
-<!-- Notifications: style can be found in dropdown.less -->
 <li class="dropdown notifications-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <i class="far fa-bell"></i>
         <span class="label label-warning">{{ total }}</span>
     </a>
     <ul class="dropdown-menu">
-        <li class="header">{{ 'You have %total% notifications'|trans({'%total%': total}, 'AdminLTEBundle') }}</li>
+        <li class="header">{{ 'You have %total% notifications'|transchoice(total, {'%total%': total}, 'AdminLTEBundle') }}</li>
         <li>
-            <!-- inner menu: contains the actual data -->
             <ul class="menu">
                 {% for notice in notifications %}
                     <li>
-                        <a href="{{ path('adminlte_notification'|route_alias, {'id':notice.identifier}) }}">
-                            <i class="{{ notice.icon }} {{ notice.type }}"></i> {{notice.message}}
+                        <a href="{{ path('adminlte_notification'|route_alias, {'id': notice.identifier}) }}">
+                            <i class="{{ notice.icon }} {{ notice.type|text_type }}"></i> {{ notice.message }}
                         </a>
                     </li>
                 {% endfor %}
