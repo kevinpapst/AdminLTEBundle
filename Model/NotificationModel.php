@@ -9,12 +9,14 @@
 
 namespace KevinPapst\AdminLTEBundle\Model;
 
+use KevinPapst\AdminLTEBundle\Helper\Constants;
+
 class NotificationModel implements NotificationInterface
 {
     /**
      * @return string
      */
-    protected $type;
+    protected $type = Constants::TYPE_INFO;
 
     /**
      * @return string
@@ -31,7 +33,7 @@ class NotificationModel implements NotificationInterface
      * @param string $type
      * @param string $icon
      */
-    public function __construct($message = null, $type = 'info', $icon = 'fas fa-exclamation-triangle')
+    public function __construct($message = null, $type = Constants::TYPE_INFO, $icon = 'fas fa-exclamation-triangle')
     {
         $this->message = $message;
         $this->type = $type;
@@ -41,7 +43,7 @@ class NotificationModel implements NotificationInterface
     /**
      * @param string $message
      *
-     * @return $this
+     * @return NotificationModel
      */
     public function setMessage($message)
     {
@@ -61,7 +63,7 @@ class NotificationModel implements NotificationInterface
     /**
      * @param string $type
      *
-     * @return $this
+     * @return NotificationModel
      */
     public function setType($type)
     {
@@ -81,7 +83,7 @@ class NotificationModel implements NotificationInterface
     /**
      * @param string $icon
      *
-     * @return $this
+     * @return NotificationModel
      */
     public function setIcon($icon)
     {

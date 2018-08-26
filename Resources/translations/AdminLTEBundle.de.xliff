@@ -18,6 +18,18 @@
                 <source>Sign In</source>
                 <target>Anmelden</target>
             </trans-unit>
+            <trans-unit id="Sign out">
+                <source>Sign out</source>
+                <target>Abmelden</target>
+            </trans-unit>
+            <trans-unit id="Profile">
+                <source>Profile</source>
+                <target>Dein Profil</target>
+            </trans-unit>
+            <trans-unit id="Member since %date%">
+                <source>Member since %date%</source>
+                <target>Mitglied seit %date%</target>
+            </trans-unit>
             <trans-unit id="Username">
                 <source>Username</source>
                 <target>Benutzername</target>
@@ -45,6 +57,26 @@
             <trans-unit id="Register a new account">
                 <source>Register a new account</source>
                 <target>Neuen Benutzer registrieren</target>
+            </trans-unit>
+            <trans-unit id="View all">
+                <source>View all</source>
+                <target>Alle anzeigen</target>
+            </trans-unit>
+            <trans-unit id="You have %total% notifications">
+                <source>You have %total% notifications</source>
+                <target>Du hast 1 Benachrichtigung|Du hast %total% Benachrichtigungen</target>
+            </trans-unit>
+            <trans-unit id="You have %total% messages">
+                <source>You have %total% messages</source>
+                <target>Du hast 1 Nachricht|Due hast %total% Nachrichten</target>
+            </trans-unit>
+            <trans-unit id="You have %total% tasks">
+                <source>You have %total% tasks</source>
+                <target>Du hast 1 Aufgabe|Du hast %total% Aufgaben</target>
+            </trans-unit>
+            <trans-unit id="%progress%% Complete">
+                <source>%progress%% Complete</source>
+                <target>%progress%% erledigt</target>
             </trans-unit>
         </body>
     </file>
