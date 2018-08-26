@@ -2,7 +2,7 @@
 
 After installing the theme, you have to adjust a couple of config settings to your application.
 
-The configuration file is located at `config/packages/admin_lte.yaml` and contains these main section:
+The configuration file is located at `config/packages/admin_lte.yaml` and contains these main sections:
 
 ```yaml
 admin_lte: 
@@ -90,8 +90,8 @@ admin_lte:
             collapsible_title: 'Collapse'
             removable: false
             removable_title: 'Remove'
-            solid: true
-            use_footer: false
+            solid: false
+            use_footer: true
         button: 
             type: 'primary'
             size: false

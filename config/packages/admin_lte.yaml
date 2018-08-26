@@ -18,15 +18,31 @@ admin_lte:
         collapsed_sidebar: false
         # whether the logo collapses or not
         mini_sidebar: false
-        # configurable tabs in the control_sidebar (right screen), see:
-        # https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/control_sidebar.md
-        #control_sidebar:
-        #    home:
-        #        icon: fas fa-home
-        #        template: control-sidebar/home.html.twig
-        #    settings:
-        #        icon: fas fa-cogs
-        #        controller: 'App\Controller\DefaultController::controlSidebarSettings'
+
+    # configurable tabs in the control_sidebar (right screen), see:
+    # https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/control_sidebar.md
+    # control_sidebar:
+    #    home:
+    #        icon: fas fa-home
+    #        template: control-sidebar/home.html.twig
+    #    settings:
+    #        icon: fas fa-cogs
+    #        controller: 'App\Controller\DefaultController::controlSidebarSettings'
+
+
+    theme:
+        widget:
+            type: 'primary'
+            bordered: true
+            collapsible: false
+            collapsible_title: 'Collapse'
+            removable: false
+            removable_title: 'Remove'
+            solid: false
+            use_footer: true
+        button:
+            type: 'primary'
+            size: false
 
     knp_menu:
         enable: false
