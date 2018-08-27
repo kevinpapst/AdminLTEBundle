@@ -29,6 +29,11 @@ class NotificationModel implements NotificationInterface
     protected $icon;
 
     /**
+     * @var string
+     */
+    protected $id;
+
+    /**
      * @param string $message
      * @param string $type
      * @param string $icon
@@ -38,6 +43,25 @@ class NotificationModel implements NotificationInterface
         $this->message = $message;
         $this->type = $type;
         $this->icon = $icon;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     * @return NotificationModel
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -105,6 +129,10 @@ class NotificationModel implements NotificationInterface
      */
     public function getIdentifier()
     {
+        if (!empty($this->id)) {
+            return $this->id;
+        }
+
         return $this->message;
     }
 }

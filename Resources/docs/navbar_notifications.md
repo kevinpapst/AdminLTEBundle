@@ -1,10 +1,12 @@
 # The Navbar Notifications component
 
 ## Routes
+
 Just like the other theme components, this one requires some route aliases to work. 
 Please refer to the [configurations overview](configurations.md) to learn about the route alias details. 
 
 ## Required aliases
+
 * all_notifications
 * notification
 
@@ -15,39 +17,88 @@ In order to use this component, your user class has to implement the `KevinPapst
 <?php
 namespace App\Model;
 
-use KevinPapst\AdminLTEBundle\Model\NotificationInterface as ThemeNotification;
+use KevinPapst\AdminLTEBundle\Model\NotificationInterface;
 
-class NotificationModel implements ThemeNotification
+class NotificationModel implements NotificationInterface
 {
     // implement interface methods
 }
 ```
 
-## Event Listener
-Next, you will need to create an EventListener to work with the `NotificationListEvent`.
+The bundle provides the `NotificationModel` as a ready to use implementation of the `NotificationInterface`. 
+
+## EventSubscriber - auto-discovery with Symfony 4
+
+In case you activated service discovery and auto-wiring in your app, you can write an EventSubscriber which will 
+be automatically registered in your container:
+
 ```php
 <?php
+// src/EventSubscriber/NotificationSubscriber.php
+namespace App\EventSubscriber;
+
+use KevinPapst\AdminLTEBundle\Event\NotificationListEvent;
+use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use KevinPapst\AdminLTEBundle\Helper\Constants;
+use KevinPapst\AdminLTEBundle\Model\NotificationModel;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+class NotificationSubscriber implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            ThemeEvents::THEME_NOTIFICATIONS => ['onNotifications', 100],
+        ];
+    }
+
+    public function onNotifications(NotificationListEvent $event)
+    {
+        $notification = new NotificationModel();
+        $notification
+            ->setId(1)
+            ->setMessage('A demo message')
+            ->setType(Constants::TYPE_SUCCESS)
+            ->setIcon('far fa-envelope')
+        ;
+        $event->addNotification($notification);
+    }
+}
+```
+
+## EventListener and Service definition    
+
+If your application is using the classical approach of manually registering Services and EventListener use this method.
+
+Write an EventListener to work with the `NotificationListEvent`:
+
+```php
+<?php
+// src/EventListener/NotificationListListener.php
 namespace App\EventListener;
 
 use KevinPapst\AdminLTEBundle\Event\NotificationListEvent;
-use App\Model\NotificationModel;
+use KevinPapst\AdminLTEBundle\Model\NotificationModel;
 
 class NotificationListListener
 {
-    public function onListNotifications(NotificationListEvent $event) {
+    public function onListNotifications(NotificationListEvent $event)
+    {
         foreach($this->getNotifications() as $Notification) {
             $event->addNotification($Notification);
         }
     }
     
-    protected function getNotifications() {
-        // return your Notification models/entities here
+    protected function getNotifications()
+    {
+        // see above in NotificationSubscriber for a full example
+        return [new NotificationModel()];
     }
 }
 ```
-## Service definition
 
-Finally, you need to attach your new listener to the event system:
+And attach your new listener to the event system:
+
 ```yaml
 services:
     app.notification_list_listener:
@@ -55,8 +106,6 @@ services:
         tags:
             - { name: kernel.event_listener, event: theme.notifications, method: onListNotifications }
 ```
-
-TODO kevin - add SF4 auto-wiring and service discovery docu
 
 ## Next steps
 

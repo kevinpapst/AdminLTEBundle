@@ -1,10 +1,12 @@
 # The Navbar Tasks component
 
 ## Routes
+
 Just like the other theme components, this one requires some route aliases to work. 
 Please refer to the [configurations overview](configurations.md) to learn about the route alias details. 
  
 ### Required aliases
+
 * all_task
 * task
 
@@ -15,33 +17,82 @@ In order to use this component, your user class has to implement the `KevinPapst
 <?php
 namespace App\Model;
 
-use KevinPapst\AdminLTEBundle\Model\TaskInterface as ThemeTask;
+use KevinPapst\AdminLTEBundle\Model\TaskInterface;
 
-class TaskModel implements ThemeTask
+class TaskModel implements TaskInterface
 {
-	// implement interface methods
+    // implement interface methods
 }
 ```
 
-## Event Listener
-Next, you will need to create an EventListener to work with the `TaskListEvent`.
+The bundle provides the `TaskModel` as a ready to use implementation of the `TaskInterface`. 
+
+## EventSubscriber - auto-discovery with Symfony 4
+
+In case you activated service discovery and auto-wiring in your app, you can write an EventSubscriber which will 
+be automatically registered in your container:
+
 ```php
 <?php
+// src/EventSubscriber/TaskSubscriber.php
+namespace App\EventSubscriber;
+
+use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
+use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use KevinPapst\AdminLTEBundle\Helper\Constants;
+use KevinPapst\AdminLTEBundle\Model\TaskModel;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+class TaskSubscriber implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            ThemeEvents::THEME_TASKS => ['onTasks', 100],
+        ];
+    }
+
+    public function onTasks(TaskListEvent $event)
+    {
+        $task = new TaskModel();
+        $task
+            ->setId(1)
+            ->setTitle('My task')
+            ->setColor(Constants::COLOR_AQUA)
+            ->setProgress(80)
+        ;
+        $event->addTask($task);
+    }
+}
+```
+
+## EventListener and Service definition    
+
+If your application is using the classical approach of manually registering Services and EventListener use this method.
+
+Write an EventListener to work with the `TaskListEvent`:
+
+```php
+<?php
+// src/EventListener/TaskListListener.php
 namespace App\EventListener;
 
 use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
-use App\Model\TaskModel;
+use KevinPapst\AdminLTEBundle\Model\TaskModel;
 
 class TaskListListener
 {
-    public function onListTasks(TaskListEvent $event) {
+    public function onListTasks(TaskListEvent $event)
+    {
         foreach($this->getTasks() as $task) {
             $event->addTask($task);
         }
     }
     
-    protected function getTasks() {
-        // return your task models/entities here
+    protected function getTasks()
+    {
+        // see above in TaskSubscriber for a full example
+        return [new TaskModel()];
     }
 }
 ```
@@ -56,8 +107,6 @@ services:
         tags:
             - { name: kernel.event_listener, event: theme.tasks, method: onListTasks }
 ```
-
-TODO kevin - add SF4 auto-wiring and service discovery docu
 
 ## Next steps
 

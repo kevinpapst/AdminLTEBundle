@@ -13,7 +13,7 @@ Please refer to the [configurations overview](configurations.md) to learn about 
 In order to use this component, your user class has to implement the `KevinPapst\AdminLTEBundle\Model\UserInterface`
 ```php
 <?php
-namespace MyAdminBundle\Model;
+namespace App\Model;
 
 use KevinPapst\AdminLTEBundle\Model\UserInterface;
 
@@ -26,7 +26,7 @@ class UserModel implements UserInterface {
 
 The bundle provides the `UserModel` as a ready to use implementation of the `UserInterface`. 
 
-## Auto-discovery with Symfony 4
+## EventSubscriber - auto-discovery with Symfony 4
 
 In case you activated service discovery and auto-wiring in your app, you can write an EventSubscriber which will 
 be automatically registered in your container:
@@ -34,9 +34,9 @@ be automatically registered in your container:
 ```php
 <?php
 // src/EventSubscriber/NavbarUserSubscriber.php
-namespace MyAdminBundle\EventSubscriber;
+namespace App\EventSubscriber;
 
-use MyAdminBundle\Entity\User;
+use App\Entity\User;
 use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use KevinPapst\AdminLTEBundle\Model\UserModel;
@@ -45,9 +45,6 @@ use Symfony\Component\Security\Core\Security;
 
 class NavbarUserSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var Security
-     */
     protected $security;
 
     public function __construct(Security $security)
@@ -73,27 +70,31 @@ class NavbarUserSubscriber implements EventSubscriberInterface
         $myUser = $this->security->getUser();
 
         $user = new UserModel();
-        $user->setName($myUser->getUsername())
+        $user
+            ->setId($myUser->getId())
+            ->setName($myUser->getUsername())
             ->setUsername($myUser->getUsername())
             ->setIsOnline(true)
             ->setTitle('demo user')
             ->setAvatar($myUser->getAvatar())
-            ->setMemberSince($myUser->getRegisteredAt());
+            ->setMemberSince($myUser->getRegisteredAt())
+        ;
 
         $event->setUser($user);
     }
 }
 ```
 
-## EventListener and Service definition - the classical approach    
+## EventListener and Service definition    
 
 If your application is using the classical approach of manually registering Services and EventListener use this method.
 
-Write an EventListener to work with the `ShowUserEvent`.
+Write an EventListener to work with the `ShowUserEvent`:
 
 ```php
 <?php
-namespace MyAdminBundle\EventListener;
+// src/EventListener/NavbarUserListener.php
+namespace App\EventListener;
 
 use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Model\NavBarUserLink;
@@ -113,24 +114,23 @@ class NavbarUserListener
         $event->addLink(new NavBarUserLink('Friends', 'logout', ['id' => 2]));
     }
     
-    // retrieve your concrete user model or entity
     protected function getUser()
     {
+        // retrieve your concrete user model or entity
+        // see above in NavbarUserSubscriber for a full example
         return new UserModel();
     }
 
 }
 ```
 
-## Service definition
-
-Finally, you need to attach your new listener to the event system:
+And attach your new listener to the event system:
 
 ```yaml
 # config/services.yml
 services:
     my_admin_bundle.show_user_listener:
-        class: MyAdminBundle\EventListener\NavbarUserListener
+        class: App\EventListener\NavbarUserListener
         tags:
             - { name: kernel.event_listener, event: theme.navbar_user, method: onShowUser }
 ```

@@ -40,6 +40,11 @@ class MessageModel implements MessageInterface
     protected $subject;
 
     /**
+     * @var string
+     */
+    protected $id;
+
+    /**
      * Creates a new MessageModel object with the given values.
      *
      * SentAt will be set to the current DateTime when null is given.
@@ -55,6 +60,25 @@ class MessageModel implements MessageInterface
         $this->subject = $subject;
         $this->sentAt = $sentAt ?: new \DateTime();
         $this->from = $from;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param $id
+     * @return MessageModel
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -160,6 +184,10 @@ class MessageModel implements MessageInterface
      */
     public function getIdentifier()
     {
+        if (!empty($this->id)) {
+            return $this->id;
+        }
+
         return $this->getSubject();
     }
 }

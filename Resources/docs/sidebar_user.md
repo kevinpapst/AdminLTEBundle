@@ -9,6 +9,11 @@ Edit the previously made class `NavbarUserSubscriber` and register it for anothe
 ```php
 <?php
 // src/EventSubscriber/NavbarUserSubscriber.php
+namespace App\EventSubscriber;
+
+use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
 class NavbarUserSubscriber implements EventSubscriberInterface
 {
     public static function getSubscribedEvents(): array
@@ -25,11 +30,11 @@ class NavbarUserSubscriber implements EventSubscriberInterface
 
 ## EventListener    
 
-Just add the following tag to your UserShowListener definition in the services.xml and you're good to go:
+Just add the following tag to your listener definition in the services.xml and you're good to go:
 ```yaml
 services:
     app.show_user_listener:
-        class: MyAdminBundle\EventListener\NavbarUserListener
+        class: App\EventListener\NavbarUserListener
         tags:
             - { name: kernel.event_listener, event: theme.sidebar_user, method: onShowUser }
 ```

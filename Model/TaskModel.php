@@ -29,15 +29,39 @@ class TaskModel implements TaskInterface
     protected $title;
 
     /**
+     * @var string
+     */
+    protected $id;
+
+    /**
      * @param string $title
      * @param int $progress
      * @param string $color
      */
     public function __construct($title = null, $progress = 0, $color = Constants::COLOR_AQUA)
     {
-        $this->color = $color;
-        $this->progress = $progress;
         $this->title = $title;
+        $this->progress = $progress;
+        $this->color = $color;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     * @return TaskModel
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -105,6 +129,10 @@ class TaskModel implements TaskInterface
      */
     public function getIdentifier()
     {
+        if (!empty($this->id)) {
+            return $this->id;
+        }
+
         return $this->title;
     }
 }
