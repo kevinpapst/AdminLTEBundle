@@ -10,7 +10,7 @@ the sidebar menu is currently limited to two levels.
 In order to use this component, your have to create a `MenuItemModel` class that implements `\KevinPapst\AdminLTEBundle\Model\MenuItemInterface`
 ```php
 <?php
-namespace MyAdminBundle\Model;
+namespace App\Model;
 
 use KevinPapst\AdminLTEBundle\Model\MenuItemInterface;
 
@@ -32,7 +32,7 @@ or a menu label:
 $menuLabel = new \KevinPapst\AdminLTEBundle\Model\MenuItemModel('label', 'Label', false);
 ```
 
-## Auto-discovery with Symfony 4
+## EventSubscriber - auto-discovery with Symfony 4
 
 In case you activated service discovery and auto-wiring in your app, you can write an EventSubscriber which will 
 be automatically registered in your container:
@@ -40,7 +40,7 @@ be automatically registered in your container:
 ```php
 <?php
 // src/EventSubscriber/MenuBuilderSubscriber.php
-namespace MyAdminBundle\EventSubscriber;
+namespace App\EventSubscriber;
 
 use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
 use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
@@ -91,7 +91,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
 }
 ```
 
-## EventListener and Service definition - the classical approach    
+## EventListener and Service definition    
 
 If your application is using the classical approach of manually registering Services and EventListener use this method.
 
@@ -100,7 +100,7 @@ Write an EventListener to work with the `SidebarMenuEvent`.
 ```php
 <?php
 // src/EventListener/MenuBuilderListener.php
-namespace MyAdminBundle\EventListener;
+namespace App\EventListener;
 
 use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
 use KevinPapst\AdminLTEBundle\Model\MenuItemModel;
@@ -154,7 +154,7 @@ And attach your new listener to the event system in `config/services.yaml`:
 ```yaml
 services:
     my_admin_bundle.menu_listener:
-        class: MyAdminBundle\EventListener\MenuBuilderListener
+        class: App\EventListener\MenuBuilderListener
         tags:
             - { name: kernel.event_listener, event: theme.sidebar_setup_menu, method: onSetupMenu }
 ```

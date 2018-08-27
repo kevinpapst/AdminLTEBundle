@@ -12,6 +12,11 @@ Edit the previously made class `MenuBuilderSubscriber` and register it for anoth
 ```php
 <?php
 // src/EventSubscriber/MenuBuilderSubscriber.php
+namespace App\EventSubscriber;
+
+use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
 class MenuBuilderSubscriber implements EventSubscriberInterface
 {
     public static function getSubscribedEvents(): array
@@ -34,7 +39,7 @@ If you are using an EventListener, you have to register it as new listener to th
 # config/services.yaml
 services:
     app.breadcrumb_listener:
-        class: MyAdminBundle\EventListener\MenuBuilderListener
+        class: App\EventListener\MenuBuilderListener
         tags:
             - { name: kernel.event_listener, event: theme.breadcrumb, method: onSetupMenu }
 ```
