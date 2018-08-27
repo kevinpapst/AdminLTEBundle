@@ -30,7 +30,8 @@
     },
     "require-dev": {
         "phpspec/prophecy": "^1.6",
-        "friendsofphp/php-cs-fixer": "^2.10"
+        "friendsofphp/php-cs-fixer": "^2.10",
+        "phpunit/phpunit": "^7.3"
     },
     "suggest" : {
         "knplabs/knp-menu-bundle" : "Allows easy menu integration",

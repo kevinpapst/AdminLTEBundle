@@ -12,7 +12,7 @@ namespace KevinPapst\AdminLTEBundle\Event;
 /**
  * Holds all events used by the theme
  */
-class ThemeEvents
+interface ThemeEvents
 {
     /**
      * Used to receive notification data

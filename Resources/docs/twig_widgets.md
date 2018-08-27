@@ -8,7 +8,6 @@ The global/general configuration for the box-widget can be defined using the bun
 The values in this configuration example are the default settings. 
 
 ```yaml
-# admin_lte.yaml
 admin_lte:
     theme:
         widget:
@@ -46,7 +45,7 @@ admin_lte:
 The box widget comes with several variables and blocks to define content and customize the rendering and behavior individually. 
 
 ### Variables
-_**Notice:** since FALSE will not be considered a value by twig and therefor activate the default filter, you will have to use `0` instead_ 
+_**Notice:** since FALSE will not be considered a value by Twig and therefor activate the default filter, you will have to use `0` instead_ 
 <dl>
 <dt>collapsed
 <dd>Will render the Widget in a collapsed state and add and expander toolbutton. 

@@ -11,6 +11,10 @@ namespace KevinPapst\AdminLTEBundle\Event;
 
 use KevinPapst\AdminLTEBundle\Model\TaskInterface;
 
+/**
+ * The TaskListEvent should be used with the ThemeEvents::THEME_TASKS
+ * in order to collect all TaskInterface objects that should be rendered in the tasks section.
+ */
 class TaskListEvent extends ThemeEvent
 {
     /**

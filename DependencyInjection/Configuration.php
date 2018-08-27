@@ -9,7 +9,6 @@
 
 namespace KevinPapst\AdminLTEBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Builder\NodeBuilder;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -28,22 +27,27 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('admin_lte');
 
-        $rootNodeChildren = $rootNode->children();
-        $rootNodeChildren = $this->createSimpleChildren($rootNodeChildren, true);
-        $rootNodeChildren = $this->createThemeChildren($rootNodeChildren);
-        $rootNodeChildren = $this->createButtonChildren($rootNodeChildren);
-        $rootNodeChildren = $this->createRouteAlias($rootNodeChildren);
-
-        $rootNodeChildren->end();
+        $rootNode
+            ->children()
+                ->append($this->getOptionsConfig())
+                ->append($this->getControlSidebarConfig())
+                ->append($this->getThemeConfig())
+                ->append($this->getKnpMenuConfig())
+                ->append($this->getRouteAliasesConfig())
+            ->end()
+        ->end();
 
         return $treeBuilder;
     }
 
-    private function createRouteAlias(NodeBuilder $rootNodeChildren)
+    private function getRouteAliasesConfig()
     {
-        $rootNodeChildren
-            ->arrayNode('routes')
-                ->children()
+        $builder = new TreeBuilder();
+        $node = $builder->root('routes');
+
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
                 ->scalarNode('adminlte_welcome')
                     ->defaultValue('home')
                     ->info('name of the homepage route')
@@ -53,7 +57,7 @@ class Configuration implements ConfigurationInterface
                     ->info('name of the form login route')
                 ->end()
                 ->scalarNode('adminlte_login_check')
-                    ->defaultValue('login')
+                    ->defaultValue('login_check')
                     ->info('name of the form login_check route')
                 ->end()
                 ->scalarNode('adminlte_registration')
@@ -92,157 +96,176 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue('profile')
                     ->info('name of the route to the users profile')
                 ->end()
-            ->end();
+            ->end()
+        ->end();
 
-        return $rootNodeChildren;
+        return $node;
     }
 
-    private function createWidgetTree(NodeBuilder $rootNodeChildren)
+    private function getKnpMenuConfig()
     {
-        $rootNodeChildren
-            ->arrayNode('widget')
-                ->children()
-                    ->scalarNode('collapsible_title')
-                        ->defaultValue('Collapse')
-                        ->info('')
-                    ->end()
-                    ->scalarNode('removable_title')
-                        ->defaultValue('Remove')
-                        ->info('')
-                    ->end()
-                    ->scalarNode('type')
-                        ->defaultValue('primary')
-                        ->info('')
-                    ->end()
-                        ->booleanNode('bordered')
-                        ->defaultTrue()
-                        ->info('')
-                    ->end()
-                        ->booleanNode('collapsible')
-                        ->defaultFalse()
-                        ->info('')
-                    ->end()
-                    ->booleanNode('removable')
-                        ->defaultFalse()
-                        ->info('')
-                    ->end()
-                    ->booleanNode('solid')
-                        ->defaultTrue()
-                        ->info('')
-                    ->end()
-                    ->booleanNode('use_footer')
-                        ->defaultFalse()
-                        ->info('')
-                    ->end()
-            ->end();
+        $builder = new TreeBuilder();
+        $node = $builder->root('knp_menu');
 
-        return $rootNodeChildren;
-    }
-
-    private function createButtonChildren(NodeBuilder $rootNodeChildren)
-    {
-        $rootNodeChildren
-            ->arrayNode('button')
-                ->children()
-                    ->scalarNode('type')
-                        ->defaultValue('primary')
-                        ->info('')
-                    ->end()
-                    ->scalarNode('size')
-                        ->defaultFalse()
-                        ->info('')
-                    ->end()
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->scalarNode('enable')
+                    ->defaultFalse()
+                    ->info('')
                 ->end()
-            ->end();
+                ->scalarNode('main_menu')
+                    ->defaultValue('adminlte_main')
+                    ->info('your builder alias')
+                ->end()
+                ->scalarNode('breadcrumb_menu')
+                    ->defaultFalse()
+                    ->info('Your builder alias or false to disable breadcrumbs')
+                ->end()
+            ->end()
+        ->end();
 
-        return $rootNodeChildren;
+        return $node;
     }
 
-    private function createSimpleChildren(NodeBuilder $rootNodeChildren, $withOptions = true)
+    private function getWidgetConfig()
     {
-        if ($withOptions) {
-            $optionChildren = $rootNodeChildren
-                ->arrayNode('options')
-                     ->info('')
-                     ->children();
+        $builder = new TreeBuilder();
+        $node = $builder->root('widget');
 
-            $optionChildren = $this->createSimpleChildren($optionChildren, false);
-            $optionChildren = $this->createWidgetTree($optionChildren);
-            $optionChildren = $this->createButtonChildren($optionChildren);
-            $optionChildren = $this->createsubThemeChildren($optionChildren);
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->scalarNode('collapsible_title')
+                    ->defaultValue('Collapse')
+                    ->info('')
+                ->end()
+                ->scalarNode('removable_title')
+                    ->defaultValue('Remove')
+                    ->info('')
+                ->end()
+                ->scalarNode('type')
+                    ->defaultValue('primary')
+                    ->info('')
+                ->end()
+                    ->booleanNode('bordered')
+                    ->defaultTrue()
+                    ->info('')
+                ->end()
+                    ->booleanNode('collapsible')
+                    ->defaultFalse()
+                    ->info('')
+                ->end()
+                ->booleanNode('removable')
+                    ->defaultFalse()
+                    ->info('')
+                ->end()
+                ->booleanNode('solid')
+                    ->defaultFalse()
+                    ->info('')
+                ->end()
+                ->booleanNode('use_footer')
+                    ->defaultTrue()
+                    ->info('')
+                ->end()
+            ->end()
+        ->end();
 
-            $optionChildren->end();
-        }
+        return $node;
+    }
 
-        $rootNodeChildren
-            ->arrayNode('knp_menu')
+    private function getButtonConfig()
+    {
+        $builder = new TreeBuilder();
+        $node = $builder->root('button');
+
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->scalarNode('type')
+                    ->defaultValue('primary')
+                    ->info('default button type')
+                ->end()
+                ->scalarNode('size')
+                    ->defaultFalse()
+                    ->info('default button size')
+                ->end()
+            ->end()
+        ->end();
+
+        return $node;
+    }
+
+    private function getThemeConfig()
+    {
+        $builder = new TreeBuilder();
+        $node = $builder->root('theme');
+
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->append($this->getWidgetConfig())
+                ->append($this->getButtonConfig())
+            ->end()
+        ->end();
+
+        return $node;
+    }
+
+    private function getOptionsConfig()
+    {
+        $builder = new TreeBuilder();
+        $node = $builder->root('options');
+
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->scalarNode('default_avatar')
+                    ->defaultValue('bundles/adminlte/images/default_avatar.png')
+                ->end()
+                ->scalarNode('skin')
+                    ->defaultValue('skin-blue')
+                    ->info('see skin listing for viable options')
+                ->end()
+                ->booleanNode('fixed_layout')
+                    ->defaultFalse()
+                ->end()
+                ->booleanNode('boxed_layout')
+                    ->defaultFalse()
+                    ->info('these settings relate directly to the "Layout Options"')
+                ->end()
+                ->booleanNode('collapsed_sidebar')
+                    ->defaultFalse()
+                    ->info('described in the documentation')
+                ->end()
+                ->booleanNode('mini_sidebar')
+                    ->defaultFalse()
+                    ->info('')
+                ->end()
+                // this is deprecated, but still supported until 3.0
+                ->append($this->getControlSidebarConfig())
+            ->end()
+        ->end();
+
+        return $node;
+    }
+
+    private function getControlSidebarConfig()
+    {
+        $builder = new TreeBuilder();
+        $node = $builder->root('control_sidebar');
+
+        $node
+            ->arrayPrototype()
                 ->children()
-                    ->scalarNode('enable')
-                        ->defaultValue(false)
-                        ->info('')
-                    ->end()
-                    ->scalarNode('main_menu')
-                        ->defaultValue('adminlte_main')
-                        ->info('your builder alias')
-                    ->end()
-                    ->scalarNode('breadcrumb_menu')
-                        ->defaultFalse()
-                        ->info('Your builder alias or false to disable breadcrumbs')
-                    ->end()
+                    ->scalarNode('icon')->end()
+                    ->scalarNode('controller')->end()
+                    ->scalarNode('template')->end()
                 ->end()
-            ->end();
-
-        return $rootNodeChildren;
-    }
-
-    private function createThemeChildren(NodeBuilder $rootNodeChildren)
-    {
-        $themeChildren = $rootNodeChildren->arrayNode('theme')->children();
-
-        $themeChildren = $this->createWidgetTree($themeChildren);
-        $themeChildren = $this->createsubThemeChildren($themeChildren);
-        $themeChildren->end()
-            ->end();
-
-        return $rootNodeChildren;
-    }
-
-    private function createsubThemeChildren(NodeBuilder $rootNodeChildren)
-    {
-        $rootNodeChildren
-            ->scalarNode('default_avatar')
-                ->defaultValue('bundles/adminlte/default_avatar.png')
             ->end()
-            ->scalarNode('skin')
-                ->defaultValue('skin-blue')
-                ->info('see skin listing for viable options')
-            ->end()
-            ->booleanNode('fixed_layout')
-                ->defaultFalse()
-            ->end()
-            ->booleanNode('boxed_layout')
-                ->defaultFalse()
-                ->info('these settings relate directly to the "Layout Options"')
-            ->end()
-            ->booleanNode('collapsed_sidebar')
-                ->defaultFalse()
-                ->info('described in the documentation')
-            ->end()
-            ->booleanNode('mini_sidebar')
-                ->defaultFalse()
-                ->info('')
-            ->end()
-            ->arrayNode('control_sidebar')
-                ->arrayPrototype()
-                    ->children()
-                        ->scalarNode('icon')->end()
-                        ->scalarNode('controller')->end()
-                        ->scalarNode('template')->end()
-                    ->end()
-                ->end()
-                ->info('controls all panels in the right control_sidebar')
-            ->end();
+            ->info('controls all panels in the right control_sidebar')
+        ->end();
 
-        return $rootNodeChildren;
+        return $node;
     }
 }

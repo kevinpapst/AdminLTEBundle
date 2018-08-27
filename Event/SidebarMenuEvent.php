@@ -13,6 +13,10 @@ use KevinPapst\AdminLTEBundle\Model\MenuItemInterface;
 use Knp\Menu\MenuItem;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * The SidebarMenuEvent should be used with the ThemeEvents::THEME_SIDEBAR_SETUP_MENU
+ * in order to collect all MenuItemInterface objects that should be rendered in the menu section.
+ */
 class SidebarMenuEvent extends ThemeEvent
 {
     /**

@@ -4,10 +4,25 @@ In order to use the layout, your views should extend from the provided `default-
 ```twig
 {% extends '@AdminLTE/layout/default-layout.html.twig' %}
 ```
-## Twig globals
+## Twig Context-Helper
  
-Instead of fully relying on blocks and includes, you are provided with a twig global named `admin_lte_context` to store and retrieve particular values throughout the page rendering. 
-This is basically a parameter bag with some pre-defined values based on the bundle configuration. 
+Instead of fully relying on blocks and includes, you are provided with a twig global named `admin_lte_context` to retrieve 
+several configuration values throughout the page rendering.
+ 
+This is basically a parameter bag with some pre-defined values based on the bundle configuration.
+It contains the following configuration keys:
+
+- everything from `admin_lte.options`
+- `button` from `admin_lte.theme.button`
+- `widget` from `admin_lte.theme.widget`
+- `control_sidebar` from `admin_lte.control_sidebar`
+- `knp_menu` from `admin_lte.knp_menu`
+
+To see all available settings, simply dump it in one of your templates:
+
+```twig
+{{ dump(admin_lte_context.options) }}
+```
 
 ## Layout files
 

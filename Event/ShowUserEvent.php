@@ -12,6 +12,10 @@ namespace KevinPapst\AdminLTEBundle\Event;
 use KevinPapst\AdminLTEBundle\Model\NavBarUserLink;
 use KevinPapst\AdminLTEBundle\Model\UserInterface;
 
+/**
+ * The ShowUserEvent should be used with the ThemeEvents::THEME_SIDEBAR_USER and ThemeEvents::THEME_NAVBAR_USER
+ * in order to collect the UserInterface object that should be rendered in the user section.
+ */
 class ShowUserEvent extends ThemeEvent
 {
     /**
@@ -36,8 +40,7 @@ class ShowUserEvent extends ThemeEvent
 
     /**
      * @param UserInterface $user
-     *
-     * @return $this
+     * @return ShowUserEvent
      */
     public function setUser($user)
     {
@@ -64,10 +67,13 @@ class ShowUserEvent extends ThemeEvent
 
     /**
      * @param NavBarUserLink $link
+     * @return ShowUserEvent
      */
     public function addLink(NavBarUserLink $link)
     {
         $this->links[] = $link;
+
+        return $this;
     }
 
     /**
@@ -80,10 +86,13 @@ class ShowUserEvent extends ThemeEvent
 
     /**
      * @param bool $showProfileLink
+     * @return ShowUserEvent
      */
     public function setShowProfileLink($showProfileLink)
     {
         $this->showProfileLink = $showProfileLink;
+
+        return $this;
     }
 
     /**
@@ -96,9 +105,12 @@ class ShowUserEvent extends ThemeEvent
 
     /**
      * @param bool $showLogoutLink
+     * @return ShowUserEvent
      */
     public function setShowLogoutLink($showLogoutLink)
     {
         $this->showLogoutLink = $showLogoutLink;
+
+        return $this;
     }
 }

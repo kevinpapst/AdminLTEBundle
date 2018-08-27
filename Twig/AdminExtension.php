@@ -103,6 +103,6 @@ class AdminExtension extends \Twig_Extension
             $classList[] = 'sidebar-mini';
         }
 
-        return implode(' ', array_filter($classList));
+        return implode(' ', array_values($classList));
     }
 }

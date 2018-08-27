@@ -2,43 +2,33 @@
 
 After installing the theme, you have to adjust a couple of config settings to your application.
 
-The configuration file is located at `config/packages/admin_lte.yaml` 
+The configuration file is located at `config/packages/admin_lte.yaml` and contains these main sections:
+
+```yaml
+admin_lte: 
+    options: 
+    control_sidebar: 
+    theme: 
+    knp_menu: 
+    routes: 
+```
 
 ## Theme options (admin_lte.options)
 
-If you want to change any default value as for example `admin_skin` all you need to do is define the value at `config/packages/admin_lte.yaml` under `options` section. 
+The theme options define the basic layout of your side. 
 
-See example below:
-
-```yaml
-admin_lte:
-    options:
-        skin: skin-blue
-```
-
-Available AdminLTE skins are: 
-
-- skin-blue (default)
-- skin-blue-light
-- skin-yellow
-- skin-yellow-light
-- skin-green
-- skin-green-light
-- skin-purple
-- skin-purple-light
-- skin-red
-- skin-red-light
-- skin-black
-- skin-black-light
-
-All available `skin` options can be seen in the [admin_lte.yaml](https://github.com/kevinpapst/AdminLTEBundle/blob/master/config/packages/admin_lte.yaml) file. 
+Read more in the [theme options](bundle_options.md) documentation.
 
 ## Control Sidebar (admin_lte.control_sidebar)
 
 The control sidebar on the right-hand screen will slide-in over the content area.
 It can contain up to 5 tabs, all of them will display an icon in the tab header.     
 
-Readm more in the [control sidebar](control_sidebar.md) documentation.
+Read more in the [control sidebar](control_sidebar.md) documentation.
+
+## Theme configuration (admin_lte.theme)
+
+Default values for several components can be set in `widget` section, find more information in the [Twig widgets](twig_widgets.md) documentation.
 
 ## KNP Menu (admin_lte.knp_menu)
 
@@ -53,7 +43,6 @@ Since most of the components do generate one or two specific links (e.g. task li
 The specific routes must be rigged with the option `admin_lte.routes` defining the alias name like so: 
 
 ```yaml
-# admin_lte.yaml
 admin_lte:
     routes:
         adminlte_welcome: dashboard
@@ -76,9 +65,56 @@ So the theme route name `adminlte_welcome` maps to your route `dashboard`. Witho
 - `adminlte_tasks`: Used to generate the task list link (defaults to: tasks)
 - `adminlte_profile`: Used for the current user's profile (defaults to: profile)
 
-## Theme configuration (admin_lte.theme)
+## Default configuration
 
-Default values for several components can be set in `widget` section, find more information in the [Twig widgets](twig_widgets.md) documentation.
+The key `control_sidebar` is not part of the default configuration, for more information read the [control sidebar](control_sidebar.md) chapter. 
+
+```yaml
+admin_lte: 
+    options: 
+        default_avatar: 'bundles/adminlte/images/default_avatar.png'
+        skin: 'skin-blue'
+        fixed_layout: false
+        boxed_layout: false
+        collapsed_sidebar: false
+        mini_sidebar: false
+        
+    control_sidebar: 
+        [...]
+        
+    theme: 
+        widget: 
+            type: 'primary'
+            bordered: true
+            collapsible: false
+            collapsible_title: 'Collapse'
+            removable: false
+            removable_title: 'Remove'
+            solid: false
+            use_footer: true
+        button: 
+            type: 'primary'
+            size: false
+            
+    knp_menu: 
+        enable: false
+        main_menu: 'adminlte_main'
+        breadcrumb_menu: false
+        
+    routes: 
+        adminlte_welcome: 'home'
+        adminlte_login: 'login'
+        adminlte_login_check: 'login_check'
+        adminlte_registration: NULL
+        adminlte_password_reset: NULL
+        adminlte_message: 'message'
+        adminlte_messages: 'messages'
+        adminlte_notification: 'notification'
+        adminlte_notifications: 'notifications'
+        adminlte_task: 'task'
+        adminlte_tasks: 'tasks'
+        adminlte_profile: 'profile'
+```
 
 ## Next steps
 

@@ -40,7 +40,7 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
 
         // Use the config only if it is fully validated from the processed configuration
         if (!empty($config)) {
-            $container->setParameter('admin_lte_theme.options', (array) ($config['options'] ?? []));
+            $container->setParameter('admin_lte_theme.options', $this->getContextOptions($config));
         }
 
         // Load the services (with parameters loaded)
@@ -50,6 +50,35 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
         } catch (\Exception $e) {
             echo '[AdminLTEBundle] invalid services config found: ' . $e->getMessage();
         }
+    }
+
+    /**
+     * Merge available configuration options, so they are all available for the ContextHelper.
+     *
+     * @param array $config
+     * @return array
+     */
+    protected function getContextOptions(array $config = [])
+    {
+        $sidebar = [];
+        if (isset($config['options']['control_sidebar'])) {
+            $sidebar = $config['options']['control_sidebar'];
+            @trigger_error(
+                'The config key admin_lte.options.control_sidebar is deprecated, use admin_lte.control_sidebar instead',
+                E_USER_DEPRECATED
+            );
+        }
+
+        if (isset($config['control_sidebar']) && !empty($config['control_sidebar'])) {
+            $sidebar = $config['control_sidebar'];
+        }
+
+        $contextOptions = (array) ($config['options'] ?? []);
+        $contextOptions['control_sidebar'] = $sidebar;
+        $contextOptions['knp_menu'] = (array) $config['knp_menu'];
+        $contextOptions = array_merge($contextOptions, $config['theme']);
+
+        return $contextOptions;
     }
 
     /**
