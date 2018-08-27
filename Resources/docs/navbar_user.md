@@ -73,12 +73,15 @@ class NavbarUserSubscriber implements EventSubscriberInterface
         $myUser = $this->security->getUser();
 
         $user = new UserModel();
-        $user->setName($myUser->getUsername())
+        $user
+            ->setId($myUser->getId())
+            ->setName($myUser->getUsername())
             ->setUsername($myUser->getUsername())
             ->setIsOnline(true)
             ->setTitle('demo user')
             ->setAvatar($myUser->getAvatar())
-            ->setMemberSince($myUser->getRegisteredAt());
+            ->setMemberSince($myUser->getRegisteredAt())
+        ;
 
         $event->setUser($user);
     }
@@ -113,9 +116,10 @@ class NavbarUserListener
         $event->addLink(new NavBarUserLink('Friends', 'logout', ['id' => 2]));
     }
     
-    // retrieve your concrete user model or entity
     protected function getUser()
     {
+        // retrieve your concrete user model or entity
+        // see above in NavbarUserSubscriber for a full example
         return new UserModel();
     }
 

@@ -1,10 +1,12 @@
 # The Navbar Notifications component
 
 ## Routes
+
 Just like the other theme components, this one requires some route aliases to work. 
 Please refer to the [configurations overview](configurations.md) to learn about the route alias details. 
 
 ## Required aliases
+
 * all_notifications
 * notification
 
@@ -15,15 +17,18 @@ In order to use this component, your user class has to implement the `KevinPapst
 <?php
 namespace App\Model;
 
-use KevinPapst\AdminLTEBundle\Model\NotificationInterface as ThemeNotification;
+use KevinPapst\AdminLTEBundle\Model\NotificationInterface;
 
-class NotificationModel implements ThemeNotification
+class NotificationModel implements NotificationInterface
 {
     // implement interface methods
 }
 ```
 
+The bundle provides the `NotificationModel` as a ready to use implementation of the `NotificationInterface`. 
+
 ## Event Listener
+
 Next, you will need to create an EventListener to work with the `NotificationListEvent`.
 ```php
 <?php
@@ -45,6 +50,7 @@ class NotificationListListener
     }
 }
 ```
+
 ## Service definition
 
 Finally, you need to attach your new listener to the event system:

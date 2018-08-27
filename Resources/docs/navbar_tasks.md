@@ -1,10 +1,12 @@
 # The Navbar Tasks component
 
 ## Routes
+
 Just like the other theme components, this one requires some route aliases to work. 
 Please refer to the [configurations overview](configurations.md) to learn about the route alias details. 
  
 ### Required aliases
+
 * all_task
 * task
 
@@ -15,15 +17,18 @@ In order to use this component, your user class has to implement the `KevinPapst
 <?php
 namespace App\Model;
 
-use KevinPapst\AdminLTEBundle\Model\TaskInterface as ThemeTask;
+use KevinPapst\AdminLTEBundle\Model\TaskInterface;
 
-class TaskModel implements ThemeTask
+class TaskModel implements TaskInterface
 {
-	// implement interface methods
+    // implement interface methods
 }
 ```
 
+The bundle provides the `TaskModel` as a ready to use implementation of the `TaskInterface`. 
+
 ## Event Listener
+
 Next, you will need to create an EventListener to work with the `TaskListEvent`.
 ```php
 <?php

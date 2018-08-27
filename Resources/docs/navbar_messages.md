@@ -1,10 +1,12 @@
 # The Navbar Messages component
 
 ## Routes
+
 Just like the other theme components, this one requires some route aliases to work. 
 Please refer to the [configurations overview](configurations.md) to learn about the route alias details. 
 
 ## Required aliases
+
 * all_messages
 * message
 
@@ -23,7 +25,10 @@ class MessageModel implements MessageInterface
 }
 ```
 
+The bundle provides the `MessageModel` as a ready to use implementation of the `MessageInterface`. 
+
 ## Event Listener
+
 Next, you will need to create an EventListener to work with the `MessageListEvent`.
 ```php
 <?php
@@ -45,6 +50,7 @@ class MessageListListener
     }
 }
 ```
+
 ## Service definition
 
 Finally, you need to attach your new listener to the event system:
