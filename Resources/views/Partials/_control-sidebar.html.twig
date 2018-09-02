@@ -9,7 +9,7 @@
             {% for name, tab in admin_lte_context.control_sidebar %}
                 <div class="tab-pane {% if loop.first %}active{% endif %}" id="control-sidebar-{{ name }}-tab">
                     {% if tab.controller is defined %}
-                        {{ render(controller(tab.controller)) }}
+                        {{ render(controller(tab.controller, {'originalRequest': app.request})) }}
                     {% elseif tab.template is defined %}
                         {% include tab.template %}
                     {% endif %}

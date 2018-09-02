@@ -1,7 +1,7 @@
 {
     "name": "kevinpapst/adminlte-bundle",
     "type": "symfony-bundle",
-    "description": "Admin Theme based on the AdminLTE 2.3 for easy integration with Symfony 4",
+    "description": "Admin Theme based on the AdminLTE 2.4.8 for easy integration with Symfony 4",
     "license": "MIT",
     "authors": [
         {
