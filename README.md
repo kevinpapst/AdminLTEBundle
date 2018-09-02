@@ -16,6 +16,10 @@ This repository is an upgraded version of the AvanzuAdminThemeBundle, bringing t
 
 Go ahead and [read the full documentation](Resources/docs/), then install and enjoy your new theme!
 
+__AdminLTE-Bundle Demo__
+
+In order to see a working example this bundle is showcased in a separate demo-application: [AdminLTEBundle-Demo](https://github.com/kevinpapst/AdminLTEBundle-Demo).
+
 ## Features
 
 Some of the main features of this theme bundle:
@@ -46,17 +50,26 @@ Installation using the traditional composer approach is almost as simple:
    composer require kevinpapst/adminlte-bundle ^2.0
 ```
 
+This command requires you to have Composer installed globally, as explained
+in the [installation chapter](https://getcomposer.org/doc/00-intro.md)
+of the Composer documentation.
+
 Afterwards copy the default config to your `config/packages/` directory:
 
 ```bash
 cp vendor/kevinpapst/adminlte-bundle/config/packages/admin_lte.yaml config/packages/
 ```
 
-## AdminLTE-Bundle Demo
+Then, enable the bundle by adding it to the list of registered bundles in the `config/bundles.php` file of your project:
 
-In order to see a working example this bundle is showcased in a separate demo-application: [AdminLTEBundle-Demo](https://github.com/kevinpapst/AdminLTEBundle-Demo).
+```php
+<?php
 
-The demo is neither fully functional nor showcasing all options right now, but I am working on it!
+return [
+    // ...
+    KevinPapst\AdminLTEBundle\AdminLTEBundle::class => ['all' => true],
+];
+```
 
 ## Why choose this repository over the original?
 
@@ -92,7 +105,7 @@ And a lot of other changes which I added in this repository:
 - changed namespaces to allow co-existence with AdminThemeBundle
 - changed and extended default configuration
 - huge cleanup of the codebase
-- changed all codeblock-names (with additional shim files for migration)   
+- changed all twig block-names (with additional layout shim files for migration)   
 - changed control-sidebar, content is now configurable from admin_lte.yaml or the ContextHelper
 - a [Demo application](https://github.com/kevinpapst/AdminLTEBundle-Demo) as living documentation for first time users and easier testing
 - updated composer.json to reflect more up-to-date bundle dependencies
