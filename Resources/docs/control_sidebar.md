@@ -31,6 +31,27 @@ The first tab `home` will use the FontAwesome icon `home` and render the content
 
 The second tab `settings` will use the FontAwesome icon `cogs` and render the content from the result of the call to the `DefaultController` and its action `controlSidebarSettings()`.
 
+## Using controller actions
+
+A simple example for the above configuration could look like this:
+
+```php
+namespace App\Controller;
+
+use Symfony\Component\HttpFoundation\Request;
+
+class DefaultController extends AbstractController
+{
+    public function controlSidebarSettings(Request $originalRequest) 
+    {
+        return $this->render('control-sidebar/settings.html.twig', []);
+    }
+}
+```
+
+Note that you can get the original request passed in with the variable `$originalRequest` (which is optional).
+This might be useful if you want to access the original requested route or request parameter. 
+
 ## Next steps
 
 Please go back to the [AdminLTE bundle documentation](README.md) to find out more about using the theme.
