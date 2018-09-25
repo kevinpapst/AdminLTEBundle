@@ -8,27 +8,27 @@
             </trans-unit>
             <trans-unit id="Remember Me">
                 <source>Remember Me</source>
-                <target>Zapamatuj si mě</target>
+                <target>Zůstat přihlášen</target>
             </trans-unit>
             <trans-unit id="Sign in to start your session">
                 <source>Sign in to start your session</source>
-                <target>Přihlašte se k zahájení relace</target>
+                <target>Přihlaste se k zahájení relace</target>
             </trans-unit>
             <trans-unit id="Sign In">
                 <source>Sign In</source>
-                <target>Přihlášení</target>
+                <target>Přihlásit se</target>
             </trans-unit>
             <trans-unit id="Sign out">
                 <source>Sign out</source>
-                <target>Logout</target>
+                <target>Odhlásit se</target>
             </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
-                <target>Your profile</target>
+                <target>Profil</target>
             </trans-unit>
             <trans-unit id="Member since %date%">
                 <source>Member since %date%</source>
-                <target>Member since %date%</target>
+                <target>Členem od %date%</target>
             </trans-unit>
             <trans-unit id="Username">
                 <source>Username</source>
@@ -40,7 +40,7 @@
             </trans-unit>
             <trans-unit id="Show homepage">
                 <source>Show homepage</source>
-                <target>Zobrazit domovskou stránku</target>
+                <target>Domů</target>
             </trans-unit>
             <trans-unit id="Back to login">
                 <source>Back to login</source>
@@ -60,23 +60,23 @@
             </trans-unit>
             <trans-unit id="View all">
                 <source>View all</source>
-                <target>View all</target>
+                <target>Zobrazit vše</target>
             </trans-unit>
             <trans-unit id="You have %total% notifications">
                 <source>You have %total% notifications</source>
-                <target>You have 1 notification|You have %total% notifications</target>
+                <target>{1} Máte 1 notifikaci|[2,4] Máte %total% notifikace|[5,Inf[ Máte %total% notifikací</target>
             </trans-unit>
             <trans-unit id="You have %total% messages">
                 <source>You have %total% messages</source>
-                <target>You have 1 message|You have %total% messages</target>
+                <target>{1} Máte 1 zprávu|[2,4] Máte %total% zprávy|[5,Inf[ Máte %total% zpráv</target>
             </trans-unit>
             <trans-unit id="You have %total% tasks">
                 <source>You have %total% tasks</source>
-                <target>You have 1 task|You have %total% tasks</target>
+                <target>{1} Máte 1 úkol|[2,4] Máte %total% úkoly|[5,Inf[ Máte %total% úkolů</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>
-                <target>%progress%% completed</target>
+                <target>%progress%% hotovo</target>
             </trans-unit>
         </body>
     </file>
