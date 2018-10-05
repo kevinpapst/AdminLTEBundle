@@ -83,8 +83,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         foreach ($items as $item) {
             if ($item->hasChildren()) {
                 $this->activateByRoute($route, $item->getChildren());
-                if (null !== $item->getActiveChild())
-                {
+                if (null !== $item->getActiveChild()) {
                     $item->setIsActive(true);
                 }
             } elseif ($item->getRoute() == $route) {
@@ -144,8 +143,7 @@ class MenuBuilderListener
         foreach($items as $item) {
             if($item->hasChildren()) {
                 $this->activateByRoute($route, $item->getChildren());
-                if (null !== $item->getActiveChild())
-                {
+                if (null !== $item->getActiveChild()) {
                     $item->setIsActive(true);
                 }
             } elseif($item->getRoute() == $route) {
