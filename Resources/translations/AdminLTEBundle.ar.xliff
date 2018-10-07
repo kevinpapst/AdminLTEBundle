@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file date="2018-10-07T20:00:00Z" source-language="en" target-language="ar" datatype="plaintext" original="none">
+        <body>
+            <trans-unit id="Toggle navigation">
+                <source>Toggle navigation</source>
+                <target>تبديل التنقل</target>
+            </trans-unit>
+            <trans-unit id="Remember Me">
+                <source>Remember Me</source>
+                <target>تذكرنى</target>
+            </trans-unit>
+            <trans-unit id="Sign in to start your session">
+                <source>Sign in to start your session</source>
+                <target>تسجيل الدخول</target>
+            </trans-unit>
+            <trans-unit id="Sign In">
+                <source>Sign In</source>
+                <target>تسجيل الدخول</target>
+            </trans-unit>
+            <trans-unit id="Sign out">
+                <source>Sign out</source>
+                <target>الخروج</target>
+            </trans-unit>
+            <trans-unit id="Profile">
+                <source>Profile</source>
+                <target>ملفك الشخصي</target>
+            </trans-unit>
+            <trans-unit id="Member since %date%">
+                <source>Member since %date%</source>
+                <target>عضو منذ %date%</target>
+            </trans-unit>
+            <trans-unit id="Username">
+                <source>Username</source>
+                <target>اسم المستخدم</target>
+            </trans-unit>
+            <trans-unit id="Password">
+                <source>Password</source>
+                <target>اسم المستخدم</target>
+            </trans-unit>
+            <trans-unit id="Show homepage">
+                <source>Show homepage</source>
+                <target>عرض الصفحة الرئيسية</target>
+            </trans-unit>
+            <trans-unit id="Back to login">
+                <source>Back to login</source>
+                <target>العودة إلى تسجيل الدخول</target>
+            </trans-unit>
+            <trans-unit id="Reset your password">
+                <source>Reset your password</source>
+                <target>اعد ضبط كلمه السر</target>
+            </trans-unit>
+            <trans-unit id="I forgot my password">
+                <source>I forgot my password</source>
+                <target>لقد نسيت كلمة المرور</target>
+            </trans-unit>
+            <trans-unit id="Register a new account">
+                <source>Register a new account</source>
+                <target>تسجيل حساب جديد</target>
+            </trans-unit>
+            <trans-unit id="View all">
+                <source>View all</source>
+                <target>عرض الكل</target>
+            </trans-unit>
+            <trans-unit id="You have %total% notifications">
+                <source>You have %total% notifications</source>
+                <target>لديك %total% إشعارات</target>
+            </trans-unit>
+            <trans-unit id="You have %total% messages">
+                <source>You have %total% messages</source>
+                <target>لديك %total% رسائل</target>
+            </trans-unit>
+            <trans-unit id="You have %total% tasks">
+                <source>You have %total% tasks</source>
+                <target>لديك %total% مهام</target>
+            </trans-unit>
+            <trans-unit id="%progress%% Complete">
+                <source>%progress%% Complete</source>
+                <target>%progress%% منجز</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
