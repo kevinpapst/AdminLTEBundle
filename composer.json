@@ -1,9 +1,13 @@
 {
     "name": "kevinpapst/adminlte-bundle",
     "type": "symfony-bundle",
-    "description": "Admin Theme based on the AdminLTE 2.4.8 for easy integration with Symfony 4",
+    "description": "Admin theme bundle for Symfony 4 based on AdminLTE 2.4.8 with FOSUserBundle support",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Kevin Papst",
+            "homepage": "https://www.kevinpapst.de"
+        },
         {
             "name": "Marc Bach",
             "homepage": "http://www.avanzu.de"
@@ -11,10 +15,6 @@
         {
             "name": "Ángel Guzmán Maeso",
             "homepage": "https://shakaran.net/blog"
-        },
-        {
-            "name": "Kevin Papst",
-            "homepage": "https://www.kevinpapst.de"
         }
     ],
     "require": {
