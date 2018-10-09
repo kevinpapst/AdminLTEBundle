@@ -23,7 +23,7 @@
         {% if not item.isRoot %}
             {%- set listAttributes = listAttributes|merge({class: (listAttributes.class|default('') ~ ' treeview-menu')|trim}) -%}
         {% endif %} 
-        <ul{{ macros.attributes(listAttributes) }}>
+        <ul{{ macros.attributes(listAttributes | merge({'class': 'sidebar-menu tree', 'data-widget': 'tree'})) }}>
             {{ block('children') }}
         </ul>
     {% endif %}
