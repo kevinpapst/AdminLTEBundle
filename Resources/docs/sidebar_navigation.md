@@ -121,11 +121,11 @@ class MenuBuilderListener
     {
         $blog = new MenuItemModel('ItemId', 'ItemDisplayName', 'item_symfony_route', [], 'iconclasses fa fa-plane');
     
-        // A child with an icon
-        $blog->addChild(new MenuItemModel('ChildOneItemId', 'ChildOneDisplayName', 'child_1_route', [], 'fa fa-rss-square'));
-    
-        // A child with default circle icon
-        $blog->addChild(new MenuItemModel('ChildTwoItemId', 'ChildTwoDisplayName', 'child_2_route'));
+        $blog->addChild(
+            new MenuItemModel('ChildOneItemId', 'ChildOneDisplayName', 'child_1_route', [], 'fa fa-rss-square')
+        )->addChild(
+            new MenuItemModel('ChildTwoItemId', 'ChildTwoDisplayName', 'child_2_route')
+        );
         
         return $this->activateByRoute($request->get('_route'), [$blog]);
     }

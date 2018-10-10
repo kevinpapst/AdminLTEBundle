@@ -30,71 +30,121 @@ admin_lte:
 Enabling the KnpMenu support will render the regular breadcrumb and menu events inactive. 
 Instead there will be a new `knp_menu.menu_builder` aliased `adminlte_main` which will dispatch a new event to hook into.
 
-## Attaching an event listener
+### The Event
 
 Quite similar to the `ThemeEvents::THEME_SIDEBAR_SETUP_MENU`, using the knp_menu will trigger the `ThemeEvents::THEME_SIDEBAR_SETUP_KNP_MENU` event. 
 
-### Example code 
+The event listener will receive the `KnpMenuEvent` gives access to the root menu item, the menu factory and if applicable the `$options` and `$childOptions` as configured in the menu builder. 
 
-```yaml
-# services.yml
-services:
-    app.setup_knp_menu_listener:
-        class: AppBundle\SetupKnpMenuListener
-        tags:
-            - { name: kernel.event_listener, event: theme.sidebar_setup_knp_menu, method: onSetupMenu }
-```
+## EventSubscriber - auto-discovery with Symfony 4
 
-The event listener will receive the `KnpMenuEvent` gives access to the root menu item, the menu factory and, if applicable the `$options` and `$childOptions` as configured in the menu builder. 
+In case you activated service discovery and auto-wiring in your app, you can write an EventSubscriber which will 
+be automatically registered in your container:
 
 ```php
-use KevinPapst\AdminLTEBundle\Event\KnpMenuEvent;
+<?php
+// src/EventSubscriber/KnpMenuBuilderSubscriber.php
+namespace App\EventSubscriber;
 
-class SetupKnpMenuListener
+use KevinPapst\AdminLTEBundle\Event\KnpMenuEvent;
+use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+class KnpMenuBuilderSubscriber implements EventSubscriberInterface
 {
+
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            ThemeEvents::THEME_SIDEBAR_SETUP_KNP_MENU => ['onSetupMenu', 100],
+        ];
+    }
+    
     public function onSetupMenu(KnpMenuEvent $event)
     {
         $menu = $event->getMenu();
-        
-        // Adds a menu item which acts as a label
+
         $menu->addChild('MainNavigationMenuItem', [
        	    'label' => 'MAIN NAVIGATION',
             'childOptions' => $event->getChildOptions()
-        ]
-        )->setAttribute('class', 'header');
+        ])->setAttribute('class', 'header');
         
-        // A "regular" menu item with a link
-        $menu->addChild('TestMenuItem', [
-            'route' => 'homepage',
-            'label' => 'Homepage',
+        $menu->addChild('blogId', [
+            'route' => 'item_symfony_route',
+            'label' => 'Blog',
             'childOptions' => $event->getChildOptions()
-        ]
-        )->setLabelAttribute('icon', 'fa fa-flag');
+        ])->setLabelAttribute('icon', 'fas fa-tachometer-alt');
         
-        // Adds a menu item which has children
-        $menu->addChild('DataMenuItem', [
-            'label' => 'Database mangement',
+        $menu->getChild('blogId')->addChild('ChildOneItemId', [
+            'route' => 'child_1_route',
+            'label' => 'ChildOneDisplayName',
             'childOptions' => $event->getChildOptions()
-        ]
-        )->setLabelAttribute('icon', 'fa fa-database');
-        // First child, a regular menu item
-        $menu->getChild('DataMenuItem')->addChild('DataUsersMenuItem', [
-            'route' => 'app.database.users',
-            'label' => 'Users table',
+        ])->setLabelAttribute('icon', 'fas fa-rss-square');
+        
+        $menu->getChild('blogId')->addChild('ChildTwoItemId', [
+            'route' => 'child_2_route',
+            'label' => 'ChildTwoDisplayName',
             'childOptions' => $event->getChildOptions()
-        ]
-        )->setLabelAttribute('icon', 'fa fa-user');
-        // Second child, a regular menu item
-        $menu->getChild('DataMenuItem')->addChild('DataGroupsMenuItem', [
-            'route' => 'app.database.groups',
-            'label' => 'Groups table',
-            'childOptions' => $event->getChildOptions()
-        ]
-        )->setLabelAttribute('icon', 'fa fa-users');
+        ]);
     }
 }
 ```
 For a more in depth guide on how to use the KnpMenuBundle, please refer to the [official documentation](http://symfony.com/doc/current/bundles/KnpMenuBundle/index.html). 
+
+## EventListener and Service definition    
+
+If your application is using the classical approach of manually registering Services and EventListener use this method.
+
+Write an EventListener to work with the `KnpMenuEvent`.
+
+```php
+<?php
+// src/EventListener/KnpMenuBuilderListener.php
+namespace App\EventListener;
+
+use KevinPapst\AdminLTEBundle\Event\KnpMenuEvent;
+
+class KnpMenuBuilderListener
+{
+    public function onSetupMenu(KnpMenuEvent $event)
+    {
+        $menu = $event->getMenu();
+
+        $menu->addChild('MainNavigationMenuItem', [
+       	    'label' => 'MAIN NAVIGATION',
+            'childOptions' => $event->getChildOptions()
+        ])->setAttribute('class', 'header');
+        
+        $menu->addChild('blogId', [
+            'route' => 'item_symfony_route',
+            'label' => 'Blog',
+            'childOptions' => $event->getChildOptions()
+        ])->setLabelAttribute('icon', 'fas fa-tachometer-alt');
+        
+        $menu->getChild('blogId')->addChild('ChildOneItemId', [
+            'route' => 'child_1_route',
+            'label' => 'ChildOneDisplayName',
+            'childOptions' => $event->getChildOptions()
+        ])->setLabelAttribute('icon', 'fas fa-rss-square');
+        
+        $menu->getChild('blogId')->addChild('ChildTwoItemId', [
+            'route' => 'child_2_route',
+            'label' => 'ChildTwoDisplayName',
+            'childOptions' => $event->getChildOptions()
+        ]);
+    }
+}
+```
+For a more in depth guide on how to use the KnpMenuBundle, please refer to the [official documentation](http://symfony.com/doc/current/bundles/KnpMenuBundle/index.html). 
+
+And attach your new listener to the event system in `config/services.yaml`:
+```yaml
+services:
+    app.setup_knp_menu_listener:
+        class: App\EventListener\KnpMenuBuilderListener
+        tags:
+            - { name: kernel.event_listener, event: theme.sidebar_setup_knp_menu, method: onSetupMenu }
+```
 
 ### Replacing the MenuBuilder
 

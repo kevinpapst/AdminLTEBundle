@@ -43,7 +43,7 @@ class MenuBuilder
     public function createMainMenu(array $options)
     {
         $menu = $this->factory->createItem('root', [
-            'childrenAttributes' => ['class' => 'sidebar-menu'],
+            'childrenAttributes' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],
         ]);
 
         $childOptions = [

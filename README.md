@@ -31,7 +31,7 @@ Some of the main features of this theme bundle:
 - Support for FOSUserBundle
 - Webpack-Encore support for building assets
 - Event-driven handling of menu entries, tasks and notifications
-- Translations for: english, german, italian, czech, russian (please help translating it to more languages)
+- Translations for: english, german, italian, czech, russian, arabic (please help translating it to more languages)
 - Based on AdminLTE 2.4.8
 
 ## Installation with Symfony Flex
@@ -74,23 +74,22 @@ return [
 
 ## Why choose this repository over the original?
 
-First and foremost: the original repository has a strong backward compatibility in mind, maintenance is only done if Symfony 2/3 compatibility is kept ([see this issues](https://github.com/avanzu/AdminThemeBundle/pull/216)).
+First and foremost: the original repository has a strong backward compatibility in mind, maintenance is only done if Symfony 2 and 3 compatibility is kept ([see this issues](https://github.com/avanzu/AdminThemeBundle/pull/216)).
 
-That means you don't get the new shiny stuff for SF4. As some of us already ork on Symfony 4 projects (probably even using webpack-encore) there needed to be a solution. 
+That means you don't get the new shiny stuff for SF4. As I work on a Symfony 4 project, utilizing webpack-encore I needed a solution. 
 
-### Why another fork?
- 
-Originally I tried to sent PRs for the original repository, but those were not always accepted (which is totally fine!) but I needed an upgraded version.
-For some time I tried to manage a branch in a fork, but that wasn't working well and I found myself overwriting more and more stuff in my project.  
-There came a point were I had to choose between:
-- doing all the changes in my project or when possible in my own forked repository and having "dev-" entries in my projects composer.json
-- cleanup the fork and merge it with my project changes and then publish this fork and release it for the community
+First I tried to sent PRs for the original repository, but [those were not always accepted](https://github.com/avanzu/AdminThemeBundle/pulls/kevinpapst). 
+As I really needed an upgraded version, I tried to managed a branch in a fork for a couple of weeks, but that wasn't working well 
+and I found myself overwriting more and more stuff in my project until there was a point were I had to choose between:
+1. doing all the changes in my project 
+2. doing the changes in my forked repository and having "dev-" entries in my composer.json
+3. cleanup the fork, merge it with my project changes and release it for the community
 
-The choice was quite easy: I am doing the work now in this repository with a fresh start and with the capability of backward-compatibility breaks (for the users migrating from the AdminThemeBundle).
+The choice **3** was easy and obvious for me: I am doing the work now in this repository with a fresh start and some backward-compatibility breaks (for the users migrating from the AdminThemeBundle).
 
 ### Main differences
 
-This branch was split of the original master but with the following PRs merged on top:
+This repository was created from the original master, but with the following PRs merged on top:
 
 - Auto discovery for commands (see [#215](https://github.com/avanzu/AdminThemeBundle/pull/215))
 - Symfony4 compatibility (see [#215](https://github.com/avanzu/AdminThemeBundle/pull/216))
@@ -102,8 +101,9 @@ And a lot of other changes which I added in this repository:
 - added support for [FOSUserBundle](Resources/docs/fos_userbundle.md)
 - added Symfony Flex recipe for easier integration
 - using Webpack-Encore for compiling frontend-assets
+- fixed KNPMenu integration
 - replaced AliasRouting with simpler version
-- changed namespaces to allow co-existence with AdminThemeBundle
+- changed namespaces to allow co-existence with AdminThemeBundle for migration
 - changed and extended default configuration
 - huge cleanup of the codebase
 - changed all twig block-names (with additional layout shim files for migration)   
