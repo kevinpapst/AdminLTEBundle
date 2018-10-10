@@ -2,7 +2,7 @@
 
 This component uses the same setup as the [Navbar User](navbar_user.md) except for the event name it listens to.
 
-## EventSubscriber
+## EventSubscriber - auto-discovery with Symfony 4
 
 Edit the previously made class `NavbarUserSubscriber` and register it for another event:
 
@@ -28,9 +28,11 @@ class NavbarUserSubscriber implements EventSubscriberInterface
 }
 ```
 
-## EventListener    
+## EventListener and Service definition    
 
-Just add the following tag to your listener definition in the services.xml and you're good to go:
+If your application is using the classical approach of manually registering Services and EventListener use this method.
+
+Just add the following listener definition to the event system in `config/services.yaml` and you're good to go:
 ```yaml
 services:
     app.show_user_listener:

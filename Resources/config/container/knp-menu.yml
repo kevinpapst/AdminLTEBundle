@@ -6,4 +6,4 @@ services:
             - "@knp_menu.factory"
             - "@event_dispatcher"
         tags:
-            - {name: knp_menu.menu_builder, method: createMainMenu, alias: adminlte_main }
+            - { name: knp_menu.menu_builder, method: createMainMenu, alias: adminlte_main }

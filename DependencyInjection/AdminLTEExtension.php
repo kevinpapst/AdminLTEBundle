@@ -38,9 +38,11 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
             $config = [];
         }
 
+        $options = $this->getContextOptions($config);
+
         // Use the config only if it is fully validated from the processed configuration
         if (!empty($config)) {
-            $container->setParameter('admin_lte_theme.options', $this->getContextOptions($config));
+            $container->setParameter('admin_lte_theme.options', $options);
         }
 
         // Load the services (with parameters loaded)
@@ -49,6 +51,15 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
             $loader->load('services.yml');
         } catch (\Exception $e) {
             echo '[AdminLTEBundle] invalid services config found: ' . $e->getMessage();
+        }
+
+        if ($options['knp_menu']['enable'] === true) {
+            try {
+                $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config/container'));
+                $loader->load('knp-menu.yml');
+            } catch (\Exception $e) {
+                echo '[AdminLTEBundle] failed loading KNP menu service: ' . $e->getMessage();
+            }
         }
     }
 
