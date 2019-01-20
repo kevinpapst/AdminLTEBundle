@@ -37,8 +37,6 @@ class TwigPass implements CompilerPassInterface
             $param = [];
         }
 
-        array_push($param, '@AdminLTE/layout/form-theme.html.twig');
-
         $container->setParameter('twig.form.resources', $param);
 
         $twigDefinition = $container->getDefinition('twig');
