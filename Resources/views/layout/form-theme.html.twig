@@ -125,6 +125,9 @@
     {% if widget == 'single_text' %}
         <div class="bootstrap-timepicker">
             <div class="input-group">
+                <div class="input-group-addon add-on">
+                    <i class="far fa-clock"></i>
+                </div>
                 {% if attr.class is defined %}
                     {% set class = attr.class ~ ' timepicker' %}
                 {% else %}
@@ -132,9 +135,6 @@
                 {% endif %}
                 {% set attr = attr|merge({'class' : class, 'data-timepicker':'on'}) %}
                 {{ block('form_widget_simple') }}
-                <div class="input-group-addon add-on">
-                    <i class="far fa-clock"></i>
-                </div>
             </div>
         </div>
     {% else %}
@@ -163,7 +163,7 @@
 
     {{ parent() }}
     {% if required and label is not same as (false) %}
-        <sup class="required" title="{{ "This is a mandatory field"|trans({}, translation_domain) }}">
+        <sup class="required" title="{{ "This is a mandatory field"|trans({}, 'AdminLTEBundle') }}">
             <i class="fas fa-asterisk"></i>
         </sup>
     {% endif %}
@@ -189,3 +189,56 @@
         <p class="help-block">{{ help }}</p>
     {% endif %}
 {% endblock % #}
+
+{% block datetime_widget -%}
+    {%- if widget == 'single_text' -%}
+        <div class="input-group">
+            <div class="input-group-addon">
+                <i class="fa fa-calendar-alt"></i>
+            </div>
+            {{- parent() -}}
+        </div>
+    {%- else -%}
+        {{- parent() -}}
+    {%- endif -%}
+{%- endblock datetime_widget %}
+
+{% block email_widget -%}
+    <div class="input-group">
+        <div class="input-group-addon">
+            <i class="fa fa-at"></i>
+        </div>
+        {{- parent() -}}
+    </div>
+{%- endblock email_widget %}
+
+{% block password_widget -%}
+    <div class="input-group">
+        <div class="input-group-addon">
+            <i class="fas fa-key"></i>
+        </div>
+        {{- parent() -}}
+    </div>
+{%- endblock password_widget %}
+
+{% block tel_widget -%}
+    <div class="input-group">
+        <div class="input-group-addon">
+            {% set icon = 'phone' %}
+            {% if 'icon' in attr|keys %}
+                {% set icon = attr.icon %}
+            {% endif %}
+            <i class="fas fa-{{ icon }}"></i>
+        </div>
+        {{- parent() -}}
+    </div>
+{%- endblock tel_widget %}
+
+{% block url_widget -%}
+    <div class="input-group">
+        <div class="input-group-addon">
+            <i class="fas fa-home"></i>
+        </div>
+        {{- parent() -}}
+    </div>
+{%- endblock url_widget %}
