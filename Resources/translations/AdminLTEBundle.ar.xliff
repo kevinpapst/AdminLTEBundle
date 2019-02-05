@@ -64,15 +64,15 @@
             </trans-unit>
             <trans-unit id="You have %total% notifications">
                 <source>You have %total% notifications</source>
-                <target>لديك %total% إشعارات</target>
+                <target>{count, plural, one {You have # notification} other {You have # notifications}}</target>
             </trans-unit>
             <trans-unit id="You have %total% messages">
                 <source>You have %total% messages</source>
-                <target>لديك %total% رسائل</target>
+                <target>{count, plural, one {You have # message} other {You have # messages}}</target>
             </trans-unit>
             <trans-unit id="You have %total% tasks">
                 <source>You have %total% tasks</source>
-                <target>لديك %total% مهام</target>
+                <target>{count, plural, one {You have # task} other {You have # tasks}}</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>

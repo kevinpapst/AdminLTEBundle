@@ -64,15 +64,15 @@
             </trans-unit>
             <trans-unit id="You have %total% notifications">
                 <source>You have %total% notifications</source>
-                <target>Du hast 1 Benachrichtigung|Du hast %total% Benachrichtigungen</target>
+                <target>{count, plural, one {Du hast # Benachrichtigung} other {Du hast # Benachrichtigungen}}</target>
             </trans-unit>
             <trans-unit id="You have %total% messages">
                 <source>You have %total% messages</source>
-                <target>Du hast 1 Nachricht|Due hast %total% Nachrichten</target>
+                <target>{count, plural, one {Du hast # Nachricht} other {Du hast # Nachrichten}}</target>
             </trans-unit>
             <trans-unit id="You have %total% tasks">
                 <source>You have %total% tasks</source>
-                <target>Du hast 1 Aufgabe|Du hast %total% Aufgaben</target>
+                <target>{count, plural, one {Du hast # Aufgabe} other {Du hast # Aufgaben}}</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>

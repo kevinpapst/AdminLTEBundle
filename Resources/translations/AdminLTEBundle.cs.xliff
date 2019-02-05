@@ -64,15 +64,15 @@
             </trans-unit>
             <trans-unit id="You have %total% notifications">
                 <source>You have %total% notifications</source>
-                <target>{1} Máte 1 notifikaci|[2,4] Máte %total% notifikace|[5,Inf[ Máte %total% notifikací</target>
+                <target>{count, plural, one {Máte # notifikaci} few {Máte # notifikace} other {Máte # notifikací}}</target>
             </trans-unit>
             <trans-unit id="You have %total% messages">
                 <source>You have %total% messages</source>
-                <target>{1} Máte 1 zprávu|[2,4] Máte %total% zprávy|[5,Inf[ Máte %total% zpráv</target>
+                <target>{count, plural, one {Máte # zprávu} few {Máte # zprávy} other {Máte # zpráv}}</target>
             </trans-unit>
             <trans-unit id="You have %total% tasks">
                 <source>You have %total% tasks</source>
-                <target>{1} Máte 1 úkol|[2,4] Máte %total% úkoly|[5,Inf[ Máte %total% úkolů</target>
+                <target>{count, plural, one {Máte # úkol} few {Máte # úkoly} other {Máte # úkolů}}</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>
