@@ -9,12 +9,12 @@
 
 namespace KevinPapst\AdminLTEBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class EmitterController extends Controller
+class EmitterController extends AbstractController
 {
     /**
      * @var EventDispatcherInterface
