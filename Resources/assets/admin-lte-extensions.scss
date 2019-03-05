@@ -28,6 +28,11 @@
     padding-left: 5px;
 }
 
+.control-label.required:after {
+    content:" *";
+    font-size: 110%;
+}
+
 .timeline > li > .far,
 .timeline > li > .fas,
 .timeline > li > .fal,
