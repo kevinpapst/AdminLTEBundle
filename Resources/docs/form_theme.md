@@ -1,11 +1,30 @@
 # Form theme
 
-This bundle provide a form-theme under [Resources/views/layout/form-theme.html.twig](Resources/views/layout/form-theme.html.twig).
+This bundle provides two form-themes:
+- [Resources/views/layout/form-theme.html.twig](Resources/views/layout/form-theme.html.twig)
+- [Resources/views/layout/form-theme-horizontal.html.twig](Resources/views/layout/form-theme-horizontal.html.twig)
 
-This form theme is automatically registered and will be applied to all form elements, unless you overwrite it with an application wide form 
-theme or manually overwrite it for a single form.
+The first one `form-theme.html.twig` is the default theme, which is automatically registered and will be applied to all form elements, 
+unless you overwrite it with an application wide form theme or manually overwrite it for a single form.
 
-## Overwrite it application wide
+## Use the horizontal theme
+
+To use the horizontal theme everywhere in your application edit `config/packages/twig.yaml`:
+
+```yaml
+twig:
+    form_themes:
+        - '@AdminLTE/layout/form-theme-horizontal.html.twig'
+```
+
+To use it only for one form, change your twig file:
+
+```twig
+    {% form_theme form '@AdminLTE/layout/form-theme-horizontal.html.twig' %}
+    {{ form_start(form) }}
+```
+
+## Overwrite form theme in your application
 
 Create a new twig file, e.g. at `templates/form/theme.html.twig`:
 
@@ -28,15 +47,7 @@ twig:
         - 'form/theme.html.twig'
 ```
 
-## Apply it to a single form
-
-This is used as:
-
-```twig
-{% form_theme form '@AdminLTE/layout/form-theme.html.twig' %}
-```
-
-## Overwrite one form with your layout
+### Overwrite one form with your layout
 
 To override the default theme in any twig template you add a line like this to your twig file:
 
