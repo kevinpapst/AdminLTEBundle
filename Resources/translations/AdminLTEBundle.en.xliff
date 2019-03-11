@@ -78,10 +78,6 @@
                 <source>%progress%% Complete</source>
                 <target>%progress%% completed</target>
             </trans-unit>
-            <trans-unit id="This is a mandatory field">
-                <source>This is a mandatory field</source>
-                <target>This is a mandatory field</target>
-            </trans-unit>
         </body>
     </file>
 </xliff>

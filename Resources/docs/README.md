@@ -8,7 +8,7 @@ If you cannot find the needed information in this list of topics, please create 
 * [Components](component_events.md)
 * [Breadcrumb Menu](breadcrumbs.md)
 * [Form theme](form_theme.md)
-* [Twig extensions](twig_widgets.md)
+* [Twig Widgets / Embeds](twig_widgets.md)
 * [FOSUserBundle integration](fos_userbundle.md)
 
 Customizing the left menu-sidebar:
