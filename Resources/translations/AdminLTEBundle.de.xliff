@@ -68,7 +68,7 @@
             </trans-unit>
             <trans-unit id="You have %count% messages">
                 <source>You have %count% messages</source>
-                <target>Du hast 1 Nachricht|Due hast %count% Nachrichten</target>
+                <target>Du hast 1 Nachricht|Du hast %count% Nachrichten</target>
             </trans-unit>
             <trans-unit id="You have %count% tasks">
                 <source>You have %count% tasks</source>
