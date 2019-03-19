@@ -11,8 +11,10 @@ namespace KevinPapst\AdminLTEBundle\Twig;
 
 use KevinPapst\AdminLTEBundle\Helper\Constants;
 use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
-class AdminExtension extends \Twig_Extension
+class AdminExtension extends AbstractExtension
 {
     /**
      * @var ContextHelper
@@ -34,14 +36,14 @@ class AdminExtension extends \Twig_Extension
     }
 
     /**
-     * @return \Twig_Filter[]
+     * @return TwigFilter[]
      */
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('body_class', [$this, 'bodyClass']),
-            new \Twig_SimpleFilter('route_alias', [$this, 'getRouteByAlias']),
-            new \Twig_SimpleFilter('text_type', [$this, 'getTextType']),
+            new TwigFilter('body_class', [$this, 'bodyClass']),
+            new TwigFilter('route_alias', [$this, 'getRouteByAlias']),
+            new TwigFilter('text_type', [$this, 'getTextType']),
         ];
     }
 
