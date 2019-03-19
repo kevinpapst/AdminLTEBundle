@@ -62,21 +62,25 @@
                 <source>View all</source>
                 <target>Alle anzeigen</target>
             </trans-unit>
-            <trans-unit id="You have %total% notifications">
-                <source>You have %total% notifications</source>
-                <target>Du hast 1 Benachrichtigung|Du hast %total% Benachrichtigungen</target>
+            <trans-unit id="You have %count% notifications">
+                <source>You have %count% notifications</source>
+                <target>Du hast 1 Benachrichtigung|Du hast %count% Benachrichtigungen</target>
             </trans-unit>
-            <trans-unit id="You have %total% messages">
-                <source>You have %total% messages</source>
-                <target>Du hast 1 Nachricht|Due hast %total% Nachrichten</target>
+            <trans-unit id="You have %count% messages">
+                <source>You have %count% messages</source>
+                <target>Du hast 1 Nachricht|Du hast %count% Nachrichten</target>
             </trans-unit>
-            <trans-unit id="You have %total% tasks">
-                <source>You have %total% tasks</source>
-                <target>Du hast 1 Aufgabe|Du hast %total% Aufgaben</target>
+            <trans-unit id="You have %count% tasks">
+                <source>You have %count% tasks</source>
+                <target>Du hast 1 Aufgabe|Du hast %count% Aufgaben</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>
                 <target>%progress%% erledigt</target>
+            </trans-unit>
+            <trans-unit id="This is a mandatory field">
+                <source>This is a mandatory field</source>
+                <target>Dies ist ein Pflichtfeld</target>
             </trans-unit>
         </body>
     </file>

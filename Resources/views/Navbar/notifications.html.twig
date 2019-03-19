@@ -4,7 +4,7 @@
         <span class="label label-warning">{{ total }}</span>
     </a>
     <ul class="dropdown-menu">
-        <li class="header">{{ 'You have %total% notifications'|transchoice(total, {'%total%': total}, 'AdminLTEBundle') }}</li>
+        <li class="header">{{ 'You have %count% notifications'|trans({'%count%':total}, 'AdminLTEBundle') }}</li>
         <li>
             <ul class="menu">
                 {% for notice in notifications %}

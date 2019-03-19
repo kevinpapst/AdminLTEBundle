@@ -62,21 +62,25 @@
                 <source>View all</source>
                 <target>Zobrazit vše</target>
             </trans-unit>
-            <trans-unit id="You have %total% notifications">
-                <source>You have %total% notifications</source>
-                <target>{1} Máte 1 notifikaci|[2,4] Máte %total% notifikace|[5,Inf[ Máte %total% notifikací</target>
+            <trans-unit id="You have %count% notifications">
+                <source>You have %count% notifications</source>
+                <target>{1} Máte 1 notifikaci|[2,4] Máte %count% notifikace|[5,Inf[ Máte %count% notifikací</target>
             </trans-unit>
-            <trans-unit id="You have %total% messages">
-                <source>You have %total% messages</source>
-                <target>{1} Máte 1 zprávu|[2,4] Máte %total% zprávy|[5,Inf[ Máte %total% zpráv</target>
+            <trans-unit id="You have %count% messages">
+                <source>You have %count% messages</source>
+                <target>{1} Máte 1 zprávu|[2,4] Máte %count% zprávy|[5,Inf[ Máte %count% zpráv</target>
             </trans-unit>
-            <trans-unit id="You have %total% tasks">
-                <source>You have %total% tasks</source>
-                <target>{1} Máte 1 úkol|[2,4] Máte %total% úkoly|[5,Inf[ Máte %total% úkolů</target>
+            <trans-unit id="You have %count% tasks">
+                <source>You have %count% tasks</source>
+                <target>{1} Máte 1 úkol|[2,4] Máte %count% úkoly|[5,Inf[ Máte %count% úkolů</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>
                 <target>%progress%% hotovo</target>
+            </trans-unit>
+            <trans-unit id="This is a mandatory field">
+                <source>This is a mandatory field</source>
+                <target>Toto je povinné pole</target>
             </trans-unit>
         </body>
     </file>

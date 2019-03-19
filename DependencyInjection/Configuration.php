@@ -24,8 +24,14 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('admin_lte');
+        $treeBuilder = new TreeBuilder('admin_lte');
+
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            // BC layer for symfony/config 4.1 and older
+            $rootNode = $treeBuilder->root('admin_lte');
+        }
 
         $rootNode
             ->children()
@@ -42,10 +48,15 @@ class Configuration implements ConfigurationInterface
 
     private function getRouteAliasesConfig()
     {
-        $builder = new TreeBuilder();
-        $node = $builder->root('routes');
+        $treeBuilder = new TreeBuilder('routes');
 
-        $node
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $rootNode = $treeBuilder->root('routes');
+        }
+
+        $rootNode
             ->addDefaultsIfNotSet()
             ->children()
                 ->scalarNode('adminlte_welcome')
@@ -99,15 +110,20 @@ class Configuration implements ConfigurationInterface
             ->end()
         ->end();
 
-        return $node;
+        return $rootNode;
     }
 
     private function getKnpMenuConfig()
     {
-        $builder = new TreeBuilder();
-        $node = $builder->root('knp_menu');
+        $treeBuilder = new TreeBuilder('knp_menu');
 
-        $node
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $rootNode = $treeBuilder->root('knp_menu');
+        }
+
+        $rootNode
             ->addDefaultsIfNotSet()
             ->children()
                 ->scalarNode('enable')
@@ -125,15 +141,20 @@ class Configuration implements ConfigurationInterface
             ->end()
         ->end();
 
-        return $node;
+        return $rootNode;
     }
 
     private function getWidgetConfig()
     {
-        $builder = new TreeBuilder();
-        $node = $builder->root('widget');
+        $treeBuilder = new TreeBuilder('widget');
 
-        $node
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $rootNode = $treeBuilder->root('widget');
+        }
+
+        $rootNode
             ->addDefaultsIfNotSet()
             ->children()
                 ->scalarNode('collapsible_title')
@@ -171,15 +192,20 @@ class Configuration implements ConfigurationInterface
             ->end()
         ->end();
 
-        return $node;
+        return $rootNode;
     }
 
     private function getButtonConfig()
     {
-        $builder = new TreeBuilder();
-        $node = $builder->root('button');
+        $treeBuilder = new TreeBuilder('button');
 
-        $node
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $rootNode = $treeBuilder->root('button');
+        }
+
+        $rootNode
             ->addDefaultsIfNotSet()
             ->children()
                 ->scalarNode('type')
@@ -193,15 +219,20 @@ class Configuration implements ConfigurationInterface
             ->end()
         ->end();
 
-        return $node;
+        return $rootNode;
     }
 
     private function getThemeConfig()
     {
-        $builder = new TreeBuilder();
-        $node = $builder->root('theme');
+        $treeBuilder = new TreeBuilder('theme');
 
-        $node
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $rootNode = $treeBuilder->root('theme');
+        }
+
+        $rootNode
             ->addDefaultsIfNotSet()
             ->children()
                 ->append($this->getWidgetConfig())
@@ -209,15 +240,20 @@ class Configuration implements ConfigurationInterface
             ->end()
         ->end();
 
-        return $node;
+        return $rootNode;
     }
 
     private function getOptionsConfig()
     {
-        $builder = new TreeBuilder();
-        $node = $builder->root('options');
+        $treeBuilder = new TreeBuilder('options');
 
-        $node
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $rootNode = $treeBuilder->root('options');
+        }
+
+        $rootNode
             ->addDefaultsIfNotSet()
             ->children()
                 ->scalarNode('default_avatar')
@@ -247,15 +283,20 @@ class Configuration implements ConfigurationInterface
             ->end()
         ->end();
 
-        return $node;
+        return $rootNode;
     }
 
     private function getControlSidebarConfig()
     {
-        $builder = new TreeBuilder();
-        $node = $builder->root('control_sidebar');
+        $treeBuilder = new TreeBuilder('control_sidebar');
 
-        $node
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $rootNode = $treeBuilder->root('control_sidebar');
+        }
+
+        $rootNode
             ->arrayPrototype()
                 ->children()
                     ->scalarNode('icon')->end()
@@ -266,6 +307,6 @@ class Configuration implements ConfigurationInterface
             ->info('controls all panels in the right control_sidebar')
         ->end();
 
-        return $node;
+        return $rootNode;
     }
 }

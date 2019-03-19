@@ -4,7 +4,7 @@
         <span class="label label-danger">{{ total }}</span>
     </a>
     <ul class="dropdown-menu">
-        <li class="header">{{ 'You have %total% tasks' |transchoice(total, {'%total%':total}, 'AdminLTEBundle') }}</li>
+        <li class="header">{{ 'You have %count% tasks' |trans({'%count%':total}, 'AdminLTEBundle') }}</li>
         <li>
             <ul class="menu">
                 {% for task in tasks %}

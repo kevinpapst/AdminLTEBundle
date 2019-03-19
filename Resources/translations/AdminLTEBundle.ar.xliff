@@ -62,17 +62,17 @@
                 <source>View all</source>
                 <target>عرض الكل</target>
             </trans-unit>
-            <trans-unit id="You have %total% notifications">
-                <source>You have %total% notifications</source>
-                <target>لديك %total% إشعارات</target>
+            <trans-unit id="You have %count% notifications">
+                <source>You have %count% notifications</source>
+                <target>لديك %count% إشعارات</target>
             </trans-unit>
-            <trans-unit id="You have %total% messages">
-                <source>You have %total% messages</source>
-                <target>لديك %total% رسائل</target>
+            <trans-unit id="You have %count% messages">
+                <source>You have %count% messages</source>
+                <target>لديك %count% رسائل</target>
             </trans-unit>
-            <trans-unit id="You have %total% tasks">
-                <source>You have %total% tasks</source>
-                <target>لديك %total% مهام</target>
+            <trans-unit id="You have %count% tasks">
+                <source>You have %count% tasks</source>
+                <target>لديك %count% مهام</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>

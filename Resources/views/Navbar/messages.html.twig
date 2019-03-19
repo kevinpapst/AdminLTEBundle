@@ -5,7 +5,7 @@
         <span class="label label-success">{{ total }}</span>
     </a>
     <ul class="dropdown-menu">
-        <li class="header">{{ 'You have %total% messages'|transchoice(total, {'%total%':total}, 'AdminLTEBundle') }}</li>
+        <li class="header">{{ 'You have %count% messages'|trans({'%count%':total}, 'AdminLTEBundle') }}</li>
         <li>
             <ul class="menu">
                 {% for msg in messages %}

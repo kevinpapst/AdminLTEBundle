@@ -62,17 +62,17 @@
                 <source>View all</source>
                 <target>View all</target>
             </trans-unit>
-            <trans-unit id="You have %total% notifications">
-                <source>You have %total% notifications</source>
-                <target>You have 1 notification|You have %total% notifications</target>
+            <trans-unit id="You have %count% notifications">
+                <source>You have %count% notifications</source>
+                <target>You have 1 notification|You have %count% notifications</target>
             </trans-unit>
-            <trans-unit id="You have %total% messages">
-                <source>You have %total% messages</source>
-                <target>You have 1 message|You have %total% messages</target>
+            <trans-unit id="You have %count% messages">
+                <source>You have %count% messages</source>
+                <target>You have 1 message|You have %count% messages</target>
             </trans-unit>
-            <trans-unit id="You have %total% tasks">
-                <source>You have %total% tasks</source>
-                <target>You have 1 task|You have %total% tasks</target>
+            <trans-unit id="You have %count% tasks">
+                <source>You have %count% tasks</source>
+                <target>You have 1 task|You have %count% tasks</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>
