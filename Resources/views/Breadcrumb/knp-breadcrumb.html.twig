@@ -1,12 +1,12 @@
 {% if admin_lte_context.knp_menu.breadcrumb_menu is not same as(false) %}
     <ol class="breadcrumb">
-        {% spaceless %}
+        {% filter spaceless %}
             {% set breadcrumbMenu = admin_lte_context.knp_menu.breadcrumb_menu %}
             {% if admin_lte_context.knp_menu.breadcrumb_menu is same as(true) %}
                 {% set breadcrumbMenu = admin_lte_context.knp_menu.main_menu %}
             {% endif %}
             {% set items = knp_menu_get_breadcrumbs_array(knp_menu_get_current_item(breadcrumbMenu)) %}
-        {% endspaceless %}
+        {% endfilter %}
         {% for item in items %}
             {% if not loop.first %}
             <li class="{{ loop.last ? 'active' : '' }}">
