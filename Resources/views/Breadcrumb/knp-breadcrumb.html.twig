@@ -6,13 +6,13 @@
                 {% set breadcrumbMenu = admin_lte_context.knp_menu.main_menu %}
             {% endif %}
             {% set items = knp_menu_get_breadcrumbs_array(knp_menu_get_current_item(breadcrumbMenu)) %}
+            {% for item in items %}
+                {% if not loop.first %}
+                <li class="{{ loop.last ? 'active' : '' }}">
+                    <a href="{{ item.uri }}">{{ item.label }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
         {% endfilter %}
-        {% for item in items %}
-            {% if not loop.first %}
-            <li class="{{ loop.last ? 'active' : '' }}">
-                <a href="{{ item.uri }}">{{ item.label }}</a>
-            </li>
-            {% endif %}
-        {% endfor %}
     </ol>
 {% endif %}
