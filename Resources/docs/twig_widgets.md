@@ -26,7 +26,7 @@ admin_lte:
             # will add .box-solid 
             solid: false
             # will avoid rendering the .box-footer without content
-            use_footer: false
+            use_footer: true
 ```
 
 ## box-widget.html.twig
@@ -56,7 +56,7 @@ _**Notice:** since FALSE will not be considered a value by Twig and therefor act
 <dt>border
 <dd>Will add .with-border to the box header. 
 
-<dt>footer
+<dt>use_footer
 <dd>Will render the .box-footer even if it has no content.
 
 <dt>collapsible & collapsible_title
