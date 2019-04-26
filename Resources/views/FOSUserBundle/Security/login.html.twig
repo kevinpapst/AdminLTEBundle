@@ -2,6 +2,10 @@
 
 {% block login_social_auth %}{% endblock %}
 
+{% block login_box_icon %}
+    <span class="glyphicon glyphicon-user"></span>
+{% endblock %}
+
 {% block login_box_msg %}
     {{ 'Sign in to start your session'|trans({}, 'AdminLTEBundle') }}
 {% endblock %}
