@@ -1,8 +1,8 @@
-{% extends 'bootstrap_3_horizontal_layout.html.twig' %}
+{% extends 'bootstrap_3_layout.html.twig' %}
 
 {#
     ATTENTION:
-    when changing anything in this file, check if the changes need to be applied to form-theme.html.twig as well
+    when changing anything in this file, check if the changes need to be applied to form-theme-horizontal.html.twig as well
 #}
 
 {% block form_errors %}
@@ -170,24 +170,6 @@
         {{- parent() -}}
     {%- endif -%}
 {%- endblock datetime_widget %}
-
-{% block email_widget -%}
-    <div class="input-group">
-        <div class="input-group-addon">
-            <i class="fa fa-at"></i>
-        </div>
-        {{- parent() -}}
-    </div>
-{%- endblock email_widget %}
-
-{% block password_widget -%}
-    <div class="input-group">
-        <div class="input-group-addon">
-            <i class="fas fa-key"></i>
-        </div>
-        {{- parent() -}}
-    </div>
-{%- endblock password_widget %}
 
 {% block tel_widget -%}
     <div class="input-group">

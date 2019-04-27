@@ -14,10 +14,10 @@
 {% endif %}
 <div class="box box-{{ boxtype|default(admin_lte_context.widget.type) }}{{ _solid ? ' box-solid' : '' }}{{ _collapsed ? ' collapsed-box' : '' }}">
     <div class="box-header{{ _border ? ' with-border' : '' }}">
-        <h3 class="box-title">{{ block('box_title') }}</h3>
+        {% if block('box_title') is defined %}<h3 class="box-title">{{ block('box_title') }}</h3>{% endif %}
         <div class="box-tools pull-right">
 	        {% if block('box_tools') is defined %}{{ block('box_tools') }}{% endif %}
-            <!-- Buttons, labels, and many other things can be placed here! -->
+            {# Buttons, labels, and many other things can be placed here! #}
             {% if collapsible %}
                 {{ button.action_toolbutton(
                     _collapsed ? 'fas fa-plus'  : 'fas fa-minus' ,
@@ -34,11 +34,11 @@
                 ) }}
             {% endif %}
 
-        </div><!-- /.box-tools -->
-    </div><!-- /.box-header -->
-    <div class="box-body">{{ block('box_body') }}</div><!-- /.box-body -->
+        </div>
+    </div>
+    <div class="box-body{% if block('box_body_class') is defined %} {{ block('box_body_class') }}{% endif %}">{{ block('box_body') }}</div>
     {% if _footer %}
-        <div class="box-footer">{% if block('box_footer') is defined %}{{ block('box_footer') }}{% endif %}</div><!-- box-footer -->
+        <div class="box-footer">{% if block('box_footer') is defined %}{{ block('box_footer') }}{% endif %}</div>
     {% endif %}
-</div><!-- /.box -->
+</div>
 {% if block('box_after') is defined %}{{ block('box_after') }}{% endif %}

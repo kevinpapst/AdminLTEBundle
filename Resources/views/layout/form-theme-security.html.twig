@@ -1,0 +1,30 @@
+{% extends '@AdminLTE/layout/form-theme-base.html.twig' %}
+
+{%- block form_widget_simple -%}
+    {% set attr = attr|merge({'placeholder': label|trans({}, translation_domain)}) %}
+    {% set label = false %}
+    {% if not attr.icon is defined %}
+        {% set attr = attr|merge({'icon': 'user'}) %}
+    {% endif %}
+    {% if type is defined and type == 'hidden' %}
+        {{- parent() -}}
+    {% else %}
+        <div class="form-group has-feedback">
+            {{- parent() -}}
+            <span class="glyphicon glyphicon-{{ attr.icon }} form-control-feedback"></span>
+        </div>
+    {% endif %}
+{%- endblock form_widget_simple -%}
+
+{% block email_widget -%}
+    {% set attr = attr|merge({'icon': 'envelope'}) %}
+    {{- parent() -}}
+{%- endblock email_widget %}
+
+{% block password_widget -%}
+    {% set attr = attr|merge({'icon': 'lock'}) %}
+    {{- parent() -}}
+{%- endblock password_widget %}
+
+{%- block form_label -%}
+{%- endblock form_label %}
