@@ -12,7 +12,7 @@
             </trans-unit>
             <trans-unit id="Sign in to start your session">
                 <source>Sign in to start your session</source>
-                <target state="translated">Logga in för att starta din session</target>
+                <target state="translated">Logga in</target>
             </trans-unit>
             <trans-unit id="Sign In">
                 <source>Sign In</source>
