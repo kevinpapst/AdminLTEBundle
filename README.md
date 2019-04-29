@@ -31,7 +31,7 @@ Some of the main features of this theme bundle:
 - Support for FOSUserBundle
 - Webpack-Encore support for building assets
 - Event-driven handling of menu entries, tasks and notifications
-- Translations for: english, german, italian, czech, russian, arabic, japanese (please help translating it to more languages)
+- Translations for: english, german, italian, czech, russian, arabic, japanese, swedish, portuguese (please help translating it to more languages)
 - Based on AdminLTE 2.4.8
 
 ## Installation with Symfony Flex
