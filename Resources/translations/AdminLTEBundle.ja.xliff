@@ -8,7 +8,7 @@
             </trans-unit>
             <trans-unit id="Remember Me">
                 <source>Remember Me</source>
-                <target>私を覚えてますか</target>
+                <target>ログインを記憶する</target>
             </trans-unit>
             <trans-unit id="Sign in to start your session">
                 <source>Sign in to start your session</source>
@@ -16,19 +16,19 @@
             </trans-unit>
             <trans-unit id="Sign In">
                 <source>Sign In</source>
-                <target>ログイン</target>
+                <target>ログインする</target>
             </trans-unit>
             <trans-unit id="Sign out">
                 <source>Sign out</source>
-                <target>ログアウト</target>
+                <target>ログアウトする</target>
             </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
-                <target>あなたのプロファイル</target>
+                <target>あなたのプロフィール</target>
             </trans-unit>
             <trans-unit id="Member since %date%">
                 <source>Member since %date%</source>
-                <target>%date%からのメンバー</target>
+                <target>%date% からのメンバーです</target>
             </trans-unit>
             <trans-unit id="Username">
                 <source>Username</source>
@@ -40,19 +40,19 @@
             </trans-unit>
             <trans-unit id="Show homepage">
                 <source>Show homepage</source>
-                <target>ホームページを表示</target>
+                <target>ホームページを表示する</target>
             </trans-unit>
             <trans-unit id="Back to login">
                 <source>Back to login</source>
-                <target>ログアウトに戻る</target>
+                <target>ログイン画面に戻る</target>
             </trans-unit>
             <trans-unit id="Reset your password">
                 <source>Reset your password</source>
-                <target>あなたのパスワードをリセット</target>
+		<target>パスワードをリセットする</target>
             </trans-unit>
             <trans-unit id="I forgot my password">
                 <source>I forgot my password</source>
-                <target>パスワードを忘れた</target>
+                <target>パスワードを忘れた場合</target>
             </trans-unit>
             <trans-unit id="Register a new account">
                 <source>Register a new account</source>
@@ -60,23 +60,23 @@
             </trans-unit>
             <trans-unit id="View all">
                 <source>View all</source>
-                <target>全て見る</target>
+                <target>すべて見る</target>
             </trans-unit>
             <trans-unit id="You have %count% notifications">
                 <source>You have %count% notifications</source>
-                <target>通知が1件あります|%count%通知があります</target>
+                <target>通知が 1 件あります|通知が %count% 件あります</target>
             </trans-unit>
             <trans-unit id="You have %count% messages">
                 <source>You have %count% messages</source>
-                <target>メッセージが1件あります|%count%件のメッセージがあります</target>
+                <target>メッセージが 1 件あります|メッセージが %count% 件あります</target>
             </trans-unit>
             <trans-unit id="You have %count% tasks">
                 <source>You have %count% tasks</source>
-                <target>1つのタスクがあります|%count%つのタスクがあります</target>
+                <target>タスクが 1 個あります|タスクが %count% 個あります</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>
-                <target>%progress%%完了</target>
+                <target>%progress%% 完了</target>
             </trans-unit>
             <trans-unit id="This is a mandatory field">
                 <source>This is a mandatory field</source>
