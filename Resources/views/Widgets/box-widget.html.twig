@@ -13,11 +13,12 @@
     {% set collapsible =  (_collapsed or admin_lte_context.widget.collapsible) %}
 {% endif %}
 <div class="box box-{{ boxtype|default(admin_lte_context.widget.type) }}{{ _solid ? ' box-solid' : '' }}{{ _collapsed ? ' collapsed-box' : '' }}">
+    {% if block('box_title') is defined or collapsible or removable %}
     <div class="box-header{{ _border ? ' with-border' : '' }}">
         {% if block('box_title') is defined %}<h3 class="box-title">{{ block('box_title') }}</h3>{% endif %}
         <div class="box-tools pull-right">
-	        {% if block('box_tools') is defined %}{{ block('box_tools') }}{% endif %}
             {# Buttons, labels, and many other things can be placed here! #}
+            {% if block('box_tools') is defined %}{{ block('box_tools') }}{% endif %}
             {% if collapsible %}
                 {{ button.action_toolbutton(
                     _collapsed ? 'fas fa-plus'  : 'fas fa-minus' ,
@@ -33,9 +34,9 @@
                 removable_title|default(admin_lte_context.widget.removable_title|default()|trans({}, 'AdminLTEBundle'))
                 ) }}
             {% endif %}
-
         </div>
     </div>
+    {% endif %}
     <div class="box-body{% if block('box_body_class') is defined %} {{ block('box_body_class') }}{% endif %}">{{ block('box_body') }}</div>
     {% if _footer %}
         <div class="box-footer">{% if block('box_footer') is defined %}{{ block('box_footer') }}{% endif %}</div>
