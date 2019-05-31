@@ -63,6 +63,9 @@ class MessageListEvent extends ThemeEvent
      */
     public function getMessages()
     {
+        if(null !== $this->max && is_int($this->max)) {
+            return array_slice($this->messages, 0, $this->max);
+        }
         return $this->messages;
     }
 
@@ -88,5 +91,13 @@ class MessageListEvent extends ThemeEvent
     public function getTotal()
     {
         return $this->totalMessages == 0 ? count($this->messages) : $this->totalMessages;
+    }
+
+    /**
+     * @param int $totalMessages
+     */
+    public function setTotal($totalMessages)
+    {
+        $this->totalMessages = $totalMessages;
     }
 }

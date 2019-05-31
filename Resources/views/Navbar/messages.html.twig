@@ -5,7 +5,12 @@
         <span class="label label-success">{{ total }}</span>
     </a>
     <ul class="dropdown-menu">
-        <li class="header">{{ 'You have %count% messages'|trans({'%count%':total}, 'AdminLTEBundle') }}</li>
+        {% set nb_displayed_messages = messages|length %}
+        {% if nb_displayed_messages %}
+        <li class="header">{{ 'Showing %displayed% of %count% messages'|trans({'%count%':total, '%displayed%':nb_displayed_messages}, 'AdminLTEBundle') }}</li>
+        {% else %}
+        <li class="header">{{ 'You have no messages'|trans({}, 'AdminLTEBundle') }}</li>
+        {% endif %}
         <li>
             <ul class="menu">
                 {% for msg in messages %}
