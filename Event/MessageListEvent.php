@@ -63,9 +63,10 @@ class MessageListEvent extends ThemeEvent
      */
     public function getMessages()
     {
-        if(null !== $this->max && is_int($this->max)) {
+        if (null !== $this->max && is_int($this->max)) {
             return array_slice($this->messages, 0, $this->max);
         }
+
         return $this->messages;
     }
 
