@@ -27,7 +27,7 @@ class MessageListEventTest extends TestCase
     /**
      * @test
      */
-    public function total_should_be_equal_the_number_of_messages_if_max_is_greater_then_the_number_of_message()
+    public function total_should_be_equal_the_number_of_messages_if_max_is_greater_then_the_number_of_messages()
     {
         $event = new MessageListEvent(10);
         $messages = $this->generateNbMessages(7);
@@ -78,7 +78,7 @@ class MessageListEventTest extends TestCase
     /**
      * @test
      */
-    public function you_can_set_total_to_be_differen_from_the_number_of_messages()
+    public function you_can_set_total_to_be_different_from_the_number_of_messages()
     {
         $event = new MessageListEvent();
         $messages = $this->generateNbMessages(7);
@@ -96,7 +96,7 @@ class MessageListEventTest extends TestCase
     /**
      * @test
      */
-    public function you_can_set_total_to_be_differen_from_the_number_of_messages_and_set_max_to_another_value()
+    public function you_can_set_total_to_be_different_from_the_number_of_messages_and_set_max_to_another_value()
     {
         $event = new MessageListEvent(3);
         $messages = $this->generateNbMessages(7);
@@ -114,6 +114,7 @@ class MessageListEventTest extends TestCase
     /**
      * Generate an array of nb messages
      * @param $number
+     * @return array|MessageModel[]
      */
     private function generateNbMessages($number)
     {

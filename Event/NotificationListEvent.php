@@ -57,6 +57,9 @@ class NotificationListEvent extends ThemeEvent
      */
     public function getNotifications()
     {
+        if (null !== $this->max) {
+            return array_slice($this->notifications, 0, $this->max);
+        }
         return $this->notifications;
     }
 
