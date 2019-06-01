@@ -14,18 +14,35 @@ use KevinPapst\AdminLTEBundle\Event\NotificationListEvent;
 use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
 use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class NavbarController extends EmitterController
 {
-    public const MAX_NOTIFICATIONS = 5;
-    public const MAX_MESSAGES = 5;
-    public const MAX_TASKS = 5;
+    protected $max_notifications;
+    protected $max_messages;
+    protected $max_tasks;
 
-    public function notificationsAction($max = self::MAX_NOTIFICATIONS)
+    public function __construct(EventDispatcherInterface $dispatcher)
+    {
+        $this->max_notifications = $this->getParameter('admin_lte_theme.options.max_navbar_notifications');
+        $this->max_messages = $this->getParameter('admin_lte_theme.options.max_messages_notifications');
+        $this->max_tasks = $this->getParameter('admin_lte_theme.options.max_tasks_notifications');
+        parent::__construct($dispatcher);
+    }
+
+    /**
+     * @param int|null $max
+     * @return Response
+     */
+    public function notificationsAction($max = null)
     {
         if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_NOTIFICATIONS)) {
             return new Response();
+        }
+
+        if(null === $max) {
+            $max = $this->max_notifications;
         }
 
         /** @var NotificationListEvent $listEvent */
@@ -41,14 +58,18 @@ class NavbarController extends EmitterController
     }
 
     /**
-     * @param int $max
+     * @param int|null $max
      *
      * @return Response
      */
-    public function messagesAction($max = self::MAX_MESSAGES)
+    public function messagesAction($max = null)
     {
         if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_MESSAGES)) {
             return new Response();
+        }
+
+        if(null === $max) {
+            $max = $this->max_messages;
         }
 
         /** @var MessageListEvent $listEvent */
@@ -64,14 +85,18 @@ class NavbarController extends EmitterController
     }
 
     /**
-     * @param int $max
+     * @param int|null $max
      *
      * @return Response
      */
-    public function tasksAction($max = self::MAX_TASKS)
+    public function tasksAction($max = null)
     {
         if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_TASKS)) {
             return new Response();
+        }
+
+        if(null === $max) {
+            $max = $this->max_tasks;
         }
 
         /** @var TaskListEvent $listEvent */
