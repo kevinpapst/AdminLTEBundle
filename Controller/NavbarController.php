@@ -26,10 +26,10 @@ class NavbarController extends EmitterController
 
     public function __construct(EventDispatcherInterface $dispatcher, ContextHelper $helper)
     {
-        $this->max_notifications = $helper->getOption('admin_lte_theme.options.max_navbar_notifications');
-        $this->max_messages = $helper->getOption('admin_lte_theme.options.max_messages_notifications');
-        $this->max_tasks = $helper->getOption('admin_lte_theme.options.max_tasks_notifications');
         parent::__construct($dispatcher);
+        $this->max_notifications = $helper->getOption('max_navbar_notifications');
+        $this->max_messages = $helper->getOption('max_navbar_messages');
+        $this->max_tasks = $helper->getOption('max_navbar_tasks');
     }
 
     /**
@@ -42,7 +42,7 @@ class NavbarController extends EmitterController
             return new Response();
         }
 
-        if(null === $max) {
+        if (null === $max) {
             $max = (int) $this->max_notifications;
         }
 
@@ -69,7 +69,7 @@ class NavbarController extends EmitterController
             return new Response();
         }
 
-        if(null === $max) {
+        if (null === $max) {
             $max = (int) $this->max_messages;
         }
 
@@ -96,7 +96,7 @@ class NavbarController extends EmitterController
             return new Response();
         }
 
-        if(null === $max) {
+        if (null === $max) {
             $max = (int) $this->max_tasks;
         }
 

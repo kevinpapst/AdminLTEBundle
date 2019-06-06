@@ -33,9 +33,7 @@ class TaskListEvent extends ThemeEvent
     protected $total = 0;
 
     /**
-     * TaskListEvent constructor.
-     *
-     * @param int $max Maximun number of notifications displayed in panel
+     * @param int $max Maximun number of tasks displayed in panel
      */
     public function __construct($max = null)
     {
@@ -92,6 +90,6 @@ class TaskListEvent extends ThemeEvent
      */
     public function getTotal()
     {
-        return $this->total == 0 ? count($this->tasks) : $this->total;
+        return $this->total === 0 ? count($this->tasks) : $this->total;
     }
 }
