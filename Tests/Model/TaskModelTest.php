@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace KevinPapst\AdminLTEBundle\Tests\DependencyInjection;
+namespace KevinPapst\AdminLTEBundle\Tests\Model;
 
 use KevinPapst\AdminLTEBundle\Model\TaskModel;
 use PHPUnit\Framework\TestCase;

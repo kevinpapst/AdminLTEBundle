@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace KevinPapst\AdminLTEBundle\Tests\DependencyInjection;
+namespace KevinPapst\AdminLTEBundle\Tests\Helper;
 
 use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
 use PHPUnit\Framework\TestCase;

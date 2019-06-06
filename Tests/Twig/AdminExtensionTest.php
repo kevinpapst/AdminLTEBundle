@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace KevinPapst\AdminLTEBundle\Tests\DependencyInjection;
+namespace KevinPapst\AdminLTEBundle\Tests\Twig;
 
 use KevinPapst\AdminLTEBundle\Helper\Constants;
 use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
