@@ -32,7 +32,9 @@
         "phpspec/prophecy": "^1.6",
         "symfony/framework-bundle" : ">3.4",
         "friendsofphp/php-cs-fixer": "^2.10",
-        "phpunit/phpunit": "^7.3"
+        "phpunit/phpunit": "^7.3",
+        "phpstan/phpstan": "^0.11.8",
+        "knplabs/knp-menu-bundle": "^2.2"
     },
     "suggest" : {
         "knplabs/knp-menu-bundle" : "Allows easy menu integration",
@@ -40,5 +42,11 @@
     },
     "autoload": {
         "psr-4": { "KevinPapst\\AdminLTEBundle\\": "" }
+    },
+    "scripts": {
+        "tests": "vendor/bin/phpunit Tests/",
+        "phpstan": "vendor/bin/phpstan analyse . --level=1",
+        "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
+        "codestyle-fix": "vendor/bin/php-cs-fixer fix"
     }
 }
