@@ -50,7 +50,7 @@ class ShowUserEvent extends ThemeEvent
     }
 
     /**
-     * @return UserInterface
+     * @return UserInterface|null
      */
     public function getUser()
     {

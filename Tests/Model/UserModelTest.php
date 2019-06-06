@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace KevinPapst\AdminLTEBundle\Tests\DependencyInjection;
+namespace KevinPapst\AdminLTEBundle\Tests\Model;
 
 use KevinPapst\AdminLTEBundle\Model\UserModel;
 use PHPUnit\Framework\TestCase;
@@ -18,7 +18,7 @@ class UserModelTest extends TestCase
     {
         $sut = new UserModel('foo bar');
         $this->assertEquals('foo-bar', $sut->getIdentifier());
-        $sut->setId(42);
-        $this->assertEquals(42, $sut->getIdentifier());
+        $sut->setId('42');
+        $this->assertEquals('42', $sut->getIdentifier());
     }
 }

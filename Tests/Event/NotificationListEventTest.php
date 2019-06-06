@@ -7,6 +7,8 @@
  * file that was distributed with this source code.
  */
 
+namespace KevinPapst\AdminLTEBundle\Tests\Event;
+
 use KevinPapst\AdminLTEBundle\Event\NotificationListEvent;
 use KevinPapst\AdminLTEBundle\Helper\Constants;
 use KevinPapst\AdminLTEBundle\Model\NotificationModel;
@@ -113,7 +115,7 @@ class NotificationListEventTest extends TestCase
 
     /**
      * Generate an array of nb tasks
-     * @param $number
+     * @param int $number
      * @param string $type
      * @return array|NotificationModel[]
      */

@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace KevinPapst\AdminLTEBundle\Tests\DependencyInjection;
+namespace KevinPapst\AdminLTEBundle\Tests\Model;
 
 use KevinPapst\AdminLTEBundle\Model\MessageModel;
 use KevinPapst\AdminLTEBundle\Model\UserModel;
@@ -19,7 +19,7 @@ class MessageModelTest extends TestCase
     {
         $sut = new MessageModel(new UserModel(), 'foo');
         $this->assertEquals('foo', $sut->getIdentifier());
-        $sut->setId(42);
-        $this->assertEquals(42, $sut->getIdentifier());
+        $sut->setId('42');
+        $this->assertEquals('42', $sut->getIdentifier());
     }
 }

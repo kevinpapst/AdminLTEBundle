@@ -53,7 +53,7 @@ class EmitterController extends AbstractController
      *
      * Then it will dispatch the event as normal via the event dispatcher.
      *
-     * @param $eventName
+     * @param string $eventName
      * @param Event $event
      *
      * @return Event

@@ -73,7 +73,7 @@ class UserModel implements UserInterface
     }
 
     /**
-     * @param $id
+     * @param string $id
      * @return UserModel
      */
     public function setId($id)

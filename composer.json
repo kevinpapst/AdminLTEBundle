@@ -19,20 +19,23 @@
     ],
     "require": {
         "php": "^7.1.3",
-        "symfony/config": ">3.4",
-        "symfony/dependency-injection": ">3.4",
-        "symfony/event-dispatcher" : ">3.4",
-        "symfony/http-foundation" : ">3.4",
-        "symfony/http-kernel"  : ">3.4",
-        "symfony/options-resolver": ">3.4",
-        "symfony/security-core": ">3.4",
+        "symfony/config": ">4.0",
+        "symfony/dependency-injection": ">4.0",
+        "symfony/event-dispatcher" : ">4.0",
+        "symfony/http-foundation" : ">4.0",
+        "symfony/http-kernel"  : ">4.0",
+        "symfony/options-resolver": ">4.0",
+        "symfony/security-core": ">4.0",
         "twig/twig": ">2.0"
     },
     "require-dev": {
         "phpspec/prophecy": "^1.6",
-        "symfony/framework-bundle" : ">3.4",
+        "symfony/framework-bundle" : ">4.0",
         "friendsofphp/php-cs-fixer": "^2.10",
-        "phpunit/phpunit": "^7.3"
+        "phpunit/phpunit": "^7.3",
+        "phpstan/phpstan": "^0.11.8",
+        "knplabs/knp-menu-bundle": "^2.2",
+        "phpstan/phpstan-phpunit": "^0.11.2"
     },
     "suggest" : {
         "knplabs/knp-menu-bundle" : "Allows easy menu integration",
@@ -40,5 +43,11 @@
     },
     "autoload": {
         "psr-4": { "KevinPapst\\AdminLTEBundle\\": "" }
+    },
+    "scripts": {
+        "tests": "vendor/bin/phpunit Tests/",
+        "phpstan": "vendor/bin/phpstan analyse . --level=5",
+        "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
+        "codestyle-fix": "vendor/bin/php-cs-fixer fix"
     }
 }

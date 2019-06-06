@@ -7,6 +7,8 @@
  * file that was distributed with this source code.
  */
 
+namespace KevinPapst\AdminLTEBundle\Tests\Event;
+
 use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
 use KevinPapst\AdminLTEBundle\Model\TaskModel;
 use PHPUnit\Framework\TestCase;
@@ -112,7 +114,7 @@ class TaskListEventTest extends TestCase
 
     /**
      * Generate an array of nb tasks
-     * @param $number
+     * @param int $number
      * @return array|TaskModel[]
      */
     private function generateNbTasks($number)

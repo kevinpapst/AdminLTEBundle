@@ -62,7 +62,7 @@ class AdminExtension extends AbstractExtension
      */
     public function getTextType($type)
     {
-        switch($type) {
+        switch ($type) {
             case Constants::TYPE_INFO:
                 $type = Constants::COLOR_AQUA;
                 break;

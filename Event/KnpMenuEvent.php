@@ -11,8 +11,6 @@ namespace KevinPapst\AdminLTEBundle\Event;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
-use Knp\Menu\MenuFactory;
-use Knp\Menu\MenuItem;
 
 /**
  * The KnpMenuEvent should be used with the ThemeEvents::THEME_SIDEBAR_SETUP_KNP_MENU
@@ -38,8 +36,6 @@ class KnpMenuEvent extends ThemeEvent
     private $childOptions;
 
     /**
-     * KnpMneuEvent constructor.
-     *
      * @param ItemInterface $menu
      * @param FactoryInterface $factory
      * @param array $options
@@ -54,7 +50,7 @@ class KnpMenuEvent extends ThemeEvent
     }
 
     /**
-     * @return MenuItem
+     * @return ItemInterface
      */
     public function getMenu()
     {
@@ -62,7 +58,7 @@ class KnpMenuEvent extends ThemeEvent
     }
 
     /**
-     * @return MenuFactory
+     * @return FactoryInterface
      */
     public function getFactory()
     {

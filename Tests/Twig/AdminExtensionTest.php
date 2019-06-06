@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace KevinPapst\AdminLTEBundle\Tests\DependencyInjection;
+namespace KevinPapst\AdminLTEBundle\Tests\Twig;
 
 use KevinPapst\AdminLTEBundle\Helper\Constants;
 use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
@@ -23,7 +23,7 @@ class AdminExtensionTest extends TestCase
     protected function getSut(array $options = [])
     {
         $contextHelper = new ContextHelper();
-        foreach($options as $key => $value) {
+        foreach ($options as $key => $value) {
             $contextHelper->setOption($key, $value);
         }
 

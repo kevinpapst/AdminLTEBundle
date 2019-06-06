@@ -64,6 +64,7 @@ class MessageListEvent extends ThemeEvent
         if (null !== $this->max) {
             return array_slice($this->messages, 0, $this->max);
         }
+
         return $this->messages;
     }
 

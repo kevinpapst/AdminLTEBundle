@@ -58,6 +58,7 @@ class TaskListEvent extends ThemeEvent
         if (null !== $this->max) {
             return array_slice($this->tasks, 0, $this->max);
         }
+
         return $this->tasks;
     }
 

@@ -7,6 +7,8 @@
  * file that was distributed with this source code.
  */
 
+namespace KevinPapst\AdminLTEBundle\Tests\Event;
+
 use KevinPapst\AdminLTEBundle\Event\MessageListEvent;
 use KevinPapst\AdminLTEBundle\Model\MessageModel;
 use KevinPapst\AdminLTEBundle\Model\UserModel;
@@ -113,7 +115,7 @@ class MessageListEventTest extends TestCase
 
     /**
      * Generate an array of nb messages
-     * @param $number
+     * @param int $number
      * @return array|MessageModel[]
      */
     private function generateNbMessages($number)
@@ -131,7 +133,7 @@ class MessageListEventTest extends TestCase
 
     /**
      * Generate a ModelUser with the given username
-     * @param $username
+     * @param string $username
      * @return UserModel
      */
     private function generateUser($username)
