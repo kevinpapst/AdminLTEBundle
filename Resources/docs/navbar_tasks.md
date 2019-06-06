@@ -62,6 +62,12 @@ class TaskSubscriber implements EventSubscriberInterface
             ->setProgress(80)
         ;
         $event->addTask($task);
+        
+        /*
+         * You can also set the total number of tasks which could be different from those displayed in the navbar
+         * If no total is set, the total will be calculated on the number of tasks added to the event
+         */ 
+        $event->setTotal(15);
     }
 }
 ```

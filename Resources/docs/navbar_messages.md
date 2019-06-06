@@ -78,7 +78,7 @@ class MessageSubscriber implements EventSubscriberInterface
         $event->addMessage($message);
         
         /*
-         * You can also set the total number of messages wich could be different from those displayed in the navbar
+         * You can also set the total number of messages which could be different from those displayed in the navbar
          * If no total is set, the total will be calculated on the number of messages added to the event
          */ 
         $event->setTotal(15);

@@ -14,6 +14,7 @@ use KevinPapst\AdminLTEBundle\Event\NotificationListEvent;
 use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
 use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -23,11 +24,11 @@ class NavbarController extends EmitterController
     protected $max_messages;
     protected $max_tasks;
 
-    public function __construct(EventDispatcherInterface $dispatcher)
+    public function __construct(EventDispatcherInterface $dispatcher, ContextHelper $helper)
     {
-        $this->max_notifications = $this->getParameter('admin_lte_theme.options.max_navbar_notifications');
-        $this->max_messages = $this->getParameter('admin_lte_theme.options.max_messages_notifications');
-        $this->max_tasks = $this->getParameter('admin_lte_theme.options.max_tasks_notifications');
+        $this->max_notifications = $helper->getOption('admin_lte_theme.options.max_navbar_notifications');
+        $this->max_messages = $helper->getOption('admin_lte_theme.options.max_messages_notifications');
+        $this->max_tasks = $helper->getOption('admin_lte_theme.options.max_tasks_notifications');
         parent::__construct($dispatcher);
     }
 
@@ -42,7 +43,7 @@ class NavbarController extends EmitterController
         }
 
         if(null === $max) {
-            $max = $this->max_notifications;
+            $max = (int) $this->max_notifications;
         }
 
         /** @var NotificationListEvent $listEvent */
@@ -69,7 +70,7 @@ class NavbarController extends EmitterController
         }
 
         if(null === $max) {
-            $max = $this->max_messages;
+            $max = (int) $this->max_messages;
         }
 
         /** @var MessageListEvent $listEvent */
@@ -96,7 +97,7 @@ class NavbarController extends EmitterController
         }
 
         if(null === $max) {
-            $max = $this->max_tasks;
+            $max = (int) $this->max_tasks;
         }
 
         /** @var TaskListEvent $listEvent */

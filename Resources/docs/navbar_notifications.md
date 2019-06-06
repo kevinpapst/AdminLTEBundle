@@ -62,6 +62,12 @@ class NotificationSubscriber implements EventSubscriberInterface
             ->setIcon('far fa-envelope')
         ;
         $event->addNotification($notification);
+        
+        /*
+         * You can also set the total number of notifications which could be different from those displayed in the navbar
+         * If no total is set, the total will be calculated on the number of notifications added to the event
+         */ 
+        $event->setTotal(15);
     }
 }
 ```
