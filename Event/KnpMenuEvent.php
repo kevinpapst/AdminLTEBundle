@@ -11,8 +11,6 @@ namespace KevinPapst\AdminLTEBundle\Event;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
-use Knp\Menu\MenuFactory;
-use Knp\Menu\MenuItem;
 
 /**
  * The KnpMenuEvent should be used with the ThemeEvents::THEME_SIDEBAR_SETUP_KNP_MENU
