@@ -31,9 +31,9 @@ class SidebarController extends EmitterController
 
         return $this->render(
             '@AdminLTE/Sidebar/user-panel.html.twig',
-                [
+            [
                     'user' => $userEvent->getUser(),
-                ]
+            ]
         );
     }
 
@@ -60,9 +60,9 @@ class SidebarController extends EmitterController
 
         return $this->render(
             '@AdminLTE/Sidebar/menu.html.twig',
-                [
+            [
                     'menu' => $event->getItems(),
-                ]
+            ]
         );
     }
 }

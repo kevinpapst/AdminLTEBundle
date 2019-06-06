@@ -64,6 +64,7 @@ class NavbarControllerTest extends TestCase
         $dispatcher->expects(self::once())->method('hasListeners')->willReturnCallback(
             function ($eventName) use ($expectedEventName) {
                 self::assertEquals($expectedEventName, $eventName);
+
                 return true;
             }
         );
@@ -73,6 +74,7 @@ class NavbarControllerTest extends TestCase
                 self::assertEquals($expectedEventName, $eventName);
                 self::assertInstanceOf($expectedEventClass, $event);
                 self::assertEquals($expectedMax, $event->getMax());
+
                 return $event;
             }
         );

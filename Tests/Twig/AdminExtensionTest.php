@@ -23,7 +23,7 @@ class AdminExtensionTest extends TestCase
     protected function getSut(array $options = [])
     {
         $contextHelper = new ContextHelper();
-        foreach($options as $key => $value) {
+        foreach ($options as $key => $value) {
             $contextHelper->setOption($key, $value);
         }
 

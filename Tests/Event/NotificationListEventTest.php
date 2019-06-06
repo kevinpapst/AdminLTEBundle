@@ -1,13 +1,13 @@
 <?php
 
-namespace KevinPapst\AdminLTEBundle\Tests\Event;
-
 /*
  * This file is part of the AdminLTE bundle.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
+namespace KevinPapst\AdminLTEBundle\Tests\Event;
 
 use KevinPapst\AdminLTEBundle\Event\NotificationListEvent;
 use KevinPapst\AdminLTEBundle\Helper\Constants;

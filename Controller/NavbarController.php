@@ -51,10 +51,10 @@ class NavbarController extends EmitterController
 
         return $this->render(
             '@AdminLTE/Navbar/notifications.html.twig',
-                [
-                    'notifications' => $listEvent->getNotifications(),
-                    'total' => $listEvent->getTotal(),
-                ]
+            [
+                'notifications' => $listEvent->getNotifications(),
+                'total' => $listEvent->getTotal(),
+            ]
         );
     }
 
@@ -78,10 +78,10 @@ class NavbarController extends EmitterController
 
         return $this->render(
             '@AdminLTE/Navbar/messages.html.twig',
-                [
+            [
                     'messages' => $listEvent->getMessages(),
                     'total' => $listEvent->getTotal(),
-                ]
+            ]
         );
     }
 
@@ -105,10 +105,10 @@ class NavbarController extends EmitterController
 
         return $this->render(
             '@AdminLTE/Navbar/tasks.html.twig',
-                [
+            [
                     'tasks' => $listEvent->getTasks(),
                     'total' => $listEvent->getTotal(),
-                ]
+            ]
         );
     }
 
