@@ -12,33 +12,21 @@ namespace KevinPapst\AdminLTEBundle\Model;
 class MessageModel implements MessageInterface
 {
     /**
-     * Holds the sender
-     *
      * @var UserInterface
      */
     protected $from;
-
     /**
-     * holds the Recipient
-     *
      * @var UserInterface
      */
     protected $to;
-
     /**
-     * holds the date sent
-     *
      * @var \DateTime
      */
     protected $sentAt;
-
     /**
-     * holds the subject
-     *
      * @var string
      */
     protected $subject;
-
     /**
      * @var string
      */
@@ -71,10 +59,10 @@ class MessageModel implements MessageInterface
     }
 
     /**
-     * @param $id
+     * @param string $id
      * @return MessageModel
      */
-    public function setId($id)
+    public function setId($id): MessageModel
     {
         $this->id = $id;
 
@@ -85,10 +73,9 @@ class MessageModel implements MessageInterface
      * Set the sender
      *
      * @param UserInterface $from
-     *
      * @return $this
      */
-    public function setFrom(UserInterface $from)
+    public function setFrom(UserInterface $from): MessageModel
     {
         $this->from = $from;
 
@@ -112,7 +99,7 @@ class MessageModel implements MessageInterface
      *
      * @return $this
      */
-    public function setSentAt(\DateTime $sentAt)
+    public function setSentAt(\DateTime $sentAt): MessageModel
     {
         $this->sentAt = $sentAt;
 
@@ -124,7 +111,7 @@ class MessageModel implements MessageInterface
      *
      * @return \DateTime
      */
-    public function getSentAt()
+    public function getSentAt(): \DateTime
     {
         return $this->sentAt;
     }
@@ -133,10 +120,9 @@ class MessageModel implements MessageInterface
      * Set the subject
      *
      * @param string $subject
-     *
      * @return $this
      */
-    public function setSubject($subject)
+    public function setSubject($subject): MessageModel
     {
         $this->subject = $subject;
 
@@ -157,10 +143,9 @@ class MessageModel implements MessageInterface
      * Set the recipient
      *
      * @param UserInterface $to
-     *
      * @return $this
      */
-    public function setTo(UserInterface $to)
+    public function setTo(UserInterface $to): MessageModel
     {
         $this->to = $to;
 

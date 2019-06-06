@@ -114,7 +114,7 @@ class TaskListEventTest extends TestCase
 
     /**
      * Generate an array of nb tasks
-     * @param $number
+     * @param int $number
      * @return array|TaskModel[]
      */
     private function generateNbTasks($number)

@@ -38,8 +38,6 @@ class KnpMenuEvent extends ThemeEvent
     private $childOptions;
 
     /**
-     * KnpMneuEvent constructor.
-     *
      * @param ItemInterface $menu
      * @param FactoryInterface $factory
      * @param array $options
@@ -54,7 +52,7 @@ class KnpMenuEvent extends ThemeEvent
     }
 
     /**
-     * @return MenuItem
+     * @return ItemInterface
      */
     public function getMenu()
     {
@@ -62,7 +60,7 @@ class KnpMenuEvent extends ThemeEvent
     }
 
     /**
-     * @return MenuFactory
+     * @return FactoryInterface
      */
     public function getFactory()
     {

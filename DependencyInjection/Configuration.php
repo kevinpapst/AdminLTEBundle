@@ -9,6 +9,7 @@
 
 namespace KevinPapst\AdminLTEBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -27,9 +28,11 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('admin_lte');
 
         if (method_exists($treeBuilder, 'getRootNode')) {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->getRootNode();
         } else {
             // BC layer for symfony/config 4.1 and older
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->root('admin_lte');
         }
 
@@ -51,8 +54,10 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('routes');
 
         if (method_exists($treeBuilder, 'getRootNode')) {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->getRootNode();
         } else {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->root('routes');
         }
 
@@ -118,8 +123,10 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('knp_menu');
 
         if (method_exists($treeBuilder, 'getRootNode')) {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->getRootNode();
         } else {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->root('knp_menu');
         }
 
@@ -149,8 +156,10 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('widget');
 
         if (method_exists($treeBuilder, 'getRootNode')) {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->getRootNode();
         } else {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->root('widget');
         }
 
@@ -200,8 +209,10 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('button');
 
         if (method_exists($treeBuilder, 'getRootNode')) {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->getRootNode();
         } else {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->root('button');
         }
 
@@ -227,8 +238,10 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('theme');
 
         if (method_exists($treeBuilder, 'getRootNode')) {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->getRootNode();
         } else {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->root('theme');
         }
 
@@ -248,8 +261,10 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('options');
 
         if (method_exists($treeBuilder, 'getRootNode')) {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->getRootNode();
         } else {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->root('options');
         }
 
@@ -303,8 +318,10 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('control_sidebar');
 
         if (method_exists($treeBuilder, 'getRootNode')) {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->getRootNode();
         } else {
+            /** @var ArrayNodeDefinition $rootNode */
             $rootNode = $treeBuilder->root('control_sidebar');
         }
 

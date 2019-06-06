@@ -115,7 +115,7 @@ class NotificationListEventTest extends TestCase
 
     /**
      * Generate an array of nb tasks
-     * @param $number
+     * @param int $number
      * @param string $type
      * @return array|NotificationModel[]
      */

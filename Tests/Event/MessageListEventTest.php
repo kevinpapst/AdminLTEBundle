@@ -115,7 +115,7 @@ class MessageListEventTest extends TestCase
 
     /**
      * Generate an array of nb messages
-     * @param $number
+     * @param int $number
      * @return array|MessageModel[]
      */
     private function generateNbMessages($number)
@@ -133,7 +133,7 @@ class MessageListEventTest extends TestCase
 
     /**
      * Generate a ModelUser with the given username
-     * @param $username
+     * @param string $username
      * @return UserModel
      */
     private function generateUser($username)

@@ -18,7 +18,7 @@ class NotificationModelTest extends TestCase
     {
         $sut = new NotificationModel('foo');
         $this->assertEquals('foo', $sut->getIdentifier());
-        $sut->setId(42);
-        $this->assertEquals(42, $sut->getIdentifier());
+        $sut->setId('42');
+        $this->assertEquals('42', $sut->getIdentifier());
     }
 }

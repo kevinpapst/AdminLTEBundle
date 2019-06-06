@@ -63,7 +63,7 @@ class SidebarMenuEvent extends ThemeEvent
 
     /**
      * @param string $id
-     * @return MenuItemInterface||MenuItem|null
+     * @return MenuItemInterface|MenuItem|null
      */
     public function getRootItem($id)
     {

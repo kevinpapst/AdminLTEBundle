@@ -18,7 +18,7 @@ class TaskModelTest extends TestCase
     {
         $sut = new TaskModel('foo');
         $this->assertEquals('foo', $sut->getIdentifier());
-        $sut->setId(42);
-        $this->assertEquals(42, $sut->getIdentifier());
+        $sut->setId('42');
+        $this->assertEquals('42', $sut->getIdentifier());
     }
 }
