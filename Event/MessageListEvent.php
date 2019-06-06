@@ -37,9 +37,7 @@ class MessageListEvent extends ThemeEvent
     protected $max = null;
 
     /**
-     * MessageListEvent constructor.
-     *
-     * @param int $max Maximun number of notifications displayed in panel
+     * @param int $max Maximun number of messages displayed in panel
      */
     public function __construct($max = null)
     {
@@ -63,6 +61,9 @@ class MessageListEvent extends ThemeEvent
      */
     public function getMessages()
     {
+        if (null !== $this->max) {
+            return array_slice($this->messages, 0, $this->max);
+        }
         return $this->messages;
     }
 
@@ -87,6 +88,14 @@ class MessageListEvent extends ThemeEvent
      */
     public function getTotal()
     {
-        return $this->totalMessages == 0 ? count($this->messages) : $this->totalMessages;
+        return $this->totalMessages === 0 ? count($this->messages) : $this->totalMessages;
+    }
+
+    /**
+     * @param int $totalMessages
+     */
+    public function setTotal($totalMessages)
+    {
+        $this->totalMessages = $totalMessages;
     }
 }

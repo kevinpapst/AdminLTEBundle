@@ -33,8 +33,6 @@ class NotificationListEvent extends ThemeEvent
     protected $max = null;
 
     /**
-     * NotificationListEvent constructor.
-     *
      * @param int $max Maximun number of notifications displayed in panel
      */
     public function __construct($max = null)
@@ -57,6 +55,9 @@ class NotificationListEvent extends ThemeEvent
      */
     public function getNotifications()
     {
+        if (null !== $this->max) {
+            return array_slice($this->notifications, 0, $this->max);
+        }
         return $this->notifications;
     }
 
@@ -85,6 +86,6 @@ class NotificationListEvent extends ThemeEvent
      */
     public function getTotal()
     {
-        return $this->total == 0 ? count($this->notifications) : $this->total;
+        return $this->total === 0 ? count($this->notifications) : $this->total;
     }
 }

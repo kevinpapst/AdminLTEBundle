@@ -54,6 +54,9 @@ class ConfigurationTest extends TestCase
                     'boxed_layout' => false,
                     'collapsed_sidebar' => false,
                     'mini_sidebar' => false,
+                    'max_navbar_notifications' => 10,
+                    'max_navbar_tasks' => 10,
+                    'max_navbar_messages' => 10,
                     // this is deprecated, but still supported until 3.0
                     'control_sidebar' => [
                         'home' => [

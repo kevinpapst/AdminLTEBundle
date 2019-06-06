@@ -18,6 +18,12 @@ admin_lte:
         collapsed_sidebar: false
         # whether the logo collapses or not
         mini_sidebar: false
+        # max number of notifications displayed
+        max_navbar_notifications: 10
+        # max number of tasks displayed
+        max_navbar_tasks: 10
+        # max number of messages displayed
+        max_navbar_messages: 10
 
     # configurable tabs in the control_sidebar (right screen), see:
     # https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/control_sidebar.md

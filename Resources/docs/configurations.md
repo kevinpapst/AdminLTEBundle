@@ -78,6 +78,9 @@ admin_lte:
         boxed_layout: false
         collapsed_sidebar: false
         mini_sidebar: false
+        max_navbar_notifications: 5
+        max_navbar_tasks: 5
+        max_navbar_messages: 5
         
     control_sidebar: 
         [...]
