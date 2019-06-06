@@ -1,5 +1,7 @@
 <?php
 
+namespace KevinPapst\AdminLTEBundle\Tests\Event;
+
 /*
  * This file is part of the AdminLTE bundle.
  *
