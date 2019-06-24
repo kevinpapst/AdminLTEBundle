@@ -27,7 +27,7 @@ class SidebarController extends EmitterController
         }
 
         /** @var ShowUserEvent $userEvent */
-        $userEvent = $this->getDispatcher()->dispatch(ThemeEvents::THEME_SIDEBAR_USER, new ShowUserEvent());
+        $userEvent = $this->getDispatcher()->dispatch(new ShowUserEvent(), ThemeEvents::THEME_SIDEBAR_USER);
 
         return $this->render(
             '@AdminLTE/Sidebar/user-panel.html.twig',
@@ -56,7 +56,7 @@ class SidebarController extends EmitterController
         }
 
         /** @var SidebarMenuEvent $event */
-        $event = $this->getDispatcher()->dispatch(ThemeEvents::THEME_SIDEBAR_SETUP_MENU, new SidebarMenuEvent($request));
+        $event = $this->getDispatcher()->dispatch(new SidebarMenuEvent($request), ThemeEvents::THEME_SIDEBAR_SETUP_MENU);
 
         return $this->render(
             '@AdminLTE/Sidebar/menu.html.twig',

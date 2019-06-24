@@ -11,8 +11,8 @@ namespace KevinPapst\AdminLTEBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\EventDispatcher\Event;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Contracts\EventDispatcher\Event;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 class EmitterController extends AbstractController
 {
@@ -53,12 +53,12 @@ class EmitterController extends AbstractController
      *
      * Then it will dispatch the event as normal via the event dispatcher.
      *
-     * @param string $eventName
      * @param Event $event
+     * @param string $eventName
      *
      * @return Event
      */
-    protected function triggerMethod($eventName, Event $event)
+    protected function triggerMethod(Event $event, $eventName)
     {
         $method = sprintf('on%s', Container::camelize(str_replace('.', '_', $eventName)));
 
@@ -70,7 +70,7 @@ class EmitterController extends AbstractController
             return $event;
         }
 
-        $this->getDispatcher()->dispatch($eventName, $event);
+        $this->getDispatcher()->dispatch($event, $eventName);
 
         return $event;
     }

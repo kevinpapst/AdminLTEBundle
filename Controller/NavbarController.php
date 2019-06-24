@@ -15,7 +15,7 @@ use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
 use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class NavbarController extends EmitterController
@@ -47,7 +47,7 @@ class NavbarController extends EmitterController
         }
 
         /** @var NotificationListEvent $listEvent */
-        $listEvent = $this->getDispatcher()->dispatch(ThemeEvents::THEME_NOTIFICATIONS, new NotificationListEvent($max));
+        $listEvent = $this->getDispatcher()->dispatch(new NotificationListEvent($max), ThemeEvents::THEME_NOTIFICATIONS);
 
         return $this->render(
             '@AdminLTE/Navbar/notifications.html.twig',
@@ -74,7 +74,7 @@ class NavbarController extends EmitterController
         }
 
         /** @var MessageListEvent $listEvent */
-        $listEvent = $this->getDispatcher()->dispatch(ThemeEvents::THEME_MESSAGES, new MessageListEvent($max));
+        $listEvent = $this->getDispatcher()->dispatch(new MessageListEvent($max), ThemeEvents::THEME_MESSAGES);
 
         return $this->render(
             '@AdminLTE/Navbar/messages.html.twig',
@@ -101,7 +101,7 @@ class NavbarController extends EmitterController
         }
 
         /** @var TaskListEvent $listEvent */
-        $listEvent = $this->triggerMethod(ThemeEvents::THEME_TASKS, new TaskListEvent($max));
+        $listEvent = $this->triggerMethod(new TaskListEvent($max), ThemeEvents::THEME_TASKS);
 
         return $this->render(
             '@AdminLTE/Navbar/tasks.html.twig',
@@ -122,7 +122,7 @@ class NavbarController extends EmitterController
         }
 
         /** @var ShowUserEvent $userEvent */
-        $userEvent = $this->triggerMethod(ThemeEvents::THEME_NAVBAR_USER, new ShowUserEvent());
+        $userEvent = $this->triggerMethod(new ShowUserEvent(), ThemeEvents::THEME_NAVBAR_USER);
 
         if ($userEvent instanceof ShowUserEvent && null !== $userEvent->getUser()) {
             return $this->render(
