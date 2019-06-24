@@ -1,6 +1,6 @@
 {% if admin_lte_context.knp_menu.breadcrumb_menu is not same as(false) %}
     <ol class="breadcrumb">
-        {% filter spaceless %}
+        {% apply spaceless %}
             {% set breadcrumbMenu = admin_lte_context.knp_menu.breadcrumb_menu %}
             {% if admin_lte_context.knp_menu.breadcrumb_menu is same as(true) %}
                 {% set breadcrumbMenu = admin_lte_context.knp_menu.main_menu %}
@@ -13,6 +13,6 @@
                 </li>
                 {% endif %}
             {% endfor %}
-        {% endfilter %}
+        {% endapply %}
     </ol>
 {% endif %}
