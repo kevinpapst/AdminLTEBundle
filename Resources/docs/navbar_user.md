@@ -135,6 +135,22 @@ services:
             - { name: kernel.event_listener, event: theme.navbar_user, method: onShowUser }
 ```
 
+## Customizing the HTML output
+
+Considering you want to change the generated HTML of the user dropdown, you can simply overwrite the template.
+
+Create the file `templates/bundles/AdminLTEBundle/Navbar/user.html.twig` and add your own HTML.
+
+Or you can even replace some blocks inside the themes template by extending it:
+```twig
+{% extends "@!AdminLTE/Navbar/user.html.twig" %}
+{% block member_since %}
+    {# I do not want to display the member since information #}
+{% endblock %}
+```
+
+Right now, there is only the one block `member_since`, but if you need more: just drop a PR for new ones!
+
 ## Next steps
 
 Please go back to the [AdminLTE bundle documentation](README.md) to find out more about using the theme.
