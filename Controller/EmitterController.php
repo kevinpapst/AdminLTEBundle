@@ -9,10 +9,12 @@
 
 namespace KevinPapst\AdminLTEBundle\Controller;
 
+use Symfony\Component\EventDispatcher\LegacyEventDispatcherProxy;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpKernel\Kernel;
 
 class EmitterController extends AbstractController
 {
@@ -26,7 +28,11 @@ class EmitterController extends AbstractController
      */
     public function __construct(EventDispatcherInterface $dispatcher)
     {
-        $this->eventDispatcher = $dispatcher;
+        if (Kernel::MINOR_VERSION < 3) {
+            $this->eventDispatcher = LegacyEventDispatcherProxy::decorate($dispatcher);
+        } else {
+            $this->eventDispatcher = $dispatcher;
+        }
     }
 
     /**

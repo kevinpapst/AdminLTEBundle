@@ -42,7 +42,10 @@
         "friendsofsymfony/user-bundle": "Allows easy user management and security support"
     },
     "autoload": {
-        "psr-4": { "KevinPapst\\AdminLTEBundle\\": "" }
+        "psr-4": {
+            "Symfony\\": "Helper/Symfony/",
+            "KevinPapst\\AdminLTEBundle\\": ""
+        }
     },
     "scripts": {
         "tests": "vendor/bin/phpunit Tests/",
