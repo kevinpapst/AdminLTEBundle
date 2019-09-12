@@ -113,12 +113,14 @@
                 <i class="far fa-calendar-alt"></i>
             </div>
 
-            {% if attr.class is defined %}
-                {% set class = attr.class ~ ' timepicker' %}
-            {% else %}
-                {% set class = ' timepicker' %}
+            {% if type is not defined or type == 'text' %}
+                {% if attr.class is defined %}
+                    {% set class = attr.class ~ ' timepicker' %}
+                {% else %}
+                    {% set class = ' timepicker' %}
+                {% endif %}
+                {% set attr = attr|merge({'class' : class, 'data-datepickerenable':'on'}) %}
             {% endif %}
-            {% set attr = attr|merge({'class' : class, 'data-datepickerenable':'on'}) %}
 
             {{ block('form_widget_simple') }}
         </div>
