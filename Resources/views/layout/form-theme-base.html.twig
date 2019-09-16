@@ -113,7 +113,7 @@
                 <i class="far fa-calendar-alt"></i>
             </div>
 
-            {% if type is not defined or type == 'text' %}
+            {% if type is not defined or type != 'date' %}
                 {% if attr.class is defined %}
                     {% set class = attr.class ~ ' timepicker' %}
                 {% else %}
