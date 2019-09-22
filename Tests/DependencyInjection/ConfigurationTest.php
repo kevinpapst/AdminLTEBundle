@@ -26,7 +26,6 @@ class ConfigurationTest extends TestCase
 
         $expected = $this->getDefaultConfig()['admin_lte'];
         $expected['control_sidebar'] = [];
-        $expected['options']['control_sidebar'] = [];
 
         $this->assertEquals($expected, $processedConfig);
     }
@@ -57,17 +56,6 @@ class ConfigurationTest extends TestCase
                     'max_navbar_notifications' => 10,
                     'max_navbar_tasks' => 10,
                     'max_navbar_messages' => 10,
-                    // this is deprecated, but still supported until 3.0
-                    'control_sidebar' => [
-                        'home' => [
-                            'icon' => 'fas fa-home',
-                            'template' => 'control-sidebar/home.html.twig',
-                        ],
-                        'settings' => [
-                            'icon' => 'fas fa-cogs',
-                            'controller' => 'App\Controller\DefaultController::controlSidebarSettings',
-                        ],
-                    ],
                 ],
                 'control_sidebar' => [
                     'home' => [

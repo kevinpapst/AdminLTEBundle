@@ -11,7 +11,7 @@ namespace KevinPapst\AdminLTEBundle\Event;
 
 /**
  * This class SHOULD extend the MenuEvent, but for BC reasons we extend SidebarMenuEvent.
- * This can be changed for 4.0. 
+ * This can be changed for 4.0.
  */
 class BreadcrumbMenuEvent extends SidebarMenuEvent
 {

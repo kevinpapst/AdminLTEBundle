@@ -29,7 +29,7 @@ class EmitterController extends AbstractController
     {
         /** @var Event $event */
         $event = $this->eventDispatcher->dispatch($event);
-        
+
         return $event;
     }
 

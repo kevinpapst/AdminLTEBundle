@@ -26,6 +26,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder('admin_lte');
+        /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
@@ -44,6 +45,7 @@ class Configuration implements ConfigurationInterface
     private function getRouteAliasesConfig()
     {
         $treeBuilder = new TreeBuilder('routes');
+        /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
@@ -106,6 +108,7 @@ class Configuration implements ConfigurationInterface
     private function getKnpMenuConfig()
     {
         $treeBuilder = new TreeBuilder('knp_menu');
+        /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
@@ -132,6 +135,7 @@ class Configuration implements ConfigurationInterface
     private function getWidgetConfig()
     {
         $treeBuilder = new TreeBuilder('widget');
+        /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
@@ -178,6 +182,7 @@ class Configuration implements ConfigurationInterface
     private function getButtonConfig()
     {
         $treeBuilder = new TreeBuilder('button');
+        /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
@@ -200,6 +205,7 @@ class Configuration implements ConfigurationInterface
     private function getThemeConfig()
     {
         $treeBuilder = new TreeBuilder('theme');
+        /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
@@ -216,6 +222,7 @@ class Configuration implements ConfigurationInterface
     private function getOptionsConfig()
     {
         $treeBuilder = new TreeBuilder('options');
+        /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
@@ -264,6 +271,7 @@ class Configuration implements ConfigurationInterface
     private function getControlSidebarConfig()
     {
         $treeBuilder = new TreeBuilder('control_sidebar');
+        /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
