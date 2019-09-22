@@ -14,7 +14,8 @@ Edit the previously made class `MenuBuilderSubscriber` and register it for anoth
 // src/EventSubscriber/MenuBuilderSubscriber.php
 namespace App\EventSubscriber;
 
-use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use KevinPapst\AdminLTEBundle\Event\BreadcrumbMenuEvent;
+use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MenuBuilderSubscriber implements EventSubscriberInterface
@@ -22,8 +23,8 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            ThemeEvents::THEME_SIDEBAR_SETUP_MENU => ['onSetupMenu', 100],
-            ThemeEvents::THEME_BREADCRUMB => ['onSetupNavbar', 100],
+            SidebarMenuEvent::class => ['onSetupMenu', 100],
+            BreadcrumbMenuEvent::class => ['onSetupNavbar', 100],
         ];
     }
     

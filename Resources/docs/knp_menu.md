@@ -32,7 +32,7 @@ Instead there will be a new `knp_menu.menu_builder` aliased `adminlte_main` whic
 
 ### The Event
 
-Quite similar to the `ThemeEvents::THEME_SIDEBAR_SETUP_MENU`, using the knp_menu will trigger the `ThemeEvents::THEME_SIDEBAR_SETUP_KNP_MENU` event. 
+Quite similar to the `SidebarMenuEvent`, using the knp_menu will trigger the `KnpMenuEvent` event. 
 
 The event listener will receive the `KnpMenuEvent` gives access to the root menu item, the menu factory and if applicable the `$options` and `$childOptions` as configured in the menu builder. 
 
@@ -47,7 +47,6 @@ be automatically registered in your container:
 namespace App\EventSubscriber;
 
 use KevinPapst\AdminLTEBundle\Event\KnpMenuEvent;
-use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class KnpMenuBuilderSubscriber implements EventSubscriberInterface
@@ -56,7 +55,7 @@ class KnpMenuBuilderSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            ThemeEvents::THEME_SIDEBAR_SETUP_KNP_MENU => ['onSetupMenu', 100],
+            KnpMenuEvent::class => ['onSetupMenu', 100],
         ];
     }
     

@@ -26,15 +26,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder('admin_lte');
-
-        if (method_exists($treeBuilder, 'getRootNode')) {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            // BC layer for symfony/config 4.1 and older
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->root('admin_lte');
-        }
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()
@@ -52,14 +44,7 @@ class Configuration implements ConfigurationInterface
     private function getRouteAliasesConfig()
     {
         $treeBuilder = new TreeBuilder('routes');
-
-        if (method_exists($treeBuilder, 'getRootNode')) {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->root('routes');
-        }
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->addDefaultsIfNotSet()
@@ -121,14 +106,7 @@ class Configuration implements ConfigurationInterface
     private function getKnpMenuConfig()
     {
         $treeBuilder = new TreeBuilder('knp_menu');
-
-        if (method_exists($treeBuilder, 'getRootNode')) {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->root('knp_menu');
-        }
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->addDefaultsIfNotSet()
@@ -154,14 +132,7 @@ class Configuration implements ConfigurationInterface
     private function getWidgetConfig()
     {
         $treeBuilder = new TreeBuilder('widget');
-
-        if (method_exists($treeBuilder, 'getRootNode')) {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->root('widget');
-        }
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->addDefaultsIfNotSet()
@@ -207,14 +178,7 @@ class Configuration implements ConfigurationInterface
     private function getButtonConfig()
     {
         $treeBuilder = new TreeBuilder('button');
-
-        if (method_exists($treeBuilder, 'getRootNode')) {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->root('button');
-        }
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->addDefaultsIfNotSet()
@@ -236,14 +200,7 @@ class Configuration implements ConfigurationInterface
     private function getThemeConfig()
     {
         $treeBuilder = new TreeBuilder('theme');
-
-        if (method_exists($treeBuilder, 'getRootNode')) {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->root('theme');
-        }
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->addDefaultsIfNotSet()
@@ -259,14 +216,7 @@ class Configuration implements ConfigurationInterface
     private function getOptionsConfig()
     {
         $treeBuilder = new TreeBuilder('options');
-
-        if (method_exists($treeBuilder, 'getRootNode')) {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->root('options');
-        }
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->addDefaultsIfNotSet()
@@ -305,8 +255,6 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue(10)
                     ->info('Max number of messages displayed in the notification bar')
                 ->end()
-                // this is deprecated, but still supported until 3.0
-                ->append($this->getControlSidebarConfig())
             ->end()
         ->end();
 
@@ -316,14 +264,7 @@ class Configuration implements ConfigurationInterface
     private function getControlSidebarConfig()
     {
         $treeBuilder = new TreeBuilder('control_sidebar');
-
-        if (method_exists($treeBuilder, 'getRootNode')) {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->root('control_sidebar');
-        }
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->arrayPrototype()

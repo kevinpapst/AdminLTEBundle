@@ -10,7 +10,6 @@
 namespace KevinPapst\AdminLTEBundle\Menu;
 
 use KevinPapst\AdminLTEBundle\Event\KnpMenuEvent;
-use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -27,15 +26,11 @@ class MenuBuilder
     private $eventDispatcher;
 
     /**
-     * MenuBuilder constructor.
-     *
      * @param FactoryInterface $factory
      * @param EventDispatcherInterface $eventDispatcher
      */
-    public function __construct(
-        FactoryInterface $factory,
-        EventDispatcherInterface $eventDispatcher
-    ) {
+    public function __construct(FactoryInterface $factory, EventDispatcherInterface $eventDispatcher)
+    {
         $this->factory = $factory;
         $this->eventDispatcher = $eventDispatcher;
     }
@@ -52,10 +47,7 @@ class MenuBuilder
             'labelAttributes' => [],
         ];
 
-        $this->eventDispatcher->dispatch(
-            ThemeEvents::THEME_SIDEBAR_SETUP_KNP_MENU,
-            new KnpMenuEvent($menu, $this->factory, $options, $childOptions)
-        );
+        $this->eventDispatcher->dispatch(new KnpMenuEvent($menu, $this->factory, $options, $childOptions));
 
         return $menu;
     }

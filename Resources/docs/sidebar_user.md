@@ -11,7 +11,8 @@ Edit the previously made class `NavbarUserSubscriber` and register it for anothe
 // src/EventSubscriber/NavbarUserSubscriber.php
 namespace App\EventSubscriber;
 
-use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use KevinPapst\AdminLTEBundle\Event\NavbarUserEvent;
+use KevinPapst\AdminLTEBundle\Event\SidebarUserEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class NavbarUserSubscriber implements EventSubscriberInterface
@@ -19,8 +20,8 @@ class NavbarUserSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            ThemeEvents::THEME_NAVBAR_USER => ['onShowUser', 100],
-            ThemeEvents::THEME_SIDEBAR_USER => ['onShowUser', 100],
+            NavbarUserEvent::class => ['onShowUser', 100],
+            SidebarUserEvent::class => ['onShowUser', 100],
         ];
     }
     

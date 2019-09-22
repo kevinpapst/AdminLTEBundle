@@ -43,7 +43,6 @@ be automatically registered in your container:
 namespace App\EventSubscriber;
 
 use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
-use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use KevinPapst\AdminLTEBundle\Model\MenuItemModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -52,7 +51,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            ThemeEvents::THEME_SIDEBAR_SETUP_MENU => ['onSetupMenu', 100],
+            SidebarMenuEvent::class => ['onSetupMenu', 100],
         ];
     }
     

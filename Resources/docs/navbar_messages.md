@@ -40,7 +40,6 @@ be automatically registered in your container:
 namespace App\EventSubscriber;
 
 use KevinPapst\AdminLTEBundle\Event\MessageListEvent;
-use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use KevinPapst\AdminLTEBundle\Model\MessageModel;
 use KevinPapst\AdminLTEBundle\Model\UserModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -59,7 +58,7 @@ class MessageSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            ThemeEvents::THEME_MESSAGES => ['onMessages', 100],
+            MessageListEvent::class => ['onMessages', 100],
         ];
     }
 

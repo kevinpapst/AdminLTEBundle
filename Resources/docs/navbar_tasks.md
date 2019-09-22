@@ -38,7 +38,6 @@ be automatically registered in your container:
 namespace App\EventSubscriber;
 
 use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
-use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use KevinPapst\AdminLTEBundle\Helper\Constants;
 use KevinPapst\AdminLTEBundle\Model\TaskModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -48,7 +47,7 @@ class TaskSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            ThemeEvents::THEME_TASKS => ['onTasks', 100],
+            TaskListEvent::class => ['onTasks', 100],
         ];
     }
 

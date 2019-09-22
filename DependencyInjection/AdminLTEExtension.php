@@ -72,13 +72,6 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
     protected function getContextOptions(array $config = [])
     {
         $sidebar = [];
-        if (isset($config['options']['control_sidebar']) && !empty($config['options']['control_sidebar'])) {
-            $sidebar = $config['options']['control_sidebar'];
-            @trigger_error(
-                'The config key "admin_lte.options.control_sidebar" is deprecated since 2.1 and will be removed with 3.0, use "admin_lte.control_sidebar" instead.',
-                E_USER_DEPRECATED
-            );
-        }
 
         if (isset($config['control_sidebar']) && !empty($config['control_sidebar'])) {
             $sidebar = $config['control_sidebar'];
