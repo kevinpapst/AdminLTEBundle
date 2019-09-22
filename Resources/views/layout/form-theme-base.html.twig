@@ -113,12 +113,14 @@
                 <i class="far fa-calendar-alt"></i>
             </div>
 
-            {% if attr.class is defined %}
-                {% set class = attr.class ~ ' timepicker' %}
-            {% else %}
-                {% set class = ' timepicker' %}
+            {% if type is not defined or type != 'date' %}
+                {% if attr.class is defined %}
+                    {% set class = attr.class ~ ' timepicker' %}
+                {% else %}
+                    {% set class = ' timepicker' %}
+                {% endif %}
+                {% set attr = attr|merge({'class' : class, 'data-datepickerenable':'on'}) %}
             {% endif %}
-            {% set attr = attr|merge({'class' : class, 'data-datepickerenable':'on'}) %}
 
             {{ block('form_widget_simple') }}
         </div>
@@ -144,12 +146,14 @@
                 <div class="input-group-addon add-on">
                     <i class="far fa-clock"></i>
                 </div>
-                {% if attr.class is defined %}
-                    {% set class = attr.class ~ ' timepicker' %}
-                {% else %}
-                    {% set class = ' timepicker' %}
+                {% if type is not defined or type != 'time' %}
+                    {% if attr.class is defined %}
+                        {% set class = attr.class ~ ' timepicker' %}
+                    {% else %}
+                        {% set class = ' timepicker' %}
+                    {% endif %}
+                    {% set attr = attr|merge({'class' : class, 'data-timepicker':'on'}) %}
                 {% endif %}
-                {% set attr = attr|merge({'class' : class, 'data-timepicker':'on'}) %}
                 {{ block('form_widget_simple') }}
             </div>
         </div>
