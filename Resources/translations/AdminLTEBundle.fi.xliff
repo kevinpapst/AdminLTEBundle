@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file date="2017-01-12T20:00:00Z" source-language="en" target-language="fi" datatype="plaintext" original="none">
+        <body>
+            <trans-unit id="Toggle navigation">
+                <source>Toggle navigation</source>
+                <target state="translated">Vaihda navigoinnin tilaa</target>
+            </trans-unit>
+            <trans-unit id="Remember Me">
+                <source>Remember Me</source>
+                <target state="translated">Muista minut</target>
+            </trans-unit>
+            <trans-unit id="Sign in to start your session">
+                <source>Sign in to start your session</source>
+                <target state="translated">Kirjaudu sisään aloittaaksesi</target>
+            </trans-unit>
+            <trans-unit id="Sign In">
+                <source>Sign In</source>
+                <target state="translated">Kirjaudu</target>
+            </trans-unit>
+            <trans-unit id="Sign out">
+                <source>Sign out</source>
+                <target state="translated">Kirjaudu ulos</target>
+            </trans-unit>
+            <trans-unit id="Profile">
+                <source>Profile</source>
+                <target state="translated">Profiili</target>
+            </trans-unit>
+            <trans-unit id="Member since %date%">
+                <source>Member since %date%</source>
+                <target state="translated">Jäsen lähtien %date%</target>
+            </trans-unit>
+            <trans-unit id="Username">
+                <source>Username</source>
+                <target state="translated">Käyttäjätunnus</target>
+            </trans-unit>
+            <trans-unit id="Password">
+                <source>Password</source>
+                <target state="translated">Salasana</target>
+            </trans-unit>
+            <trans-unit id="Show homepage">
+                <source>Show homepage</source>
+                <target state="translated">Kotisivu</target>
+            </trans-unit>
+            <trans-unit id="Back to login">
+                <source>Back to login</source>
+                <target state="translated">Takaisin</target>
+            </trans-unit>
+            <trans-unit id="Reset your password">
+                <source>Reset your password</source>
+                <target state="translated">Nollaa salasanasi</target>
+            </trans-unit>
+            <trans-unit id="I forgot my password">
+                <source>I forgot my password</source>
+                <target state="translated">Unohtuiko salasana</target>
+            </trans-unit>
+            <trans-unit id="Register a new account">
+                <source>Register a new account</source>
+                <target state="translated">Rekisteröi uusi tili</target>
+            </trans-unit>
+            <trans-unit id="View all">
+                <source>View all</source>
+                <target state="translated">Näytä kaikki</target>
+            </trans-unit>
+            <trans-unit id="You have %count% notifications">
+                <source>You have %count% notifications</source>
+                <target state="translated">Sinulla on 1 uusi ilmoitus|Sinulla on %count% uutta ilmoitusta</target>
+            </trans-unit>
+            <trans-unit id="You have %count% messages">
+                <source>You have %count% messages</source>
+                <target state="translated">Sinulla on 1 uusi viesti|Sinulla on %count% uutta viestiä</target>
+            </trans-unit>
+            <trans-unit id="You have %count% tasks">
+                <source>You have %count% tasks</source>
+                <target state="translated">Sinulla on 1 tehtävä|Sinulla on %count% tehtävää</target>
+            </trans-unit>
+            <trans-unit id="%progress%% Complete">
+                <source>%progress%% Complete</source>
+                <target state="translated">%progress%% Suoritettu</target>
+            </trans-unit>
+            <trans-unit id="This is a mandatory field">
+                <source>This is a mandatory field</source>
+                <target state="translated">Tämä on pakollinen kenttä</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
