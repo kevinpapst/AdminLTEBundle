@@ -9,7 +9,7 @@
 
 namespace KevinPapst\AdminLTEBundle\Event;
 
-use Symfony\Component\EventDispatcher\Event;
+use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * Base event class to make theme related events easier to detect

@@ -5,8 +5,5 @@ parameters:
     excludes_analyse:
         - %rootDir%/../../
     ignoreErrors:
-        # the next 2 rules should be removed once the bundle is compatible with Symfony 4.3
-        - '#Method Symfony\\Contracts\\EventDispatcher\\EventDispatcherInterface::dispatch\(\) invoked with 2 parameters, 1 required.#'
-        - '#Parameter \#1 \$event of method Symfony\\Contracts\\EventDispatcher\\EventDispatcherInterface::dispatch\(\) expects object, string given.#'
         # False-negative as PHPStan cannot detect which NodeType is actually returned from the ConfigTree builder
         - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface::scalarNode\(\).#'

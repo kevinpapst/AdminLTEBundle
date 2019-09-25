@@ -11,28 +11,28 @@ namespace KevinPapst\AdminLTEBundle\Controller;
 
 use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
-use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use KevinPapst\AdminLTEBundle\Event\SidebarUserEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class SidebarController extends EmitterController
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function userPanelAction()
+    public function userPanelAction(): Response
     {
-        if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_SIDEBAR_USER)) {
+        if (!$this->hasListener(SidebarUserEvent::class)) {
             return new Response();
         }
 
         /** @var ShowUserEvent $userEvent */
-        $userEvent = $this->getDispatcher()->dispatch(ThemeEvents::THEME_SIDEBAR_USER, new ShowUserEvent());
+        $userEvent = $this->dispatch(new SidebarUserEvent());
 
         return $this->render(
             '@AdminLTE/Sidebar/user-panel.html.twig',
             [
-                    'user' => $userEvent->getUser(),
+                'user' => $userEvent->getUser(),
             ]
         );
     }
@@ -40,7 +40,7 @@ class SidebarController extends EmitterController
     /**
      * @return Response
      */
-    public function searchFormAction()
+    public function searchFormAction(): Response
     {
         return $this->render('@AdminLTE/Sidebar/search-form.html.twig', []);
     }
@@ -49,14 +49,14 @@ class SidebarController extends EmitterController
      * @param Request $request
      * @return Response
      */
-    public function menuAction(Request $request)
+    public function menuAction(Request $request): Response
     {
-        if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_SIDEBAR_SETUP_MENU)) {
+        if (!$this->hasListener(SidebarMenuEvent::class)) {
             return new Response();
         }
 
         /** @var SidebarMenuEvent $event */
-        $event = $this->getDispatcher()->dispatch(ThemeEvents::THEME_SIDEBAR_SETUP_MENU, new SidebarMenuEvent($request));
+        $event = $this->dispatch(new SidebarMenuEvent($request));
 
         return $this->render(
             '@AdminLTE/Sidebar/menu.html.twig',

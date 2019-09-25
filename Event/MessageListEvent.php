@@ -12,8 +12,7 @@ namespace KevinPapst\AdminLTEBundle\Event;
 use KevinPapst\AdminLTEBundle\Model\MessageInterface;
 
 /**
- * The MessageListEvent should be used with the ThemeEvents::THEME_MESSAGES
- * in order to collect all MessageInterface objects that should be rendered in the messages section.
+ * The MessageListEvent collects all MessageInterface objects that should be rendered in the messages section.
  */
 class MessageListEvent extends ThemeEvent
 {

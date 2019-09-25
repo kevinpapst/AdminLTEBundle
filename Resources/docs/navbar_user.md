@@ -38,7 +38,8 @@ namespace App\EventSubscriber;
 
 use App\Entity\User;
 use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
-use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
+use KevinPapst\AdminLTEBundle\Event\NavbarUserEvent;
+use KevinPapst\AdminLTEBundle\Event\SidebarUserEvent;
 use KevinPapst\AdminLTEBundle\Model\UserModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Security;
@@ -55,8 +56,8 @@ class NavbarUserSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            ThemeEvents::THEME_NAVBAR_USER => ['onShowUser', 100],
-            ThemeEvents::THEME_SIDEBAR_USER => ['onShowUser', 100],
+            NavbarUserEvent::class => ['onShowUser', 100],
+            SidebarUserEvent::class => ['onShowUser', 100],
         ];
     }
 

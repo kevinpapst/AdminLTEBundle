@@ -17,6 +17,7 @@ use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Contracts\EventDispatcher\Event;
 use Twig\Environment;
 
 class NavbarControllerTest extends TestCase
@@ -47,31 +48,31 @@ class NavbarControllerTest extends TestCase
 
     public function getTestData()
     {
-        yield [$this->getContextHelper(7, 23, 2), 7, 'theme.notifications', NotificationListEvent::class, 'notificationsAction', null, 'notifications'];
-        yield [$this->getContextHelper(7, 23, 2), 23, 'theme.messages', MessageListEvent::class, 'messagesAction', null, 'messages'];
-        yield [$this->getContextHelper(7, 23, 2), 2, 'theme.tasks', TaskListEvent::class, 'tasksAction', null, 'tasks'];
-        yield [$this->getContextHelper(1, 20, 30), 7, 'theme.notifications', NotificationListEvent::class, 'notificationsAction', 7, 'notifications'];
-        yield [$this->getContextHelper(1, 20, 30), 23, 'theme.messages', MessageListEvent::class, 'messagesAction', 23, 'messages'];
-        yield [$this->getContextHelper(1, 20, 30), 2, 'theme.tasks', TaskListEvent::class, 'tasksAction', 2, 'tasks'];
+        yield [$this->getContextHelper(7, 23, 2), 7, NotificationListEvent::class, 'notificationsAction', null, 'notifications'];
+        yield [$this->getContextHelper(7, 23, 2), 23, MessageListEvent::class, 'messagesAction', null, 'messages'];
+        yield [$this->getContextHelper(7, 23, 2), 2, TaskListEvent::class, 'tasksAction', null, 'tasks'];
+        yield [$this->getContextHelper(1, 20, 30), 7, NotificationListEvent::class, 'notificationsAction', 7, 'notifications'];
+        yield [$this->getContextHelper(1, 20, 30), 23, MessageListEvent::class, 'messagesAction', 23, 'messages'];
+        yield [$this->getContextHelper(1, 20, 30), 2, TaskListEvent::class, 'tasksAction', 2, 'tasks'];
     }
 
     /**
      * @dataProvider getTestData
      */
-    public function testMessagesAction(Contexthelper $helper, $expectedMax, $expectedEventName, $expectedEventClass, $action, $actionParam, $responseKey)
+    public function testMessagesAction(Contexthelper $helper, $expectedMax, $expectedEventClass, $action, $actionParam, $responseKey)
     {
         $dispatcher = $this->getMockBuilder(EventDispatcher::class)->setMethods(['dispatch', 'hasListeners'])->getMock();
         $dispatcher->expects(self::once())->method('hasListeners')->willReturnCallback(
-            function ($eventName) use ($expectedEventName) {
-                self::assertEquals($expectedEventName, $eventName);
+            function ($eventName) use ($expectedEventClass) {
+                self::assertEquals($expectedEventClass, $eventName);
 
                 return true;
             }
         );
 
         $dispatcher->expects(self::once())->method('dispatch')->willReturnCallback(
-            function ($eventName, $event) use ($expectedMax, $expectedEventName, $expectedEventClass) {
-                self::assertEquals($expectedEventName, $eventName);
+            /** @var Event $event */
+            function ($event) use ($expectedMax, $expectedEventClass) {
                 self::assertInstanceOf($expectedEventClass, $event);
                 self::assertEquals($expectedMax, $event->getMax());
 

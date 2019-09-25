@@ -9,6 +9,6 @@
 
 namespace KevinPapst\AdminLTEBundle\Event;
 
-class SidebarMenuEvent extends MenuEvent
+class NavbarUserEvent extends ShowUserEvent
 {
 }

@@ -10,44 +10,53 @@
 namespace KevinPapst\AdminLTEBundle\Controller;
 
 use KevinPapst\AdminLTEBundle\Event\MessageListEvent;
+use KevinPapst\AdminLTEBundle\Event\NavbarUserEvent;
 use KevinPapst\AdminLTEBundle\Event\NotificationListEvent;
 use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
-use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class NavbarController extends EmitterController
 {
-    protected $max_notifications;
-    protected $max_messages;
-    protected $max_tasks;
+    /**
+     * @var int|null
+     */
+    private $maxNotifications;
+    /**
+     * @var int|null
+     */
+    private $maxMessages;
+    /**
+     * @var int|null
+     */
+    private $maxTasks;
 
     public function __construct(EventDispatcherInterface $dispatcher, ContextHelper $helper)
     {
         parent::__construct($dispatcher);
-        $this->max_notifications = $helper->getOption('max_navbar_notifications');
-        $this->max_messages = $helper->getOption('max_navbar_messages');
-        $this->max_tasks = $helper->getOption('max_navbar_tasks');
+        $this->maxNotifications = $helper->getOption('max_navbar_notifications');
+        $this->maxMessages = $helper->getOption('max_navbar_messages');
+        $this->maxTasks = $helper->getOption('max_navbar_tasks');
     }
 
     /**
      * @param int|null $max
      * @return Response
      */
-    public function notificationsAction($max = null)
+    public function notificationsAction($max = null): Response
     {
-        if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_NOTIFICATIONS)) {
+        if (!$this->hasListener(NotificationListEvent::class)) {
             return new Response();
         }
 
         if (null === $max) {
-            $max = (int) $this->max_notifications;
+            $max = (int) $this->maxNotifications;
         }
 
         /** @var NotificationListEvent $listEvent */
-        $listEvent = $this->getDispatcher()->dispatch(ThemeEvents::THEME_NOTIFICATIONS, new NotificationListEvent($max));
+        $listEvent = $this->dispatch(new NotificationListEvent($max));
 
         return $this->render(
             '@AdminLTE/Navbar/notifications.html.twig',
@@ -60,54 +69,52 @@ class NavbarController extends EmitterController
 
     /**
      * @param int|null $max
-     *
      * @return Response
      */
-    public function messagesAction($max = null)
+    public function messagesAction($max = null): Response
     {
-        if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_MESSAGES)) {
+        if (!$this->hasListener(MessageListEvent::class)) {
             return new Response();
         }
 
         if (null === $max) {
-            $max = (int) $this->max_messages;
+            $max = (int) $this->maxMessages;
         }
 
         /** @var MessageListEvent $listEvent */
-        $listEvent = $this->getDispatcher()->dispatch(ThemeEvents::THEME_MESSAGES, new MessageListEvent($max));
+        $listEvent = $this->dispatch(new MessageListEvent($max));
 
         return $this->render(
             '@AdminLTE/Navbar/messages.html.twig',
             [
-                    'messages' => $listEvent->getMessages(),
-                    'total' => $listEvent->getTotal(),
+                'messages' => $listEvent->getMessages(),
+                'total' => $listEvent->getTotal(),
             ]
         );
     }
 
     /**
      * @param int|null $max
-     *
      * @return Response
      */
-    public function tasksAction($max = null)
+    public function tasksAction($max = null): Response
     {
-        if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_TASKS)) {
+        if (!$this->hasListener(TaskListEvent::class)) {
             return new Response();
         }
 
         if (null === $max) {
-            $max = (int) $this->max_tasks;
+            $max = (int) $this->maxTasks;
         }
 
         /** @var TaskListEvent $listEvent */
-        $listEvent = $this->triggerMethod(ThemeEvents::THEME_TASKS, new TaskListEvent($max));
+        $listEvent = $this->dispatch(new TaskListEvent($max));
 
         return $this->render(
             '@AdminLTE/Navbar/tasks.html.twig',
             [
-                    'tasks' => $listEvent->getTasks(),
-                    'total' => $listEvent->getTotal(),
+                'tasks' => $listEvent->getTasks(),
+                'total' => $listEvent->getTotal(),
             ]
         );
     }
@@ -115,14 +122,14 @@ class NavbarController extends EmitterController
     /**
      * @return Response
      */
-    public function userAction()
+    public function userAction(): Response
     {
-        if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_NAVBAR_USER)) {
+        if (!$this->hasListener(NavbarUserEvent::class)) {
             return new Response();
         }
 
         /** @var ShowUserEvent $userEvent */
-        $userEvent = $this->triggerMethod(ThemeEvents::THEME_NAVBAR_USER, new ShowUserEvent());
+        $userEvent = $this->dispatch(new NavbarUserEvent());
 
         if ($userEvent instanceof ShowUserEvent && null !== $userEvent->getUser()) {
             return $this->render(

@@ -9,8 +9,8 @@
 
 namespace KevinPapst\AdminLTEBundle\Controller;
 
+use KevinPapst\AdminLTEBundle\Event\BreadcrumbMenuEvent;
 use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
-use KevinPapst\AdminLTEBundle\Event\ThemeEvents;
 use KevinPapst\AdminLTEBundle\Model\MenuItemInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,22 +23,22 @@ class BreadcrumbController extends EmitterController
     /**
      * Controller Reference action to be called inside the layout.
      *
-     * Triggers the {@link ThemeEvents::THEME_BREADCRUMB} to receive the currently active menu chain.
+     * Triggers the {@link BreadcrumbMenuEvent} to receive the currently active menu chain.
      *
      * If there are no listeners attached for this event, the return value is an empty response.
      *
      * @param Request $request
-     *
      * @return Response
      */
-    public function breadcrumbAction(Request $request)
+    public function breadcrumbAction(Request $request): Response
     {
-        if (!$this->getDispatcher()->hasListeners(ThemeEvents::THEME_BREADCRUMB)) {
+        if (!$this->hasListener(BreadcrumbMenuEvent::class)) {
             return new Response();
         }
 
         /** @var SidebarMenuEvent $event */
-        $event = $this->getDispatcher()->dispatch(ThemeEvents::THEME_BREADCRUMB, new SidebarMenuEvent($request));
+        $event = $this->dispatch(new BreadcrumbMenuEvent($request));
+
         /** @var MenuItemInterface $active */
         $active = $event->getActive();
         $list = [];

@@ -50,16 +50,16 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
                 <ul class="nav navbar-nav">
                     {% block navbar_start %}{% endblock %}
                     {% block navbar_messages %}
-                        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController:messagesAction')) }}
+                        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController::messagesAction')) }}
                     {% endblock %}
                     {% block navbar_notifications %}
-                        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController:notificationsAction')) }}
+                        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController::notificationsAction')) }}
                     {% endblock %}
                     {% block navbar_tasks %}
-                        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController:tasksAction')) }}
+                        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController::tasksAction')) }}
                     {% endblock %}
                     {% block navbar_user %}
-                        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController:userAction')) }}
+                        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController::userAction')) }}
                     {% endblock %}
                     {% block navbar_end %}{% endblock %}
                     {% block navbar_control_sidebar_toggle %}
@@ -78,19 +78,19 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
         <section class="sidebar">
             {% block sidebar_user %}
                 {% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
-                    {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController:userPanelAction')) }}
+                    {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController::userPanelAction')) }}
                 {% endif %}
             {% endblock %}
 
             {% block sidebar_search %}
-                {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController:searchFormAction')) }}
+                {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController::searchFormAction')) }}
             {% endblock %}
 
             {% block sidebar_nav %}
                 {% if admin_lte_context.knp_menu.enable %}
                     {% include '@AdminLTE/Sidebar/knp-menu.html.twig' %}
                 {% else %}
-                    {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController:menuAction', {'request':app.request})) }}
+                    {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController::menuAction', {'request':app.request})) }}
                 {% endif %}
             {% endblock %}
         </section>
@@ -107,7 +107,7 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
                 {% if admin_lte_context.knp_menu.enable %}
                     {% include '@AdminLTE/Breadcrumb/knp-breadcrumb.html.twig' %}
                 {% else %}
-                    {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\BreadcrumbController:breadcrumbAction', {'request':app.request})) }}
+                    {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\BreadcrumbController::breadcrumbAction', {'request':app.request})) }}
                 {% endif %}
             {% endblock %}
         </section>

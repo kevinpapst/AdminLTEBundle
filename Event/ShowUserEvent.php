@@ -13,30 +13,26 @@ use KevinPapst\AdminLTEBundle\Model\NavBarUserLink;
 use KevinPapst\AdminLTEBundle\Model\UserInterface;
 
 /**
- * The ShowUserEvent should be used with the ThemeEvents::THEME_SIDEBAR_USER and ThemeEvents::THEME_NAVBAR_USER
- * in order to collect the UserInterface object that should be rendered in the user section.
+ * Collect the UserInterface object that should be rendered in the user section.
  */
-class ShowUserEvent extends ThemeEvent
+abstract class ShowUserEvent extends ThemeEvent
 {
     /**
      * @var UserInterface
      */
-    protected $user;
-
+    private $user;
     /**
      * @var bool
      */
-    protected $showProfileLink = true;
-
+    private $showProfileLink = true;
     /**
      * @var bool
      */
-    protected $showLogoutLink = true;
-
+    private $showLogoutLink = true;
     /**
      * @var NavBarUserLink[]
      */
-    protected $links = [];
+    private $links = [];
 
     /**
      * @param UserInterface $user
@@ -52,7 +48,7 @@ class ShowUserEvent extends ThemeEvent
     /**
      * @return UserInterface|null
      */
-    public function getUser()
+    public function getUser(): ?UserInterface
     {
         return $this->user;
     }
@@ -60,7 +56,7 @@ class ShowUserEvent extends ThemeEvent
     /**
      * @return NavBarUserLink[]
      */
-    public function getLinks()
+    public function getLinks(): array
     {
         return $this->links;
     }
@@ -79,7 +75,7 @@ class ShowUserEvent extends ThemeEvent
     /**
      * @return bool
      */
-    public function isShowProfileLink()
+    public function isShowProfileLink(): bool
     {
         return $this->showProfileLink;
     }
@@ -88,7 +84,7 @@ class ShowUserEvent extends ThemeEvent
      * @param bool $showProfileLink
      * @return ShowUserEvent
      */
-    public function setShowProfileLink($showProfileLink)
+    public function setShowProfileLink(bool $showProfileLink)
     {
         $this->showProfileLink = $showProfileLink;
 
@@ -98,7 +94,7 @@ class ShowUserEvent extends ThemeEvent
     /**
      * @return bool
      */
-    public function isShowLogoutLink()
+    public function isShowLogoutLink(): bool
     {
         return $this->showLogoutLink;
     }
@@ -107,7 +103,7 @@ class ShowUserEvent extends ThemeEvent
      * @param bool $showLogoutLink
      * @return ShowUserEvent
      */
-    public function setShowLogoutLink($showLogoutLink)
+    public function setShowLogoutLink(bool $showLogoutLink)
     {
         $this->showLogoutLink = $showLogoutLink;
 

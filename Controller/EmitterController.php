@@ -10,9 +10,8 @@
 namespace KevinPapst\AdminLTEBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Contracts\EventDispatcher\Event;
 
 class EmitterController extends AbstractController
 {
@@ -21,57 +20,21 @@ class EmitterController extends AbstractController
      */
     protected $eventDispatcher;
 
-    /**
-     * @param EventDispatcherInterface $dispatcher
-     */
     public function __construct(EventDispatcherInterface $dispatcher)
     {
         $this->eventDispatcher = $dispatcher;
     }
 
-    /**
-     * @return EventDispatcherInterface
-     */
-    protected function getDispatcher()
+    protected function dispatch(Event $event): Event
     {
-        return $this->eventDispatcher;
-    }
-
-    /**
-     * @param string $eventName
-     *
-     * @return bool
-     */
-    protected function hasListener($eventName)
-    {
-        return $this->getDispatcher()->hasListeners($eventName);
-    }
-
-    /**
-     * Will look for a method of the format "on<CamelizedEventName>" and call it with the event as argument.
-     *
-     *
-     * Then it will dispatch the event as normal via the event dispatcher.
-     *
-     * @param string $eventName
-     * @param Event $event
-     *
-     * @return Event
-     */
-    protected function triggerMethod($eventName, Event $event)
-    {
-        $method = sprintf('on%s', Container::camelize(str_replace('.', '_', $eventName)));
-
-        if (is_callable([$this, $method])) {
-            call_user_func_array([$this, $method], [$event]);
-        }
-
-        if ($event->isPropagationStopped()) {
-            return $event;
-        }
-
-        $this->getDispatcher()->dispatch($eventName, $event);
+        /** @var Event $event */
+        $event = $this->eventDispatcher->dispatch($event);
 
         return $event;
+    }
+
+    protected function hasListener(string $eventName): bool
+    {
+        return $this->eventDispatcher->hasListeners($eventName);
     }
 }

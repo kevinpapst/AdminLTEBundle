@@ -19,6 +19,11 @@ This repository contains an upgraded version of the AvanzuAdminThemeBundle, brin
 - PHP 7.1.3
 - Twig 2.0
 
+**Compatibility:**
+
+- Version 3.x is only compatible with Symfony >= 4.3
+- Version 2.x of this bundle is compatible with Symfony < 4.3
+
 ## Features
 
 Some of the main features of this theme bundle:
@@ -39,7 +44,7 @@ Installation using Symfony flex:
 
 ```bash
 composer config extra.symfony.allow-contrib true
-composer req "kevinpapst/adminlte-bundle:^2.0"
+composer req "kevinpapst/adminlte-bundle:^3.0"
 ```
 
 ## Installation with Composer
@@ -47,7 +52,7 @@ composer req "kevinpapst/adminlte-bundle:^2.0"
 Installation using the "traditional" composer approach:
 
 ```bash
-   composer require kevinpapst/adminlte-bundle ^2.0
+   composer require kevinpapst/adminlte-bundle ^3.0
 ```
 
 Afterwards copy the default config to your `config/packages/` directory:
@@ -84,28 +89,25 @@ The choice **3** was easy and obvious for me: I am doing the work now in this re
 
 ### Main differences
 
-This repository was created from the original master, but with the following PRs merged on top:
+This repository was created from the original master, but with a lot of enhancements on top:
 
 - Auto discovery for commands (see [#215](https://github.com/avanzu/AdminThemeBundle/pull/215))
 - Symfony4 compatibility (see [#215](https://github.com/avanzu/AdminThemeBundle/pull/216))
 - Dynamic config options (see [#217](https://github.com/avanzu/AdminThemeBundle/pull/217))
-
-And a lot of other changes which I added in this repository: 
-
-- upgraded to AdminLTE 2.4.8
-- added support for [FOSUserBundle](Resources/docs/fos_userbundle.md)
-- added Symfony Flex recipe for easier integration
-- using Webpack-Encore for compiling frontend-assets
-- fixed KNPMenu integration
-- replaced AliasRouting with simpler version
-- changed namespaces to allow co-existence with AdminThemeBundle for migration
-- changed and extended default configuration
-- huge cleanup of the codebase
-- changed all twig block-names (with additional layout shim files for migration)   
-- changed control-sidebar, content is now configurable from admin_lte.yaml or the ContextHelper
-- a [Demo application](https://github.com/kevinpapst/AdminLTEBundle-Demo) as living documentation for first time users and easier testing
-- updated composer.json to reflect more up-to-date bundle dependencies
-- introduction of unit tests, phpstan and code-style rules (all checked by Travis)
+- Upgraded to AdminLTE 2.4.8
+- Added support for [FOSUserBundle](Resources/docs/fos_userbundle.md)
+- Added Symfony Flex recipe for easier integration
+- Using Webpack-Encore for compiling frontend-assets
+- Fixed KNPMenu integration
+- Replaced AliasRouting with simpler version
+- Changed namespaces to allow co-existence with AdminThemeBundle for migration
+- Changed and extended default configuration
+- Huge cleanup of the codebase
+- Changed all twig block-names (with additional layout shim files for migration)   
+- Changed control-sidebar, content is now configurable from admin_lte.yaml or the ContextHelper
+- A [Demo application](https://github.com/kevinpapst/AdminLTEBundle-Demo) as living documentation for first time users and easier testing
+- Updated composer.json to reflect more up-to-date bundle dependencies
+- Introduction of unit tests, phpstan and code-style rules (all checked by Travis)
 
 ### Migration from AvanzuAdminTheme
 
