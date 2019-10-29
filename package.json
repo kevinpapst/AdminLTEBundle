@@ -1,6 +1,6 @@
 {
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "~5.1.1",
+        "@fortawesome/fontawesome-free": "~5.11",
         "@symfony/webpack-encore": "^0.20.1",
         "admin-lte": "~2.4.8",
         "bootstrap-sass": "^3.3.7",
