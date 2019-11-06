@@ -78,7 +78,7 @@ class KnpMenuBuilderSubscriber implements EventSubscriberInterface
             'route' => 'child_1_route',
             'label' => 'ChildOneDisplayName',
             'childOptions' => $event->getChildOptions()
-        ])->setLabelAttribute('icon', 'fas fa-rss-square');
+        ])->setLabelAttribute('icon', 'fas fa-rss-square')->setLabelAttribute('badge', '4');
         
         $menu->getChild('blogId')->addChild('ChildTwoItemId', [
             'route' => 'child_2_route',
