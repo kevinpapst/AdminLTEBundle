@@ -6,6 +6,9 @@
         <span>{% if options.allow_safe_labels and item.getExtra('safe_label', false) %}{{ item.label|trans|raw }}{% else %}{{ item.label|trans }}{% endif %}</span>
     {% endif %}
     {% if item.labelAttribute('data-image') %}<img src="{{ item.labelAttribute('data-image') }}" alt="{{ item.name }}" class="menu-thumbnail"/>{% endif %}
+    {% if item.labelAttribute('badge') is not same as(false) %}
+        <small class="label pull-right bg-{{ item.getExtra('badgeColor', 'green') }}">{{ item.labelAttribute('badge') }}</small>
+    {% endif %}
     {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
         <span class="pull-right-container">
             <i class="fas fa-angle-left pull-right"></i>
