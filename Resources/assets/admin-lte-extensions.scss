@@ -1,12 +1,15 @@
 
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+//@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+//@import "~bootstrap/scss/variables";
+//@Todo should be not needed anymore!
+
 
 /*
  * This theme was upgraded to FONT AWESOME 5
  * which is not supported by the original "AdminLTE" theme yet.
  *
  * So we have to do add add some additional styles:
- */
+
 .sidebar-menu>li>a>.far,
 .sidebar-menu>li>a>.fas,
 .sidebar-menu>li>a>.fal,
@@ -73,3 +76,4 @@ body.login-page {
         border-radius: 3px;
     }
 }
+ */
