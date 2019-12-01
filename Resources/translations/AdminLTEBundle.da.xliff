@@ -4,7 +4,7 @@
         <body>
             <trans-unit id="Toggle navigation">
                 <source>Toggle navigation</source>
-                <target>Aktivér navigation</target>
+                <target>Skift navigation</target>
             </trans-unit>
             <trans-unit id="Remember Me">
                 <source>Remember Me</source>
