@@ -21,7 +21,7 @@ This repository contains an upgraded version of the AvanzuAdminThemeBundle, brin
 
 **Compatibility:**
 
-- Version 3.x is only compatible with Symfony >= 4.3
+- Version 3.x is only compatible with Symfony >= 4.3 and PHP 7.2
 - Version 2.x of this bundle is compatible with Symfony < 4.3
 
 ## Features
