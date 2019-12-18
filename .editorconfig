@@ -6,6 +6,6 @@ end_of_line = lf
 indent_size = 4
 indent_style = space
 
-[*.{css,dist,js,json,php,scss,xliff,yaml,yml}]
+[*.php]
 insert_final_newline = true
 trim_trailing_whitespace = true
