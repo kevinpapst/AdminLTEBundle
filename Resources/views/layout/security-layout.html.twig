@@ -18,12 +18,13 @@
         <div class="login-logo">
             {% block logo_login %}<b>Admin</b>LTE{% endblock %}
         </div>
-        <div class="login-box-body">
+        <div class="card">
+        <div class="card-body login-card-body">
             <div class="login-box-msg">
-                <h3 class="login-head">
+                <h4 class="login-head">
                     {% block login_box_icon %}{% endblock %}
                     {% block login_box_msg %}{% endblock %}
-                </h3>
+                </h4>
                 {% block login_box_error %}
                     {% if error|default(false) %}
                         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -34,20 +35,35 @@
             {% block login_form %}
             <form action="{{ path('adminlte_login_check'|route_alias) }}" method="post">
                 {% block login_form_start %}{% endblock %}
-                <div class="form-group has-feedback">
+                <div class="input-group mb-3 ">
                     <input type="text" name="_username" class="form-control" placeholder="{{ 'Username'|trans({}, 'AdminLTEBundle') }}" value="{{ last_username|default('') }}">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class=" fas fa-envelope "></span>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="form-group has-feedback">
+                <div class="input-group mb-3 ">
                     <input name="_password" type="password" class="form-control" placeholder="{{ 'Password'|trans({}, 'AdminLTEBundle') }}">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                    <span class="fas fa-lock "></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
+                <div class="row">
+                    <div class="col-8">
+                <div class="icheck-primary">
                     <input id="remember_me" name="_remember_me" type="checkbox">
                     <label for="remember_me">{{ 'Remember Me'|trans({}, 'AdminLTEBundle') }}</label>
                 </div>
-                <div class="form-group">
+                    </div>
+                    <div class="col-4">
+                <div class="input-group mb-3">
                     <button type="submit" class="btn btn-primary btn-block">{{ 'Sign In'|trans({}, 'AdminLTEBundle') }}</button>
+                </div>
+                    </div>
                 </div>
                 {% if csrf_token %}
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
@@ -79,6 +95,7 @@
                     </a>
                 {% endif %}
             {% endblock %}
+        </div>
         </div>
     </div>
 {% endblock %}

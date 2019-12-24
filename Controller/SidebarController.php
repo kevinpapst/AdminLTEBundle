@@ -33,6 +33,8 @@ class SidebarController extends EmitterController
             '@AdminLTE/Sidebar/user-panel.html.twig',
             [
                 'user' => $userEvent->getUser(),
+                'showProfileLink' => $userEvent->isShowProfileLink(),
+                'showLogoutLink' => $userEvent->isShowLogoutLink(),
             ]
         );
     }

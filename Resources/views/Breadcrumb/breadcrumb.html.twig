@@ -1,5 +1,5 @@
-<ol class="breadcrumb">
-    <li>
+<ol class="breadcrumb float-sm-right">
+    <li class="breadcrumb-item">
         <a href="{{ path('adminlte_welcome'|route_alias) }}">
             <i class="fas fa-tachometer-alt"></i>
             {{ 'Home'|trans({}, 'AdminLTEBundle') }}
@@ -7,7 +7,7 @@
     </li>
     {% if active %}
         {% for item in active %}
-            <li><a href="{{ item.route is empty ? '#' : '/' in item.route ? item.route : path(item.route|route_alias, item.routeArgs) }}">{{ item.label|trans }}</a></li>
+            <li class="breadcrumb-item active"><a href="{{ item.route is empty ? '#' : '/' in item.route ? item.route : path(item.route|route_alias, item.routeArgs) }}">{{ item.label|trans }}</a></li>
         {% endfor %}
     {% endif %}
 </ol>

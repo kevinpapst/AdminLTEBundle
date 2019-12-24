@@ -40,10 +40,10 @@
 {% block spanElement %}
     {% import "knp_menu.html.twig" as macros %}
     {% if item.attribute('class') matches '/(^|\s+)header(\s+|$)/' %}
-        {{ block('label') }}
+        {{ block('badge') }}
     {% else %}
         <a{{ macros.attributes(item.labelAttributes) }}>
-            {{ block('label') }}
+            {{ block('badge') }}
         </a>
     {% endif %}
 {% endblock %}

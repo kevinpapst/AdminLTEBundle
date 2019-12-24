@@ -1,40 +1,37 @@
 
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+//@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+//@import "~bootstrap/scss/variables";
+//@Todo should be not needed anymore!
+
 
 /*
  * This theme was upgraded to FONT AWESOME 5
  * which is not supported by the original "AdminLTE" theme yet.
  *
  * So we have to do add add some additional styles:
- */
 .sidebar-menu>li>a>.far,
 .sidebar-menu>li>a>.fas,
 .sidebar-menu>li>a>.fal,
 .sidebar-menu>li>a>.fab {
     width: 20px;
 }
-
 .sidebar-menu .treeview-menu>li>a>.far,
 .sidebar-menu .treeview-menu>li>a>.fas,
 .sidebar-menu .treeview-menu>li>a>.fal,
 .sidebar-menu .treeview-menu>li>a>.fab {
     width: 20px;
 }
-
 .main-header .sidebar-toggle {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
 }
-
 .login-page form label {
     padding-left: 5px;
 }
-
 .control-label.required:after {
     content:" *";
     font-size: 110%;
 }
-
 .timeline > li > .far,
 .timeline > li > .fas,
 .timeline > li > .fal,
@@ -51,7 +48,6 @@
     left: 18px;
     top: 0;
 }
-
 @media (min-width: $screen-sm-min) {
     body.login-page {
         .login-logo {
@@ -60,7 +56,6 @@
         }
     }
 }
-
 body.login-page {
     .login-box-body {
         padding: 20px;
@@ -73,3 +68,4 @@ body.login-page {
         border-radius: 3px;
     }
 }
+ */

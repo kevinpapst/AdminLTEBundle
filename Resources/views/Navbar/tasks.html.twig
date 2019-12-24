@@ -1,7 +1,7 @@
-<li class="dropdown tasks-menu">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<li class="nav-item dropdown tasks-menu">
+    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
         <i class="far fa-flag"></i>
-        <span class="label label-danger">{{ total }}</span>
+        <span class="badge badge-danger">{{ total }}</span>
     </a>
     <ul class="dropdown-menu">
         <li class="header">{{ 'You have %count% tasks' |trans({'%count%':total}, 'AdminLTEBundle') }}</li>
