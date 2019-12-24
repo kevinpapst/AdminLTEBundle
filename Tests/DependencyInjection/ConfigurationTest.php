@@ -48,6 +48,7 @@ class ConfigurationTest extends TestCase
             'admin_lte' => [
                 'options' => [
                     'default_avatar' => 'bundles/adminlte/images/default_avatar.png',
+                    'default_brand_logo' => 'bundles/adminlte/images/adminltelogo.png',
                     'skin' => 'skin-blue',
                     'fixed_layout' => false,
                     'boxed_layout' => false,
