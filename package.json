@@ -1,5 +1,13 @@
 {
-    "devDependencies": {
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production"
+    },
+    "dependencies": {
         "@fortawesome/fontawesome-free": "~5.11",
         "@symfony/webpack-encore": "^0.20.1",
         "admin-lte": "~2.4.8",
@@ -14,14 +22,5 @@
         "node-sass": "^4.9.0",
         "sass-loader": "^7.0.2",
         "webpack-notifier": "^1.5.1"
-    },
-    "license": "MIT",
-    "private": true,
-    "scripts": {
-        "dev-server": "encore dev-server",
-        "dev": "encore dev",
-        "watch": "encore dev --watch",
-        "build": "encore production"
-    },
-    "dependencies": {}
+    }
 }
