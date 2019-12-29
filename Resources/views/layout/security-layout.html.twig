@@ -21,10 +21,8 @@
         <div class="card">
         <div class="card-body login-card-body">
             <div class="login-box-msg">
-                <h4 class="login-head">
-                    {% block login_box_icon %}{% endblock %}
-                    {% block login_box_msg %}{% endblock %}
-                </h4>
+                {% block login_box_icon %}{% endblock %}
+                {% block login_box_msg %}{% endblock %}
                 {% block login_box_error %}
                     {% if error|default(false) %}
                         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -42,27 +40,24 @@
                             <span class=" fas fa-envelope "></span>
                         </div>
                     </div>
-
                 </div>
                 <div class="input-group mb-3 ">
                     <input name="_password" type="password" class="form-control" placeholder="{{ 'Password'|trans({}, 'AdminLTEBundle') }}">
                     <div class="input-group-append">
                         <div class="input-group-text">
-                    <span class="fas fa-lock "></span>
+                            <span class="fas fa-lock "></span>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-8">
-                <div class="icheck-primary">
-                    <input id="remember_me" name="_remember_me" type="checkbox">
-                    <label for="remember_me">{{ 'Remember Me'|trans({}, 'AdminLTEBundle') }}</label>
-                </div>
+                    <div class="col-7">
+                        <div class="icheck-primary">
+                            <input id="remember_me" name="_remember_me" type="checkbox">
+                            <label for="remember_me">{{ 'Remember Me'|trans({}, 'AdminLTEBundle') }}</label>
+                        </div>
                     </div>
-                    <div class="col-4">
-                <div class="input-group mb-3">
-                    <button type="submit" class="btn btn-primary btn-block">{{ 'Sign In'|trans({}, 'AdminLTEBundle') }}</button>
-                </div>
+                    <div class="col-5">
+                        <button type="submit" class="btn btn-primary btn-block">{{ 'Sign In'|trans({}, 'AdminLTEBundle') }}</button>
                     </div>
                 </div>
                 {% if csrf_token %}
@@ -72,24 +67,25 @@
             </form>
             {% endblock %}
             {% block login_social_auth %}
-            <div class="social-auth-links text-center">
-                <p>{{ '- OR -'|trans({}, 'AdminLTEBundle') }}</p>
-                <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fab fa-facebook"></i>
-                    {{ 'Sign in using Facebook'|trans({}, 'AdminLTEBundle') }}
-                </a>
-                <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fab fa-google-plus"></i>
-                    {{ 'Sign in using Google+'|trans({}, 'AdminLTEBundle') }}
-                </a>
-            </div>
+                <div class="social-auth-links text-center">
+                    <p>{{ '- OR -'|trans({}, 'AdminLTEBundle') }}</p>
+                    <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fab fa-facebook"></i>
+                        {{ 'Sign in using Facebook'|trans({}, 'AdminLTEBundle') }}
+                    </a>
+                    <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fab fa-google-plus"></i>
+                        {{ 'Sign in using Google+'|trans({}, 'AdminLTEBundle') }}
+                    </a>
+                </div>
             {% endblock %}
             {% block login_actions %}
                 {% if 'adminlte_password_reset'|route_alias != 'adminlte_password_reset' %}
+                    <br>
                     <a href="{{ path('adminlte_password_reset'|route_alias) }}">
                         {{ 'I forgot my password'|trans({}, 'AdminLTEBundle') }}
                     </a>
-                    <br>
                 {% endif %}
                 {% if 'adminlte_registration'|route_alias != 'adminlte_registration' %}
+                    <br>
                     <a href="{{ path('adminlte_registration'|route_alias) }}" class="text-center">
                         {{ 'Register a new account'|trans({}, 'AdminLTEBundle') }}
                     </a>
