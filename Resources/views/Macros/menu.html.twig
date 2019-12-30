@@ -4,20 +4,22 @@
         <li id="{{ item.identifier }}" class="nav-item {{ item.isActive ? 'active' : '' }} {{ item.hasChildren? 'treeview' : '' }}">
             <a class="nav-link  {{ item.isActive ? 'active' : '' }}" href="{{ item.hasChildren ? '#': '/' in item.route ? item.route : path(item.route|route_alias, item.routeArgs) }}">
                 {% if item.icon %} <i class="nav-icon {{ item.icon }}"></i> {% endif %}
-                {% if item.badge is not same as(false) %}
-                <span class="badge right bg-{{ item.badgeColor }}">{{ item.badge }}</span>
-                {% endif %}
-                {% if item.hasChildren %}<i class="nav-icon right fas fa-angle-left"></i>{% endif %}
-                <span>{{ item.label|trans }}</span>
+                <p>
+                    {{ item.label|trans }}
+                    {% if item.badge is not same as(false) %}
+                    <span class="right badge badge-{{ item.badgeColor }}">{{ item.badge }}</span>
+                    {% endif %}
+                    {% if item.hasChildren %}<i class="nav-icon right fas fa-angle-left"></i>{% endif %}
+                </p>
             </a>
 
             {% if item.hasChildren %}
-            <ul class="nav nav-treeview">
+                <ul class="nav nav-treeview">
                     {% for child in item.children %}
                         {% if child.hasChildren %}
                            {{ menu.menu_item(child) }}
                         {% else %}
-                            <li class=" nav-item {{ child.isActive ? 'active':'' }}" id="{{ child.identifier }}">
+                            <li class="nav-item {{ child.isActive ? 'active':'' }}" id="{{ child.identifier }}">
                                 <a class="nav-link {{ child.isActive ? 'active':'' }}" href="{{ '/' in child.route ? child.route : path(child.route|route_alias, child.routeArgs) }}">
                                     {{ menu.menu_item_content(child, '') }}
                                 </a>

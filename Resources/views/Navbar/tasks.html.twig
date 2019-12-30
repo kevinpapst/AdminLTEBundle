@@ -1,35 +1,30 @@
 <li class="nav-item dropdown tasks-menu">
-    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+    <a href="#" class="nav-link" data-toggle="dropdown">
         <i class="far fa-flag"></i>
-        <span class="badge badge-danger">{{ total }}</span>
+        <span class="badge badge-danger navbar-badge">{{ total }}</span>
     </a>
-    <ul class="dropdown-menu">
-        <li class="header">{{ 'You have %count% tasks' |trans({'%count%':total}, 'AdminLTEBundle') }}</li>
-        <li>
-            <ul class="menu">
-                {% for task in tasks %}
-                    <li>
-                        <a href="{{ path('adminlte_task'|route_alias, {'id': task.identifier}) }}">
-                            <h3>
-                                {{ task.title }}
-                                <small class="pull-right">{{ task.progress }}%</small>
-                            </h3>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-{{ task.color }}"
-                                     style="width: {{ task.progress }}%"
-                                     role="progressbar"
-                                     aria-valuenow="{{ task.progress }}"
-                                     aria-valuemin="0"
-                                     aria-valuemax="100">
-                                    <span class="sr-only">{{ '%progress%% Complete'|trans({'%progress%':task.progress}, 'AdminLTEBundle') }}</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                {%  endfor  %}
-            </ul>
-        <li class="footer">
-            <a href="{{ path('adminlte_tasks'|route_alias) }}">{{'View all'|trans({}, 'AdminLTEBundle')}}</a>
-        </li>
-    </ul>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <span class="dropdown-item dropdown-header">{{ 'You have %count% tasks' |trans({'%count%':total}, 'AdminLTEBundle') }}</span>
+        {% for task in tasks %}
+            <div class="dropdown-divider"></div>
+            <a href="{{ path('adminlte_task'|route_alias, {'id': task.identifier}) }}" class="dropdown-item">
+                <h5>
+                    {{ task.title }}
+                    <small class="pull-right">{{ task.progress }}%</small>
+                </h5>
+                <div class="progress xs">
+                    <div class="progress-bar progress-bar-{{ task.color }}"
+                         style="width: {{ task.progress }}%"
+                         role="progressbar"
+                         aria-valuenow="{{ task.progress }}"
+                         aria-valuemin="0"
+                         aria-valuemax="100">
+                        <span class="sr-only">{{ '%progress%% Complete'|trans({'%progress%':task.progress}, 'AdminLTEBundle') }}</span>
+                    </div>
+                </div>
+            </a>
+        {%  endfor  %}
+        <div class="dropdown-divider"></div>
+        <a href="{{ path('adminlte_tasks'|route_alias) }}" class="dropdown-item dropdown-footer">{{'View all'|trans({}, 'AdminLTEBundle')}}</a>
+    </div>
 </li>

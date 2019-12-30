@@ -1,15 +1,10 @@
-<!-- search form -->
-<form action="#" method="get" class="sidebar-form">
-    <div class="input-group">
-        <input type="text" name="q" class="form-control form-control-sidebar" placeholder="{{ 'Search'|trans({}, 'AdminLTEBundle') }}..."/>
+<form class="form-inline ml-3">
+    <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" name="q" placeholder="{{ 'Search'|trans({}, 'AdminLTEBundle') }}" aria-label="{{ 'Search'|trans({}, 'AdminLTEBundle') }}">
         <div class="input-group-append">
-            <button class="btn btn-sidebar" type="submit">
+            <button class="btn btn-navbar" type="submit">
                 <i class="fas fa-search"></i>
             </button>
         </div>
-{#        <span class="input-group-btn">#}
-{#            <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fas fa-search"></i></button>#}
-{#        </span>#}
     </div>
 </form>
-<!-- /.search form -->

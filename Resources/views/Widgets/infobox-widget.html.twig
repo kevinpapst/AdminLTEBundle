@@ -5,22 +5,21 @@
         <span class="info-box-text">
             {{ block('box_text') }}
         </span>
-        <span class="info-box-number">
-            {% if block('box_number') is defined %}
+        {% if block('box_number') is defined %}
+            <span class="info-box-number">
                 {{ block('box_number') }}
-            {% endif %}
-        </span>
-        <!-- The progress section is optional -->
+            </span>
+        {% endif %}
         {% if progress is defined %}
         <div class="progress">
             <div class="progress-bar" style="width: {{ progress }}%"></div>
         </div>
         {% endif %}
         {% if progress|default(block('progress_description'))|length > 0 %}
-    <span class="progress-description">
-      {{ block('progress_description') }}
-    </span>
+            <span class="progress-description">
+              {{ block('progress_description') }}
+            </span>
         {% endif %}
-    </div><!-- /.info-box-content -->
-</div><!-- /.info-box -->
+    </div>
+</div>
 {% if block('box_after') is defined %}{{ block('box_after') }}{% endif %}

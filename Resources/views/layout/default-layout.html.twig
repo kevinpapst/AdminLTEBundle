@@ -1,6 +1,5 @@
 {#
-    Use this as your new starter template page, use it to start your new project,
-    by adding this code to your own base template:
+    Use this as your new starter template page by adding that code to your own base template:
 
     {% extends '@AdminLTE/layout/default-layout.html.twig' %}
 
@@ -30,8 +29,8 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
 {% block after_body_start %}{% endblock %}
 <div class="wrapper">
 
-    <nav class="main-header navbar navbar-expand  navbar-dark">
-        <ul class="navbar-nav ">
+    <nav class="main-header navbar navbar-expand navbar-dark">
+        <ul class="navbar-nav">
             {% block navbar_toggle %}
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#">
@@ -40,8 +39,25 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
                     </a>
                 </li>
             {% endblock %}
-
+            {% block navbar_links %}
+                {# TODO document me #}
+                {#
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="../../index3.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+                #}
+            {% endblock %}
         </ul>
+
+        {% block navbar_search %}
+            {% block sidebar_search %}
+                {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController::searchFormAction')) }}
+            {% endblock %}
+        {% endblock %}
+        
         <ul class="navbar-nav ml-auto">
             {% block navbar_start %}{% endblock %}
             {% block navbar_messages %}
@@ -59,8 +75,8 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
             {% block navbar_end %}{% endblock %}
             {% block navbar_control_sidebar_toggle %}
                 {% if admin_lte_context.control_sidebar is defined and admin_lte_context.control_sidebar is not empty %}
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fas fa-cogs"></i></a>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-widget="control-sidebar" data-slide="true"><i class="fas fa-th-large"></i></a>
                     </li>
                 {% endif %}
             {% endblock %}
@@ -69,25 +85,17 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
 
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="{% block logo_path %}{{ path('adminlte_welcome'|route_alias) }}{% endblock %}" class="brand-link ">
-
             {% block logo_mini %}
-            <img src="{{ asset(admin_lte_context.default_brand_logo) }}" alt="AdminLTE Logo" class="brand-image img-bordered-sm elevation-3"
-                 style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <img src="{{ asset(admin_lte_context.default_brand_logo) }}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">AdminLTE 3</span>
             {% endblock %}
-
         </a>
-
-
+        
         <div class="sidebar">
             {% block sidebar_user %}
                 {% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
                     {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController::userPanelAction')) }}
                 {% endif %}
-            {% endblock %}
-
-            {% block sidebar_search %}
-                {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController::searchFormAction')) }}
             {% endblock %}
 
             {% block sidebar_nav %}
@@ -101,39 +109,39 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
     </aside>
 
     <div class="content-wrapper">
-        <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-
-            <h1>
-                {% block page_title %}{{ 'Admin LTE'|trans({}, 'AdminLTEBundle') }}{% endblock %}
-                <small>{% block page_subtitle %}{{ 'A short subtitle for your page'|trans({}, 'AdminLTEBundle') }}{% endblock %}</small>
-            </h1>
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">
+                            {% block page_title %}{{ 'Admin LTE'|trans({}, 'AdminLTEBundle') }}{% endblock %}
+                            {% if block('page_subtitle') is defined %}<small>{{ block('page_subtitle') }}</small>{% endif %}
+                        </h1>
+                    </div>
+                    <div class="col-sm-6">
+                        {% block breadcrumb %}
+                            {% if admin_lte_context.knp_menu.enable %}
+                                {% include '@AdminLTE/Breadcrumb/knp-breadcrumb.html.twig' %}
+                            {% else %}
+                                {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\BreadcrumbController::breadcrumbAction', {'request':app.request})) }}
+                            {% endif %}
+                        {% endblock %}
+                    </div>
                 </div>
-                <div class="col-sm-6">
-
-            {% block breadcrumb %}
-                {% if admin_lte_context.knp_menu.enable %}
-                    {% include '@AdminLTE/Breadcrumb/knp-breadcrumb.html.twig' %}
-                {% else %}
-                    {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\BreadcrumbController::breadcrumbAction', {'request':app.request})) }}
-                {% endif %}
-            {% endblock %}
-                </div>
+            </div>
         </div>
 
         {% block page_content_before %}{% endblock %}
 
         <section class="{% block page_content_class %}content{% endblock %}">
-            {% block page_content_start %}{{ include('@AdminLTE/Partials/_flash_messages.html.twig') }}{% endblock %}
-            {% block page_content %}{% endblock %}
-            {% block page_content_end %}{% endblock %}
+            <div class="container-fluid">
+                {% block page_content_start %}{{ include('@AdminLTE/Partials/_flash_messages.html.twig') }}{% endblock %}
+                {% block page_content %}{% endblock %}
+                {% block page_content_end %}{% endblock %}
+            </div>
         </section>
 
         {% block page_content_after %}{% endblock %}
-            </div>
-        </section>
     </div>
 
     {% block footer %}

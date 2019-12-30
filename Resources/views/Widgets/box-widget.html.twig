@@ -2,9 +2,18 @@
 {% if block('box_before') is defined %}{{ block('box_before') }}{% endif %}
 
 {% set _collapsed = collapsed|default(false) %}
-{% set _solid     = solid|default(admin_lte_context.widget.solid)  %}
-{% set _border    = border|default(admin_lte_context.widget.bordered)  %}
-{% set _footer    = use_footer|default(admin_lte_context.widget.use_footer) or block('box_footer') is defined %}
+{% set _solid = solid|default(admin_lte_context.widget.solid) %}
+
+{% if boxtype is not defined %}
+    {% if color is defined %}
+        {% set boxtype = color %}
+    {% elseif type is defined %}
+        {% set boxtype = type %}
+    {% else %}
+        {% set boxtype = admin_lte_context.widget.type %}
+    {% endif %}
+{% endif %}
+{% set _boxtype = boxtype %}
 
 {% if removable is not defined %}
     {% set removable = admin_lte_context.widget.removable %}
@@ -12,11 +21,11 @@
 {% if collapsible is not defined %}
     {% set collapsible =  (_collapsed or admin_lte_context.widget.collapsible) %}
 {% endif %}
-<div class="box box-{{ boxtype|default(admin_lte_context.widget.type) }}{{ _solid ? ' box-solid' : '' }}{{ _collapsed ? ' collapsed-box' : '' }}">
+<div class="card {% if _boxtype is not empty %}card-{{ _boxtype }}{{ _solid ? ' bg-' ~ _boxtype : '' }}{% endif %}{{ _collapsed ? ' collapsed-card' : '' }}">
     {% if block('box_title') is defined or collapsible or removable %}
-    <div class="box-header{{ _border ? ' with-border' : '' }}">
-        {% if block('box_title') is defined %}<h3 class="box-title">{{ block('box_title') }}</h3>{% endif %}
-        <div class="box-tools pull-right">
+    <div class="card-header">
+        {% if block('box_title') is defined %}<h3 class="card-title">{{ block('box_title') }}</h3>{% endif %}
+        <div class="card-tools pull-right">
             {# Buttons, labels, and many other things can be placed here! #}
             {% if block('box_tools') is defined %}{{ block('box_tools') }}{% endif %}
             {% if collapsible %}
@@ -37,9 +46,9 @@
         </div>
     </div>
     {% endif %}
-    <div class="box-body{% if block('box_body_class') is defined %} {{ block('box_body_class') }}{% endif %}">{{ block('box_body') }}</div>
-    {% if _footer %}
-        <div class="box-footer">{% if block('box_footer') is defined %}{{ block('box_footer') }}{% endif %}</div>
+    <div class="card-body{% if block('box_body_class') is defined %} {{ block('box_body_class') }}{% endif %}">{{ block('box_body') }}</div>
+    {% if block('box_footer') is defined %}
+        <div class="card-footer">{{ block('box_footer') }}</div>
     {% endif %}
 </div>
 {% if block('box_after') is defined %}{{ block('box_after') }}{% endif %}
