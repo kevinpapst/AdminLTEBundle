@@ -9,12 +9,12 @@
     {% if type is defined and type == 'hidden' %}
         {{- parent() -}}
     {% else %}
-        <div class="input-group mb-3 ">
+        <div class="input-group mb-3">
             {{- parent() -}}
             <div class="input-group-append">
-            <div class="input-group-text">
-            <span class="fas fa-{{ attr.icon }} "></span>
-            </div>
+                <div class="input-group-text">
+                    <span class="fas fa-{{ attr.icon }} "></span>
+                </div>
             </div>
         </div>
     {% endif %}
