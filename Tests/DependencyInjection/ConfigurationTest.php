@@ -71,13 +71,11 @@ class ConfigurationTest extends TestCase
                 'theme' => [
                     'widget' => [
                         'type' => 'primary',
-                        'bordered' => true,
                         'collapsible' => false,
                         'collapsible_title' => 'Collapse',
                         'removable' => false,
                         'removable_title' => 'Remove',
                         'solid' => false,
-                        'use_footer' => true,
                     ],
                     'button' => [
                         'type' => 'primary',
