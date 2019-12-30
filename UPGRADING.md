@@ -10,6 +10,7 @@ This updates the bundle to AdminLTE v3. Be prepared for necessary changes!
 - Right "control sidebar" should not use more than one tab: HTML changes required
 - Custom dropdowns in the top navbar need HTML changes
 - Check colors for usages of "embed" widget `@AdminLTE/Widgets/box-widget.html.twig` (use `admin_lte.theme.widget.type` to change it globally)
+- Badge colors for Menu items changed names
 
 ## From v2 to v3
 
