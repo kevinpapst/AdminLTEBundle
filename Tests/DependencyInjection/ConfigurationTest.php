@@ -48,6 +48,7 @@ class ConfigurationTest extends TestCase
             'admin_lte' => [
                 'options' => [
                     'default_avatar' => 'bundles/adminlte/images/default_avatar.png',
+                    'default_brand_logo' => 'bundles/adminlte/images/adminltelogo.png',
                     'skin' => 'skin-blue',
                     'fixed_layout' => false,
                     'boxed_layout' => false,
@@ -70,13 +71,11 @@ class ConfigurationTest extends TestCase
                 'theme' => [
                     'widget' => [
                         'type' => 'primary',
-                        'bordered' => true,
                         'collapsible' => false,
                         'collapsible_title' => 'Collapse',
                         'removable' => false,
                         'removable_title' => 'Remove',
                         'solid' => false,
-                        'use_footer' => true,
                     ],
                     'button' => [
                         'type' => 'primary',

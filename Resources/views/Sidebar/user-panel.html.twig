@@ -1,12 +1,11 @@
 {% import "@AdminLTE/Macros/default.html.twig" as macro %}
-<!-- Sidebar user panel -->
-<div class="user-panel">
-    <div class="pull-left image">
-    {{ macro.avatar(user.avatar, user.username)  }}
+<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="image">
+        {{ macro.avatar(user.avatar, user.username)  }}
     </div>
-    <div class="pull-left info">
-        <p>{{ user.name }}</p>
-
-        <a href="#"><i class="fas fa-circle text-success"></i> {{ 'Online'|trans({}, 'AdminLTEBundle') }}</a>
+    <div class="info">
+        {% if showProfileLink %}
+            <a class="d-block" href="{{ path('adminlte_profile'|route_alias, {'id' : user.identifier}) }}">{{ user.name }}</a>
+        {% endif %}
     </div>
 </div>

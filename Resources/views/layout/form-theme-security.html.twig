@@ -9,9 +9,13 @@
     {% if type is defined and type == 'hidden' %}
         {{- parent() -}}
     {% else %}
-        <div class="form-group has-feedback">
+        <div class="input-group mb-3">
             {{- parent() -}}
-            <span class="glyphicon glyphicon-{{ attr.icon }} form-control-feedback"></span>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-{{ attr.icon }} "></span>
+                </div>
+            </div>
         </div>
     {% endif %}
 {%- endblock form_widget_simple -%}
