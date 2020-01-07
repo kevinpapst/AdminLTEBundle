@@ -5,12 +5,14 @@
 This updates the bundle to AdminLTE v3. Be prepared for necessary changes!
 
 - Removed `admin_lte.theme.widget.use_footer` setting, use block `box_footer`
-- Removed `admin_lte.theme.widget.bordered` setting
-- Search form moved from left navbar to top navbar: requires minor HTML changes
-- Right "control sidebar" should not use more than one tab: HTML changes required
-- Custom dropdowns in the top navbar need HTML changes
-- Check colors for usages of "embed" widget `@AdminLTE/Widgets/box-widget.html.twig` (use `admin_lte.theme.widget.type` to change it globally)
-- Badge colors for Menu items changed names
+- Removed `admin_lte.theme.widget.bordered` setting (no replacement available)
+- Search form moved from left navbar to top navbar: requires minor HTML changes in your form (check AdminLTE docs & examples)
+- Right "control sidebar" should not use more than one tab: HTML changes required (no alternative available)
+- Custom dropdowns in the top navbar need HTML changes (check AdminLte docs & examples)
+- Check colors in usages of "embed" widget `@AdminLTE/Widgets/box-widget.html.twig` (use `admin_lte.theme.widget.type` to change it globally)
+- Badge colors for Menu items changed names (TODO: how, give example ????)
+- Replaced config key `admin_lte.options.fixed_layout` with three new configs : `fixed_header`, `fixed_menu`, `fixed_footer` (remove `fixed_layout` from your config)
+- Switched config `mini_sidebar` from `false` to `true` by default 
 
 ## From v2 to v3
 

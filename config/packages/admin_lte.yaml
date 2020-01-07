@@ -12,14 +12,18 @@ admin_lte:
         default_brand_logo: bundles/adminlte/images/adminltelogo.png
         # the color skin
         skin: skin-blue
-        # if activated, the boxed_layout will be deactivated
-        fixed_layout: false
+        # fixes the position of the header menu
+        fixed_header: false
+        # fixes the position of the left sidebar
+        fixed_menu: false
+        # fixes the position of the footer
+        fixed_footer: false
         # boxed layout (true) or full-screen (false)
         boxed_layout: false
         # initial collapsed state of the sidebar
         collapsed_sidebar: false
-        # whether the logo collapses or not
-        mini_sidebar: false
+        # whether the left menu/sidebar is shown when minified or completely removed
+        mini_sidebar: true
         # max number of notifications displayed
         max_navbar_notifications: 10
         # max number of tasks displayed

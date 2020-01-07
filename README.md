@@ -15,14 +15,15 @@ This repository contains an upgraded version of the AvanzuAdminThemeBundle, brin
 
 ### Minimum requirements
 
-- Symfony 4.0
+- Symfony 4.3
 - PHP 7.1.3
 - Twig 2.0
 
 **Compatibility:**
 
-- Version 3.x is only compatible with Symfony >= 4.3
-- Version 2.x of this bundle is compatible with Symfony < 4.3
+- Version 4.x is compatible with Symfony >= 4.3 (reason: AdminLTE 3)
+- Version 3.x is compatible with Symfony >= 4.3 (reason: maintenance, AdminLTE 2.4.8)
+- Version 2.x of is compatible with Symfony < 4.3
 
 ## Features
 
@@ -44,7 +45,7 @@ Installation using Symfony flex:
 
 ```bash
 composer config extra.symfony.allow-contrib true
-composer req "kevinpapst/adminlte-bundle:^3.0"
+composer req "kevinpapst/adminlte-bundle:^4.0"
 ```
 
 ## Installation with Composer
@@ -52,7 +53,7 @@ composer req "kevinpapst/adminlte-bundle:^3.0"
 Installation using the "traditional" composer approach:
 
 ```bash
-   composer require kevinpapst/adminlte-bundle ^3.0
+   composer require kevinpapst/adminlte-bundle ^4.0
 ```
 
 Afterwards copy the default config to your `config/packages/` directory:
@@ -72,11 +73,14 @@ return [
 ];
 ```
 
-## Difference between AdminLTEBundle and AvanzuAdminThemeBundle
+## AdminLTEBundle vs AvanzuAdminThemeBundle
 
-First and foremost: the original repository has a strong backward compatibility in mind, maintenance is only done if Symfony 2 and 3 compatibility is kept (e.g. [here](https://github.com/avanzu/AdminThemeBundle/pull/216)).
+Let me try to explain the reason why I created this repo and why you might want to to choose it over the original AvanzuAdminThemeBundle.  
 
-That means you don't get the new shiny stuff for SF4. As I work on a Symfony 4 project, utilizing webpack-encore I needed a solution. 
+First and foremost: the original repository has a strong backward compatibility in mind, 
+maintenance is only done if Symfony 2 and 3 compatibility is kept (e.g. [here](https://github.com/avanzu/AdminThemeBundle/pull/216)).
+
+That means you don't get the new shiny stuff for SF4. As I am working on a Symfony 4 project, utilizing webpack-encore I needed a solution. 
 
 First I tried to sent PRs for the original repository, but those were not always accepted [eg. here](https://github.com/avanzu/AdminThemeBundle/pulls/kevinpapst). 
 As I really needed an upgraded version, I tried to manage a branch in a fork for a couple of weeks, but that wasn't working well 
@@ -85,29 +89,22 @@ and I found myself overwriting more and more stuff in my project until there was
 2. doing the changes in my forked repository and having "dev-" entries in my composer.json
 3. cleanup the fork, merge it with my project changes and release it for the community
 
-The choice **3** was easy and obvious for me: I am doing the work now in this repository with a fresh start and the chance for backward-compatibility breaks (for the users migrating from the AdminThemeBundle).
-
-### Main differences
+I went with **3** and now, 1.5 years later it looks as if this was the right choice. Please compare the commit history and decide for yourself!
 
 This repository was created from the original master, but with a lot of enhancements on top:
 
+- Upgraded to **AdminLTE 3**
+- Added support for [FOSUserBundle](Resources/docs/fos_userbundle.md)
+- Fixed and updated **KNPMenu** integration
+- Added Symfony Flex recipe for easier integration
+- Using Webpack-Encore for compiling frontend-assets
+- Codebase cleanup, introduction of unit tests, phpstan and code-style rules (all checked by Travis)
+- Replaced AliasRouting with simpler version
+- Added a [Demo application](https://github.com/kevinpapst/AdminLTEBundle-Demo) as living documentation for first time users and easier testing
 - Auto discovery for commands (see [#215](https://github.com/avanzu/AdminThemeBundle/pull/215))
 - Symfony4 compatibility (see [#215](https://github.com/avanzu/AdminThemeBundle/pull/216))
 - Dynamic config options (see [#217](https://github.com/avanzu/AdminThemeBundle/pull/217))
-- Upgraded to AdminLTE 2.4.8
-- Added support for [FOSUserBundle](Resources/docs/fos_userbundle.md)
-- Added Symfony Flex recipe for easier integration
-- Using Webpack-Encore for compiling frontend-assets
-- Fixed KNPMenu integration
-- Replaced AliasRouting with simpler version
-- Changed namespaces to allow co-existence with AdminThemeBundle for migration
-- Changed and extended default configuration
-- Huge cleanup of the codebase
-- Changed all twig block-names (with additional layout shim files for migration)   
-- Changed control-sidebar, content is now configurable from admin_lte.yaml or the ContextHelper
-- A [Demo application](https://github.com/kevinpapst/AdminLTEBundle-Demo) as living documentation for first time users and easier testing
 - Updated composer.json to reflect more up-to-date bundle dependencies
-- Introduction of unit tests, phpstan and code-style rules (all checked by Travis)
 
 ### Migration from AvanzuAdminTheme
 
