@@ -7,6 +7,20 @@ This bundle provides two form-themes:
 The first one `form-theme.html.twig` is the default theme, which is automatically registered and will be applied to all form elements, 
 unless you overwrite it with an application wide form theme or manually overwrite it for a single form.
 
+## Deactivate or switch default theme
+
+Some users might not be comfortable with the default registration of the form theme, eg. because:
+- they want to use the horizontal layout by default
+- they want to activate the form theme only for single forms and not globally
+
+With v4 you can now change that with the following config key:
+```yaml
+admin_lte:
+    options:
+        form_theme: ~
+```
+The allowed values are `default`, `horizontal` and the value null (here represented by `~`).
+
 ## Use the horizontal theme
 
 To use the horizontal theme everywhere in your application edit `config/packages/twig.yaml`:
