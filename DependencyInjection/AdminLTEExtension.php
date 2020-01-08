@@ -9,7 +9,6 @@
 
 namespace KevinPapst\AdminLTEBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -28,38 +27,20 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $baseConfiguration = new Configuration();
-
-        try {
-            $config = $this->processConfiguration($baseConfiguration, $configs);
-        } catch (InvalidConfigurationException $e) {
-            // Fallback: ignore invalid config from the container user config file and abort use configuration in load
-            echo '[AdminLTEBundle] invalid theme config, bundle config was skipped: ' . $e->getMessage();
-            $config = [];
-        }
-
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
         $options = $this->getContextOptions($config);
 
-        // Use the config only if it is fully validated from the processed configuration
         if (!empty($config)) {
             $container->setParameter('admin_lte_theme.options', $options);
         }
 
-        // Load the services (with parameters loaded)
-        try {
-            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-            $loader->load('services.yml');
-        } catch (\Exception $e) {
-            echo '[AdminLTEBundle] invalid services config found: ' . $e->getMessage();
-        }
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader->load('services.yml');
 
         if ($options['knp_menu']['enable'] === true) {
-            try {
-                $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config/container'));
-                $loader->load('knp-menu.yml');
-            } catch (\Exception $e) {
-                echo '[AdminLTEBundle] failed loading KNP menu service: ' . $e->getMessage();
-            }
+            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config/container'));
+            $loader->load('knp-menu.yml');
         }
     }
 
@@ -92,36 +73,34 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
      */
     public function prepend(ContainerBuilder $container)
     {
-        $baseConfiguration = new Configuration();
+        $configuration = new Configuration();
         $configs = $container->getExtensionConfig($this->getAlias());
+        $config = $this->processConfiguration($configuration, $configs);
 
-        try {
-            $config = $this->processConfiguration($baseConfiguration, $configs);
-        } catch (InvalidConfigurationException $e) {
-            // Fallback: ignore invalid config from the container user config file and abort prepend
-            echo '[AdminLTEBundle] invalid config (prepend), config options for the bundle were skipped: ' . $e->getMessage();
-            $config = [];
+        $options = (array) ($config['options'] ?? []);
+        $routes = (array) ($config['routes'] ?? []);
+
+        $container->setParameter('admin_lte_theme.options', $options);
+        $container->setParameter('admin_lte_theme.routes', $routes);
+
+        if (!array_key_exists('form_theme', $options) || null === ($theme = $options['form_theme'])) {
+            return;
         }
 
-        // Create the parameter for the service (dependency with admin_lte_theme.extension.class) even if empty config
-        $container->setParameter('admin_lte_theme.options', (array) ($config['options'] ?? []));
-        // Create the parameter for the service (dependency with admin_lte_theme.extension.class) even if empty config
-        $container->setParameter('admin_lte_theme.routes', (array) ($config['routes'] ?? []));
+        $themes = [
+            'default' => '@AdminLTE/layout/form-theme.html.twig',
+            'horizontal' => '@AdminLTE/layout/form-theme-horizontal.html.twig',
+        ];
 
-        // Use the config only if it is fully validated from the processed configuration
-        if (!empty($config)) {
-            $bundles = $container->getParameter('kernel.bundles');
+        if (!array_key_exists($theme, $themes)) {
+            return;
+        }
 
-            if (isset($bundles['TwigBundle'])) {
-                $container->prependExtensionConfig(
-                    'twig',
-                    [
-                        'form_theme' => [
-                            '@AdminLTE/layout/form-theme.html.twig',
-                        ],
-                    ]
-                );
-            }
+        $bundles = $container->getParameter('kernel.bundles');
+
+        // register the form theme
+        if (isset($bundles['TwigBundle'])) {
+            $container->prependExtensionConfig('twig', ['form_theme' => [$themes[$theme]]]);
         }
     }
 }
