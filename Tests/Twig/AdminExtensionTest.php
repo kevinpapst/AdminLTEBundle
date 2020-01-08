@@ -59,12 +59,12 @@ class AdminExtensionTest extends TestCase
 
         $sut = $this->getSut([
             'skin' => 'green',
-            'fixed_layout' => true,
+            'fixed_menu' => true,
             'boxed_layout' => true,
             'collapsed_sidebar' => true,
             'mini_sidebar' => true,
         ]);
-        $this->assertEquals('test green fixed layout-boxed sidebar-collapse sidebar-mini', $sut->bodyClass('test'));
+        $this->assertEquals('test green layout-fixed layout-boxed sidebar-collapse sidebar-mini', $sut->bodyClass('test'));
     }
 
     public function testGetTextType()
