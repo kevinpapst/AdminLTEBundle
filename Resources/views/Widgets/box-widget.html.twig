@@ -38,8 +38,15 @@
     </div>
     {% endif %}
     <div class="box-body{% if block('box_body_class') is defined %} {{ block('box_body_class') }}{% endif %}">{{ block('box_body') }}</div>
-    {% if _footer %}
-        <div class="box-footer">{% if block('box_footer') is defined %}{{ block('box_footer') }}{% endif %}</div>
+    {% if _footer and block('box_footer') is defined %}
+        {# 
+            If there is a form in the block_footer, it will be rendered when checking "is not empty". 
+            Therefor we have to cache the output first and then perform the checks. 
+        #}
+        {% set boxFooter = block('box_footer') %}
+        {% if boxFooter is not empty %}
+            <div class="box-footer">{{ boxFooter|raw }}</div>
+        {% endif %}
     {% endif %}
 </div>
 {% if block('box_after') is defined %}{{ block('box_after') }}{% endif %}
