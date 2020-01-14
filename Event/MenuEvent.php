@@ -68,7 +68,6 @@ abstract class MenuEvent extends ThemeEvent
      */
     public function removeItem($item): MenuEvent
     {
-        $item = new MenuItem();
         if ($item instanceof MenuItemInterface && isset($this->menuRootItems[$item->getIdentifier()])) {
             unset($this->menuRootItems[$item->getIdentifier()]);
         } elseif (is_string($item) && isset($this->menuRootItems[$item])) {
