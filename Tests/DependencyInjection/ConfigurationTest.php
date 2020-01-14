@@ -56,6 +56,7 @@ class ConfigurationTest extends TestCase
                     'max_navbar_notifications' => 10,
                     'max_navbar_tasks' => 10,
                     'max_navbar_messages' => 10,
+                    'form_theme' => 'default'
                 ],
                 'control_sidebar' => [
                     'home' => [

@@ -235,6 +235,20 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue('skin-blue')
                     ->info('see skin listing for viable options')
                 ->end()
+                ->scalarNode('form_theme')
+                    ->defaultValue('default')
+                    ->info('the form theme, must be one of: default, horizontal or null')
+                    ->validate()
+                        ->ifTrue(function ($value) {
+                            if (null === $value) {
+                                return false;
+                            }
+
+                            return !in_array($value, ['default', 'horizontal']);
+                        })
+                        ->thenInvalid('Invalid form_theme. Expected one of: "default", "horizontal" or null')
+                    ->end()
+                ->end()
                 ->booleanNode('fixed_layout')
                     ->defaultFalse()
                 ->end()
