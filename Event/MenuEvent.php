@@ -63,6 +63,21 @@ abstract class MenuEvent extends ThemeEvent
     }
 
     /**
+     * @param MenuItemInterface|MenuItem|string $item
+     * @return MenuEvent
+     */
+    public function removeItem($item): MenuEvent
+    {
+        if ($item instanceof MenuItemInterface && isset($this->menuRootItems[$item->getIdentifier()])) {
+            unset($this->menuRootItems[$item->getIdentifier()]);
+        } elseif (is_string($item) && isset($this->menuRootItems[$item])) {
+            unset($this->menuRootItems[$item]);
+        }
+
+        return $this;
+    }
+
+    /**
      * @param string $id
      * @return MenuItemInterface|MenuItem|null
      */
