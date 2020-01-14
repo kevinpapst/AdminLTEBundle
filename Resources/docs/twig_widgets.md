@@ -91,6 +91,15 @@ _**Notice:** since FALSE will not be considered a value by Twig and therefor act
 <dt>box_after
 <dd>Content just after the box's closing `div`
 
+<dt>box_body_class
+<dd>Addiotional css class for the box_body HTML element
+
+<dt>box_attributes
+<dd>Additional HTML attributes for the outer box HTML element
+
+<dt>box_tools_attributes
+<dd>Additional attributes for the tools HTML element
+
 </dl>
 
 ## infobox-widget
