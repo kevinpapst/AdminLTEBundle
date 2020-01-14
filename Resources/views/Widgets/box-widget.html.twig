@@ -21,11 +21,11 @@
 {% if collapsible is not defined %}
     {% set collapsible =  (_collapsed or admin_lte_context.widget.collapsible) %}
 {% endif %}
-<div class="card {% if _boxtype is not empty %}card-{{ _boxtype }}{{ _solid ? ' bg-' ~ _boxtype : '' }}{% endif %}{{ _collapsed ? ' collapsed-card' : '' }}">
+<div class="card {% if _boxtype is not empty %}card-{{ _boxtype }}{{ _solid ? ' bg-' ~ _boxtype : '' }}{% endif %}{{ _collapsed ? ' collapsed-card' : '' }}"{% if block('box_attributes') is defined %} {{ block('box_attributes') }}{% endif %}>
     {% if block('box_title') is defined or collapsible or removable %}
     <div class="card-header">
         {% if block('box_title') is defined %}<h3 class="card-title">{{ block('box_title') }}</h3>{% endif %}
-        <div class="card-tools pull-right">
+        <div class="card-tools pull-right"{% if block('box_tools_attributes') is defined %} {{ block('box_tools_attributes') }}{% endif %}>
             {# Buttons, labels, and many other things can be placed here! #}
             {% if block('box_tools') is defined %}{{ block('box_tools') }}{% endif %}
             {% if collapsible %}
@@ -48,7 +48,14 @@
     {% endif %}
     <div class="card-body{% if block('box_body_class') is defined %} {{ block('box_body_class') }}{% endif %}">{{ block('box_body') }}</div>
     {% if block('box_footer') is defined %}
-        <div class="card-footer">{{ block('box_footer') }}</div>
+        {# 
+            If there is a form in the block_footer, it will be rendered when checking "is not empty". 
+            Therefor we have to cache the output first and then perform the checks. 
+        #}
+        {% set boxFooter = block('box_footer') %}
+        {% if boxFooter is not empty %}
+            <div class="card-footer">{{ boxFooter|raw }}</div>
+        {% endif %}
     {% endif %}
 </div>
 {% if block('box_after') is defined %}{{ block('box_after') }}{% endif %}
