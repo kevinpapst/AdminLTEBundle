@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="eu" datatype="plaintext" original="none">
+        <body>
+            <trans-unit id="Toggle navigation">
+                <source>Toggle navigation</source>
+                <target>Nabigazioa aktibatu</target>
+            </trans-unit>
+            <trans-unit id="Remember Me">
+                <source>Remember Me</source>
+                <target>Gogora nazazu</target>
+            </trans-unit>
+            <trans-unit id="Sign in to start your session">
+                <source>Sign in to start your session</source>
+                <target>Izena ta pasahitza sartu saioa hasteko</target>
+            </trans-unit>
+            <trans-unit id="Sign In">
+                <source>Sign In</source>
+                <target>Saioa hasi</target>
+            </trans-unit>
+            <trans-unit id="Sign out">
+                <source>Sign out</source>
+                <target>Saioa itxi</target>
+            </trans-unit>
+            <trans-unit id="Profile">
+                <source>Profile</source>
+                <target>Nire kontua</target>
+            </trans-unit>
+            <trans-unit id="Member since %date%">
+                <source>Member since %date%</source>
+                <target>%date%-tik erabiltzailea </target>
+            </trans-unit>
+            <trans-unit id="Username">
+                <source>Username</source>
+                <target>Erabiltzailea</target>
+            </trans-unit>
+            <trans-unit id="Password">
+                <source>Password</source>
+                <target>Pasahitza</target>
+            </trans-unit>
+            <trans-unit id="Show homepage">
+                <source>Show homepage</source>
+                <target>Hasierako orria</target>
+            </trans-unit>
+            <trans-unit id="Back to login">
+                <source>Back to login</source>
+                <target>Saio hasierara itzuli</target>
+            </trans-unit>
+            <trans-unit id="Reset your password">
+                <source>Reset your password</source>
+                <target>Pasahitza berrezarri</target>
+            </trans-unit>
+            <trans-unit id="I forgot my password">
+                <source>I forgot my password</source>
+                <target>Pasahitza ahaztu dut</target>
+            </trans-unit>
+            <trans-unit id="Register a new account">
+                <source>Register a new account</source>
+                <target>Kontu berria sortu</target>
+            </trans-unit>
+            <trans-unit id="View all">
+                <source>View all</source>
+                <target>Dena ikusi</target>
+            </trans-unit>
+            <trans-unit id="You have %count% notifications">
+                <source>You have %count% notifications</source>
+                <target>Jakinarazpen bat daukazu|%count% jakinarazpen dauzkazu</target>
+            </trans-unit>
+            <trans-unit id="You have %count% messages">
+                <source>You have %count% messages</source>
+                <target>Mezu bat daukazu|%count% mezu dauzkazu</target>
+            </trans-unit>
+            <trans-unit id="You have %count% tasks">
+                <source>You have %count% tasks</source>
+                <target>Lan bat daukazu|%count% lan dauzkazu</target>
+            </trans-unit>
+            <trans-unit id="%progress%% Complete">
+                <source>%progress%% Complete</source>
+                <target>%%progress% egina</target>
+            </trans-unit>
+            <trans-unit id="This is a mandatory field">
+                <source>This is a mandatory field</source>
+                <target>Derrigorezko sarrera</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
