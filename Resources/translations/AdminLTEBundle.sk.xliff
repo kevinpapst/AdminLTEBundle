@@ -64,15 +64,15 @@
             </trans-unit>
             <trans-unit id="You have %count% notifications">
                 <source>You have %count% notifications</source>
-                <target>Máte jednu notifikáciu|Máte %count% notifikácie</target>
+                <target>Máte jednu notifikáciu|Máte %count% notifikácie|Máte %count% notifikácie</target>
             </trans-unit>
             <trans-unit id="You have %count% messages">
                 <source>You have %count% messages</source>
-                <target>Máte 1 správu|Máte %count% správ</target>
+                <target>Máte 1 správu|Máte %count% správ|Máte %count% správ</target>
             </trans-unit>
             <trans-unit id="You have %count% tasks">
                 <source>You have %count% tasks</source>
-                <target>Máte 1 úlohu|Máte %count% úloh</target>
+                <target>Máte 1 úlohu|Máte %count% úloh|Máte %count% úloh</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>
