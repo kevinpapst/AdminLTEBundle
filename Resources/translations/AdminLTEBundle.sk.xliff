@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="sk" datatype="plaintext" original="none">
+        <body>
+            <trans-unit id="Toggle navigation">
+                <source>Toggle navigation</source>
+                <target>Prepnúť navigáciu</target>
+            </trans-unit>
+            <trans-unit id="Remember Me">
+                <source>Remember Me</source>
+                <target>Pamätať si ma</target>
+            </trans-unit>
+            <trans-unit id="Sign in to start your session">
+                <source>Sign in to start your session</source>
+                <target>Prihláste sa pre začatie sedenia</target>
+            </trans-unit>
+            <trans-unit id="Sign In">
+                <source>Sign In</source>
+                <target>Prihlásiť sa</target>
+            </trans-unit>
+            <trans-unit id="Sign out">
+                <source>Sign out</source>
+                <target>Odhlásiť sa</target>
+            </trans-unit>
+            <trans-unit id="Profile">
+                <source>Profile</source>
+                <target>Profil</target>
+            </trans-unit>
+            <trans-unit id="Member since %date%">
+                <source>Member since %date%</source>
+                <target>Členom od %date%</target>
+            </trans-unit>
+            <trans-unit id="Username">
+                <source>Username</source>
+                <target>Používateľ</target>
+            </trans-unit>
+            <trans-unit id="Password">
+                <source>Password</source>
+                <target>Heslo</target>
+            </trans-unit>
+            <trans-unit id="Show homepage">
+                <source>Show homepage</source>
+                <target>Hlavná stránka</target>
+            </trans-unit>
+            <trans-unit id="Back to login">
+                <source>Back to login</source>
+                <target>Späť na prihlásenie</target>
+            </trans-unit>
+            <trans-unit id="Reset your password">
+                <source>Reset your password</source>
+                <target>Resetovať heslo</target>
+            </trans-unit>
+            <trans-unit id="I forgot my password">
+                <source>I forgot my password</source>
+                <target>Zabudol som heslo</target>
+            </trans-unit>
+            <trans-unit id="Register a new account">
+                <source>Register a new account</source>
+                <target>Zaregistrovať nové konto</target>
+            </trans-unit>
+            <trans-unit id="View all">
+                <source>View all</source>
+                <target>Zobraziť všetky</target>
+            </trans-unit>
+            <trans-unit id="You have %count% notifications">
+                <source>You have %count% notifications</source>
+                <target>Máte jednu notifikáciu|Máte %count% notifikácie|Máte %count% notifikácie</target>
+            </trans-unit>
+            <trans-unit id="You have %count% messages">
+                <source>You have %count% messages</source>
+                <target>Máte 1 správu|Máte %count% správ|Máte %count% správ</target>
+            </trans-unit>
+            <trans-unit id="You have %count% tasks">
+                <source>You have %count% tasks</source>
+                <target>Máte 1 úlohu|Máte %count% úloh|Máte %count% úloh</target>
+            </trans-unit>
+            <trans-unit id="%progress%% Complete">
+                <source>%progress%% Complete</source>
+                <target>%progress%% hotovo</target>
+            </trans-unit>
+            <trans-unit id="This is a mandatory field">
+                <source>This is a mandatory field</source>
+                <target>Toto pole je povinné</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
