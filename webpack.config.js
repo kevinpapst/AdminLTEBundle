@@ -1,7 +1,7 @@
 var Encore = require('@symfony/webpack-encore');
 
 Encore
-// the project directory where compiled assets will be stored
+    // the project directory where compiled assets will be stored
     .setOutputPath('Resources/public/')
 
     // the public path used by the web server to access the previous directory
@@ -38,6 +38,8 @@ Encore
     .enableSassLoader(function(sassOptions) {}, {
         resolveUrlLoader: false
     })
+
+    .disableSingleRuntimeChunk()
 
     // add hash after file name
     .configureFilenames({
