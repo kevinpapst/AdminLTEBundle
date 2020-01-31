@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file date="2017-01-12T20:00:00Z" source-language="en" target-language="pl" datatype="plaintext" original="none">
+    <file source-language="en" target-language="pl" datatype="plaintext" original="AdminLTEBundle.en.xliff">
         <body>
             <trans-unit id="Toggle navigation">
                 <source>Toggle navigation</source>
@@ -64,15 +64,15 @@
             </trans-unit>
             <trans-unit id="You have %count% notifications">
                 <source>You have %count% notifications</source>
-                <target>Masz 1 powiadomienie|Masz %count% powiadomień</target>
+                <target>Masz 1 powiadomienie|Masz %count% powiadomień|Masz %count% powiadomień</target>
             </trans-unit>
             <trans-unit id="You have %count% messages">
                 <source>You have %count% messages</source>
-                <target>Masz  1 wiadomość|Masz %count% wiadomości</target>
+                <target>Masz  1 wiadomość|Masz %count% wiadomości|Masz %count% wiadomości</target>
             </trans-unit>
             <trans-unit id="You have %count% tasks">
                 <source>You have %count% tasks</source>
-                <target>Masz 1 zadanie|Masz %count% zadań</target>
+                <target>Masz 1 zadanie|Masz %count% zadań|Masz %count% zadań</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>
