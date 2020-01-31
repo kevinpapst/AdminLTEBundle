@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file date="2017-01-12T20:00:00Z" source-language="en" target-language="pl" datatype="plaintext" original="none">
+        <body>
+            <trans-unit id="Toggle navigation">
+                <source>Toggle navigation</source>
+                <target>Przełącz nawigację</target>
+            </trans-unit>
+            <trans-unit id="Remember Me">
+                <source>Remember Me</source>
+                <target>Zapamiętaj mnie</target>
+            </trans-unit>
+            <trans-unit id="Sign in to start your session">
+                <source>Sign in to start your session</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="Sign In">
+                <source>Sign In</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="Sign out">
+                <source>Sign out</source>
+                <target>Logout</target>
+            </trans-unit>
+            <trans-unit id="Profile">
+                <source>Profile</source>
+                <target>Twój profil</target>
+            </trans-unit>
+            <trans-unit id="Member since %date%">
+                <source>Member since %date%</source>
+                <target>Konto utworzone  %date%</target>
+            </trans-unit>
+            <trans-unit id="Username">
+                <source>Username</source>
+                <target>Nazwa użytkownika</target>
+            </trans-unit>
+            <trans-unit id="Password">
+                <source>Password</source>
+                <target>Hasło</target>
+            </trans-unit>
+            <trans-unit id="Show homepage">
+                <source>Show homepage</source>
+                <target>Pokaż stronę startową</target>
+            </trans-unit>
+            <trans-unit id="Back to login">
+                <source>Back to login</source>
+                <target>Powrót do strony logowania</target>
+            </trans-unit>
+            <trans-unit id="Reset your password">
+                <source>Reset your password</source>
+                <target>Reset hasła</target>
+            </trans-unit>
+            <trans-unit id="I forgot my password">
+                <source>I forgot my password</source>
+                <target>Zapomniałem mojego hasła</target>
+            </trans-unit>
+            <trans-unit id="Register a new account">
+                <source>Register a new account</source>
+                <target>Zarejestruj nowe konto</target>
+            </trans-unit>
+            <trans-unit id="View all">
+                <source>View all</source>
+                <target>Pokaż wszystko</target>
+            </trans-unit>
+            <trans-unit id="You have %count% notifications">
+                <source>You have %count% notifications</source>
+                <target>Masz 1 powiadomienie|Masz %count% powiadomień</target>
+            </trans-unit>
+            <trans-unit id="You have %count% messages">
+                <source>You have %count% messages</source>
+                <target>Masz  1 wiadomość|Masz %count% wiadomości</target>
+            </trans-unit>
+            <trans-unit id="You have %count% tasks">
+                <source>You have %count% tasks</source>
+                <target>Masz 1 zadanie|Masz %count% zadań</target>
+            </trans-unit>
+            <trans-unit id="%progress%% Complete">
+                <source>%progress%% Complete</source>
+                <target>%progress%% ukończenia</target>
+            </trans-unit>
+            <trans-unit id="This is a mandatory field">
+                <source>This is a mandatory field</source>
+                <target>To pole jest obowiązkowe</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
