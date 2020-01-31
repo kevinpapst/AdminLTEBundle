@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" target-language="pt-BR" datatype="plaintext" original="AdminLTEBundle.en.xliff">
+    <file source-language="en" target-language="pl" datatype="plaintext" original="AdminLTEBundle.en.xliff">
         <body>
             <trans-unit id="Toggle navigation">
                 <source>Toggle navigation</source>
-                <target>Fechar menu</target>
+                <target>Przełącz nawigację</target>
             </trans-unit>
             <trans-unit id="Remember Me">
                 <source>Remember Me</source>
-                <target>Lembrar de mim</target>
+                <target>Zapamiętaj mnie</target>
             </trans-unit>
             <trans-unit id="Sign in to start your session">
                 <source>Sign in to start your session</source>
@@ -16,71 +16,71 @@
             </trans-unit>
             <trans-unit id="Sign In">
                 <source>Sign In</source>
-                <target>Entrar</target>
+                <target>Login</target>
             </trans-unit>
             <trans-unit id="Sign out">
                 <source>Sign out</source>
-                <target>Sair</target>
+                <target>Logout</target>
             </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
-                <target>Meu perfil</target>
+                <target>Twój profil</target>
             </trans-unit>
             <trans-unit id="Member since %date%">
                 <source>Member since %date%</source>
-                <target>Membro desde %date%</target>
+                <target>Konto utworzone  %date%</target>
             </trans-unit>
             <trans-unit id="Username">
                 <source>Username</source>
-                <target>Usuário</target>
+                <target>Nazwa użytkownika</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
-                <target>Senha</target>
+                <target>Hasło</target>
             </trans-unit>
             <trans-unit id="Show homepage">
                 <source>Show homepage</source>
-                <target>Mostrar homepage</target>
+                <target>Pokaż stronę startową</target>
             </trans-unit>
             <trans-unit id="Back to login">
                 <source>Back to login</source>
-                <target>Voltar para o login</target>
+                <target>Powrót do strony logowania</target>
             </trans-unit>
             <trans-unit id="Reset your password">
                 <source>Reset your password</source>
-                <target>Resetar sua senha</target>
+                <target>Reset hasła</target>
             </trans-unit>
             <trans-unit id="I forgot my password">
                 <source>I forgot my password</source>
-                <target>Esqueci minha senha</target>
+                <target>Zapomniałem mojego hasła</target>
             </trans-unit>
             <trans-unit id="Register a new account">
                 <source>Register a new account</source>
-                <target>Cadastrar</target>
+                <target>Zarejestruj nowe konto</target>
             </trans-unit>
             <trans-unit id="View all">
                 <source>View all</source>
-                <target>Ver todos</target>
+                <target>Pokaż wszystko</target>
             </trans-unit>
             <trans-unit id="You have %count% notifications">
                 <source>You have %count% notifications</source>
-                <target>Você tem 1 notificação|Você tem %count% notificações</target>
+                <target>Masz 1 powiadomienie|Masz %count% powiadomień|Masz %count% powiadomień</target>
             </trans-unit>
             <trans-unit id="You have %count% messages">
                 <source>You have %count% messages</source>
-                <target>Você tem 1 mensagem|Você tem %count% mensagens</target>
+                <target>Masz  1 wiadomość|Masz %count% wiadomości|Masz %count% wiadomości</target>
             </trans-unit>
             <trans-unit id="You have %count% tasks">
                 <source>You have %count% tasks</source>
-                <target>Você tem 1 tarefa|Você tem %count% tarefas</target>
+                <target>Masz 1 zadanie|Masz %count% zadań|Masz %count% zadań</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>
-                <target>%progress%% completo</target>
+                <target>%progress%% ukończenia</target>
             </trans-unit>
             <trans-unit id="This is a mandatory field">
                 <source>This is a mandatory field</source>
-                <target>Este é um campo obrigatório</target>
+                <target>To pole jest obowiązkowe</target>
             </trans-unit>
         </body>
     </file>
