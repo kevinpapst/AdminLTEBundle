@@ -6,12 +6,32 @@
         <span>{% if options.allow_safe_labels and item.getExtra('safe_label', false) %}{{ item.label|trans|raw }}{% else %}{{ item.label|trans }}{% endif %}</span>
     {% endif %}
     {% if item.labelAttribute('data-image') %}<img src="{{ item.labelAttribute('data-image') }}" alt="{{ item.name }}" class="menu-thumbnail"/>{% endif %}
+    
+    {% import _self as selfMacros %}
     {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
         <span class="pull-right-container">
+            {{ selfMacros.badges(item) }}
             <i class="fas fa-angle-left pull-right"></i>
         </span>
+    {% else %}
+        {{ selfMacros.badges(item) }}
     {% endif %}
 {% endblock %}
+
+{% macro badges(item) %}
+    {% import _self as selfMacros %}
+    {% if item.getExtra('badge') is not null %}
+        {{ selfMacros.badge(item.getExtra('badge')) }}
+    {% elseif item.getExtra('badges') is not null %}
+        {% for badge in item.getExtra('badges') %}
+            {{ selfMacros.badge(badge) }}
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
+
+{% macro badge(badge) %}
+    <small class="label pull-right bg-{{ badge.color|default('green') }}">{{ badge.value }}</small>
+{% endmacro %}
 
 {% block list %}
     {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
