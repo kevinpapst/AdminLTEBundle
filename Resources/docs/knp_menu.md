@@ -71,12 +71,24 @@ class KnpMenuBuilderSubscriber implements EventSubscriberInterface
         $menu->addChild('blogId', [
             'route' => 'item_symfony_route',
             'label' => 'Blog',
-            'childOptions' => $event->getChildOptions()
+            'childOptions' => $event->getChildOptions(),
+            'extras' => [
+                'badge' => [
+                    'color' => 'yellow',
+                    'value' => 4,
+                ],
+            ],
         ])->setLabelAttribute('icon', 'fas fa-tachometer-alt');
         
         $menu->getChild('blogId')->addChild('ChildOneItemId', [
             'route' => 'child_1_route',
             'label' => 'ChildOneDisplayName',
+            'extras' => [
+                'badges' => [
+                    [ 'value' => 6, 'color' => 'blue' ],
+                    [ 'value' => 5, ],
+                ],
+            ],
             'childOptions' => $event->getChildOptions()
         ])->setLabelAttribute('icon', 'fas fa-rss-square');
         
