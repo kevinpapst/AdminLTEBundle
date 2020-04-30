@@ -12,7 +12,7 @@ Please refer to the [configurations overview](configurations.md) to learn about 
 
 ## Data Model
 
-In order to use this component, your user class has to implement the `KevinPapst\AdminLTEBundle\Model\TaskInterface`
+In order to use this component, your task class has to implement the `KevinPapst\AdminLTEBundle\Model\TaskInterface`
 ```php
 <?php
 namespace App\Model;
