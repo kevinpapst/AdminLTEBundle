@@ -22,9 +22,6 @@ Encore
     // generate only two files: app.js and app.css
     .addEntry('adminlte', './Resources/assets/admin-lte.js')
 
-    // enable sass/scss parser
-    .enableSassLoader()
-
     // show OS notifications when builds finish/fail
     .enableBuildNotifications()
 
@@ -34,6 +31,7 @@ Encore
     // for "legacy" applications that require $/jQuery as a global variable
     .autoProvidejQuery()
 
+    // enable sass/scss parser
     // see https://symfony.com/doc/current/frontend/encore/bootstrap.html
     .enableSassLoader(function(sassOptions) {}, {
         resolveUrlLoader: false
