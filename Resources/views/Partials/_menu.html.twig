@@ -1,21 +1,23 @@
 {% extends 'knp_menu.html.twig' %}
 
 {% block label %}
-    {% if item.labelAttribute('icon') %}<i class="{{ item.labelAttribute('icon') }}"></i>{% endif %}
-    {% if not item.labelAttribute('iconOnly') %}
-        <span>{% if options.allow_safe_labels and item.getExtra('safe_label', false) %}{{ item.label|trans|raw }}{% else %}{{ item.label|trans }}{% endif %}</span>
-    {% endif %}
-    {% if item.labelAttribute('data-image') %}<img src="{{ item.labelAttribute('data-image') }}" alt="{{ item.name }}" class="menu-thumbnail"/>{% endif %}
-    
-    {% import _self as selfMacros %}
-    {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
-        <span class="pull-right-container">
+    {% if item.labelAttribute('icon') %}<i class="nav-icon {{ item.labelAttribute('icon') }}"></i>{% endif %}
+    <p>
+        {% if not item.labelAttribute('iconOnly') %}
+            {% if options.allow_safe_labels and item.getExtra('safe_label', false) %}{{ item.label|trans|raw }}{% else %}{{ item.label|trans }}{% endif %}
+        {% endif %}
+        {% if item.labelAttribute('data-image') %}<img src="{{ item.labelAttribute('data-image') }}" alt="{{ item.name }}" class="menu-thumbnail"/>{% endif %}
+
+        {% import _self as selfMacros %}
+        {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
+            <span class="pull-right-container">
             {{ selfMacros.badges(item) }}
             <i class="fas fa-angle-left pull-right"></i>
         </span>
-    {% else %}
-        {{ selfMacros.badges(item) }}
-    {% endif %}
+        {% else %}
+            {{ selfMacros.badges(item) }}
+        {% endif %}
+    </p>
 {% endblock %}
 
 {% macro badges(item) %}
@@ -30,19 +32,26 @@
 {% endmacro %}
 
 {% macro badge(badge) %}
-    <small class="label pull-right bg-{{ badge.color|default('green') }}">{{ badge.value }}</small>
+    <span class="right badge badge-{{ badge.color|default('success') }}">{{ badge.value }}</span>
 {% endmacro %}
+
+{% block root %}
+    {% set listAttributes = item.childrenAttributes %}
+    <nav class="mt-2">
+        {{ block('list') -}}
+    </nav>
+{% endblock %}
 
 {% block list %}
     {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
         {% import "knp_menu.html.twig" as macros %}
 
         {% if matcher.isAncestor(item) %}
-            {%- set listAttributes = listAttributes|merge({class: (listAttributes.class|default('') ~ ' in')|trim}) -%}
+            {%- set listAttributes = listAttributes|merge({class: (listAttributes.class|default(''))|trim}) -%}
         {% endif %}
         {% if not item.isRoot %}
-            {%- set listAttributes = listAttributes|merge({class: (listAttributes.class|default('') ~ ' treeview-menu')|trim}) -%}
-        {% endif %} 
+            {%- set listAttributes = listAttributes|merge({class: (listAttributes.class|default('') ~ ' nav-treeview')|trim}) -%}
+        {% endif %}
         <ul{{ macros.attributes(listAttributes) }}>
             {{ block('children') }}
         </ul>
@@ -57,13 +66,21 @@
     {%- endfor -%}
 {% endmacro %}
 
+{% block linkElement %}
+    {% import _self as knp_menu %}
+    <a class="nav-link" href="{{ item.uri }}"{{ knp_menu.attributes(item.linkAttributes) }}>
+        {{ block('label') }}
+    </a>
+{% endblock %}
+
 {% block spanElement %}
+    {% import _self as selfMacros %}
     {% import "knp_menu.html.twig" as macros %}
     {% if item.attribute('class') matches '/(^|\s+)header(\s+|$)/' %}
-        {{ block('badge') }}
+        {{ selfMacros.badges(item) }}
     {% else %}
         <a{{ macros.attributes(item.labelAttributes) }}>
-            {{ block('badge') }}
+            {{ selfMacros.badges(item) }}
         </a>
     {% endif %}
 {% endblock %}
