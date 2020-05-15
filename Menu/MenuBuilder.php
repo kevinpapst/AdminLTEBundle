@@ -38,12 +38,16 @@ class MenuBuilder
     public function createMainMenu(array $options)
     {
         $menu = $this->factory->createItem('root', [
-            'childrenAttributes' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],
+            'childrenAttributes' => [
+                'class' => 'nav nav-pills nav-sidebar flex-column',
+                'data-widget' => 'treeview',
+                'role' => 'menu'
+            ],
         ]);
 
         $childOptions = [
-            'attributes' => ['class' => 'treeview'],
-            'childrenAttributes' => ['class' => 'treeview-menu'],
+            'attributes' => ['class' => 'nav-item treeview'],
+            'childrenAttributes' => ['class' => 'nav-item treeview-menu'],
             'labelAttributes' => [],
         ];
 
