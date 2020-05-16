@@ -39,16 +39,17 @@ class MenuBuilder
     {
         $menu = $this->factory->createItem('root', [
             'childrenAttributes' => [
-                'class' => 'nav nav-pills nav-sidebar flex-column',
+                'class' => 'nav nav-sidebar flex-column',
                 'data-widget' => 'treeview',
+                'data-accordion' => false,
                 'role' => 'menu'
             ],
         ]);
 
         $childOptions = [
-            'attributes' => ['class' => 'nav-item treeview'],
-            'childrenAttributes' => ['class' => 'nav-item treeview-menu'],
-            'labelAttributes' => [],
+            'attributes' => ['class' => 'show treeview'],
+            'childrenAttributes' => ['class' => 'list-unstyled show menu-open'],
+            'labelAttributes' => ['safe_html'=>true, 'data-toggle' => 'collapse'],
         ];
 
         $this->eventDispatcher->dispatch(new KnpMenuEvent($menu, $this->factory, $options, $childOptions));
