@@ -26,7 +26,8 @@
         "symfony/http-kernel"  : ">4.0",
         "symfony/options-resolver": ">4.0",
         "symfony/security-core": ">4.0",
-        "twig/twig": ">2.0"
+        "twig/twig": ">2.0",
+        "twig/extra-bundle": "^3.0"
     },
     "require-dev": {
         "phpspec/prophecy": "^1.6",

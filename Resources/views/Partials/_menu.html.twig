@@ -1,6 +1,8 @@
 {% extends 'knp_menu.html.twig' %}
 
 {% block label %}
+    <h1>{{ _self }}!!!!</h1>
+    {{ item.hasChildren ? 'parent' : 'nope' }}
     {% if item.labelAttribute('icon') %}<i class="nav-icon {{ item.labelAttribute('icon') }}"></i>{% endif %}
     <p>
         {% if not item.labelAttribute('iconOnly') %}
@@ -58,6 +60,39 @@
     {% endif %}
 {% endblock %}
 
+{% block children %}
+    {# save current variables #}
+    {% set currentOptions = options %}
+    {% set currentItem = item %}
+    {# update the depth for children #}
+    {% if options.depth is not none %}
+        {% set options = options|merge({'depth': currentOptions.depth - 1}) %}
+    {% endif %}
+    {# update the matchingDepth for children #}
+    {% if options.matchingDepth is not none and options.matchingDepth > 0 %}
+        {% set options = options|merge({'matchingDepth': currentOptions.matchingDepth - 1}) %}
+    {% endif %}
+
+
+    {# building the class of the children #}
+    {%- set childrenClasses = item.childrenAttribute('class') is not empty ? [item.childrenAttribute('class')] : [] %}
+    {%- set childrenClasses = childrenClasses|merge(['menu_level_' ~ item.level]) %}
+
+    {% for item in currentItem.children %}
+        {%- if is_collapsable|default(true) %}
+            {%- set classes = item.attribute('class') is not empty ? [item.attribute('class'), 'nav-item'] : ['nav-item'] %}
+            {%- set classes = classes|merge([ 'show']) %}
+            {%- set childrenClasses = childrenClasses|merge(['collapse-item']) %}
+            (c {{ item.label }}) {{ classes|join(',') }} [{{ childrenClasses|join(',') }}]
+        {%- endif %}
+        {{ block('item') }}
+    {% endfor %}
+    {# restore current variables #}
+    {% set item = currentItem %}
+    {% set options = currentOptions %}
+{% endblock %}
+
+
 {% macro attributes(attributes) %}
     {% for name, value in attributes %}
         {%- if value is not none and value is not same as(false) -%}
@@ -84,3 +119,4 @@
         </a>
     {% endif %}
 {% endblock %}
+

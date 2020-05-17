@@ -1,5 +1,5 @@
 {% if admin_lte_context.knp_menu.breadcrumb_menu is not same as(false) %}
-    <ol class="breadcrumb">
+    <ol class="breadcrumb float-sm-right">
         {% apply spaceless %}
             {% set breadcrumbMenu = admin_lte_context.knp_menu.breadcrumb_menu %}
             {% if admin_lte_context.knp_menu.breadcrumb_menu is same as(true) %}
@@ -8,8 +8,12 @@
             {% set items = knp_menu_get_breadcrumbs_array(knp_menu_get_current_item(breadcrumbMenu)) %}
             {% for item in items %}
                 {% if not loop.first %}
-                <li class="{{ loop.last ? 'active' : '' }}">
-                    <a href="{{ item.uri }}">{{ item.label | trans }}</a>
+                <li class="breadcrumb-item {{ loop.last ? 'active' : '' }}">
+                    {% if  loop.last  %}
+                        {{ item.label | trans }}
+                    {% else %}
+                        <a href="{{ item.uri }}">{{ item.label | trans }}</a>
+                    {% endif %}
                 </li>
                 {% endif %}
             {% endfor %}

@@ -48,7 +48,7 @@ class MenuBuilder
 
         $childOptions = [
             'attributes' => ['class' => 'show treeview'],
-            'childrenAttributes' => ['class' => 'list-unstyled show menu-open'],
+            'childrenAttributes' => ['class' => 'list-unstyled show menu-open branch'],
             'labelAttributes' => ['safe_html'=>true, 'data-toggle' => 'collapse'],
         ];
 
