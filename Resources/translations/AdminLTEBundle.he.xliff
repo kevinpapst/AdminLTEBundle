@@ -16,7 +16,7 @@
             </trans-unit>
             <trans-unit id="Sign In">
                 <source>Sign In</source>
-                <target>חבר</target>
+                <target>התחבר</target>
             </trans-unit>
             <trans-unit id="Sign out">
                 <source>Sign out</source>
