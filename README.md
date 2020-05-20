@@ -3,7 +3,7 @@
 [![Total Downloads](https://poser.pugx.org/kevinpapst/adminlte-bundle/downloads)](https://packagist.org/packages/kevinpapst/adminlte-bundle)
 [![License](https://poser.pugx.org/kevinpapst/adminlte-bundle/license)](LICENSE)
 
-# AdminLTE Bundle for Symfony 4
+# AdminLTE Bundle for Symfony
 
 This repository contains an upgraded version of the AvanzuAdminThemeBundle, bringing the AdminLTE theme to Symfony 4.
 
@@ -36,7 +36,7 @@ Some of the main features of this theme bundle:
 - Webpack-Encore support for building assets
 - Event-driven handling of menu entries, tasks and notifications
 - Translations for: english, german, italian, czech, spanish, russian, arabic, finnish, japanese, swedish, portuguese (brazilian), dutch, french, turkish, danish, chinese, slovakian, basque, polish, Esperanto (please help translating it to more languages)
-- Based on AdminLTE 2.4.8
+- Based on AdminLTE 3
 - Using FontAwesome 5
 
 ## Installation with Symfony Flex
