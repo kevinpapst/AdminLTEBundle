@@ -1,82 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" target-language="it" datatype="plaintext" original="AdminLTEBundle.en.xliff">
+    <file source-language="en" target-language="he" datatype="plaintext" original="none">
         <body>
             <trans-unit id="Toggle navigation">
                 <source>Toggle navigation</source>
-                <target>Cambia visualizzazione della barra laterale</target>
+                <target>Toggle navigation</target>
             </trans-unit>
             <trans-unit id="Remember Me">
                 <source>Remember Me</source>
-                <target>Ricordami</target>
+                <target>זכור אותי</target>
             </trans-unit>
             <trans-unit id="Sign in to start your session">
                 <source>Sign in to start your session</source>
-                <target>Accedi per iniziare la sessione</target>
+                <target>כניסה</target>
             </trans-unit>
             <trans-unit id="Sign In">
                 <source>Sign In</source>
-                <target>Accedi</target>
+                <target>התחבר</target>
             </trans-unit>
             <trans-unit id="Sign out">
                 <source>Sign out</source>
-                <target>Disconnetti</target>
+                <target>התנתק</target>
             </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
-                <target>Il tuo profilo</target>
+                <target>הפרופיל שלך</target>
             </trans-unit>
             <trans-unit id="Member since %date%">
                 <source>Member since %date%</source>
-                <target>Membro da %date%</target>
+                <target>חבר מאז %date%</target>
             </trans-unit>
             <trans-unit id="Username">
                 <source>Username</source>
-                <target>Nome utente</target>
+                <target>שם משתמש</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
-                <target>Password</target>
+                <target>סיסמה</target>
             </trans-unit>
             <trans-unit id="Show homepage">
                 <source>Show homepage</source>
-                <target>Mostra la homepage</target>
+                <target>הצג את דף הבית</target>
             </trans-unit>
             <trans-unit id="Back to login">
                 <source>Back to login</source>
-                <target>Torna al login</target>
+                <target>חזרה למסך הכניסה</target>
             </trans-unit>
             <trans-unit id="Reset your password">
                 <source>Reset your password</source>
-                <target>Ripristina la password</target>
+                <target>איפוס סיסמה</target>
             </trans-unit>
             <trans-unit id="I forgot my password">
                 <source>I forgot my password</source>
-                <target>Ho dimenticato la mia password</target>
+                <target>שכחתי סיסמה</target>
             </trans-unit>
             <trans-unit id="Register a new account">
                 <source>Register a new account</source>
-                <target>Registra un nuovo account</target>
+                <target>הירשם למערכת</target>
             </trans-unit>
             <trans-unit id="View all">
                 <source>View all</source>
-                <target>Guarda tutto</target>
+                <target>צפה בהכל</target>
             </trans-unit>
             <trans-unit id="You have %count% notifications">
                 <source>You have %count% notifications</source>
-                <target>Hai 1 notifica|Hai %count% notifiche</target>
+                <target>יש לך תזכורת 1|יש לך %count% תזכורות</target>
             </trans-unit>
             <trans-unit id="You have %count% messages">
                 <source>You have %count% messages</source>
-                <target>Hai 1 messaggio|Hai %count% messaggi</target>
+                <target>יש לך הודעה 1|יש לך %count% הודעות</target>
             </trans-unit>
             <trans-unit id="You have %count% tasks">
                 <source>You have %count% tasks</source>
-                <target>Hai 1 compito|Hai %count% compiti</target>
+                <target>יש לך משימה 1|יש לך %count% משימות</target>
             </trans-unit>
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>
-                <target>%progress%% completato</target>
+                <target>%progress%% הושלם</target>
+            </trans-unit>
+            <trans-unit id="This is a mandatory field">
+                <source>This is a mandatory field</source>
+                <target>זהו שדה חובה</target>
             </trans-unit>
         </body>
     </file>
