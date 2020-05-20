@@ -5,5 +5,4 @@ parameters:
     excludes_analyse:
         - %rootDir%/../../
     ignoreErrors:
-        # False-negative as PHPStan cannot detect which NodeType is actually returned from the ConfigTree builder
         - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface::scalarNode\(\).#'
