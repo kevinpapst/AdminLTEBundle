@@ -25,10 +25,13 @@ Encore
     // show OS notifications when builds finish/fail
     .enableBuildNotifications()
 
+    // don't use a runtime.js
+    .disableSingleRuntimeChunk()
+
     // empty the outputPath dir before each build
     .cleanupOutputBeforeBuild()
 
-    // for "legacy" applications that require $/jQuery as a global variable
+    // because we need $/jQuery as a global variable
     .autoProvidejQuery()
 
     // enable sass/scss parser

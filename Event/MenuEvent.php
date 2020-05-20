@@ -44,7 +44,7 @@ abstract class MenuEvent extends ThemeEvent
     }
 
     /**
-     * @return MenuItemInterface[]|MenuItem[]
+     * @return MenuItemInterface[]
      */
     public function getItems(): array
     {
@@ -52,7 +52,7 @@ abstract class MenuEvent extends ThemeEvent
     }
 
     /**
-     * @param MenuItemInterface|MenuItem $item
+     * @param MenuItemInterface $item
      * @return MenuEvent
      */
     public function addItem($item)
@@ -63,7 +63,7 @@ abstract class MenuEvent extends ThemeEvent
     }
 
     /**
-     * @param MenuItemInterface|MenuItem|string $item
+     * @param MenuItemInterface|string $item
      * @return MenuEvent
      */
     public function removeItem($item): MenuEvent

@@ -1,7 +1,7 @@
 {
     "name": "kevinpapst/adminlte-bundle",
     "type": "symfony-bundle",
-    "description": "Admin theme bundle for Symfony 4 based on AdminLTE 2.4.8 with FOSUserBundle support",
+    "description": "Admin theme bundle for Symfony 4+ based on AdminLTE 2.4 with FOSUserBundle support",
     "license": "MIT",
     "authors": [
         {
@@ -46,7 +46,10 @@
     },
     "scripts": {
         "tests": "vendor/bin/phpunit Tests/",
-        "phpstan": "vendor/bin/phpstan analyse . --level=5",
+        "phpstan": [
+            "vendor/bin/phpstan analyse . --level=6",
+            "vendor/bin/phpstan analyse -c Tests/phpstan.neon Tests --level=7"
+        ],
         "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
         "codestyle-fix": "vendor/bin/php-cs-fixer fix"
     }
