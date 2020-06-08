@@ -86,25 +86,28 @@ class AdminExtension extends AbstractExtension
      */
     public function bodyClass($classes = '')
     {
-        $classList = [$classes];
+        $classList = explode(' ', $classes);
         $options = $this->context->getOptions();
 
         if (isset($options['skin'])) {
             $classList[] = $options['skin'];
         }
-        if (isset($options['fixed_layout']) && true == $options['fixed_layout']) {
-            $classList[] = 'fixed';
-        }
-        if (isset($options['boxed_layout']) && true == $options['boxed_layout']) {
-            $classList[] = 'layout-boxed';
-        }
-        if (isset($options['collapsed_sidebar']) && true == $options['collapsed_sidebar']) {
-            $classList[] = 'sidebar-collapse';
-        }
-        if (isset($options['mini_sidebar']) && true == $options['mini_sidebar']) {
-            $classList[] = 'sidebar-mini';
+
+        $configs = [
+            'fixed_header' => 'layout-navbar-fixed',
+            'fixed_menu' => 'layout-fixed',
+            'fixed_footer' => 'layout-footer-fixed',
+            'boxed_layout' => 'layout-boxed',
+            'collapsed_sidebar' => 'sidebar-collapse',
+            'mini_sidebar' => 'sidebar-mini',
+        ];
+
+        foreach ($configs as $name => $class) {
+            if (array_key_exists($name, $options) && $options[$name] === true) {
+                $classList[] = $class;
+            }
         }
 
-        return implode(' ', array_values($classList));
+        return implode(' ', array_unique(array_values($classList)));
     }
 }

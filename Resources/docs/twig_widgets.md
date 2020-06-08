@@ -11,10 +11,8 @@ The values in this configuration example are the default settings.
 admin_lte:
     theme:
         widget:
-            # relates to box-<type>, default: primary
+            # header color (or if solid is active => the complete card background)
             type: primary 
-            # will add .with-border to .box-header, default: true
-            bordered: true
             # will add a collapse button to the widget toolbar, default: true
             collapsible: true
             # sets the title attribute for the collapse button
@@ -23,10 +21,8 @@ admin_lte:
             removable: false
             # defines the title attribute for the remove button
             removable_title: Remove
-            # will add .box-solid 
+            # if active, the complete card has a background 
             solid: false
-            # will avoid rendering the .box-footer without content
-            use_footer: true
 ```
 
 ## box-widget.html.twig
@@ -56,11 +52,8 @@ _**Notice:** since FALSE will not be considered a value by Twig and therefor act
 <dt>border
 <dd>Will add .with-border to the box header. 
 
-<dt>use_footer
-<dd>Will render the .box-footer even if it has no content.
-
 <dt>collapsible & collapsible_title
-<dd>Will add a collapse toolbutton. This setting will alwas be true if the box is defined as `collapsed`. The `collapsible_title` will be set as the button's `title` attribute.
+<dd>Will add a collapse tool button. This setting will always be true if the box is defined as `collapsed`. The `collapsible_title` will be set as the button's `title` attribute.
 
 <dt>removable & removable_title
 <dd>Will add a remove toolbutton. The `removable_title` will be set as the button's `title` attribute. 

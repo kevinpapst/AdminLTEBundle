@@ -1,21 +1,31 @@
 {% if admin_lte_context.control_sidebar is defined and admin_lte_context.control_sidebar is not empty %}
 <aside class="control-sidebar control-sidebar-dark">
+    {% if admin_lte_context.control_sidebar|length > 1 %}
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            {% for name, tab in admin_lte_context.control_sidebar %}
-                <li{% if loop.first %} class="active"{% endif %}><a href="#control-sidebar-{{ name }}-tab" data-toggle="tab"><i class="{{ tab.icon }}"></i></a></li>
-            {% endfor %}
+        {% for name, tab in admin_lte_context.control_sidebar %}
+            <li{% if loop.first %} class="active"{% endif %}><a href="#control-sidebar-{{ name }}-tab" data-toggle="tab"><i class="{{ tab.icon }}"></i></a></li>
+        {% endfor %}
     </ul>
     <div class="tab-content">
-            {% for name, tab in admin_lte_context.control_sidebar %}
-                <div class="tab-pane {% if loop.first %}active{% endif %}" id="control-sidebar-{{ name }}-tab">
-                    {% if tab.controller is defined %}
-                        {{ render(controller(tab.controller, {'originalRequest': app.request})) }}
-                    {% elseif tab.template is defined %}
-                        {% include tab.template %}
-                    {% endif %}
-                </div>
-            {% endfor %}
+        {% for name, tab in admin_lte_context.control_sidebar %}
+            <div class="tab-pane {% if loop.first %}active{% endif %}" id="control-sidebar-{{ name }}-tab">
+                {% if tab.controller is defined %}
+                    {{ render(controller(tab.controller, {'originalRequest': app.request})) }}
+                {% elseif tab.template is defined %}
+                    {% include tab.template %}
+                {% endif %}
+            </div>
+        {% endfor %}
     </div>
+    {% else %}
+        <div class="p-3 control-sidebar-content">
+        {% set tab = admin_lte_context.control_sidebar|first %}
+        {% if tab.controller is defined %}
+            {{ render(controller(tab.controller, {'originalRequest': app.request})) }}
+        {% elseif tab.template is defined %}
+            {% include tab.template %}
+        {% endif %}
+        </div>
+    {% endif %}
 </aside>
-<div class="control-sidebar-bg"></div>
 {% endif %}

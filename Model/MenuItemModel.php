@@ -55,7 +55,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @var string
      */
-    protected $badgeColor = 'green';
+    protected $badgeColor = 'success';
 
     /**
      * @var MenuItemInterface
@@ -78,7 +78,7 @@ class MenuItemModel implements MenuItemInterface
         $routeArgs = [],
         $icon = false,
         $badge = false,
-        $badgeColor = 'green'
+        $badgeColor = 'success'
     ) {
         $this->badge = $badge;
         $this->icon = $icon;

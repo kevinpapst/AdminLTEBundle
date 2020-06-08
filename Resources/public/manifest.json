@@ -1,6 +1,6 @@
 {
-  "bundles/adminlte/adminlte.css": "/bundles/adminlte/adminlte.css?6dbb45917db009ef028a",
-  "bundles/adminlte/adminlte.js": "/bundles/adminlte/adminlte.js?a10f94688a6423d4b6b6",
+  "bundles/adminlte/adminlte.css": "/bundles/adminlte/adminlte.css?92d3d49e67d29f414093",
+  "bundles/adminlte/adminlte.js": "/bundles/adminlte/adminlte.js?026f93354f5dc00ff104",
   "bundles/adminlte/fonts/fa-brands-400.eot": "/bundles/adminlte/fonts/fa-brands-400.eot?57dcda6f",
   "bundles/adminlte/fonts/fa-brands-400.ttf": "/bundles/adminlte/fonts/fa-brands-400.ttf?9ec698d1",
   "bundles/adminlte/fonts/fa-brands-400.woff2": "/bundles/adminlte/fonts/fa-brands-400.woff2?067595ad",
@@ -13,15 +13,11 @@
   "bundles/adminlte/fonts/fa-solid-900.ttf": "/bundles/adminlte/fonts/fa-solid-900.ttf?75f38a15",
   "bundles/adminlte/fonts/fa-solid-900.woff2": "/bundles/adminlte/fonts/fa-solid-900.woff2?55eb2a60",
   "bundles/adminlte/fonts/fa-solid-900.woff": "/bundles/adminlte/fonts/fa-solid-900.woff?cdfec5cf",
-  "bundles/adminlte/fonts/glyphicons-halflings-regular.eot": "/bundles/adminlte/fonts/glyphicons-halflings-regular.eot?f4769f9b",
-  "bundles/adminlte/fonts/glyphicons-halflings-regular.ttf": "/bundles/adminlte/fonts/glyphicons-halflings-regular.ttf?e18bbf61",
-  "bundles/adminlte/fonts/glyphicons-halflings-regular.woff2": "/bundles/adminlte/fonts/glyphicons-halflings-regular.woff2?448c34a5",
-  "bundles/adminlte/fonts/glyphicons-halflings-regular.woff": "/bundles/adminlte/fonts/glyphicons-halflings-regular.woff?fa277232",
+  "bundles/adminlte/images/adminltelogo.png": "/bundles/adminlte/images/adminltelogo.png?28f7e31d",
   "bundles/adminlte/images/blue.png": "/bundles/adminlte/images/blue.png?96f8a905",
   "bundles/adminlte/images/blue@2x.png": "/bundles/adminlte/images/blue@2x.png?2694acfd",
   "bundles/adminlte/images/default_avatar.png": "/bundles/adminlte/images/default_avatar.png?fc197350",
   "bundles/adminlte/images/fa-brands-400.svg": "/bundles/adminlte/images/fa-brands-400.svg?9d67fa14",
   "bundles/adminlte/images/fa-regular-400.svg": "/bundles/adminlte/images/fa-regular-400.svg?5d086178",
-  "bundles/adminlte/images/fa-solid-900.svg": "/bundles/adminlte/images/fa-solid-900.svg?0724bb8b",
-  "bundles/adminlte/images/glyphicons-halflings-regular.svg": "/bundles/adminlte/images/glyphicons-halflings-regular.svg?89889688"
+  "bundles/adminlte/images/fa-solid-900.svg": "/bundles/adminlte/images/fa-solid-900.svg?0724bb8b"
 }

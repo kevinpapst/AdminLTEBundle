@@ -5,19 +5,21 @@
     when changing anything in this file, check if the changes need to be applied to form-theme-horizontal.html.twig as well
 #}
 
+{# this block is defined here, because it would influence form-theme-security otherwise #}
 {% block email_widget -%}
-    <div class="input-group">
-        <div class="input-group-addon">
-            <i class="fa fa-at"></i>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-at"></i></span>
         </div>
         {{- parent() -}}
     </div>
 {%- endblock email_widget %}
 
+{# this block is defined here, because it would influence form-theme-security otherwise #}
 {% block password_widget -%}
-    <div class="input-group">
-        <div class="input-group-addon">
-            <i class="fas fa-key"></i>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
         </div>
         {{- parent() -}}
     </div>

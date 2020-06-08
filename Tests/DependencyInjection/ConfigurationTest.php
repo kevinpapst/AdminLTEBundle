@@ -48,11 +48,14 @@ class ConfigurationTest extends TestCase
             'admin_lte' => [
                 'options' => [
                     'default_avatar' => 'bundles/adminlte/images/default_avatar.png',
+                    'default_brand_logo' => 'bundles/adminlte/images/adminltelogo.png',
                     'skin' => 'skin-blue',
-                    'fixed_layout' => false,
+                    'fixed_header' => false,
+                    'fixed_menu' => false,
+                    'fixed_footer' => false,
                     'boxed_layout' => false,
                     'collapsed_sidebar' => false,
-                    'mini_sidebar' => false,
+                    'mini_sidebar' => true,
                     'max_navbar_notifications' => 10,
                     'max_navbar_tasks' => 10,
                     'max_navbar_messages' => 10,
@@ -71,13 +74,11 @@ class ConfigurationTest extends TestCase
                 'theme' => [
                     'widget' => [
                         'type' => 'primary',
-                        'bordered' => true,
                         'collapsible' => false,
                         'collapsible_title' => 'Collapse',
                         'removable' => false,
                         'removable_title' => 'Remove',
                         'solid' => false,
-                        'use_footer' => true,
                     ],
                     'button' => [
                         'type' => 'primary',

@@ -1,4 +1,4 @@
-{% extends 'bootstrap_3_horizontal_layout.html.twig' %}
+{% extends 'bootstrap_4_horizontal_layout.html.twig' %}
 
 {#
     ATTENTION:
@@ -109,8 +109,8 @@
 {% block date_widget %}
     {% if widget == 'single_text' %}
         <div class="input-group">
-            <div class="input-group-addon">
-                <i class="far fa-calendar-alt"></i>
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
             </div>
 
             {% if type is not defined or type != 'date' %}
@@ -143,8 +143,8 @@
     {% if widget == 'single_text' %}
         <div class="bootstrap-timepicker">
             <div class="input-group">
-                <div class="input-group-addon add-on">
-                    <i class="far fa-clock"></i>
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="far fa-clock"></i></span>
                 </div>
                 {% if type is not defined or type != 'time' %}
                     {% if attr.class is defined %}
@@ -165,8 +165,8 @@
 {% block datetime_widget -%}
     {%- if widget == 'single_text' -%}
         <div class="input-group">
-            <div class="input-group-addon">
-                <i class="fa fa-calendar-alt"></i>
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
             </div>
             {{- parent() -}}
         </div>
@@ -177,8 +177,8 @@
 
 {% block email_widget -%}
     <div class="input-group">
-        <div class="input-group-addon">
-            <i class="fa fa-at"></i>
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-at"></i></span>
         </div>
         {{- parent() -}}
     </div>
@@ -186,8 +186,8 @@
 
 {% block password_widget -%}
     <div class="input-group">
-        <div class="input-group-addon">
-            <i class="fas fa-key"></i>
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
         </div>
         {{- parent() -}}
     </div>
@@ -195,12 +195,14 @@
 
 {% block tel_widget -%}
     <div class="input-group">
-        <div class="input-group-addon">
+        <div class="input-group-prepend">
+            <span class="input-group-text">
             {% set icon = 'phone' %}
             {% if 'icon' in attr|keys %}
                 {% set icon = attr.icon %}
             {% endif %}
             <i class="fas fa-{{ icon }}"></i>
+            </span>
         </div>
         {{- parent() -}}
     </div>
@@ -208,8 +210,8 @@
 
 {% block url_widget -%}
     <div class="input-group">
-        <div class="input-group-addon">
-            <i class="fas fa-home"></i>
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-home"></i></span>
         </div>
         {{- parent() -}}
     </div>

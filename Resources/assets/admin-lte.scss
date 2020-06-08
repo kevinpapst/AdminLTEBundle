@@ -1,8 +1,7 @@
-
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+//$icon-font-path: "~bootstrap/assets/fonts/bootstrap/";
 $fa-font-path: "~@fortawesome/fontawesome-free/webfonts/";
 
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~bootstrap/dist/css/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/solid';

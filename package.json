@@ -2,8 +2,8 @@
     "devDependencies": {
         "@fortawesome/fontawesome-free": "~5.12",
         "@symfony/webpack-encore": "^0.28",
-        "admin-lte": "^2.4",
-        "bootstrap-sass": "^3.4",
+        "admin-lte": "^3.0.1",
+        "bootstrap": "^4.4.0",
         "bootstrap-select": "^1.13",
         "daterangepicker": "^3.0",
         "icheck": "^1.0",

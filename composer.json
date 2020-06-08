@@ -1,7 +1,7 @@
 {
     "name": "kevinpapst/adminlte-bundle",
     "type": "symfony-bundle",
-    "description": "Admin theme bundle for Symfony 4+ based on AdminLTE 2.4 with FOSUserBundle support",
+    "description": "Admin theme bundle for Symfony 4+ based on AdminLTE 3 with FOSUserBundle and KNPMenu support",
     "license": "MIT",
     "authors": [
         {

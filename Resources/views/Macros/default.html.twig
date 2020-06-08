@@ -1,8 +1,8 @@
 {% macro avatar(image, alt, class) %}
     {% if image %}
-        <img src="{{ asset(image) }}" class="{{ class|default('img-circle') }}" alt="{{ alt }}" />
+        <img src="{{ asset(image) }}" class="{{ class|default('img-circle elevation-2') }}" alt="{{ alt }}" />
     {% else %}
-        <img src="{{ asset(admin_lte_context.default_avatar) }}" class="{{ class|default('img-circle') }}" alt="{{ alt }}" />
+        <img src="{{ asset(admin_lte_context.default_avatar) }}" class="{{ class|default('img-circle elevation-2') }}" alt="{{ alt }}" />
     {% endif %}
 {% endmacro %}
 
@@ -11,7 +11,12 @@
   https://github.com/phiamo/MopaBootstrapBundle/blob/88b104b3efd4c3c3bfff1df4525a53bc3596010b/Resources/views/flash.html.twig
 #}
 {% macro flash(type, message, close, use_raw, class, domain) %}
-    <div class="alert{{ type ? ' alert-'~type : '' }} fade in {{ class|default('') }} {% if close|default(false) %}alert-dismissible{% endif %}">
+    {% if type == 'fos_user_success' %}
+        {% set type = 'success' %}
+    {% elseif type == 'error' %}
+        {% set type = 'danger' %}
+    {% endif %}
+    <div class="alert{{ type ? ' alert-'~type : '' }} {{ class|default('') }} {% if close|default(false) %}alert-dismissible{% endif %}">
         {% if close|default(false) %}
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         {% endif %}
@@ -30,7 +35,6 @@
         {% for type, messages in app.session.flashbag.all %}
             {% for message in messages %}
                 {% if type == 'fos_user_success' %}
-                    {% set type = 'success' %}
                     {% set domain = 'FOSUserBundle' %}
                 {% endif %}
                 {{ flash_messages.flash(type, message, close, use_raw, class, domain) }}

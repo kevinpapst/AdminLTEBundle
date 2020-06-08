@@ -74,10 +74,12 @@ admin_lte:
     options: 
         default_avatar: 'bundles/adminlte/images/default_avatar.png'
         skin: 'skin-blue'
-        fixed_layout: false
+        fixed_header: true
+        fixed_menu: false
+        fixed_footer: false
         boxed_layout: false
         collapsed_sidebar: false
-        mini_sidebar: false
+        mini_sidebar: true
         form_theme: default
         max_navbar_notifications: 5
         max_navbar_tasks: 5
@@ -89,13 +91,11 @@ admin_lte:
     theme: 
         widget: 
             type: 'primary'
-            bordered: true
             collapsible: false
             collapsible_title: 'Collapse'
             removable: false
             removable_title: 'Remove'
             solid: false
-            use_footer: true
         button: 
             type: 'primary'
             size: false
