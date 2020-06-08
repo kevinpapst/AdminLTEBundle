@@ -25,7 +25,7 @@ In order to use the KnpMenu integration you need to enable it in the configurati
 ```yaml
 admin_lte:
     knp_menu:   
-        enable : true
+        enable: true
 ```
 Enabling the KnpMenu support will disable the regular breadcrumb and menu events. 
 Instead there will be a new `knp_menu.menu_builder` aliased `adminlte_main` which will dispatch a new event to hook into.
