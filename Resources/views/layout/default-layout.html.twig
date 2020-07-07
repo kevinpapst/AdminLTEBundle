@@ -26,7 +26,7 @@ skin-blue, skin-black, skin-purple, skin-yellow, skin-red, skin-green
 Apply one or more of the following classes for the layout options:
 fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
 #}
-<body{% block body_start %}{% endblock %} class="{{ admin_lte_context.skin|default("")|body_class }}">
+<body{% block body_start %}{% endblock %} class="hold-transition {{ admin_lte_context.skin|default("")|body_class }}">
 {% block after_body_start %}{% endblock %}
 <div class="wrapper">
 
