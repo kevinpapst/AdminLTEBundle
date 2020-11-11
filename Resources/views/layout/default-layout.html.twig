@@ -29,7 +29,7 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
 {% block after_body_start %}{% endblock %}
 <div class="wrapper">
 
-    <nav class="main-header navbar navbar-expand navbar-dark">
+    <nav class="main-header navbar navbar-expand navbar-{{ admin_lte_context.navbar_color|default("dark") }}">
         <ul class="navbar-nav">
             {% block navbar_toggle %}
                 <li class="nav-item">
@@ -83,7 +83,7 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
         </ul>
     </nav>
 
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-{{ admin_lte_context.sidebar_color|default("dark-primary") }} elevation-4">
         <a href="{% block logo_path %}{{ path('adminlte_welcome'|route_alias) }}{% endblock %}" class="brand-link ">
             {% block logo_mini %}
                 <img src="{{ asset(admin_lte_context.default_brand_logo) }}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
