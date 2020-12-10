@@ -5,6 +5,27 @@ on:
         branches:
             - master
 jobs:
+    coding-guidelines:
+        name: Coding Guidelines
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Install PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 7.3
+                  coverage: none
+
+            - name: Install php dependencies
+              run: composer install --prefer-dist --no-progress --no-suggest --no-scripts
+
+            - name: Run friendsofphp/php-cs-fixer
+              run: vendor/bin/php-cs-fixer fix --diff-format=udiff --dry-run --show-progress=dots --using-cache=no --verbose
+
     tests:
         runs-on: ubuntu-latest
         strategy:
@@ -14,13 +35,13 @@ jobs:
         name: Linting - PHP ${{ matrix.php }}
         steps:
             -   uses: actions/checkout@v2
-            -   uses: shivammathur/setup-php@v1
+            -   uses: shivammathur/setup-php@v2
                 with:
                     php-version: ${{ matrix.php }}
                     coverage: none
                     extensions: intl
+
             -   run: composer install --no-progress
 #            -   run: composer validate
-            -   run: composer codestyle
             -   run: composer phpstan
             -   run: composer tests
