@@ -26,6 +26,29 @@ jobs:
             - name: Run friendsofphp/php-cs-fixer
               run: vendor/bin/php-cs-fixer fix --diff-format=udiff --dry-run --show-progress=dots --using-cache=no --verbose
 
+    static-code-analysis:
+        name: Static Code Analysis
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Install PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 7.3
+                  extensions: mbstring, xml, ctype, iconv, intl
+                  coverage: none
+                  ini-values: memory_limit=-1
+
+            - name: Install php dependencies
+              run: composer install --prefer-dist --no-progress --no-suggest --no-scripts
+
+            - name: Run phpstan/phpstan
+              run: composer phpstan
+
     tests:
         runs-on: ubuntu-latest
         strategy:
@@ -42,6 +65,4 @@ jobs:
                     extensions: intl
 
             -   run: composer install --no-progress
-#            -   run: composer validate
-            -   run: composer phpstan
             -   run: composer tests
