@@ -16,6 +16,8 @@ admin_lte:
         boxed_layout: false
         collapsed_sidebar: false
         mini_sidebar: true
+        navbar_class: navbar-dark
+        sidebar_class: sidebar-dark-primary
 ```
 
 Available AdminLTE skins are: 

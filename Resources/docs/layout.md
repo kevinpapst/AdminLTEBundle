@@ -161,6 +161,9 @@ In order to redefine the block and to keep the default content, don't forget to 
 <dt>sidebar_nav
 <dd>Renders the `menu` component _or_ includes `@AdminLTE/Sidebar/knp-menu.html.twig` depending on wether the `knp_menu` is enabled or not. 
 
+<dt>content_header
+<dd>Renders the header above the content, usually with page_title, page_subtitle on the left and breadcrumb on the right
+
 <dt>page_title
 <dd>Defines the page header inside `.content-header` and implicitly the `title` if you haven't changed the content of `title`
 
