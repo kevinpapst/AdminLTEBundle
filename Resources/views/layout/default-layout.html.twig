@@ -29,7 +29,7 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
 {% block after_body_start %}{% endblock %}
 <div class="wrapper">
 
-    <nav class="main-header navbar navbar-expand navbar-dark">
+    <nav class="main-header navbar navbar-expand {{ admin_lte_context.navbar_class|default("navbar-dark") }}">
         <ul class="navbar-nav">
             {% block navbar_toggle %}
                 <li class="nav-item">
@@ -83,7 +83,7 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
         </ul>
     </nav>
 
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar {{ admin_lte_context.sidebar_class|default("sidebar-dark-primary") }} elevation-4">
         <a href="{% block logo_path %}{{ path('adminlte_welcome'|route_alias) }}{% endblock %}" class="brand-link ">
             {% block logo_mini %}
                 <img src="{{ asset(admin_lte_context.default_brand_logo) }}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -111,23 +111,25 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">
-                            {% block page_title %}{{ 'Admin LTE'|trans({}, 'AdminLTEBundle') }}{% endblock %}
-                            {% if block('page_subtitle') is defined %}<small>{{ block('page_subtitle') }}</small>{% endif %}
-                        </h1>
+                {% block content_header %}
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">
+                                {% block page_title %}{{ 'Admin LTE'|trans({}, 'AdminLTEBundle') }}{% endblock %}
+                                {% if block('page_subtitle') is defined %}<small>{{ block('page_subtitle') }}</small>{% endif %}
+                            </h1>
+                        </div>
+                        <div class="col-sm-6">
+                            {% block breadcrumb %}
+                                {% if admin_lte_context.knp_menu.enable %}
+                                    {% include '@AdminLTE/Breadcrumb/knp-breadcrumb.html.twig' %}
+                                {% else %}
+                                    {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\BreadcrumbController::breadcrumbAction', {'request':app.request})) }}
+                                {% endif %}
+                            {% endblock %}
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        {% block breadcrumb %}
-                            {% if admin_lte_context.knp_menu.enable %}
-                                {% include '@AdminLTE/Breadcrumb/knp-breadcrumb.html.twig' %}
-                            {% else %}
-                                {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\BreadcrumbController::breadcrumbAction', {'request':app.request})) }}
-                            {% endif %}
-                        {% endblock %}
-                    </div>
-                </div>
+                {% endblock %}
             </div>
         </div>
 
