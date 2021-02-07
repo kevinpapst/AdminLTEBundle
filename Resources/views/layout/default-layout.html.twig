@@ -78,19 +78,19 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
         <section class="sidebar">
             {% block sidebar_user %}
                 {% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
-                    {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController::userPanelAction')) }}
+                    {% include '@AdminLTE/Sidebar/user-panel.html.twig' %}
                 {% endif %}
             {% endblock %}
 
             {% block sidebar_search %}
-                {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController::searchFormAction')) }}
+                {% include '@AdminLTE/Sidebar/search-form.html.twig' %}
             {% endblock %}
 
             {% block sidebar_nav %}
                 {% if admin_lte_context.knp_menu.enable %}
                     {% include '@AdminLTE/Sidebar/knp-menu.html.twig' %}
                 {% else %}
-                    {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController::menuAction', {'request':app.request})) }}
+                    {% include '@AdminLTE/Sidebar/menu.html.twig' %}
                 {% endif %}
             {% endblock %}
         </section>

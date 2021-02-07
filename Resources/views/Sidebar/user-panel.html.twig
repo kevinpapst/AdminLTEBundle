@@ -1,5 +1,7 @@
 {% import "@AdminLTE/Macros/default.html.twig" as macro %}
-<!-- Sidebar user panel -->
+{% if user is not defined %}
+    {% set user = adminlte_sidebar_user() %}
+{% endif %}
 <div class="user-panel">
     <div class="pull-left image">
     {{ macro.avatar(user.avatar, user.username)  }}
