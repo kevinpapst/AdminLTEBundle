@@ -19,27 +19,29 @@
     ],
     "require": {
         "php": "^7.1.3",
-        "symfony/config": ">4.1",
-        "symfony/dependency-injection": ">4.0",
-        "symfony/event-dispatcher" : ">4.3",
-        "symfony/http-foundation" : ">4.0",
-        "symfony/http-kernel"  : ">4.0",
-        "symfony/options-resolver": ">4.0",
-        "symfony/security-core": ">4.0",
+        "symfony/asset": ">4.3",
+        "symfony/config": ">4.3",
+        "symfony/dependency-injection": ">4.3",
+        "symfony/event-dispatcher": ">4.3",
+        "symfony/http-foundation": ">4.3",
+        "symfony/http-kernel": ">4.3",
+        "symfony/options-resolver": ">4.3",
+        "symfony/security-core": ">4.3",
+        "symfony/translation": ">4.3",
+        "symfony/twig-bridge": ">4.3",
         "twig/twig": ">2.0"
     },
     "require-dev": {
         "phpspec/prophecy": "^1.6",
-        "symfony/framework-bundle" : ">4.0",
+        "symfony/framework-bundle" : ">4.3",
         "friendsofphp/php-cs-fixer": "^2.10",
         "phpunit/phpunit": "^7.3",
-        "phpstan/phpstan": "^0.11.8",
+        "phpstan/phpstan": "^0.12",
         "knplabs/knp-menu-bundle": "^2.2",
-        "phpstan/phpstan-phpunit": "^0.11"
+        "phpstan/phpstan-phpunit": "^0.12"
     },
     "suggest" : {
-        "knplabs/knp-menu-bundle" : "Allows easy menu integration",
-        "friendsofsymfony/user-bundle": "Allows easy user management and security support"
+        "knplabs/knp-menu-bundle" : "Allows easy menu integration"
     },
     "autoload": {
         "psr-4": { "KevinPapst\\AdminLTEBundle\\": "" }
@@ -47,8 +49,8 @@
     "scripts": {
         "tests": "vendor/bin/phpunit Tests/",
         "phpstan": [
-            "vendor/bin/phpstan analyse . --level=6",
-            "vendor/bin/phpstan analyse -c Tests/phpstan.neon Tests --level=7"
+            "vendor/bin/phpstan analyse . --level=5",
+            "vendor/bin/phpstan analyse -c Tests/phpstan.neon Tests --level=5"
         ],
         "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
         "codestyle-fix": "vendor/bin/php-cs-fixer fix"

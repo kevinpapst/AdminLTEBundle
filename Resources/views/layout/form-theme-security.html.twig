@@ -1,7 +1,9 @@
 {% extends '@AdminLTE/layout/form-theme-base.html.twig' %}
 
 {%- block form_widget_simple -%}
-    {% set attr = attr|merge({'placeholder': label|trans({}, translation_domain)}) %}
+    {% if label is defined and label is not null and label is not same as (false) %}
+        {% set attr = attr|merge({'placeholder': label|trans({}, translation_domain)}) %}
+    {% endif %}
     {% set label = false %}
     {% if not attr.icon is defined %}
         {% set attr = attr|merge({'icon': 'user'}) %}

@@ -9,74 +9,28 @@
 
 namespace KevinPapst\AdminLTEBundle\Tests\Twig;
 
-use KevinPapst\AdminLTEBundle\Helper\Constants;
-use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
 use KevinPapst\AdminLTEBundle\Twig\AdminExtension;
 use PHPUnit\Framework\TestCase;
 
 class AdminExtensionTest extends TestCase
 {
-    /**
-     * @param array $options
-     * @return AdminExtension
-     */
-    protected function getSut(array $options = [])
-    {
-        $contextHelper = new ContextHelper();
-        foreach ($options as $key => $value) {
-            $contextHelper->setOption($key, $value);
-        }
-
-        $routes = [
-            'foo' => 'bar',
-            'hello' => null,
-        ];
-
-        return new AdminExtension($contextHelper, $routes);
-    }
-
     public function testGetFilters()
     {
-        $sut = $this->getSut();
+        $sut = new AdminExtension();
         $this->assertEquals(3, count($sut->getFilters()));
+        $result = array_map(function ($filter) {
+            return $filter->getName();
+        }, $sut->getFilters());
+        $this->assertEquals(['body_class', 'route_alias', 'text_type'], $result);
     }
 
-    public function testGetRouteByAlias()
+    public function testGetFunctions()
     {
-        $sut = $this->getSut();
-        $this->assertEquals('bar', $sut->getRouteByAlias('foo'));
-        $this->assertEquals('hello', $sut->getRouteByAlias('hello'));
-        $this->assertEquals('test1', $sut->getRouteByAlias('test1'));
-    }
-
-    public function testBodyClass()
-    {
-        $sut = $this->getSut([]);
-        $this->assertEquals('test', $sut->bodyClass('test'));
-
-        $sut = $this->getSut(['skin' => 'green']);
-        $this->assertEquals('test green', $sut->bodyClass('test'));
-
-        $sut = $this->getSut([
-            'skin' => 'green',
-            'fixed_layout' => true,
-            'boxed_layout' => true,
-            'collapsed_sidebar' => true,
-            'mini_sidebar' => true,
-        ]);
-        $this->assertEquals('test green fixed layout-boxed sidebar-collapse sidebar-mini', $sut->bodyClass('test'));
-    }
-
-    public function testGetTextType()
-    {
-        $sut = $this->getSut();
-
-        $this->assertEquals('text-', $sut->getTextType(''));
-        $this->assertEquals('text-foo-bar', $sut->getTextType('foo-bar'));
-        $this->assertEquals('text-blub', $sut->getTextType('blub'));
-        $this->assertEquals('text-aqua', $sut->getTextType(Constants::TYPE_INFO));
-        $this->assertEquals('text-green', $sut->getTextType(Constants::TYPE_SUCCESS));
-        $this->assertEquals('text-yellow', $sut->getTextType(Constants::TYPE_WARNING));
-        $this->assertEquals('text-red', $sut->getTextType(Constants::TYPE_ERROR));
+        $sut = new AdminExtension();
+        $this->assertEquals(7, count($sut->getFunctions()));
+        $result = array_map(function ($function) {
+            return $function->getName();
+        }, $sut->getFunctions());
+        $this->assertEquals(['adminlte_menu', 'adminlte_sidebar_user', 'adminlte_breadcrumbs', 'adminlte_notifications', 'adminlte_messages', 'adminlte_tasks', 'adminlte_user'], $result);
     }
 }

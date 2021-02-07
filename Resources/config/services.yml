@@ -5,17 +5,29 @@ services:
         tags: ['controller.service_arguments']
         autowire: true
 
-    KevinPapst\AdminLTEBundle\Twig\AdminExtension:
-        class: KevinPapst\AdminLTEBundle\Twig\AdminExtension
+    KevinPapst\AdminLTEBundle\Twig\RuntimeExtension:
+        class: KevinPapst\AdminLTEBundle\Twig\RuntimeExtension
         arguments:
             - '@admin_lte_theme.context_helper'
             - '%admin_lte_theme.routes%'
+        tags:
+            - { name: twig.runtime }
+
+    KevinPapst\AdminLTEBundle\Twig\EventsExtension:
+        class: KevinPapst\AdminLTEBundle\Twig\EventsExtension
+        arguments:
+            - '@event_dispatcher'
+            - '@admin_lte_theme.context_helper'
+        tags:
+            - { name: twig.runtime }
+
+    KevinPapst\AdminLTEBundle\Twig\AdminExtension:
+        class: KevinPapst\AdminLTEBundle\Twig\AdminExtension
         tags:
             - { name: twig.extension }
 
     admin_lte_theme.context_helper:
         class: KevinPapst\AdminLTEBundle\Helper\ContextHelper
-        alias:
         arguments:
             - '%admin_lte_theme.options%'
 

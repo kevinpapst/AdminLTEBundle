@@ -37,6 +37,12 @@ class NavbarControllerTest extends TestCase
         return $container;
     }
 
+    /**
+     * @param int $notifications
+     * @param int $messages
+     * @param int $tasks
+     * @return ContextHelper
+     */
     protected function getContextHelper($notifications, $messages, $tasks)
     {
         return new ContextHelper([

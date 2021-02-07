@@ -83,7 +83,7 @@ abstract class MenuEvent extends ThemeEvent
      */
     public function getRootItem($id)
     {
-        return isset($this->menuRootItems[$id]) ? $this->menuRootItems[$id] : null;
+        return $this->menuRootItems[$id] ?? null;
     }
 
     /**

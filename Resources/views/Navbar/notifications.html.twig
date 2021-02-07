@@ -1,10 +1,18 @@
+{% if notifications is not defined or adminlte_direct_include is defined %}
+    {% set adminlte_notifications = adminlte_notifications()  %}
+    {% if adminlte_notifications is not null %}
+        {% set notifications = adminlte_notifications.notifications  %}
+        {% set total = adminlte_notifications.total  %}
+    {% endif %}
+{% endif %}
+{% if notifications is defined and notifications is not null %}
 <li class="dropdown notifications-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <i class="far fa-bell"></i>
         <span class="label label-warning">{{ total }}</span>
     </a>
     <ul class="dropdown-menu">
-        <li class="header">{{ 'You have %count% notifications'|trans({'%count%':total}, 'AdminLTEBundle') }}</li>
+        <li class="header">{{ 'You have %count% notifications'|trans({'%count%': total}, 'AdminLTEBundle') }}</li>
         <li>
             <ul class="menu">
                 {% for notice in notifications %}
@@ -19,3 +27,4 @@
         <li class="footer"><a href="{{ path('adminlte_notifications'|route_alias) }}">{{'View all'|trans({}, 'AdminLTEBundle')}}</a></li>
     </ul>
 </li>
+{% endif %}

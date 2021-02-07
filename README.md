@@ -21,6 +21,8 @@ This repository contains an upgraded version of the AvanzuAdminThemeBundle, brin
 
 **Compatibility:**
 
+Version 3.x should be compatible with Symfony 5, [please leave your feedback](https://github.com/kevinpapst/AdminLTEBundle/issues/144).
+
 - Version 3.x is only compatible with Symfony >= 4.3
 - Version 2.x of this bundle is compatible with Symfony < 4.3
 

@@ -10,12 +10,13 @@
 namespace KevinPapst\AdminLTEBundle\Event;
 
 use KevinPapst\AdminLTEBundle\Model\NavBarUserLink;
+use KevinPapst\AdminLTEBundle\Model\UserDetailsInterface;
 use KevinPapst\AdminLTEBundle\Model\UserInterface;
 
 /**
  * Collect the UserInterface object that should be rendered in the user section.
  */
-abstract class ShowUserEvent extends ThemeEvent
+abstract class ShowUserEvent extends ThemeEvent implements UserDetailsInterface
 {
     /**
      * @var UserInterface

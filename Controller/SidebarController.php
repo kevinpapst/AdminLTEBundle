@@ -15,13 +15,12 @@ use KevinPapst\AdminLTEBundle\Event\SidebarUserEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class SidebarController extends EmitterController
+final class SidebarController extends EmitterController
 {
-    /**
-     * @return Response
-     */
     public function userPanelAction(): Response
     {
+        @trigger_error('SidebarController::userPanelAction() is deprecated and will be removed with 4.0', E_USER_DEPRECATED);
+
         if (!$this->hasListener(SidebarUserEvent::class)) {
             return new Response();
         }
@@ -37,20 +36,17 @@ class SidebarController extends EmitterController
         );
     }
 
-    /**
-     * @return Response
-     */
     public function searchFormAction(): Response
     {
+        @trigger_error('SidebarController::searchFormAction() is deprecated and will be removed with 4.0', E_USER_DEPRECATED);
+
         return $this->render('@AdminLTE/Sidebar/search-form.html.twig', []);
     }
 
-    /**
-     * @param Request $request
-     * @return Response
-     */
     public function menuAction(Request $request): Response
     {
+        @trigger_error('SidebarController::menuAction() is deprecated and will be removed with 4.0', E_USER_DEPRECATED);
+
         if (!$this->hasListener(SidebarMenuEvent::class)) {
             return new Response();
         }
