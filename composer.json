@@ -33,9 +33,9 @@
         "symfony/framework-bundle" : ">4.0",
         "friendsofphp/php-cs-fixer": "^2.10",
         "phpunit/phpunit": "^7.3",
-        "phpstan/phpstan": "^0.11.8",
+        "phpstan/phpstan": "^0.12",
         "knplabs/knp-menu-bundle": "^2.2",
-        "phpstan/phpstan-phpunit": "^0.11"
+        "phpstan/phpstan-phpunit": "^0.12"
     },
     "suggest" : {
         "knplabs/knp-menu-bundle" : "Allows easy menu integration",
@@ -47,8 +47,8 @@
     "scripts": {
         "tests": "vendor/bin/phpunit Tests/",
         "phpstan": [
-            "vendor/bin/phpstan analyse . --level=6",
-            "vendor/bin/phpstan analyse -c Tests/phpstan.neon Tests --level=7"
+            "vendor/bin/phpstan analyse . --level=5",
+            "vendor/bin/phpstan analyse -c Tests/phpstan.neon Tests --level=5"
         ],
         "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
         "codestyle-fix": "vendor/bin/php-cs-fixer fix"

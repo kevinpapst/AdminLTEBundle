@@ -11,6 +11,7 @@ namespace KevinPapst\AdminLTEBundle\Twig;
 
 use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
 use KevinPapst\AdminLTEBundle\Event\SidebarUserEvent;
+use KevinPapst\AdminLTEBundle\Model\MenuItemInterface;
 use KevinPapst\AdminLTEBundle\Model\UserInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,6 +29,10 @@ final class EventsExtension implements RuntimeExtensionInterface
         $this->eventDispatcher = $dispatcher;
     }
 
+    /**
+     * @param Request $request
+     * @return MenuItemInterface[]
+     */
     public function getMenu(Request $request): array
     {
         /** @var SidebarMenuEvent $event */

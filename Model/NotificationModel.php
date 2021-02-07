@@ -14,27 +14,24 @@ use KevinPapst\AdminLTEBundle\Helper\Constants;
 class NotificationModel implements NotificationInterface
 {
     /**
-     * @return string
+     * @var string
      */
     protected $type = Constants::TYPE_INFO;
-
     /**
-     * @return string
+     * @var string
      */
     protected $message;
-
     /**
-     * @return string
+     * @var string
      */
     protected $icon;
-
     /**
      * @var string
      */
     protected $id;
 
     /**
-     * @param string $message
+     * @param string|null $message
      * @param string $type
      * @param string $icon
      */

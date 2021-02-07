@@ -16,17 +16,17 @@ use Twig\Extension\RuntimeExtensionInterface;
 final class RuntimeExtension implements RuntimeExtensionInterface
 {
     /**
-     * @var ContextHelper
+     * @var ContextHelper<string, mixed>
      */
     private $context;
     /**
-     * @var array
+     * @var array<string, string|null>
      */
     private $routes;
 
     /**
-     * @param ContextHelper $contextHelper
-     * @param array $routes
+     * @param ContextHelper<string, mixed> $contextHelper
+     * @param array<string, string|null> $routes
      */
     public function __construct(ContextHelper $contextHelper, array $routes)
     {
