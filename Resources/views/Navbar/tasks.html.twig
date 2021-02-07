@@ -1,8 +1,11 @@
 {% if tasks is not defined or adminlte_direct_include is defined %}
     {% set adminlte_tasks = adminlte_tasks()  %}
-    {% set tasks = adminlte_tasks.tasks  %}
-    {% set total = adminlte_tasks.total  %}
+    {% if adminlte_tasks is not null %}
+        {% set tasks = adminlte_tasks.tasks  %}
+        {% set total = adminlte_tasks.total  %}
+    {% endif %}
 {% endif %}
+{% if tasks is defined and tasks is not null %}
 <li class="dropdown tasks-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <i class="far fa-flag"></i>
@@ -38,3 +41,4 @@
         </li>
     </ul>
 </li>
+{% endif %}

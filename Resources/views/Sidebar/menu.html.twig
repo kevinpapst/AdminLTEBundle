@@ -2,8 +2,10 @@
 {% if menu is not defined or adminlte_direct_include is defined %}
     {% set menu = adminlte_menu(app.request) %}
 {% endif %}
+{% if menu is defined and menu is not null %}
 <ul class="sidebar-menu" data-widget="tree">
     {% for item in menu %}
         {{ menu_item(item) }}
     {% endfor %}
 </ul>
+{% endif %}

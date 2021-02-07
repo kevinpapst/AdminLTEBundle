@@ -49,8 +49,12 @@ final class EventsExtension implements RuntimeExtensionInterface
      * @param Request $request
      * @return MenuItemInterface[]
      */
-    public function getMenu(Request $request): array
+    public function getMenu(Request $request): ?array
     {
+        if (!$this->eventDispatcher->hasListeners(SidebarMenuEvent::class)) {
+            return null;
+        }
+
         /** @var SidebarMenuEvent $event */
         $event = $this->eventDispatcher->dispatch(new SidebarMenuEvent($request));
 
@@ -59,14 +63,22 @@ final class EventsExtension implements RuntimeExtensionInterface
 
     public function getSidebarUser(): ?UserInterface
     {
+        if (!$this->eventDispatcher->hasListeners(SidebarUserEvent::class)) {
+            return null;
+        }
+
         /** @var SidebarUserEvent $event */
         $event = $this->eventDispatcher->dispatch(new SidebarUserEvent());
 
         return $event->getUser();
     }
 
-    public function getBreadcrumbs(Request $request): array
+    public function getBreadcrumbs(Request $request): ?array
     {
+        if (!$this->eventDispatcher->hasListeners(BreadcrumbMenuEvent::class)) {
+            return null;
+        }
+
         /** @var BreadcrumbMenuEvent $event */
         $event = $this->eventDispatcher->dispatch(new BreadcrumbMenuEvent($request));
 
@@ -84,8 +96,12 @@ final class EventsExtension implements RuntimeExtensionInterface
         return $list;
     }
 
-    public function getNotifications(?int $max = null): NotificationRepositoryInterface
+    public function getNotifications(?int $max = null): ?NotificationRepositoryInterface
     {
+        if (!$this->eventDispatcher->hasListeners(NotificationListEvent::class)) {
+            return null;
+        }
+
         if (null === $max) {
             $max = (int) $this->helper->getOption('max_navbar_notifications');
         }
@@ -96,8 +112,12 @@ final class EventsExtension implements RuntimeExtensionInterface
         return $listEvent;
     }
 
-    public function getMessages(?int $max = null): MessageRepositoryInterface
+    public function getMessages(?int $max = null): ?MessageRepositoryInterface
     {
+        if (!$this->eventDispatcher->hasListeners(MessageListEvent::class)) {
+            return null;
+        }
+
         if (null === $max) {
             $max = (int) $this->helper->getOption('max_navbar_messages');
         }
@@ -108,8 +128,12 @@ final class EventsExtension implements RuntimeExtensionInterface
         return $listEvent;
     }
 
-    public function getTasks(?int $max = null): TaskRepositoryInterface
+    public function getTasks(?int $max = null): ?TaskRepositoryInterface
     {
+        if (!$this->eventDispatcher->hasListeners(TaskListEvent::class)) {
+            return null;
+        }
+
         if (null === $max) {
             $max = (int) $this->helper->getOption('max_navbar_tasks');
         }
@@ -122,6 +146,10 @@ final class EventsExtension implements RuntimeExtensionInterface
 
     public function getUserDetails(): ?UserDetailsInterface
     {
+        if (!$this->eventDispatcher->hasListeners(NavbarUserEvent::class)) {
+            return null;
+        }
+
         /** @var ShowUserEvent $userEvent */
         $userEvent = $this->eventDispatcher->dispatch(new NavbarUserEvent());
 

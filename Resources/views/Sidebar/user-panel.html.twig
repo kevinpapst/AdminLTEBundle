@@ -2,6 +2,7 @@
 {% if user is not defined or adminlte_direct_include is defined %}
     {% set user = adminlte_sidebar_user() %}
 {% endif %}
+{% if user is defined and user is not null %}
 <div class="user-panel">
     <div class="pull-left image">
     {{ macro.avatar(user.avatar, user.username)  }}
@@ -12,3 +13,4 @@
         <a href="#"><i class="fas fa-circle text-success"></i> {{ 'Online'|trans({}, 'AdminLTEBundle') }}</a>
     </div>
 </div>
+{% endif %}

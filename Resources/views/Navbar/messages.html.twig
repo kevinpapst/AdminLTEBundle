@@ -1,9 +1,12 @@
 {% import "@AdminLTE/Macros/default.html.twig" as macro %}
 {% if messages is not defined or adminlte_direct_include is defined %}
     {% set adminlte_messages = adminlte_messages() %}
-    {% set messages = adminlte_messages.messages %}
-    {% set total = adminlte_messages.total %}
+    {% if adminlte_messages is not null %}
+        {% set messages = adminlte_messages.messages %}
+        {% set total = adminlte_messages.total %}
+    {% endif %}
 {% endif %}
+{% if messages is defined and messages is not null %}
 <li class="dropdown messages-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <i class="far fa-envelope"></i>
@@ -32,3 +35,4 @@
         <li class="footer"><a href="{{ path('adminlte_messages'|route_alias) }}">{{'View all'|trans({}, 'AdminLTEBundle')}}</a></li>
     </ul>
 </li>
+{% endif %}
