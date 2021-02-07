@@ -10,11 +10,12 @@
 namespace KevinPapst\AdminLTEBundle\Event;
 
 use KevinPapst\AdminLTEBundle\Model\NotificationInterface;
+use KevinPapst\AdminLTEBundle\Repository\NotificationRepositoryInterface;
 
 /**
  * The NotificationListEvent collects all NotificationInterface objects that should be rendered in the notification section.
  */
-class NotificationListEvent extends ThemeEvent
+class NotificationListEvent extends ThemeEvent implements NotificationRepositoryInterface
 {
     /**
      * @var array

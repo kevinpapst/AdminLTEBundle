@@ -10,11 +10,12 @@
 namespace KevinPapst\AdminLTEBundle\Event;
 
 use KevinPapst\AdminLTEBundle\Model\MessageInterface;
+use KevinPapst\AdminLTEBundle\Repository\MessageRepositoryInterface;
 
 /**
  * The MessageListEvent collects all MessageInterface objects that should be rendered in the messages section.
  */
-class MessageListEvent extends ThemeEvent
+class MessageListEvent extends ThemeEvent implements MessageRepositoryInterface
 {
     /**
      * Stores the list of messages

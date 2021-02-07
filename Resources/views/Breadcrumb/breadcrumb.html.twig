@@ -1,3 +1,6 @@
+{% if active is not defined or adminlte_direct_include is defined %}
+    {% set active = adminlte_breadcrumbs(app.request) %}
+{% endif %}
 <ol class="breadcrumb">
     <li>
         <a href="{{ path('adminlte_welcome'|route_alias) }}">

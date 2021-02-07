@@ -32,6 +32,11 @@ class AdminExtension extends AbstractExtension
         return [
             new TwigFunction('adminlte_menu', [EventsExtension::class, 'getMenu']),
             new TwigFunction('adminlte_sidebar_user', [EventsExtension::class, 'getSidebarUser']),
+            new TwigFunction('adminlte_breadcrumbs', [EventsExtension::class, 'getBreadcrumbs']),
+            new TwigFunction('adminlte_notifications', [EventsExtension::class, 'getNotifications']),
+            new TwigFunction('adminlte_messages', [EventsExtension::class, 'getMessages']),
+            new TwigFunction('adminlte_tasks', [EventsExtension::class, 'getTasks']),
+            new TwigFunction('adminlte_user', [EventsExtension::class, 'getUserDetails']),
         ];
     }
 }

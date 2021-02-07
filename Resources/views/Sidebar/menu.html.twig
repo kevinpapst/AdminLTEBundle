@@ -1,9 +1,8 @@
-<!-- sidebar menu: : style can be found in sidebar.less -->
 {% from "@AdminLTE/Macros/menu.html.twig" import menu_item %}
+{% if menu is not defined or adminlte_direct_include is defined %}
+    {% set menu = adminlte_menu(app.request) %}
+{% endif %}
 <ul class="sidebar-menu" data-widget="tree">
-    {% if menu is not defined %}
-        {% set menu = adminlte_menu(app.request) %}
-    {% endif %}
     {% for item in menu %}
         {{ menu_item(item) }}
     {% endfor %}

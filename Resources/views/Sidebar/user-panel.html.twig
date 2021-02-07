@@ -1,5 +1,5 @@
 {% import "@AdminLTE/Macros/default.html.twig" as macro %}
-{% if user is not defined %}
+{% if user is not defined or adminlte_direct_include is defined %}
     {% set user = adminlte_sidebar_user() %}
 {% endif %}
 <div class="user-panel">

@@ -9,10 +9,21 @@
 
 namespace KevinPapst\AdminLTEBundle\Twig;
 
+use KevinPapst\AdminLTEBundle\Event\BreadcrumbMenuEvent;
+use KevinPapst\AdminLTEBundle\Event\MessageListEvent;
+use KevinPapst\AdminLTEBundle\Event\NavbarUserEvent;
+use KevinPapst\AdminLTEBundle\Event\NotificationListEvent;
+use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
 use KevinPapst\AdminLTEBundle\Event\SidebarUserEvent;
+use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
+use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
 use KevinPapst\AdminLTEBundle\Model\MenuItemInterface;
+use KevinPapst\AdminLTEBundle\Model\UserDetailsInterface;
 use KevinPapst\AdminLTEBundle\Model\UserInterface;
+use KevinPapst\AdminLTEBundle\Repository\MessageRepositoryInterface;
+use KevinPapst\AdminLTEBundle\Repository\NotificationRepositoryInterface;
+use KevinPapst\AdminLTEBundle\Repository\TaskRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Twig\Extension\RuntimeExtensionInterface;
@@ -23,10 +34,15 @@ final class EventsExtension implements RuntimeExtensionInterface
      * @var EventDispatcherInterface
      */
     private $eventDispatcher;
+    /**
+     * @var ContextHelper
+     */
+    private $helper;
 
-    public function __construct(EventDispatcherInterface $dispatcher)
+    public function __construct(EventDispatcherInterface $dispatcher, ContextHelper $helper)
     {
         $this->eventDispatcher = $dispatcher;
+        $this->helper = $helper;
     }
 
     /**
@@ -47,5 +63,72 @@ final class EventsExtension implements RuntimeExtensionInterface
         $event = $this->eventDispatcher->dispatch(new SidebarUserEvent());
 
         return $event->getUser();
+    }
+
+    public function getBreadcrumbs(Request $request): array
+    {
+        /** @var BreadcrumbMenuEvent $event */
+        $event = $this->eventDispatcher->dispatch(new BreadcrumbMenuEvent($request));
+
+        /** @var MenuItemInterface $active */
+        $active = $event->getActive();
+        $list = [];
+        if (null !== $active) {
+            $list[] = $active;
+            while (null !== ($item = $active->getActiveChild())) {
+                $list[] = $item;
+                $active = $item;
+            }
+        }
+
+        return $list;
+    }
+
+    public function getNotifications(?int $max = null): NotificationRepositoryInterface
+    {
+        if (null === $max) {
+            $max = (int) $this->helper->getOption('max_navbar_notifications');
+        }
+
+        /** @var NotificationListEvent $listEvent */
+        $listEvent = $this->eventDispatcher->dispatch(new NotificationListEvent($max));
+
+        return $listEvent;
+    }
+
+    public function getMessages(?int $max = null): MessageRepositoryInterface
+    {
+        if (null === $max) {
+            $max = (int) $this->helper->getOption('max_navbar_messages');
+        }
+
+        /** @var MessageListEvent $listEvent */
+        $listEvent = $this->eventDispatcher->dispatch(new MessageListEvent($max));
+
+        return $listEvent;
+    }
+
+    public function getTasks(?int $max = null): TaskRepositoryInterface
+    {
+        if (null === $max) {
+            $max = (int) $this->helper->getOption('max_navbar_tasks');
+        }
+
+        /** @var TaskListEvent $listEvent */
+        $listEvent = $this->eventDispatcher->dispatch(new TaskListEvent($max));
+
+        return $listEvent;
+    }
+
+    public function getUserDetails(): ?UserDetailsInterface
+    {
+        /** @var ShowUserEvent $userEvent */
+        $userEvent = $this->eventDispatcher->dispatch(new NavbarUserEvent());
+
+        if ($userEvent instanceof ShowUserEvent && null !== $userEvent->getUser()) {
+            return $userEvent;
+        }
+
+        return null;
     }
 }

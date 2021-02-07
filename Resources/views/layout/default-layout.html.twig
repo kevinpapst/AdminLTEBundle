@@ -50,16 +50,16 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
                 <ul class="nav navbar-nav">
                     {% block navbar_start %}{% endblock %}
                     {% block navbar_messages %}
-                        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController::messagesAction')) }}
+                        {% include '@AdminLTE/Navbar/messages.html.twig' with {'adminlte_direct_include': true} %}
                     {% endblock %}
                     {% block navbar_notifications %}
-                        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController::notificationsAction')) }}
+                        {% include '@AdminLTE/Navbar/notifications.html.twig' with {'adminlte_direct_include': true} %}
                     {% endblock %}
                     {% block navbar_tasks %}
-                        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController::tasksAction')) }}
+                        {% include '@AdminLTE/Navbar/tasks.html.twig' with {'adminlte_direct_include': true} %}
                     {% endblock %}
                     {% block navbar_user %}
-                        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController::userAction')) }}
+                        {% include '@AdminLTE/Navbar/user.html.twig' with {'adminlte_direct_include': true} %}
                     {% endblock %}
                     {% block navbar_end %}{% endblock %}
                     {% block navbar_control_sidebar_toggle %}
@@ -78,19 +78,19 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
         <section class="sidebar">
             {% block sidebar_user %}
                 {% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
-                    {% include '@AdminLTE/Sidebar/user-panel.html.twig' %}
+                    {% include '@AdminLTE/Sidebar/user-panel.html.twig' with {'adminlte_direct_include': true} %}
                 {% endif %}
             {% endblock %}
 
             {% block sidebar_search %}
-                {% include '@AdminLTE/Sidebar/search-form.html.twig' %}
+                {% include '@AdminLTE/Sidebar/search-form.html.twig' with {'adminlte_direct_include': true} %}
             {% endblock %}
 
             {% block sidebar_nav %}
                 {% if admin_lte_context.knp_menu.enable %}
                     {% include '@AdminLTE/Sidebar/knp-menu.html.twig' %}
                 {% else %}
-                    {% include '@AdminLTE/Sidebar/menu.html.twig' %}
+                    {% include '@AdminLTE/Sidebar/menu.html.twig' with {'adminlte_direct_include': true} %}
                 {% endif %}
             {% endblock %}
         </section>
@@ -107,7 +107,7 @@ fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
                 {% if admin_lte_context.knp_menu.enable %}
                     {% include '@AdminLTE/Breadcrumb/knp-breadcrumb.html.twig' %}
                 {% else %}
-                    {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\BreadcrumbController::breadcrumbAction', {'request':app.request})) }}
+                    {% include '@AdminLTE/Breadcrumb/breadcrumb.html.twig' %}
                 {% endif %}
             {% endblock %}
         </section>

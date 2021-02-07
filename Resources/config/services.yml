@@ -17,6 +17,7 @@ services:
         class: KevinPapst\AdminLTEBundle\Twig\EventsExtension
         arguments:
             - '@event_dispatcher'
+            - '@admin_lte_theme.context_helper'
         tags:
             - { name: twig.runtime }
 

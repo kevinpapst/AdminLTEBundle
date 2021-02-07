@@ -21,24 +21,14 @@ use Symfony\Component\HttpFoundation\Response;
 class NavbarController extends EmitterController
 {
     /**
-     * @var int|null
+     * @var ContextHelper
      */
-    private $maxNotifications;
-    /**
-     * @var int|null
-     */
-    private $maxMessages;
-    /**
-     * @var int|null
-     */
-    private $maxTasks;
+    private $helper;
 
     public function __construct(EventDispatcherInterface $dispatcher, ContextHelper $helper)
     {
         parent::__construct($dispatcher);
-        $this->maxNotifications = $helper->getOption('max_navbar_notifications');
-        $this->maxMessages = $helper->getOption('max_navbar_messages');
-        $this->maxTasks = $helper->getOption('max_navbar_tasks');
+        $this->helper = $helper;
     }
 
     /**
@@ -47,12 +37,14 @@ class NavbarController extends EmitterController
      */
     public function notificationsAction($max = null): Response
     {
+        @trigger_error('NavbarController::notificationsAction() is deprecated and will be removed with 4.0', E_USER_DEPRECATED);
+
         if (!$this->hasListener(NotificationListEvent::class)) {
             return new Response();
         }
 
         if (null === $max) {
-            $max = (int) $this->maxNotifications;
+            $max = (int) $this->helper->getOption('max_navbar_notifications');
         }
 
         /** @var NotificationListEvent $listEvent */
@@ -73,12 +65,14 @@ class NavbarController extends EmitterController
      */
     public function messagesAction($max = null): Response
     {
+        @trigger_error('NavbarController::messagesAction() is deprecated and will be removed with 4.0', E_USER_DEPRECATED);
+
         if (!$this->hasListener(MessageListEvent::class)) {
             return new Response();
         }
 
         if (null === $max) {
-            $max = (int) $this->maxMessages;
+            $max = (int) $this->helper->getOption('max_navbar_messages');
         }
 
         /** @var MessageListEvent $listEvent */
@@ -99,12 +93,14 @@ class NavbarController extends EmitterController
      */
     public function tasksAction($max = null): Response
     {
+        @trigger_error('NavbarController::tasksAction() is deprecated and will be removed with 4.0', E_USER_DEPRECATED);
+
         if (!$this->hasListener(TaskListEvent::class)) {
             return new Response();
         }
 
         if (null === $max) {
-            $max = (int) $this->maxTasks;
+            $max = (int) $this->helper->getOption('max_navbar_tasks');
         }
 
         /** @var TaskListEvent $listEvent */
@@ -124,6 +120,8 @@ class NavbarController extends EmitterController
      */
     public function userAction(): Response
     {
+        @trigger_error('NavbarController::userAction() is deprecated and will be removed with 4.0', E_USER_DEPRECATED);
+
         if (!$this->hasListener(NavbarUserEvent::class)) {
             return new Response();
         }

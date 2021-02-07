@@ -1,5 +1,13 @@
 # Upgrading
 
+## From v3 to v4 (unreleased)
+
+Removed all Controller: already replaced with Twig functions for performance reasons in v3. 
+Templates will be now included directly.
+Check that overwritten templates/partials in your project still work (see `templates/bundles/AdminLTEBundle/`). 
+
+Made public API stricter by adding typehints and adding the final keyword to several classes. 
+
 ## From v2 to v3
 
 - Raised minimum requirement to Symfony 4.3

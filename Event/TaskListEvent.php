@@ -10,11 +10,12 @@
 namespace KevinPapst\AdminLTEBundle\Event;
 
 use KevinPapst\AdminLTEBundle\Model\TaskInterface;
+use KevinPapst\AdminLTEBundle\Repository\TaskRepositoryInterface;
 
 /**
  * The TaskListEvent collects all TaskInterface objects that should be rendered in the tasks section.
  */
-class TaskListEvent extends ThemeEvent
+class TaskListEvent extends ThemeEvent implements TaskRepositoryInterface
 {
     /**
      * @var TaskInterface[]
@@ -32,7 +33,7 @@ class TaskListEvent extends ThemeEvent
     protected $total = 0;
 
     /**
-     * @param int $max Maximun number of tasks displayed in panel
+     * @param int|null $max Maximum number of tasks displayed in panel
      */
     public function __construct($max = null)
     {
@@ -50,7 +51,7 @@ class TaskListEvent extends ThemeEvent
     }
 
     /**
-     * @return array
+     * @return TaskInterface[]
      */
     public function getTasks()
     {
