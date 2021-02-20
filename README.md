@@ -15,8 +15,8 @@ This repository contains an upgraded version of the AvanzuAdminThemeBundle, brin
 
 ### Minimum requirements
 
-- Symfony 4.0
-- PHP 7.1.3
+- Symfony 4.3
+- PHP 7.2 (untested with 8)
 - Twig 2.0
 
 **Compatibility:**
