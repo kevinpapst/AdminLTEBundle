@@ -9,18 +9,17 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                php: ['7.3']
+                php: ['7.2', '7.3', '7.4']
 
         name: Linting - PHP ${{ matrix.php }}
         steps:
             -   uses: actions/checkout@v2
-            -   uses: shivammathur/setup-php@v1
+            -   uses: shivammathur/setup-php@v2
                 with:
                     php-version: ${{ matrix.php }}
                     coverage: none
                     extensions: intl
             -   run: composer install --no-progress
-#            -   run: composer validate
             -   run: composer codestyle
             -   run: composer phpstan
             -   run: composer tests
