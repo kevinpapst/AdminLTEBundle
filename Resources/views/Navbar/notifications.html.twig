@@ -1,8 +1,9 @@
 {% if notifications is not defined or adminlte_direct_include is defined %}
-    {% set adminlte_notifications = adminlte_notifications()  %}
+    {% set notifications = null %}
+    {% set adminlte_notifications = adminlte_notifications() %}
     {% if adminlte_notifications is not null %}
-        {% set notifications = adminlte_notifications.notifications  %}
-        {% set total = adminlte_notifications.total  %}
+        {% set notifications = adminlte_notifications.notifications %}
+        {% set total = adminlte_notifications.total %}
     {% endif %}
 {% endif %}
 {% if notifications is defined and notifications is not null %}

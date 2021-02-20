@@ -1,5 +1,6 @@
 {% import "@AdminLTE/Macros/default.html.twig" as macro %}
 {% if user is not defined or adminlte_direct_include is defined %}
+    {% set user = null %}
     {% set adminlte_userdetails = adminlte_user() %}
     {% if adminlte_userdetails is not null %}
         {% set user = adminlte_userdetails.user %}

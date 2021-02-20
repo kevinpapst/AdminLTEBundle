@@ -1,5 +1,6 @@
 {% import "@AdminLTE/Macros/default.html.twig" as macro %}
 {% if messages is not defined or adminlte_direct_include is defined %}
+    {% set messages = null %}
     {% set adminlte_messages = adminlte_messages() %}
     {% if adminlte_messages is not null %}
         {% set messages = adminlte_messages.messages %}
