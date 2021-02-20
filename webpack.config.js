@@ -41,11 +41,15 @@ Encore
     })
 
     // add hash after file name
+    .configureImageRule({
+        filename: 'images/[name][ext]?[hash:8]',
+    })
+    .configureFontRule({
+        filename: 'fonts/[name][ext]?[hash:8]'
+    })
     .configureFilenames({
         js: '[name].js?[chunkhash]',
         css: '[name].css?[contenthash]',
-        images: 'images/[name].[ext]?[hash:8]',
-        fonts: 'fonts/[name].[ext]?[hash:8]'
     })
 ;
 
