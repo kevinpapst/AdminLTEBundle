@@ -51,7 +51,7 @@ but attaching to the `theme.breadcrumb` event.
 ## Translating breadcrumb items
 
 You don't have to care about translating your breadcrumb, each item will be automatically displayed by applying the `|trans` filter. 
-We apply the same principle like we do in the [Sidebar Navigation](sidebar_navigation.md). 
+We apply the same principle as we do in the [Sidebar Navigation](sidebar_navigation.md). 
 
 ## Next steps
 

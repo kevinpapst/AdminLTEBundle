@@ -1,6 +1,6 @@
 # Twig widgets
 
-In order to simplify the usage of widget and info boxes, and to help with a consitent look and feel throughout your application, 
+In order to simplify the usage of widget and info boxes, and to help with a consistent look and feel throughout your application, 
 the bundle provides an [embeddable][3] template for the [box-widget][1] and the [infobox-widget][2]. 
 
 ## Global configuration
@@ -45,7 +45,8 @@ admin_lte:
 The box widget comes with several variables and blocks to define content and customize the rendering and behavior individually. 
 
 ### Variables
-_**Notice:** since FALSE will not be considered a value by Twig and therefor activate the default filter, you will have to use `0` instead_ 
+_**Notice:** since FALSE will not be considered a value by Twig and therefor activate the default filter, you will have to use `0` instead.
+ 
 <dl>
 <dt>collapsed
 <dd>Will render the Widget in a collapsed state and add and expander toolbutton. 
@@ -60,10 +61,10 @@ _**Notice:** since FALSE will not be considered a value by Twig and therefor act
 <dd>Will render the .box-footer even if it has no content.
 
 <dt>collapsible & collapsible_title
-<dd>Will add a collapse toolbutton. This setting will alwas be true if the box is defined as `collapsed`. The `collapsible_title` will be set as the button's `title` attribute.
+<dd>Will add a collapse tool-button. This setting will always be true if the box is defined as `collapsed`. The `collapsible_title` will be set as the button's `title` attribute.
 
 <dt>removable & removable_title
-<dd>Will add a remove toolbutton. The `removable_title` will be set as the button's `title` attribute. 
+<dd>Will add a remove tool-button. The `removable_title` will be set as the button's `title` attribute. 
 
 <dt>boxtype
 <dd>Sets the color-type of the box. The value should only be the type name without prefix. 
@@ -74,7 +75,7 @@ _**Notice:** since FALSE will not be considered a value by Twig and therefor act
 <dl>
 
 <dt>box_before
-<dd>Content just before the box's openig div. 
+<dd>Content just before the box's opening div. 
 
 <dt>box_title
 <dd>Content inside of `.box-title`. 
@@ -92,7 +93,7 @@ _**Notice:** since FALSE will not be considered a value by Twig and therefor act
 <dd>Content just after the box's closing `div`
 
 <dt>box_body_class
-<dd>Addiotional css class for the box_body HTML element
+<dd>Additional css class for the box_body HTML element
 
 <dt>box_attributes
 <dd>Additional HTML attributes for the outer box HTML element

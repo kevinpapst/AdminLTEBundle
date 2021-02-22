@@ -10,7 +10,7 @@ Install through composer with:
 composer require knplabs/knp-menu-bundle
 ```
 
-And add in your `config/bundles.php`:
+Then add in your `config/bundles.php`:
 
 ```
 <?php
@@ -28,7 +28,7 @@ admin_lte:
         enable: true
 ```
 Enabling the KnpMenu support will disable the regular breadcrumb and menu events. 
-Instead there will be a new `knp_menu.menu_builder` aliased `adminlte_main` which will dispatch a new event to hook into.
+Instead, there will be a new `knp_menu.menu_builder` aliased `adminlte_main` which will dispatch a new event to hook into.
 
 ### The Event
 
@@ -164,7 +164,7 @@ Breadcrumb support is deactivated by default for KnpMenu. Its behavior can be co
 You have three choices:
 - set it to `false` (which is the default value) will deactivate the breadcrumb
 - set it to `true` will enable breadcrumb support and use the menubuilder configured in the key `main_menu` (whose default value is `adminlte_main`) 
-- set it to your own menu alias (the default menu builder is aliased `adminlte_main`)
+- set it to your own menu alias (the default menu builder alias is `adminlte_main`)
 
 Example 1 - activate breadcrumb by using your default menu: 
 

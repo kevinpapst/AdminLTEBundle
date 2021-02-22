@@ -1,8 +1,8 @@
 # Migration from the AdminThemeBundle
 
-This is not a step-by-step migration guide but a collection of hints what needs to be done. 
+This is not a step-by-step migration guide, but a collection of hints what needs to be done. 
 Many of you will have a highly adjusted version of the AdminThemeBundle, so the best tip is to search for `avanzu` and 
-check if you need to change this occurence.
+check if you need to change this occurrence.
 
 The following hints should be reviewed carefully, as they apply for all of your projects. 
 
@@ -79,10 +79,10 @@ to
 
 ## Changed config
 
-The configuration is now based in the file `admin_lte.yaml` with the main key `admin_lte`, 
+The configuration is now in the file `admin_lte.yaml` with the main key `admin_lte`, 
 which was previously `avanzu_admin_theme` in the file `avanzu_admin_theme.yaml` (depending on your setup this might be located somewhere else).
 
-They following keys are not supported any longer and can be removed:
+The following keys must be removed:
 
 - `use_twig: true`
 - `use_assetic: false`
@@ -90,7 +90,7 @@ They following keys are not supported any longer and can be removed:
 
 The config key `control_sidebar: true` was a boolean before and is now an array (see below in "Configurable control-sidebar").
 
-NOTE: only `YAML` configs are shipped and `XML` is not supported any longer.
+NOTE: only `YAML` configs are shipped, while `XML` is not supported any longer.
 
 ## Changed route aliases
 
