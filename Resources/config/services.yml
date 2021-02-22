@@ -1,10 +1,5 @@
 services:
 
-    KevinPapst\AdminLTEBundle\Controller\:
-        resource: '../../Controller'
-        tags: ['controller.service_arguments']
-        autowire: true
-
     KevinPapst\AdminLTEBundle\Twig\RuntimeExtension:
         class: KevinPapst\AdminLTEBundle\Twig\RuntimeExtension
         arguments:
