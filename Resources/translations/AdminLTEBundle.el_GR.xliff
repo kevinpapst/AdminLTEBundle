@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="el_GR" datatype="plaintext" original="none">
+        <body>
+            <trans-unit id="Toggle navigation">
+                <source>Toggle navigation</source>
+                <target>Εναλλαγή πλοήγησης</target>
+            </trans-unit>
+            <trans-unit id="Remember Me">
+                <source>Remember Me</source>
+                <target>Αποθήκευση συνεδρίας</target>
+            </trans-unit>
+            <trans-unit id="Sign in to start your session">
+                <source>Sign in to start your session</source>
+                <target>Συνδεθείτε για εκίνηση συνεδρίας</target>
+            </trans-unit>
+            <trans-unit id="Sign In">
+                <source>Sign In</source>
+                <target>Σύνδεση</target>
+            </trans-unit>
+            <trans-unit id="Sign out">
+                <source>Sign out</source>
+                <target>Αποσύνδεση</target>
+            </trans-unit>
+            <trans-unit id="Profile">
+                <source>Profile</source>
+                <target>Το προφίλ μου</target>
+            </trans-unit>
+            <trans-unit id="Member since %date%">
+                <source>Member since %date%</source>
+                <target>Μέλος από %date%</target>
+            </trans-unit>
+            <trans-unit id="Username">
+                <source>Username</source>
+                <target>Όνομα Χρήστη</target>
+            </trans-unit>
+            <trans-unit id="Password">
+                <source>Password</source>
+                <target>Κωδικός</target>
+            </trans-unit>
+            <trans-unit id="Show homepage">
+                <source>Show homepage</source>
+                <target>Εμφάνιση αρχικής σελίδας</target>
+            </trans-unit>
+            <trans-unit id="Back to login">
+                <source>Back to login</source>
+                <target>Πίσω στη σελίδα σύνδεσης</target>
+            </trans-unit>
+            <trans-unit id="Reset your password">
+                <source>Reset your password</source>
+                <target>Επαναπροσδιορισμός κωδικού</target>
+            </trans-unit>
+            <trans-unit id="I forgot my password">
+                <source>I forgot my password</source>
+                <target>Ξέχασα τον κωδικό μου</target>
+            </trans-unit>
+            <trans-unit id="Register a new account">
+                <source>Register a new account</source>
+                <target>Δημιουργία νέου λογαριασμού</target>
+            </trans-unit>
+            <trans-unit id="View all">
+                <source>View all</source>
+                <target>Προβολή  όλων</target>
+            </trans-unit>
+            <trans-unit id="You have %count% notifications">
+                <source>You have %count% notifications</source>
+                <target>Έχετε 1 ειδοποίηση|Έχετε %count% ειδοποιήσεις</target>
+            </trans-unit>
+            <trans-unit id="You have %count% messages">
+                <source>You have %count% messages</source>
+                <target>Έχετε 1 μήνυμα|Έχετε %count% μηνύματα</target>
+            </trans-unit>
+            <trans-unit id="You have %count% tasks">
+                <source>You have %count% tasks</source>
+                <target>Έχετε 1 ανάθεση|Έχετε %count% αναθέσεις</target>
+            </trans-unit>
+            <trans-unit id="%progress%% Complete">
+                <source>%progress%% Complete</source>
+                <target>%progress%% Ολοκληρώθηκε</target>
+            </trans-unit>
+            <trans-unit id="This is a mandatory field">
+                <source>This is a mandatory field</source>
+                <target>Αυτό είναι υποχρεωτικό πεδίο</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
