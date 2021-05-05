@@ -36,7 +36,7 @@
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
-                <target>Διαπιστευτήριο</target>
+                <target>Κωδικός πρόσβασης</target>
             </trans-unit>
             <trans-unit id="Show homepage">
                 <source>Show homepage</source>
@@ -48,11 +48,11 @@
             </trans-unit>
             <trans-unit id="Reset your password">
                 <source>Reset your password</source>
-                <target>Επαναπροσδιορισμός διαπιστευτηρίου</target>
+                <target>Επαναπροσδιορισμός κωδικού πρόσβασης</target>
             </trans-unit>
             <trans-unit id="I forgot my password">
                 <source>I forgot my password</source>
-                <target>Ξέχασα το διαπιστευτήριο μου</target>
+                <target>Ξέχασα τον κωδικό πρόσβασης μου</target>
             </trans-unit>
             <trans-unit id="Register a new account">
                 <source>Register a new account</source>
