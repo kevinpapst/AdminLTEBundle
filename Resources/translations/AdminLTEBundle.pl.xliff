@@ -22,6 +22,10 @@
                 <source>Sign out</source>
                 <target>Logout</target>
             </trans-unit>
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>Zarejestruj</target>
+            </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
                 <target>Twój profil</target>
@@ -33,6 +37,10 @@
             <trans-unit id="Username">
                 <source>Username</source>
                 <target>Nazwa użytkownika</target>
+            </trans-unit>
+            <trans-unit id="Username or email address">
+                <source>Username or email address</source>
+                <target>Nazwa użytkownika lub e-mail</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
@@ -81,6 +89,10 @@
             <trans-unit id="This is a mandatory field">
                 <source>This is a mandatory field</source>
                 <target>To pole jest obowiązkowe</target>
+            </trans-unit>
+            <trans-unit id="registration.confirmed">
+                <source>registration.confirmed</source>
+                <target>Gratulacje %username%, Twoje konto zostało aktywowane.</target>
             </trans-unit>
         </body>
     </file>

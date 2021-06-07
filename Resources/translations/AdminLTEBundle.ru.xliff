@@ -22,6 +22,10 @@
                 <source>Sign out</source>
                 <target>Logout</target>
             </trans-unit>
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>Зарегистрироваться</target>
+            </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
                 <target>Your profile</target>
@@ -33,6 +37,10 @@
             <trans-unit id="Username">
                 <source>Username</source>
                 <target>Имя пользователя</target>
+            </trans-unit>
+            <trans-unit id="Username or email address">
+                <source>Username or email address</source>
+                <target>Имя пользователя или электронная почта</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
@@ -77,6 +85,10 @@
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>
                 <target>%progress%% completed</target>
+            </trans-unit>
+            <trans-unit id="registration.confirmed">
+                <source>registration.confirmed</source>
+                <target>Поздравляем %username%, ваш аккаунт подтвержден.</target>
             </trans-unit>
         </body>
     </file>

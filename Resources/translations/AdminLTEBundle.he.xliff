@@ -22,6 +22,10 @@
                 <source>Sign out</source>
                 <target>התנתק</target>
             </trans-unit>
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>הרשם</target>
+            </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
                 <target>הפרופיל שלך</target>
@@ -33,6 +37,10 @@
             <trans-unit id="Username">
                 <source>Username</source>
                 <target>שם משתמש</target>
+            </trans-unit>
+            <trans-unit id="Username or email address">
+                <source>Username or email address</source>
+                <target>שם משתמש או דואר אלקטרוני</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
@@ -81,6 +89,10 @@
             <trans-unit id="This is a mandatory field">
                 <source>This is a mandatory field</source>
                 <target>זהו שדה חובה</target>
+            </trans-unit>
+            <trans-unit id="registration.confirmed">
+                <source>registration.confirmed</source>
+                <target>ברוכים הבאים %username%, חשבון שלך הופעל.</target>
             </trans-unit>
         </body>
     </file>

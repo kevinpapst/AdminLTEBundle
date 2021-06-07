@@ -22,6 +22,10 @@
                 <source>Sign out</source>
                 <target>Αποσύνδεση</target>
             </trans-unit>
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>Εγγραφή</target>
+            </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
                 <target>Το προφίλ μου</target>
@@ -33,6 +37,10 @@
             <trans-unit id="Username">
                 <source>Username</source>
                 <target>Όνομα Χρήστη</target>
+            </trans-unit>
+            <trans-unit id="Username or email address">
+                <source>Username or email address</source>
+                <target>Επαναφορά του κωδικού πρόσβασης</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
@@ -81,6 +89,10 @@
             <trans-unit id="This is a mandatory field">
                 <source>This is a mandatory field</source>
                 <target>Αυτό είναι υποχρεωτικό πεδίο</target>
+            </trans-unit>
+            <trans-unit id="registration.confirmed">
+                <source>registration.confirmed</source>
+                <target>Συγχαρητήρια %username%, ο λογαριασμός μόλις ενεργοποιήθηκε.</target>
             </trans-unit>
         </body>
     </file>

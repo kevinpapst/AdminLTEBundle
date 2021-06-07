@@ -22,6 +22,10 @@
                 <source>Sign out</source>
                 <target state="translated">Kirjaudu ulos</target>
             </trans-unit>
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>Luo tunnus</target>
+            </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
                 <target state="translated">Profiili</target>
@@ -33,6 +37,10 @@
             <trans-unit id="Username">
                 <source>Username</source>
                 <target state="translated">Käyttäjätunnus</target>
+            </trans-unit>
+            <trans-unit id="Username or email address">
+                <source>Username or email address</source>
+                <target>Käyttäjätunnus tai sähköpostiosoite</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
@@ -81,6 +89,10 @@
             <trans-unit id="This is a mandatory field">
                 <source>This is a mandatory field</source>
                 <target state="translated">Tämä on pakollinen kenttä</target>
+            </trans-unit>
+            <trans-unit id="registration.confirmed">
+                <source>registration.confirmed</source>
+                <target>Onnittelut %username%, tunnuksesi on nyt aktivoitu.</target>
             </trans-unit>
         </body>
     </file>
