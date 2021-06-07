@@ -22,6 +22,10 @@
                 <source>Sign out</source>
                 <target>Deconectare</target>
             </trans-unit>
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>Înregistrează-te</target>
+            </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
                 <target>Profilul tău</target>
@@ -33,6 +37,10 @@
             <trans-unit id="Username">
                 <source>Username</source>
                 <target>Nume de utilizator</target>
+            </trans-unit>
+            <trans-unit id="Username or email address">
+                <source>Username or email address</source>
+                <target>Numele de utilizator sau adresa de email</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
@@ -81,6 +89,10 @@
             <trans-unit id="This is a mandatory field">
                 <source>This is a mandatory field</source>
                 <target>Acesta este un câmp obligatoriu</target>
+            </trans-unit>
+            <trans-unit id="registration.confirmed">
+                <source>registration.confirmed</source>
+                <target>Felicitări %username%, contul tău a fost activat.</target>
             </trans-unit>
         </body>
     </file>

@@ -22,6 +22,10 @@
                 <source>Sign out</source>
                 <target>Odhlásit se</target>
             </trans-unit>
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>Registrovat se</target>
+            </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
                 <target>Profil</target>
@@ -33,6 +37,10 @@
             <trans-unit id="Username">
                 <source>Username</source>
                 <target>Uživatelské jméno</target>
+            </trans-unit>
+            <trans-unit id="Username or email address">
+                <source>Username or email address</source>
+                <target>Uživatelské jméno nebo e-mail</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
@@ -81,6 +89,10 @@
             <trans-unit id="This is a mandatory field">
                 <source>This is a mandatory field</source>
                 <target>Toto je povinné pole</target>
+            </trans-unit>
+            <trans-unit id="registration.confirmed">
+                <source>registration.confirmed</source>
+                <target>Gratulujeme, %username%, Váš účet je nyní aktivní.</target>
             </trans-unit>
         </body>
     </file>

@@ -22,6 +22,10 @@
                 <source>Sign out</source>
                 <target>ログアウトする</target>
             </trans-unit>
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>登録</target>
+            </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
                 <target>あなたのプロフィール</target>
@@ -33,6 +37,10 @@
             <trans-unit id="Username">
                 <source>Username</source>
                 <target>ユーザー名</target>
+            </trans-unit>
+            <trans-unit id="Username or email address">
+                <source>Username or email address</source>
+                <target>ユーザー名またはメールアドレス</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
@@ -81,6 +89,10 @@
             <trans-unit id="This is a mandatory field">
                 <source>This is a mandatory field</source>
                 <target>これは必須項目です</target>
+            </trans-unit>
+            <trans-unit id="registration.confirmed">
+                <source>registration.confirmed</source>
+                <target>%username% さんのアカウントの確認が完了しました。</target>
             </trans-unit>
         </body>
     </file>

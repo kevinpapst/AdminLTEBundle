@@ -22,6 +22,10 @@
                 <source>Sign out</source>
                 <target>الخروج</target>
             </trans-unit>
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>تسجيل</target>
+            </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
                 <target>ملفك الشخصي</target>
@@ -33,6 +37,10 @@
             <trans-unit id="Username">
                 <source>Username</source>
                 <target>اسم المستخدم</target>
+            </trans-unit>
+            <trans-unit id="Username or email address">
+                <source>Username or email address</source>
+                <target>إسم المستخدم او البريد الالكتروني</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
@@ -77,6 +85,10 @@
             <trans-unit id="%progress%% Complete">
                 <source>%progress%% Complete</source>
                 <target>%progress%% منجز</target>
+            </trans-unit>
+            <trans-unit id="registration.confirmed">
+                <source>registration.confirmed</source>
+                <target>تهانينا %username%، لقد تم تفعيل حسابك.</target>
             </trans-unit>
         </body>
     </file>

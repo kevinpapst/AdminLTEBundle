@@ -22,6 +22,10 @@
                 <source>Sign out</source>
                 <target>Cerrar sesión</target>
             </trans-unit>
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>Registrar</target>
+            </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
                 <target>Tu perfil</target>
@@ -33,6 +37,10 @@
             <trans-unit id="Username">
                 <source>Username</source>
                 <target>Nombre de usuario</target>
+            </trans-unit>
+            <trans-unit id="Username or email address">
+                <source>Username or email address</source>
+                <target>Nombre de usuario o correo electrónico</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
@@ -81,6 +89,10 @@
             <trans-unit id="This is a mandatory field">
                 <source>This is a mandatory field</source>
                 <target>Este es un campo obligatorio</target>
+            </trans-unit>
+            <trans-unit id="registration.confirmed">
+                <source>registration.confirmed</source>
+                <target>Felicidades %username%, tu cuenta está ahora confirmada.</target>
             </trans-unit>
         </body>
     </file>

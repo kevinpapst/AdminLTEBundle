@@ -7,16 +7,14 @@
 {% endblock %}
 
 {% block login_form %}
-    {% trans_default_domain 'FOSUserBundle' %}
-
     <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
         <div class="form-group has-feedback">
-            <input type="text" id="username" name="username" required="required" class="form-control" placeholder="{{ 'resetting.request.username'|trans }}">
+            <input type="text" id="username" name="username" required="required" class="form-control" placeholder="{{ 'Username or email address'|trans({}, 'AdminLTEBundle') }}">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="row">
             <div class="col-xs-12">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">{{ 'resetting.request.submit'|trans }}</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">{{ 'Reset your password'|trans({}, 'AdminLTEBundle') }}</button>
             </div>
         </div>
     </form>

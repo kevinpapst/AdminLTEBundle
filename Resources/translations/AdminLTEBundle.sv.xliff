@@ -22,6 +22,10 @@
                 <source>Sign out</source>
                 <target state="translated">logga ut</target>
             </trans-unit>
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>Registrera</target>
+            </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
                 <target state="translated">Din profil</target>
@@ -33,6 +37,10 @@
             <trans-unit id="Username">
                 <source>Username</source>
                 <target state="translated">Användarnamn</target>
+            </trans-unit>
+            <trans-unit id="Username or email address">
+                <source>Username or email address</source>
+                <target>Användarnamn eller epost-adress</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
@@ -81,6 +89,10 @@
             <trans-unit id="This is a mandatory field">
                 <source>This is a mandatory field</source>
                 <target state="translated">Detta är ett obligatoriskt fält</target>
+            </trans-unit>
+            <trans-unit id="registration.confirmed">
+                <source>registration.confirmed</source>
+                <target>Grattis %username%, ditt konto är nu aktiverat.</target>
             </trans-unit>
         </body>
     </file>

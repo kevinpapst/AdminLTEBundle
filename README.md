@@ -3,7 +3,7 @@
 [![Total Downloads](https://poser.pugx.org/kevinpapst/adminlte-bundle/downloads)](https://packagist.org/packages/kevinpapst/adminlte-bundle)
 [![License](https://poser.pugx.org/kevinpapst/adminlte-bundle/license)](LICENSE)
 
-# AdminLTE Bundle for Symfony 4
+# AdminLTE Bundle for Symfony
 
 This repository contains an upgraded version of the AvanzuAdminThemeBundle, bringing the AdminLTE theme to Symfony 4.
 
@@ -16,12 +16,12 @@ This repository contains an upgraded version of the AvanzuAdminThemeBundle, brin
 ### Minimum requirements
 
 - Symfony 4.3
-- PHP 7.2 (untested with 8)
+- PHP > 7.2
 - Twig 2.0
 
 **Compatibility:**
 
-Version 3.x should be compatible with Symfony 5, [please leave your feedback](https://github.com/kevinpapst/AdminLTEBundle/issues/144).
+Version 3.x should be compatible with Symfony 5 and PHP 8, [please leave your feedback](https://github.com/kevinpapst/AdminLTEBundle/issues/144).
 
 - Version 3.x is only compatible with Symfony >= 4.3
 - Version 2.x of this bundle is compatible with Symfony < 4.3

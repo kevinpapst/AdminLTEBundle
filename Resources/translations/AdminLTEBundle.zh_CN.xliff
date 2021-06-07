@@ -22,6 +22,10 @@
                 <source>Sign out</source>
                 <target>注销</target>
             </trans-unit>
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>注册</target>
+            </trans-unit>
             <trans-unit id="Profile">
                 <source>Profile</source>
                 <target>个人资料</target>
@@ -33,6 +37,10 @@
             <trans-unit id="Username">
                 <source>Username</source>
                 <target>用户名</target>
+            </trans-unit>
+            <trans-unit id="Username or email address">
+                <source>Username or email address</source>
+                <target>用户名或邮箱</target>
             </trans-unit>
             <trans-unit id="Password">
                 <source>Password</source>
@@ -81,6 +89,10 @@
             <trans-unit id="This is a mandatory field">
                 <source>This is a mandatory field</source>
                 <target>该处为必填项</target>
+            </trans-unit>
+            <trans-unit id="registration.confirmed">
+                <source>registration.confirmed</source>
+                <target>%username%，恭喜你，你的帐户已启用！</target>
             </trans-unit>
         </body>
     </file>
