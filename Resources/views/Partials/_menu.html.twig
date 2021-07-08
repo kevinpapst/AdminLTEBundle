@@ -21,11 +21,15 @@
 {% macro badges(item) %}
     {% import _self as selfMacros %}
     {% if item.getExtra('badge') is not null %}
-        {{ selfMacros.badge(item.getExtra('badge')) }}
+        <span class="pull-right-container">
+            {{ selfMacros.badge(item.getExtra('badge')) }}
+        </span>
     {% elseif item.getExtra('badges') is not null %}
-        {% for badge in item.getExtra('badges') %}
-            {{ selfMacros.badge(badge) }}
-        {% endfor %}
+        <span class="pull-right-container">
+            {% for badge in item.getExtra('badges') %}
+                {{ selfMacros.badge(badge) }}
+            {% endfor %}
+        </span>
     {% endif %}
 {% endmacro %}
 
