@@ -23,11 +23,13 @@ This repository contains an upgraded version of the AvanzuAdminThemeBundle, brin
 
 Version 3: 
 - compatible with Symfony >= 4.3 and [likely compatible with Symfony 5](https://github.com/kevinpapst/AdminLTEBundle/issues/144).
-- compatible with PHP 8
+- compatible with PHP 7.3, 7.4 and 8
+- compatible with KNPMenu 2 and 3
 
 Version 2:
-- is compatible with Symfony < 4.3
-- is compatible with PHP 7.2
+- compatible with Symfony < 4.3
+- compatible with PHP 7.2, 7.3 and 7.4
+- compatible with KNPMenu 2
 
 ## Features
 
@@ -35,7 +37,7 @@ Some of the main features of this theme bundle:
 
 - Two main layouts for main application and security (login, forgot password, register account...)
 - Support for Symfony 4.x
-- Support for KNPMenuBundle 
+- Support for KNPMenuBundle 3 
 - Support for FOSUserBundle
 - Webpack-Encore support for building assets
 - Event-driven handling of menu entries, tasks and notifications
