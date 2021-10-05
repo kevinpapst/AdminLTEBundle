@@ -5,7 +5,9 @@
             <a href="{{ item.hasChildren ? '#': '/' in item.route ? item.route : path(item.route|route_alias, item.routeArgs) }}">
                 {% if item.icon %} <i class="{{ item.icon }}"></i> {% endif %}
                 {% if item.badge is not same as(false) %}
+                <span class="pull-right-container">
                     <small class="label pull-right bg-{{ item.badgeColor }}">{{ item.badge }}</small>
+                </span>
                 {% endif %}
                 {% if item.hasChildren %}<i class="fas fa-angle-left pull-right"></i>{% endif %}
                 <span>{{ item.label|trans }}</span>
@@ -38,6 +40,8 @@
     <i class="{{ item.icon|default(defaultIcon) }}"></i>
     <span>{{ item.label|trans }}</span>
     {% if item.badge is not same as(false) %}
+    <span class="pull-right-container">
         <small class="label pull-right bg-{{ item.badgeColor }}">{{ item.badge }}</small>
+    </span>
     {% endif %}
 {% endmacro %}
