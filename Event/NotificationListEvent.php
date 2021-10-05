@@ -56,7 +56,7 @@ class NotificationListEvent extends ThemeEvent implements NotificationRepository
     public function getNotifications()
     {
         if (null !== $this->max) {
-            return array_slice($this->notifications, 0, $this->max);
+            return \array_slice($this->notifications, 0, $this->max);
         }
 
         return $this->notifications;
@@ -87,6 +87,6 @@ class NotificationListEvent extends ThemeEvent implements NotificationRepository
      */
     public function getTotal()
     {
-        return $this->total === 0 ? count($this->notifications) : $this->total;
+        return $this->total === 0 ? \count($this->notifications) : $this->total;
     }
 }

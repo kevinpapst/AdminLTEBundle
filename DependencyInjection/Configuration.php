@@ -244,7 +244,7 @@ class Configuration implements ConfigurationInterface
                                 return false;
                             }
 
-                            return !in_array($value, ['default', 'horizontal']);
+                            return !\in_array($value, ['default', 'horizontal']);
                         })
                         ->thenInvalid('Invalid form_theme. Expected one of: "default", "horizontal" or null')
                     ->end()

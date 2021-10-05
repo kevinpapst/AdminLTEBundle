@@ -62,7 +62,7 @@ class MessageListEvent extends ThemeEvent implements MessageRepositoryInterface
     public function getMessages()
     {
         if (null !== $this->max) {
-            return array_slice($this->messages, 0, $this->max);
+            return \array_slice($this->messages, 0, $this->max);
         }
 
         return $this->messages;
@@ -89,7 +89,7 @@ class MessageListEvent extends ThemeEvent implements MessageRepositoryInterface
      */
     public function getTotal()
     {
-        return $this->totalMessages === 0 ? count($this->messages) : $this->totalMessages;
+        return $this->totalMessages === 0 ? \count($this->messages) : $this->totalMessages;
     }
 
     /**

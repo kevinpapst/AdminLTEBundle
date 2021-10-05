@@ -282,7 +282,7 @@ class MenuItemModel implements MenuItemInterface
      */
     public function hasChildren()
     {
-        return count($this->children) > 0;
+        return \count($this->children) > 0;
     }
 
     /**

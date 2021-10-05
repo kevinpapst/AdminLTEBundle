@@ -40,7 +40,7 @@ class NotificationListEventTest extends TestCase
 
         $this->assertEquals(7, $event->getTotal());
         $this->assertEquals(10, $event->getMax());
-        $this->assertEquals(7, count($event->getNotifications()));
+        $this->assertEquals(7, \count($event->getNotifications()));
     }
 
     /**
@@ -57,7 +57,7 @@ class NotificationListEventTest extends TestCase
 
         $this->assertEquals(7, $event->getTotal());
         $this->assertEquals(5, $event->getMax());
-        $this->assertEquals(5, count($event->getNotifications()));
+        $this->assertEquals(5, \count($event->getNotifications()));
     }
 
     /**
@@ -74,7 +74,7 @@ class NotificationListEventTest extends TestCase
 
         $this->assertEquals(7, $event->getTotal());
         $this->assertEquals(null, $event->getMax());
-        $this->assertEquals(7, count($event->getNotifications()));
+        $this->assertEquals(7, \count($event->getNotifications()));
     }
 
     /**
@@ -92,7 +92,7 @@ class NotificationListEventTest extends TestCase
 
         $this->assertEquals(15, $event->getTotal());
         $this->assertEquals(null, $event->getMax());
-        $this->assertEquals(7, count($event->getNotifications()));
+        $this->assertEquals(7, \count($event->getNotifications()));
     }
 
     /**
@@ -110,7 +110,7 @@ class NotificationListEventTest extends TestCase
 
         $this->assertEquals(15, $event->getTotal());
         $this->assertEquals(3, $event->getMax());
-        $this->assertEquals(3, count($event->getNotifications()));
+        $this->assertEquals(3, \count($event->getNotifications()));
     }
 
     /**

@@ -33,7 +33,7 @@ class TwigPass implements CompilerPassInterface
 
         $param = $container->getParameter('twig.form.resources');
 
-        if (!is_array($param)) {
+        if (!\is_array($param)) {
             $param = [];
         }
 

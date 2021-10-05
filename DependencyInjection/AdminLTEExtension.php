@@ -83,7 +83,7 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
         $container->setParameter('admin_lte_theme.options', $options);
         $container->setParameter('admin_lte_theme.routes', $routes);
 
-        if (!array_key_exists('form_theme', $options) || null === ($theme = $options['form_theme'])) {
+        if (!\array_key_exists('form_theme', $options) || null === ($theme = $options['form_theme'])) {
             return;
         }
 
@@ -92,7 +92,7 @@ class AdminLTEExtension extends Extension implements PrependExtensionInterface
             'horizontal' => '@AdminLTE/layout/form-theme-horizontal.html.twig',
         ];
 
-        if (!array_key_exists($theme, $themes)) {
+        if (!\array_key_exists($theme, $themes)) {
             return;
         }
 

@@ -56,7 +56,7 @@ class TaskListEvent extends ThemeEvent implements TaskRepositoryInterface
     public function getTasks()
     {
         if (null !== $this->max) {
-            return array_slice($this->tasks, 0, $this->max);
+            return \array_slice($this->tasks, 0, $this->max);
         }
 
         return $this->tasks;
@@ -91,6 +91,6 @@ class TaskListEvent extends ThemeEvent implements TaskRepositoryInterface
      */
     public function getTotal()
     {
-        return $this->total === 0 ? count($this->tasks) : $this->total;
+        return $this->total === 0 ? \count($this->tasks) : $this->total;
     }
 }

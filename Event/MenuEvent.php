@@ -70,7 +70,7 @@ abstract class MenuEvent extends ThemeEvent
     {
         if ($item instanceof MenuItemInterface && isset($this->menuRootItems[$item->getIdentifier()])) {
             unset($this->menuRootItems[$item->getIdentifier()]);
-        } elseif (is_string($item) && isset($this->menuRootItems[$item])) {
+        } elseif (\is_string($item) && isset($this->menuRootItems[$item])) {
             unset($this->menuRootItems[$item]);
         }
 
