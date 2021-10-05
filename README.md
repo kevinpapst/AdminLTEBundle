@@ -16,15 +16,18 @@ This repository contains an upgraded version of the AvanzuAdminThemeBundle, brin
 ### Minimum requirements
 
 - Symfony 4.3
-- PHP 7.2
+- PHP 7.3
 - Twig 2.0
 
-**Compatibility:**
+### Compatibility
 
-Version 3.x should be compatible with Symfony 5 and PHP 8, [please leave your feedback](https://github.com/kevinpapst/AdminLTEBundle/issues/144).
+Version 3: 
+- compatible with Symfony >= 4.3 and [likely compatible with Symfony 5](https://github.com/kevinpapst/AdminLTEBundle/issues/144).
+- compatible with PHP 8
 
-- Version 3.x is only compatible with Symfony >= 4.3
-- Version 2.x of this bundle is compatible with Symfony < 4.3
+Version 2:
+- is compatible with Symfony < 4.3
+- is compatible with PHP 7.2
 
 ## Features
 

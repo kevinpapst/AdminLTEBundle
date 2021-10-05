@@ -4,6 +4,8 @@ vendor
 composer.lock
 package-lock.json
 
+.phpunit.result.cache
+
 # Ignore Eclipse IDE config files
 .buildpath
 .project
