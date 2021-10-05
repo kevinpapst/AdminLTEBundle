@@ -40,9 +40,6 @@
         "knplabs/knp-menu-bundle": "^3.1",
         "phpstan/phpstan-phpunit": "^0.12"
     },
-    "suggest" : {
-        "knplabs/knp-menu-bundle" : "Allows easy menu integration"
-    },
     "autoload": {
         "psr-4": { "KevinPapst\\AdminLTEBundle\\": "" }
     },
