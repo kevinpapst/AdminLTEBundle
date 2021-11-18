@@ -16,7 +16,7 @@
             <div class="progress-bar" style="width: {{ progress }}%"></div>
         </div>
         {% endif %}
-        {% if progress|default(block('progress_description'))|length > 0 %}
+        {% if block('progress_description') is defined and progress|default(block('progress_description'))|length > 0 %}
     <span class="progress-description">
       {{ block('progress_description') }}
     </span>
