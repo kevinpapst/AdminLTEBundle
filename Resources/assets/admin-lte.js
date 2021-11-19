@@ -14,7 +14,7 @@ require('daterangepicker');
 
 // ------ AdminLTE framework ------
 require('./admin-lte.scss');
-require('admin-lte/dist/css/AdminLTE.min.css');
+require('admin-lte/dist/css/adminlte.min.css');
 require('./admin-lte-extensions.scss');
 
 global.$.AdminLTE = {};
