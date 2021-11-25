@@ -63,38 +63,60 @@ class KnpMenuBuilderSubscriber implements EventSubscriberInterface
     {
         $menu = $event->getMenu();
 
-        $menu->addChild('MainNavigationMenuItem', [
-       	    'label' => 'MAIN NAVIGATION',
-            'childOptions' => $event->getChildOptions()
-        ])->setAttribute('class', 'header');
-        
-        $menu->addChild('blogId', [
-            'route' => 'item_symfony_route',
-            'label' => 'Blog',
-            'childOptions' => $event->getChildOptions(),
+        $menu->addChild('MainHeader', [
+            'label' => 'MAIN MENU',
             'extras' => [
                 'badge' => [
-                    'color' => 'yellow',
+                    'color' => 'warning',
                     'value' => 4,
                 ],
             ],
-        ])->setLabelAttribute('icon', 'fas fa-tachometer-alt');
-        
-        $menu->getChild('blogId')->addChild('ChildOneItemId', [
-            'route' => 'child_1_route',
-            'label' => 'ChildOneDisplayName',
+        ])->setAttribute('class', 'nav-header');
+
+        $level1 = $menu->addChild('level_1', [
+            'label' => 'Level 1',
+            'childOptions' => $event->getChildOptions(),
+            'extras' => [
+                'badge' => [
+                    'color' => 'warning',
+                    'value' => 2,
+                ],
+            ],
+        ])->setLabelAttribute('icon', 'fas fa-circle');
+
+        $level1->addChild('level_1-1', [
+            'route' => 'home',
+            'label' => 'Level 1.1',
             'extras' => [
                 'badges' => [
-                    [ 'value' => 6, 'color' => 'blue' ],
-                    [ 'value' => 5, ],
+                    [ 'value' => 1 ],
+                    [ 'value' => 1, 'color' => 'primary' ],
                 ],
             ],
             'childOptions' => $event->getChildOptions()
-        ])->setLabelAttribute('icon', 'fas fa-rss-square');
-        
-        $menu->getChild('blogId')->addChild('ChildTwoItemId', [
-            'route' => 'child_2_route',
-            'label' => 'ChildTwoDisplayName',
+        ])->setLabelAttribute('icon', 'far fa-circle');
+
+        $level1->addChild('level_1-2', [
+            'route' => 'home',
+            'label' => 'level 1.2',
+            'extras' => [
+                'badges' => [
+                    [ 'value' => 2 ],
+                    [ 'value' => 1, 'color' => 'primary' ],
+                ],
+            ],
+            'childOptions' => $event->getChildOptions()
+        ])->setLabelAttribute('icon', 'far fa-circle');
+
+        $menu->addChild('level_2', [
+            'route' => 'home',
+            'label' => 'Level 2',
+            'childOptions' => $event->getChildOptions()
+        ])->setLabelAttribute('icon', 'fas fa-circle');
+
+        $menu->addChild('level_3', [
+            'route' => 'home',
+            'label' => 'Level 3',
             'childOptions' => $event->getChildOptions()
         ]);
     }
@@ -121,26 +143,60 @@ class KnpMenuBuilderListener
     {
         $menu = $event->getMenu();
 
-        $menu->addChild('MainNavigationMenuItem', [
-       	    'label' => 'MAIN NAVIGATION',
+        $menu->addChild('MainHeader', [
+            'label' => 'MAIN MENU',
+            'extras' => [
+                'badge' => [
+                    'color' => 'warning',
+                    'value' => 4,
+                ],
+            ],
+        ])->setAttribute('class', 'nav-header');
+
+        $level1 = $menu->addChild('level_1', [
+            'label' => 'Level 1',
+            'childOptions' => $event->getChildOptions(),
+            'extras' => [
+                'badge' => [
+                    'color' => 'warning',
+                    'value' => 2,
+                ],
+            ],
+        ])->setLabelAttribute('icon', 'fas fa-circle');
+
+        $level1->addChild('level_1-1', [
+            'route' => 'home',
+            'label' => 'Level 1.1',
+            'extras' => [
+                'badges' => [
+                    [ 'value' => 1 ],
+                    [ 'value' => 1, 'color' => 'primary' ],
+                ],
+            ],
             'childOptions' => $event->getChildOptions()
-        ])->setAttribute('class', 'header');
-        
-        $menu->addChild('blogId', [
-            'route' => 'item_symfony_route',
-            'label' => 'Blog',
+        ])->setLabelAttribute('icon', 'far fa-circle');
+
+        $level1->addChild('level_1-2', [
+            'route' => 'home',
+            'label' => 'level 1.2',
+            'extras' => [
+                'badges' => [
+                    [ 'value' => 2 ],
+                    [ 'value' => 1, 'color' => 'primary' ],
+                ],
+            ],
             'childOptions' => $event->getChildOptions()
-        ])->setLabelAttribute('icon', 'fas fa-tachometer-alt');
-        
-        $menu->getChild('blogId')->addChild('ChildOneItemId', [
-            'route' => 'child_1_route',
-            'label' => 'ChildOneDisplayName',
+        ])->setLabelAttribute('icon', 'far fa-circle');
+
+        $menu->addChild('level_2', [
+            'route' => 'home',
+            'label' => 'Level 2',
             'childOptions' => $event->getChildOptions()
-        ])->setLabelAttribute('icon', 'fas fa-rss-square');
-        
-        $menu->getChild('blogId')->addChild('ChildTwoItemId', [
-            'route' => 'child_2_route',
-            'label' => 'ChildTwoDisplayName',
+        ])->setLabelAttribute('icon', 'fas fa-circle');
+
+        $menu->addChild('level_3', [
+            'route' => 'home',
+            'label' => 'Level 3',
             'childOptions' => $event->getChildOptions()
         ]);
     }
