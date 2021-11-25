@@ -98,7 +98,7 @@ class KnpMenuBuilderSubscriber implements EventSubscriberInterface
 
         $level1->addChild('level_1-2', [
             'route' => 'home',
-            'label' => 'level 1.2',
+            'label' => 'Level 1.2',
             'extras' => [
                 'badges' => [
                     [ 'value' => 2 ],
@@ -178,7 +178,7 @@ class KnpMenuBuilderListener
 
         $level1->addChild('level_1-2', [
             'route' => 'home',
-            'label' => 'level 1.2',
+            'label' => 'Level 1.2',
             'extras' => [
                 'badges' => [
                     [ 'value' => 2 ],
