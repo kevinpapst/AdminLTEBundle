@@ -10,9 +10,9 @@
 
         {% import _self as selfMacros %}
         {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
-            <span class="pull-right-container">
+            <span class="right">
             {{ selfMacros.badges(item) }}
-            <i class="fas fa-angle-left pull-right"></i>
+            <i class="fas fa-angle-left right"></i>
         </span>
         {% else %}
             {{ selfMacros.badges(item) }}
@@ -76,11 +76,12 @@
 {% block spanElement %}
     {% import _self as selfMacros %}
     {% import "knp_menu.html.twig" as macros %}
-    {% if item.attribute('class') matches '/(^|\s+)header(\s+|$)/' %}
+    {% if item.attribute('class') matches '/(^|\s+)nav-header(\s+|$)/' %}
+        {{ item.label }}
         {{ selfMacros.badges(item) }}
     {% else %}
-        <a{{ macros.attributes(item.labelAttributes) }}>
-            {{ selfMacros.badges(item) }}
+        <a class="nav-link" href="#">
+            {{ block('label') }}
         </a>
     {% endif %}
 {% endblock %}
