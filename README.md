@@ -11,7 +11,7 @@ This repository contains an upgraded version of the AvanzuAdminThemeBundle, brin
 
 - [Documentation](Resources/docs/) - How to install, use and enjoy this bundle
 - [Demo app](https://github.com/kevinpapst/AdminLTEBundle-Demo) - Demo application using this bundle
-- [Kimai time-tracking](https://github.com/kevinpapst/kimai2) - online time-tracking app using this bundle and Symfony 4 
+- [Kimai time-tracking](https://github.com/kimai/kimai) - online time-tracking app using this bundle and Symfony 4 
 
 ### Minimum requirements
 
@@ -120,7 +120,7 @@ If you previously used the `AvanzuAdminTheme` you will not be able to "just repl
 Plan ahead, you will need (depending on the size of your project) a couple of hours [for the migration](Resources/docs/migration_guide.md).
 
 I migrated my own project within ~4 hours, but I had to move a lot of the customization to the bundle (e.g. the webpack-encore build) in the same time. 
-See the PRs [#202](https://github.com/kevinpapst/kimai2/pull/202/files) and [#206](https://github.com/kevinpapst/kimai2/pull/206/files) for migration examples. 
+See the PRs [#202](https://github.com/kimai/kimai/pull/202/files) and [#206](https://github.com/kevinpapst/kimai2/pull/206/files) for migration examples. 
 
 ## License and contributors
 
