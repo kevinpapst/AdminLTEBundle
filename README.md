@@ -1,5 +1,18 @@
+
+--- 
+# THIS BUNDLE IS NOT MAINTAINED ANYMORE
+
+The used AdminLTE version is old.
+Both: supported Symfony and PHP version are EOL.
+
+Issues, bug requests and even pull requests will not neither be answered nor merged.
+
+If you are looking for a modern alternative, check out the Tabler bundle at: https://github.com/kevinpapst/TablerBundle
+
+--- 
+
+
 [![Latest Stable Version](https://poser.pugx.org/kevinpapst/adminlte-bundle/v/stable)](https://packagist.org/packages/kevinpapst/adminlte-bundle)
-[![Build Status](https://travis-ci.org/kevinpapst/AdminLTEBundle.svg?branch=master)](https://travis-ci.org/kevinpapst/AdminLTEBundle)
 [![Total Downloads](https://poser.pugx.org/kevinpapst/adminlte-bundle/downloads)](https://packagist.org/packages/kevinpapst/adminlte-bundle)
 [![License](https://poser.pugx.org/kevinpapst/adminlte-bundle/license)](LICENSE)
 
